@@ -1,0 +1,598 @@
+WEBVTT
+
+1
+00:00:00.670 --> 00:00:02.070
+<v Instructor>In the previous lecture,</v>
+
+2
+00:00:02.070 --> 00:00:05.373
+we've seen how easy it is to crack WEP.
+
+3
+00:00:06.450 --> 00:00:09.410
+All we had to do is capture enough data
+
+4
+00:00:09.410 --> 00:00:13.000
+and then run aircrack-ng to crack the encryption
+
+5
+00:00:13.000 --> 00:00:14.343
+and give me the key.
+
+6
+00:00:15.440 --> 00:00:18.000
+Now, one problem that we could face
+
+7
+00:00:18.000 --> 00:00:21.220
+is if the network is not busy.
+
+8
+00:00:21.220 --> 00:00:22.520
+If it's not busy,
+
+9
+00:00:22.520 --> 00:00:24.190
+then the number of data
+
+10
+00:00:24.190 --> 00:00:26.980
+will be increasing very, very slowly.
+
+11
+00:00:26.980 --> 00:00:28.940
+Therefore, we're gonna have to wait
+
+12
+00:00:28.940 --> 00:00:32.110
+for a while before we have enough data
+
+13
+00:00:32.110 --> 00:00:33.423
+to crack the key.
+
+14
+00:00:34.370 --> 00:00:36.160
+So let me show you an example.
+
+15
+00:00:36.160 --> 00:00:38.320
+I'm just gonna run airodump-ng here
+
+16
+00:00:38.320 --> 00:00:40.751
+and list all the networks around me.
+
+17
+00:00:40.751 --> 00:00:43.950
+And you can see I have my test network,
+
+18
+00:00:43.950 --> 00:00:47.455
+my Test AP in here, it's using WEP.
+
+19
+00:00:47.455 --> 00:00:49.590
+And if you look under the Data,
+
+20
+00:00:49.590 --> 00:00:51.720
+you'll see that it's at zero
+
+21
+00:00:51.720 --> 00:00:53.320
+and it's not increasing
+
+22
+00:00:53.320 --> 00:00:55.150
+and even if it's gonna increase,
+
+23
+00:00:55.150 --> 00:00:58.110
+it's gonna increase very, very slowly
+
+24
+00:00:58.110 --> 00:01:00.060
+which means that I'm gonna have to be waiting
+
+25
+00:01:00.060 --> 00:01:03.543
+for hours before I can crack this network.
+
+26
+00:01:04.590 --> 00:01:06.670
+So a solution to this
+
+27
+00:01:06.670 --> 00:01:11.670
+is to force the AP to generate new packets with new IVs.
+
+28
+00:01:13.510 --> 00:01:15.610
+Now, before doing this,
+
+29
+00:01:15.610 --> 00:01:19.400
+we need to associate with this network.
+
+30
+00:01:19.400 --> 00:01:21.100
+So what I mean by associate
+
+31
+00:01:21.100 --> 00:01:23.990
+is we need to tell this network
+
+32
+00:01:23.990 --> 00:01:26.770
+that we want to communicate with it
+
+33
+00:01:26.770 --> 00:01:28.480
+because by default,
+
+34
+00:01:28.480 --> 00:01:32.440
+access points ignore any requests they get
+
+35
+00:01:32.440 --> 00:01:36.140
+unless the device has connected to this network
+
+36
+00:01:36.140 --> 00:01:38.410
+or associated with it.
+
+37
+00:01:38.410 --> 00:01:41.180
+So don't get this mixed up with connecting.
+
+38
+00:01:41.180 --> 00:01:44.050
+We're still unable to connect to the network
+
+39
+00:01:44.050 --> 00:01:46.990
+because we need the password to be able to connect
+
+40
+00:01:46.990 --> 00:01:48.100
+to the network
+
+41
+00:01:48.100 --> 00:01:50.020
+but what we're doing right now
+
+42
+00:01:50.020 --> 00:01:53.270
+is literally just telling the target network look,
+
+43
+00:01:53.270 --> 00:01:55.340
+I want to communicate with you.
+
+44
+00:01:55.340 --> 00:01:57.260
+Don't ignore my requests.
+
+45
+00:01:57.260 --> 00:01:58.623
+That's all we're doing.
+
+46
+00:01:59.570 --> 00:02:01.740
+So it's something similar to what happens
+
+47
+00:02:01.740 --> 00:02:04.100
+when you just click on the network when you want
+
+48
+00:02:04.100 --> 00:02:05.250
+to connect to it.
+
+49
+00:02:05.250 --> 00:02:07.190
+You still haven't put the password,
+
+50
+00:02:07.190 --> 00:02:09.160
+you just telling the target network
+
+51
+00:02:09.160 --> 00:02:11.230
+I want to communicate with you,
+
+52
+00:02:11.230 --> 00:02:12.973
+please don't ignore me.
+
+53
+00:02:14.330 --> 00:02:16.710
+So in this lecture, I'm gonna show you
+
+54
+00:02:16.710 --> 00:02:19.550
+how to associate with the target network
+
+55
+00:02:19.550 --> 00:02:21.600
+so we can communicate with it
+
+56
+00:02:21.600 --> 00:02:23.440
+and in the next lecture,
+
+57
+00:02:23.440 --> 00:02:26.770
+I'm gonna show you how once associated,
+
+58
+00:02:26.770 --> 00:02:30.000
+we can inject packets into the network
+
+59
+00:02:30.000 --> 00:02:34.843
+and force the number of data to increase very, very quickly.
+
+60
+00:02:36.210 --> 00:02:38.870
+First, I'm going to run airodump.ng
+
+61
+00:02:38.870 --> 00:02:40.480
+against my target network
+
+62
+00:02:40.480 --> 00:02:42.760
+which has this BSSID.
+
+63
+00:02:42.760 --> 00:02:44.670
+So I'm gonna copy it
+
+64
+00:02:44.670 --> 00:02:46.970
+and we're gonna use the exact same command
+
+65
+00:02:46.970 --> 00:02:48.750
+that we've been using so far.
+
+66
+00:02:48.750 --> 00:02:50.630
+So we're gonna do airodump.ng --bssid
+
+67
+00:02:53.960 --> 00:02:58.260
+followed by the MAC address of my target --channel
+
+68
+00:02:59.390 --> 00:03:00.870
+followed by the channel
+
+69
+00:03:00.870 --> 00:03:03.340
+which my target is running on which is six
+
+70
+00:03:04.360 --> 00:03:06.040
+and we're gonna store all of this.
+
+71
+00:03:06.040 --> 00:03:08.360
+So we're gonna do --write
+
+72
+00:03:08.360 --> 00:03:12.450
+and we'll call this file arpreplay
+
+73
+00:03:12.450 --> 00:03:14.680
+because that's the name of the attack.
+
+74
+00:03:14.680 --> 00:03:17.100
+And then I'm gonna put my wireless adapter
+
+75
+00:03:17.100 --> 00:03:19.583
+in monitor mode which is mon0.
+
+76
+00:03:20.710 --> 00:03:23.330
+So a very simple command that we've done before.
+
+77
+00:03:23.330 --> 00:03:26.380
+We're using airodump.ng to capture data
+
+78
+00:03:26.380 --> 00:03:28.730
+from a network with this MAC address,
+
+79
+00:03:28.730 --> 00:03:30.280
+running on this channel,
+
+80
+00:03:30.280 --> 00:03:33.797
+we're storing everything in a file called arpreplay.
+
+81
+00:03:35.370 --> 00:03:36.910
+I'm gonna hit Enter
+
+82
+00:03:36.910 --> 00:03:40.270
+and as you can see, it's running against my target
+
+83
+00:03:40.270 --> 00:03:44.530
+and notice the data is increasing really, really slow
+
+84
+00:03:44.530 --> 00:03:47.293
+or it's actually not increasing at all right now.
+
+85
+00:03:48.480 --> 00:03:51.020
+Now, to associate with this network,
+
+86
+00:03:51.020 --> 00:03:53.903
+we're going to use a program called aireplay-ng.
+
+87
+00:03:54.997 --> 00:03:58.490
+So we're gonna type aireplay-ng
+
+88
+00:03:58.490 --> 00:04:00.000
+followed by --fakeauth
+
+89
+00:04:01.524 --> 00:04:02.757
+because we want to do a fake authentication attack.
+
+90
+00:04:05.225 --> 00:04:07.040
+We're gonna put zero
+
+91
+00:04:07.040 --> 00:04:09.760
+because we only want to do this once.
+
+92
+00:04:09.760 --> 00:04:13.190
+We're gonna do -a to specify the MAC address
+
+93
+00:04:13.190 --> 00:04:14.770
+of the target network.
+
+94
+00:04:14.770 --> 00:04:17.920
+So I'm gonna paste it, I've already copied it.
+
+95
+00:04:17.920 --> 00:04:19.900
+Then we're gonna do -h
+
+96
+00:04:19.900 --> 00:04:24.223
+to specify the MAC address of my wireless adapter
+
+97
+00:04:24.223 --> 00:04:27.940
+and to get the MAC address of my wireless adapter,
+
+98
+00:04:27.940 --> 00:04:29.593
+I'm gonna do ifconfig.
+
+99
+00:04:30.740 --> 00:04:35.540
+And it's the first 12 digits of the unspec field.
+
+100
+00:04:35.540 --> 00:04:38.300
+Usually you'd see it after the ether
+
+101
+00:04:38.300 --> 00:04:40.350
+but when you enable monitor mode,
+
+102
+00:04:40.350 --> 00:04:41.953
+it'll show up like so.
+
+103
+00:04:43.160 --> 00:04:44.763
+So I'm gonna copy this.
+
+104
+00:04:46.090 --> 00:04:48.003
+And I'm gonna paste it here.
+
+105
+00:04:49.200 --> 00:04:53.383
+And I'm gonna replace the minuses with colons.
+
+106
+00:04:54.730 --> 00:04:56.830
+And that's it, it's done.
+
+107
+00:04:56.830 --> 00:05:00.430
+And finally, I'm just gonna give the name
+
+108
+00:05:00.430 --> 00:05:03.473
+of my wireless adapter in monitor mode.
+
+109
+00:05:04.870 --> 00:05:06.560
+So a very simple command.
+
+110
+00:05:06.560 --> 00:05:08.150
+We're using aireplay-ng
+
+111
+00:05:08.150 --> 00:05:09.940
+which is a tool that can be used
+
+112
+00:05:09.940 --> 00:05:11.540
+to run a number of attacks
+
+113
+00:05:11.540 --> 00:05:14.763
+and we've seen using this with the de-authentication attack.
+
+114
+00:05:15.670 --> 00:05:16.910
+We're telling it that we want
+
+115
+00:05:16.910 --> 00:05:19.810
+to run a fake authentication attack.
+
+116
+00:05:19.810 --> 00:05:21.900
+We wanna do this once.
+
+117
+00:05:21.900 --> 00:05:25.890
+We're giving it the MAC address of my target network
+
+118
+00:05:25.890 --> 00:05:27.670
+after the a.
+
+119
+00:05:27.670 --> 00:05:31.410
+Then I'm giving it the MAC address of my wireless adapter
+
+120
+00:05:31.410 --> 00:05:32.580
+after the h
+
+121
+00:05:32.580 --> 00:05:36.110
+an finally, I'm giving it my wireless adapter
+
+122
+00:05:36.110 --> 00:05:37.283
+in monitor mode.
+
+123
+00:05:38.340 --> 00:05:39.910
+Now before I run this,
+
+124
+00:05:39.910 --> 00:05:43.320
+notice in here under the AUTH, we have nothing.
+
+125
+00:05:43.320 --> 00:05:45.890
+And we don't have any clients showing up in here
+
+126
+00:05:45.890 --> 00:05:46.763
+at the bottom.
+
+127
+00:05:47.850 --> 00:05:49.397
+Now, if I hit Enter,
+
+128
+00:05:49.397 --> 00:05:52.280
+you can see under the AUTH,
+
+129
+00:05:52.280 --> 00:05:53.580
+it's showing up as OPN
+
+130
+00:05:54.620 --> 00:05:58.080
+and you can see we have a new client here associated
+
+131
+00:05:58.080 --> 00:05:59.083
+with the network.
+
+132
+00:05:59.990 --> 00:06:01.460
+If you look in here,
+
+133
+00:06:01.460 --> 00:06:04.750
+you'll see this is the MAC address of my target network
+
+134
+00:06:04.750 --> 00:06:06.990
+and right here is the MAC address
+
+135
+00:06:06.990 --> 00:06:09.800
+of my wireless adapter.
+
+136
+00:06:09.800 --> 00:06:13.320
+So right now, I am associated with the target network
+
+137
+00:06:13.320 --> 00:06:15.360
+and if I send it anything,
+
+138
+00:06:15.360 --> 00:06:17.130
+it's going to accept it
+
+139
+00:06:17.130 --> 00:06:19.610
+and it's gonna communicate with me.
+
+140
+00:06:19.610 --> 00:06:22.010
+Again, I am not connected to the network,
+
+141
+00:06:22.010 --> 00:06:23.860
+I still can't use the internet,
+
+142
+00:06:23.860 --> 00:06:26.900
+I'm literally just associated with the network
+
+143
+00:06:26.900 --> 00:06:29.103
+so I can communicate with it.
+
+144
+00:06:30.450 --> 00:06:31.890
+Now, in the next lecture,
+
+145
+00:06:31.890 --> 00:06:34.650
+I'm gonna show you how we can communicate
+
+146
+00:06:34.650 --> 00:06:36.620
+with this network in a way
+
+147
+00:06:36.620 --> 00:06:39.880
+to force it into generating new packets
+
+148
+00:06:39.880 --> 00:06:42.340
+with new IVs which will allow us
+
+149
+00:06:42.340 --> 00:06:45.003
+to crack the key very, very quickly.
+

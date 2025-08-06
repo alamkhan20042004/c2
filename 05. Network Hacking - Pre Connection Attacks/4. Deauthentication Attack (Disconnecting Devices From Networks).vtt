@@ -1,0 +1,686 @@
+WEBVTT
+
+1
+00:00:00.460 --> 00:00:02.020
+<v ->Now before leaving the section</v>
+
+2
+00:00:02.020 --> 00:00:04.730
+and move into the gaining access section,
+
+3
+00:00:04.730 --> 00:00:06.620
+where I'm gonna teach you how to break
+
+4
+00:00:06.620 --> 00:00:10.590
+the different encryptions and gain access to networks.
+
+5
+00:00:10.590 --> 00:00:13.480
+I wanna spend one more lecture talking about
+
+6
+00:00:13.480 --> 00:00:17.000
+a really useful attack that still falls under
+
+7
+00:00:17.000 --> 00:00:19.693
+the pre-connection attacks, under the section.
+
+8
+00:00:20.530 --> 00:00:22.360
+The attack that I wanna talk about
+
+9
+00:00:22.360 --> 00:00:25.163
+is the deauthentication attack,
+
+10
+00:00:26.020 --> 00:00:29.120
+this attack allow us to disconnect any device
+
+11
+00:00:29.120 --> 00:00:31.720
+from any network before connecting
+
+12
+00:00:31.720 --> 00:00:33.270
+to any of these networks
+
+13
+00:00:33.270 --> 00:00:37.790
+and without the need to know the password for the network.
+
+14
+00:00:37.790 --> 00:00:38.680
+To do this,
+
+15
+00:00:38.680 --> 00:00:41.700
+we're going to pretend to be the client
+
+16
+00:00:41.700 --> 00:00:44.050
+that we want to disconnect by changing
+
+17
+00:00:44.050 --> 00:00:47.530
+our MAC address to the MAC address of that client
+
+18
+00:00:47.530 --> 00:00:50.763
+and tell the router that I want to disconnect from you.
+
+19
+00:00:51.670 --> 00:00:54.690
+Then we're going to pretend to be the router,
+
+20
+00:00:54.690 --> 00:00:56.600
+again, by changing our Mac address
+
+21
+00:00:56.600 --> 00:00:58.480
+to the router's Mac address,
+
+22
+00:00:58.480 --> 00:01:02.570
+and tell the client that you requested to be disconnected,
+
+23
+00:01:02.570 --> 00:01:05.300
+so I'm going to disconnect you.
+
+24
+00:01:05.300 --> 00:01:08.440
+This will allow us to successfully disconnect
+
+25
+00:01:08.440 --> 00:01:12.523
+or deauthenticate any client from any network.
+
+26
+00:01:13.920 --> 00:01:16.620
+Now we're actually not going to do this manually,
+
+27
+00:01:16.620 --> 00:01:20.573
+we're gonna use a tool called aireplay-ng, to do that.
+
+28
+00:01:21.870 --> 00:01:23.400
+From the previous lecture,
+
+29
+00:01:23.400 --> 00:01:25.920
+we know that this Mac address, right here,
+
+30
+00:01:25.920 --> 00:01:29.490
+belongs to an Apple computer and like I said,
+
+31
+00:01:29.490 --> 00:01:34.060
+this Apple computer is actually my computer, right here.
+
+32
+00:01:34.060 --> 00:01:35.500
+And as you can see,
+
+33
+00:01:35.500 --> 00:01:39.130
+this host machine is connected to this network, right here,
+
+34
+00:01:39.130 --> 00:01:42.680
+which is the same as the one that you see in here,
+
+35
+00:01:42.680 --> 00:01:45.200
+and it actually has internet access.
+
+36
+00:01:45.200 --> 00:01:47.150
+So, if I just look for test,
+
+37
+00:01:47.150 --> 00:01:48.537
+you'll see that I'm connected
+
+38
+00:01:48.537 --> 00:01:51.150
+and I can look for things, I can use Google.
+
+39
+00:01:51.150 --> 00:01:54.053
+So, I have a proper working internet connection.
+
+40
+00:01:54.890 --> 00:01:57.130
+Now, we're gonna come back here
+
+41
+00:01:57.130 --> 00:02:00.560
+and we're going to use a tool called aireplay-ng,
+
+42
+00:02:00.560 --> 00:02:03.150
+to launch the deauthentication attack
+
+43
+00:02:03.150 --> 00:02:07.113
+and disconnect this Mac computer from the internet.
+
+44
+00:02:08.170 --> 00:02:10.530
+So, we're gonna to type the name of the program,
+
+45
+00:02:10.530 --> 00:02:11.803
+which is aireplay-ng,
+
+46
+00:02:12.960 --> 00:02:15.280
+we're gonna tell it that I want to run
+
+47
+00:02:15.280 --> 00:02:17.593
+a deauthentication attack.
+
+48
+00:02:18.560 --> 00:02:20.640
+Then, I'm gonna give it the number
+
+49
+00:02:20.640 --> 00:02:24.980
+of deauthentication packets that I want to send,
+
+50
+00:02:24.980 --> 00:02:27.430
+so I'm gonna give it a really large number,
+
+51
+00:02:27.430 --> 00:02:30.560
+so that it keeps sending these packets to
+
+52
+00:02:30.560 --> 00:02:33.860
+both the router and the target device.
+
+53
+00:02:33.860 --> 00:02:37.120
+Therefore I'll disconnect my target device
+
+54
+00:02:37.120 --> 00:02:39.360
+for a very long period of time.
+
+55
+00:02:39.360 --> 00:02:42.040
+And the only way to get it back to connect
+
+56
+00:02:42.040 --> 00:02:44.873
+is to hit Control + C and quit aireplay-ng.
+
+57
+00:02:46.870 --> 00:02:49.590
+Next, I'm gonna give aireplay-ng
+
+58
+00:02:49.590 --> 00:02:53.060
+the MAC address of my target network.
+
+59
+00:02:53.060 --> 00:02:55.170
+So I'm gonna do, dash a,
+
+60
+00:02:55.170 --> 00:02:57.320
+and give it the MAC address,
+
+61
+00:02:57.320 --> 00:02:59.453
+which I'm gonna copy from here,
+
+62
+00:03:01.670 --> 00:03:03.950
+then I'm gonna use, dash c,
+
+63
+00:03:03.950 --> 00:03:07.340
+to give it the MAC address of the client
+
+64
+00:03:07.340 --> 00:03:09.400
+that I want to disconnect.
+
+65
+00:03:09.400 --> 00:03:11.720
+And the client that I want to disconnect
+
+66
+00:03:11.720 --> 00:03:14.730
+is this client right here, which is the Apple computer,
+
+67
+00:03:14.730 --> 00:03:16.020
+like we said.
+
+68
+00:03:16.020 --> 00:03:19.653
+So, I'm gonna copy it and paste it here.
+
+69
+00:03:21.300 --> 00:03:25.300
+If your target network runs on the five gigahertz frequency,
+
+70
+00:03:25.300 --> 00:03:28.520
+then you'll have to add, dash capital D,
+
+71
+00:03:28.520 --> 00:03:30.160
+to the command in here.
+
+72
+00:03:30.160 --> 00:03:34.440
+But my target, as you can see, it uses 2.4 gigahertz,
+
+73
+00:03:34.440 --> 00:03:37.130
+therefore, I don't need to do this,
+
+74
+00:03:37.130 --> 00:03:39.790
+and I'm simply just gonna add my wireless card
+
+75
+00:03:39.790 --> 00:03:42.970
+in monitor mode, which is mon0.
+
+76
+00:03:42.970 --> 00:03:45.260
+Now, It's very important to understand that
+
+77
+00:03:45.260 --> 00:03:48.830
+this command will only disconnect the target client
+
+78
+00:03:48.830 --> 00:03:50.910
+from the specified network.
+
+79
+00:03:50.910 --> 00:03:53.850
+So if there are other networks that the target clients can
+
+80
+00:03:53.850 --> 00:03:57.900
+connect to, it will automatically connect to them.
+
+81
+00:03:57.900 --> 00:03:58.940
+So in many cases,
+
+82
+00:03:58.940 --> 00:04:01.910
+it might connect to the five gigahertz version
+
+83
+00:04:01.910 --> 00:04:03.090
+of the network,
+
+84
+00:04:03.090 --> 00:04:05.720
+or it might connect to a completely different network
+
+85
+00:04:05.720 --> 00:04:08.190
+that it already knows the password to.
+
+86
+00:04:08.190 --> 00:04:09.960
+And if it's a mobile device,
+
+87
+00:04:09.960 --> 00:04:12.900
+it might even continue to have internet access
+
+88
+00:04:12.900 --> 00:04:14.950
+through its mobile data plan.
+
+89
+00:04:14.950 --> 00:04:17.370
+So it might seem like the attack did not work,
+
+90
+00:04:17.370 --> 00:04:18.630
+but it actually worked,
+
+91
+00:04:18.630 --> 00:04:21.140
+and the client just disconnected from this network
+
+92
+00:04:21.140 --> 00:04:24.010
+and is using another network.
+
+93
+00:04:24.010 --> 00:04:24.843
+To solve this,
+
+94
+00:04:24.843 --> 00:04:27.920
+all you have to do is simply open up a new terminal window
+
+95
+00:04:27.920 --> 00:04:30.220
+and run the exact same command,
+
+96
+00:04:30.220 --> 00:04:33.110
+but this time targets the new network that the client
+
+97
+00:04:33.110 --> 00:04:34.123
+connected to.
+
+98
+00:04:34.980 --> 00:04:37.820
+I actually covered that along with more advanced topics
+
+99
+00:04:37.820 --> 00:04:40.290
+in my advanced network hacking course,
+
+100
+00:04:40.290 --> 00:04:41.860
+check out the bonus lecture,
+
+101
+00:04:41.860 --> 00:04:44.134
+the last lecture of this course for more information
+
+102
+00:04:44.134 --> 00:04:46.470
+about my advanced network hacking course
+
+103
+00:04:46.470 --> 00:04:48.020
+and all of the other courses
+
+104
+00:04:48.020 --> 00:04:50.433
+that you can take along with this course.
+
+105
+00:04:51.270 --> 00:04:55.410
+So a very, very simple command we're typing, aireplay-ng,
+
+106
+00:04:55.410 --> 00:04:58.470
+this is the name of the program that we're going to use.
+
+107
+00:04:58.470 --> 00:05:00.450
+We're doing, dash dash deauth,
+
+108
+00:05:00.450 --> 00:05:02.000
+to tell aireplay-ng
+
+109
+00:05:02.000 --> 00:05:04.960
+that I want to run a deauthentication attack.
+
+110
+00:05:04.960 --> 00:05:07.660
+I'm giving it a really large number of packets,
+
+111
+00:05:07.660 --> 00:05:11.900
+so that it keeps sending the deauthentication packets
+
+112
+00:05:11.900 --> 00:05:13.810
+to both the router and the client,
+
+113
+00:05:13.810 --> 00:05:16.640
+and keep the client disconnected.
+
+114
+00:05:16.640 --> 00:05:18.170
+I'm using, dash a,
+
+115
+00:05:18.170 --> 00:05:21.770
+to specify the MAC address of the target router
+
+116
+00:05:21.770 --> 00:05:23.920
+or the target access point.
+
+117
+00:05:23.920 --> 00:05:25.670
+Then I'm using, dash c,
+
+118
+00:05:25.670 --> 00:05:28.733
+to specify the MAC address of the client.
+
+119
+00:05:29.700 --> 00:05:31.870
+Finally, I'm giving it, mon0,
+
+120
+00:05:31.870 --> 00:05:35.693
+which is the name of my wireless adapter in monitor mode.
+
+121
+00:05:36.930 --> 00:05:38.930
+Now you can run this command like this
+
+122
+00:05:38.930 --> 00:05:43.800
+and in most cases it would work, but in very rare cases,
+
+123
+00:05:43.800 --> 00:05:47.280
+this command will fail unless airodump-ng
+
+124
+00:05:47.280 --> 00:05:49.633
+is running against the target network.
+
+125
+00:05:50.580 --> 00:05:51.840
+So, what I'm gonna do now
+
+126
+00:05:51.840 --> 00:05:55.210
+is I'm gonna go back to my first terminal in here,
+
+127
+00:05:55.210 --> 00:05:57.560
+and I'm going to run airodump-ng,
+
+128
+00:05:57.560 --> 00:05:59.880
+using the command that we seen before.
+
+129
+00:05:59.880 --> 00:06:02.250
+And I don't want to write anything to a file,
+
+130
+00:06:02.250 --> 00:06:05.123
+so I'm going to remove the write argument.
+
+131
+00:06:06.790 --> 00:06:10.000
+So, I'm just doing a normal airodump-ng command,
+
+132
+00:06:10.000 --> 00:06:12.760
+I'm literally just giving it the BSS ID
+
+133
+00:06:12.760 --> 00:06:16.910
+of my target network and I'm giving it the target channel,
+
+134
+00:06:16.910 --> 00:06:18.760
+and then I'm just gonna hit Enter.
+
+135
+00:06:18.760 --> 00:06:21.520
+We seen how to do this, we spent a full lecture on it,
+
+136
+00:06:21.520 --> 00:06:23.890
+that's why I did it really quick.
+
+137
+00:06:23.890 --> 00:06:25.600
+And then I'm gonna go back to the command
+
+138
+00:06:25.600 --> 00:06:29.130
+that we wrote so far and I'm going to hit Enter,
+
+139
+00:06:29.130 --> 00:06:31.280
+now, as you can see aireplay-ng,
+
+140
+00:06:31.280 --> 00:06:33.050
+it's telling me that it's sending the
+
+141
+00:06:33.050 --> 00:06:35.220
+deauthentication packets.
+
+142
+00:06:35.220 --> 00:06:38.583
+And if we go back here and look up,
+
+143
+00:06:39.630 --> 00:06:42.770
+you can see that I actually lost my connection
+
+144
+00:06:42.770 --> 00:06:44.823
+and I'm trying to connect back.
+
+145
+00:06:46.020 --> 00:06:48.580
+So, obviously if I try to look for anything,
+
+146
+00:06:48.580 --> 00:06:50.123
+so let's say, test2,
+
+147
+00:06:51.610 --> 00:06:55.683
+you'll see, I'll get stuck and nothing will load for me.
+
+148
+00:06:56.850 --> 00:06:59.440
+So the only way for me to connect back
+
+149
+00:06:59.440 --> 00:07:01.360
+is if I go back here,
+
+150
+00:07:01.360 --> 00:07:06.320
+if I quit this by doing, Control + C, quit this again.
+
+151
+00:07:06.320 --> 00:07:09.620
+And now my machine should be able to connect back
+
+152
+00:07:09.620 --> 00:07:11.433
+and restore its connection.
+
+153
+00:07:12.410 --> 00:07:15.660
+This is actually very, very handy in so many ways,
+
+154
+00:07:15.660 --> 00:07:18.410
+it's very useful in social engineering cases,
+
+155
+00:07:18.410 --> 00:07:22.170
+where you could disconnect clients from the target network
+
+156
+00:07:22.170 --> 00:07:25.940
+and then call the user and pretend to be a person
+
+157
+00:07:25.940 --> 00:07:27.530
+from the IT department
+
+158
+00:07:27.530 --> 00:07:30.590
+and ask them to install a virus or a backdoor
+
+159
+00:07:30.590 --> 00:07:33.320
+telling them that this would fix their issue.
+
+160
+00:07:33.320 --> 00:07:36.590
+You could also create another fake access point
+
+161
+00:07:36.590 --> 00:07:39.370
+and get them to connect to the fake access point
+
+162
+00:07:39.370 --> 00:07:42.730
+and then start spying on them from that access point,
+
+163
+00:07:42.730 --> 00:07:45.660
+and we'll see how to do that later on in the course.
+
+164
+00:07:45.660 --> 00:07:48.410
+And you can also use this to capture the handshake,
+
+165
+00:07:48.410 --> 00:07:51.030
+which is what happened in here, actually.
+
+166
+00:07:51.030 --> 00:07:55.120
+And this is vital when it comes to WPA cracking.
+
+167
+00:07:55.120 --> 00:07:56.360
+And we'll talk about this,
+
+168
+00:07:56.360 --> 00:07:59.493
+once we get to the WPA cracking section.
+
+169
+00:08:00.720 --> 00:08:01.900
+So, like I said,
+
+170
+00:08:01.900 --> 00:08:05.660
+this is a small attack that can be used as a plugin
+
+171
+00:08:05.660 --> 00:08:09.313
+to other attacks or to make other attacks possible.
+

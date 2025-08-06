@@ -1,0 +1,554 @@
+WEBVTT
+
+1
+00:00:01.290 --> 00:00:03.530
+<v ->Now from the previous lectures, we learned</v>
+
+2
+00:00:03.530 --> 00:00:05.530
+in order to crack WPA
+
+3
+00:00:05.530 --> 00:00:06.363
+or WPA2
+
+4
+00:00:07.300 --> 00:00:10.010
+we need to first capture the handshake.
+
+5
+00:00:10.010 --> 00:00:11.910
+And second, have a word list
+
+6
+00:00:11.910 --> 00:00:14.219
+which contains a number of passwords
+
+7
+00:00:14.219 --> 00:00:16.490
+that we're going to try.
+
+8
+00:00:16.490 --> 00:00:19.360
+And hopefully one of them will be the password
+
+9
+00:00:19.360 --> 00:00:21.185
+for the target network.
+
+10
+00:00:21.185 --> 00:00:24.410
+So right now I have both of these components
+
+11
+00:00:24.410 --> 00:00:28.540
+and we are ready to go and crack the password.
+
+12
+00:00:28.540 --> 00:00:32.580
+To do this Aircrack-ng is going to unpack the handshake
+
+13
+00:00:32.580 --> 00:00:35.173
+and extract the useful information.
+
+14
+00:00:36.160 --> 00:00:39.777
+The MIC right here, or the message integrity code,
+
+15
+00:00:39.777 --> 00:00:42.760
+is what's used by the access point
+
+16
+00:00:42.760 --> 00:00:46.563
+to verify whether a password is correct or not.
+
+17
+00:00:47.730 --> 00:00:51.250
+So, it's going to separate this and put it to the side.
+
+18
+00:00:51.250 --> 00:00:53.210
+And then it's going to use all
+
+19
+00:00:53.210 --> 00:00:55.710
+of the other information right here,
+
+20
+00:00:55.710 --> 00:01:00.066
+combined with the first password from the word list
+
+21
+00:01:00.066 --> 00:01:05.066
+to generate an MIC, another message integrity code.
+
+22
+00:01:06.320 --> 00:01:10.232
+And then, it's going to compare this MIC to the one
+
+23
+00:01:10.232 --> 00:01:13.760
+that's already in the handshake.
+
+24
+00:01:13.760 --> 00:01:17.760
+If the MIC generated using this information
+
+25
+00:01:17.760 --> 00:01:21.700
+plus the first password is the same,
+
+26
+00:01:21.700 --> 00:01:25.190
+then the password used to generate this MIC
+
+27
+00:01:25.190 --> 00:01:27.570
+is the password for the network.
+
+28
+00:01:27.570 --> 00:01:30.480
+Otherwise this password is wrong
+
+29
+00:01:30.480 --> 00:01:32.843
+and it will move to the next password.
+
+30
+00:01:33.910 --> 00:01:35.280
+Again, it'll do the same
+
+31
+00:01:35.280 --> 00:01:37.370
+until they use all of this information
+
+32
+00:01:37.370 --> 00:01:39.260
+combined with this password,
+
+33
+00:01:39.260 --> 00:01:42.794
+generate a new MIC, compare this new MIC
+
+34
+00:01:42.794 --> 00:01:45.500
+to the one that's already in the handshake.
+
+35
+00:01:45.500 --> 00:01:47.990
+If it's correct, then this is the password.
+
+36
+00:01:47.990 --> 00:01:50.150
+If it's not, then it's going to move on
+
+37
+00:01:50.150 --> 00:01:52.190
+to the next password.
+
+38
+00:01:52.190 --> 00:01:55.029
+And it'll keep doing this through all of the passwords
+
+39
+00:01:55.029 --> 00:01:56.790
+in my word list.
+
+40
+00:01:56.790 --> 00:01:59.620
+If any of them generate the right MIC,
+
+41
+00:01:59.620 --> 00:02:01.890
+then this is the password for the network.
+
+42
+00:02:01.890 --> 00:02:05.960
+Otherwise we want to be able to get the password.
+
+43
+00:02:05.960 --> 00:02:09.330
+That's why the success of this attack really depends
+
+44
+00:02:09.330 --> 00:02:11.003
+on your word list.
+
+45
+00:02:11.920 --> 00:02:15.007
+So let's see how to do this in practice.
+
+46
+00:02:15.007 --> 00:02:17.880
+Right now I have my word list right here.
+
+47
+00:02:17.880 --> 00:02:21.610
+It's called test.txt, and I've actually manually
+
+48
+00:02:21.610 --> 00:02:25.160
+added my password to the end of the list right here.
+
+49
+00:02:25.160 --> 00:02:28.510
+Just so that when I run the word list against the handshake,
+
+50
+00:02:28.510 --> 00:02:30.420
+I will actually find the password
+
+51
+00:02:30.420 --> 00:02:33.130
+because the word list did not contain my password
+
+52
+00:02:33.130 --> 00:02:34.043
+by default.
+
+53
+00:02:35.980 --> 00:02:39.447
+I also have the handshake file right here, as you can see.
+
+54
+00:02:39.447 --> 00:02:42.460
+And all of this is in my home directory,
+
+55
+00:02:42.460 --> 00:02:44.980
+which is my root directory.
+
+56
+00:02:44.980 --> 00:02:47.340
+So if I do LS in here, you'll see,
+
+57
+00:02:47.340 --> 00:02:50.763
+I have the word list and the handshake file.
+
+58
+00:02:51.710 --> 00:02:54.220
+So we're ready to run Aircrack-ng.
+
+59
+00:02:54.220 --> 00:02:57.950
+So we're going to type the name of the program as usual,
+
+60
+00:02:57.950 --> 00:03:00.370
+followed by the name of my capture file,
+
+61
+00:03:00.370 --> 00:03:04.980
+which is WPA handshake zero one dot cap.
+
+62
+00:03:04.980 --> 00:03:07.460
+So, so far it's identical to the way
+
+63
+00:03:07.460 --> 00:03:09.363
+that we used to use it with WEP.
+
+64
+00:03:10.570 --> 00:03:12.070
+The only difference right now,
+
+65
+00:03:12.070 --> 00:03:14.930
+because this is a WPA2 network,
+
+66
+00:03:14.930 --> 00:03:19.140
+We have to specify a word list with the dash w option.
+
+67
+00:03:19.140 --> 00:03:23.313
+And the name of my word list is test.txt.
+
+68
+00:03:24.290 --> 00:03:27.800
+So very, very simple "aircrack" is the name of my program.
+
+69
+00:03:27.800 --> 00:03:32.070
+WPA handshake zero one dot cap is the name of the file
+
+70
+00:03:32.070 --> 00:03:33.970
+that contain my handshake.
+
+71
+00:03:33.970 --> 00:03:37.943
+And I'm using dash w to specify my word list file.
+
+72
+00:03:38.930 --> 00:03:41.010
+I'm going to hit enter.
+
+73
+00:03:41.010 --> 00:03:43.260
+And as you can see now, Aircrack-ng is running
+
+74
+00:03:43.260 --> 00:03:44.360
+through the world list,
+
+75
+00:03:44.360 --> 00:03:47.900
+testing each word in the word list one by one,
+
+76
+00:03:47.900 --> 00:03:49.910
+as shown in this diagram,
+
+77
+00:03:49.910 --> 00:03:53.090
+calculating an MIC based on this information
+
+78
+00:03:53.090 --> 00:03:54.300
+on the word list,
+
+79
+00:03:54.300 --> 00:03:56.580
+and then if the MIC is correct,
+
+80
+00:03:56.580 --> 00:03:59.960
+it's going to tell me that this is the password.
+
+81
+00:03:59.960 --> 00:04:02.900
+Now the speed of this depends on your processor
+
+82
+00:04:02.900 --> 00:04:05.410
+and the size of your word list file.
+
+83
+00:04:05.410 --> 00:04:06.680
+So if you have a huge file,
+
+84
+00:04:06.680 --> 00:04:09.850
+obviously it'll take you longer time.
+
+85
+00:04:09.850 --> 00:04:12.619
+There are also online services that you can try
+
+86
+00:04:12.619 --> 00:04:15.241
+where you upload the handshake
+
+87
+00:04:15.241 --> 00:04:17.207
+and they have huge word lists
+
+88
+00:04:17.207 --> 00:04:18.956
+and they have super computers
+
+89
+00:04:18.956 --> 00:04:21.750
+to run through these word lists and try
+
+90
+00:04:21.750 --> 00:04:23.610
+to give you the password.
+
+91
+00:04:23.610 --> 00:04:26.150
+Unfortunately, I can't share their links with you,
+
+92
+00:04:26.150 --> 00:04:28.660
+but you can easily find them on Google,
+
+93
+00:04:28.660 --> 00:04:29.810
+if you search for them.
+
+94
+00:04:31.210 --> 00:04:32.100
+And perfect!
+
+95
+00:04:32.100 --> 00:04:33.042
+As you can see,
+
+96
+00:04:33.042 --> 00:04:34.900
+we managed to find the key.
+
+97
+00:04:34.900 --> 00:04:36.370
+it's telling us the key is found,
+
+98
+00:04:36.370 --> 00:04:38.450
+and this is the key to the network.
+
+99
+00:04:38.450 --> 00:04:41.150
+And this is the correct key because as you know,
+
+100
+00:04:41.150 --> 00:04:42.800
+this is the same key that we got
+
+101
+00:04:42.800 --> 00:04:45.730
+when we exploited the WPS feature.
+
+102
+00:04:45.730 --> 00:04:48.640
+So now we can go ahead and connect to the network
+
+103
+00:04:48.640 --> 00:04:51.250
+and we'll be able to run all of the cool stuff
+
+104
+00:04:51.250 --> 00:04:52.154
+that I'm going to teach you
+
+105
+00:04:52.154 --> 00:04:55.193
+in the post connection attack section.
+
+106
+00:04:56.320 --> 00:04:59.400
+Now, this is the only practical way known so far
+
+107
+00:04:59.400 --> 00:05:03.038
+to crack WPA and WPA2 keys.
+
+108
+00:05:03.038 --> 00:05:06.150
+There are methods to speed up this process.
+
+109
+00:05:06.150 --> 00:05:08.640
+So you can use the GPU for cracking
+
+110
+00:05:08.640 --> 00:05:11.190
+because it's much faster than the CPU.
+
+111
+00:05:11.190 --> 00:05:13.240
+That's if you have a GPU.
+
+112
+00:05:13.240 --> 00:05:15.450
+You can also use rainbow tables.
+
+113
+00:05:15.450 --> 00:05:18.400
+You can also pipe the word list
+
+114
+00:05:18.400 --> 00:05:22.150
+as it's being created in Crunch to Aircrack-ng.
+
+115
+00:05:22.150 --> 00:05:24.510
+This way you can create bigger word lists
+
+116
+00:05:24.510 --> 00:05:27.600
+without using any storage on your computer.
+
+117
+00:05:27.600 --> 00:05:28.652
+There are also methods
+
+118
+00:05:28.652 --> 00:05:31.696
+so that you can pause your cracking process
+
+119
+00:05:31.696 --> 00:05:34.010
+and then come back after a while
+
+120
+00:05:34.010 --> 00:05:36.150
+without losing your progress.
+
+121
+00:05:36.150 --> 00:05:38.650
+But the main idea is the same.
+
+122
+00:05:38.650 --> 00:05:42.515
+The only way right now to crack WPA and WPA2
+
+123
+00:05:42.515 --> 00:05:45.850
+is through a word list attack.
+
+124
+00:05:45.850 --> 00:05:47.860
+You can use social engineering, however,
+
+125
+00:05:47.860 --> 00:05:50.960
+to get the password using an evil twin attack
+
+126
+00:05:50.960 --> 00:05:54.950
+where you trick one of the users to give you the password.
+
+127
+00:05:54.950 --> 00:05:56.620
+This is actually all covered
+
+128
+00:05:56.620 --> 00:05:59.180
+in my advanced network hacking course:
+
+129
+00:05:59.180 --> 00:06:04.083
+the cracking using the GPU, pipe in Crunch to Aircrack-ng,
+
+130
+00:06:04.083 --> 00:06:07.580
+getting the password using an evil twin attack,
+
+131
+00:06:07.580 --> 00:06:11.060
+and much more advanced network hacking techniques.
+
+132
+00:06:11.060 --> 00:06:12.560
+If you're interested in that,
+
+133
+00:06:12.560 --> 00:06:14.660
+then I highly recommend you have a look
+
+134
+00:06:14.660 --> 00:06:17.600
+on my Advanced Network Hacking course.
+
+135
+00:06:17.600 --> 00:06:19.600
+Check out the bonus lecture of this course,
+
+136
+00:06:19.600 --> 00:06:21.340
+the last lecture of this course.
+
+137
+00:06:21.340 --> 00:06:24.290
+It contains links to all of my other courses
+
+138
+00:06:24.290 --> 00:06:26.253
+and the comparison between them.
+

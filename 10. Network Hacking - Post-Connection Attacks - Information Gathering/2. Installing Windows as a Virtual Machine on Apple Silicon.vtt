@@ -1,0 +1,325 @@
+WEBVTT
+
+00:00.000 --> 00:01.860
+Instructor: As mentioned in the previous lecture,
+
+00:01.860 --> 00:04.620
+installing Windows on Apple computers
+
+00:04.620 --> 00:05.910
+that use the ARM chips,
+
+00:05.910 --> 00:09.090
+the M1, M2, and so on, the M series, is different.
+
+00:09.090 --> 00:11.640
+So the method shown in the previous lecture will not work,
+
+00:11.640 --> 00:13.320
+and that's why we have this lecture
+
+00:13.320 --> 00:15.690
+to show you how to install Windows 11
+
+00:15.690 --> 00:18.690
+on Apple computers that use the ARM chips
+
+00:18.690 --> 00:20.640
+the M1, M2, and so on.
+
+00:20.640 --> 00:22.620
+If you already got Windows installed
+
+00:22.620 --> 00:24.660
+following the instructions in the previous lecture,
+
+00:24.660 --> 00:26.100
+then you can skip this lecture.
+
+00:26.100 --> 00:27.480
+You should only watch this lecture
+
+00:27.480 --> 00:30.480
+if you have not installed Windows yet as a virtual machine
+
+00:30.480 --> 00:33.000
+because you have an Apple computer
+
+00:33.000 --> 00:37.620
+that uses an ARM chip such as the M1, M2, and so on.
+
+00:37.620 --> 00:38.453
+So first of all,
+
+00:38.453 --> 00:41.370
+you're gonna need to download the Windows 11
+
+00:41.370 --> 00:42.900
+for ARM processors.
+
+00:42.900 --> 00:45.540
+You can download it from the resources of this lecture.
+
+00:45.540 --> 00:48.180
+As you can see, I already have it downloaded in here.
+
+00:48.180 --> 00:51.780
+It's in a 7-Zip format, so it's compressed.
+
+00:51.780 --> 00:54.993
+And in order to decompress it, we're gonna double click it,
+
+00:56.370 --> 00:58.383
+and give it some time to decompress.
+
+00:59.310 --> 01:02.490
+And perfect, now that the decompression is complete,
+
+01:02.490 --> 01:05.490
+we have a new file in here, and as you can see,
+
+01:05.490 --> 01:08.250
+the extension is .vmwarevm
+
+01:08.250 --> 01:11.940
+which is basically a ready virtual machine for VMware.
+
+01:11.940 --> 01:15.060
+Now, we've already covered how to install VMware previously,
+
+01:15.060 --> 01:17.520
+so if you don't know or if you haven't done it already,
+
+01:17.520 --> 01:19.080
+just go back and revise it.
+
+01:19.080 --> 01:22.140
+So all I'm gonna do is simply double click the file
+
+01:22.140 --> 01:24.420
+to open it in VMware.
+
+01:24.420 --> 01:25.710
+Click on I Copied It
+
+01:25.710 --> 01:28.230
+because I created this virtual machine for you,
+
+01:28.230 --> 01:30.723
+and now the virtual machine is gonna start.
+
+01:31.980 --> 01:33.600
+And perfect, as you can see,
+
+01:33.600 --> 01:36.870
+we are logged in into our Windows 11 computer
+
+01:36.870 --> 01:40.740
+which is running as a virtual machine inside VMware player
+
+01:40.740 --> 01:43.560
+inside my Apple silicon computer.
+
+01:43.560 --> 01:45.720
+So if I go ahead here on the right
+
+01:45.720 --> 01:48.240
+and click on the virtual machine library,
+
+01:48.240 --> 01:51.030
+as you can see I have Kali installed in here,
+
+01:51.030 --> 01:53.760
+and now I have Windows which I can run
+
+01:53.760 --> 01:55.770
+by simply clicking on start,
+
+01:55.770 --> 01:58.653
+but right now it's already running, so I can't stop it.
+
+01:59.730 --> 02:02.820
+So I'm gonna close this, and as you can see,
+
+02:02.820 --> 02:05.790
+and here it's saying it is not connected to the internet,
+
+02:05.790 --> 02:09.750
+because we need to install the VMware tools on it
+
+02:09.750 --> 02:13.050
+which will install the drivers for the virtual interfaces
+
+02:13.050 --> 02:15.120
+so that we can access virtual networks,
+
+02:15.120 --> 02:17.640
+and it'll also install the display drivers
+
+02:17.640 --> 02:20.280
+and enable a lot of usability features.
+
+02:20.280 --> 02:23.310
+To do that, we're gonna go to the virtual machine here,
+
+02:23.310 --> 02:26.820
+and we're gonna click Reinstall VMware Tools.
+
+02:26.820 --> 02:28.203
+We're gonna click Install,
+
+02:29.310 --> 02:33.330
+and this will basically mount a DVD drive on this computer.
+
+02:33.330 --> 02:36.270
+And as you can see, we have a notification in here
+
+02:36.270 --> 02:39.510
+telling us that a new DVD drive is detected,
+
+02:39.510 --> 02:42.420
+and it's asking me what do I want to do?
+
+02:42.420 --> 02:44.227
+I'm gonna click it and I'm gonna say,
+
+02:44.227 --> 02:46.350
+"Open the folder for me, please."
+
+02:46.350 --> 02:48.270
+I'm gonna scroll down,
+
+02:48.270 --> 02:50.940
+and we're gonna use this setup script in here
+
+02:50.940 --> 02:52.680
+to install the tools.
+
+02:52.680 --> 02:54.570
+So I'm gonna right click it
+
+02:54.570 --> 02:56.613
+and choose to run it with PowerShell.
+
+02:57.540 --> 02:58.440
+It's gonna ask you
+
+02:58.440 --> 03:01.800
+if you want to allow this application to make changes.
+
+03:01.800 --> 03:03.120
+We're gonna say Yes,
+
+03:03.120 --> 03:04.740
+and we're gonna give this some time
+
+03:04.740 --> 03:08.853
+in order to install VMware tools on this virtual machine.
+
+03:10.230 --> 03:12.690
+Once the PowerShell blue screen disappears,
+
+03:12.690 --> 03:15.120
+it means that everything got installed properly.
+
+03:15.120 --> 03:16.500
+And if you look here at the bottom,
+
+03:16.500 --> 03:20.220
+you'll see that we have network connection through ethernet,
+
+03:20.220 --> 03:22.440
+and that's because this machine is configured
+
+03:22.440 --> 03:25.860
+to use the virtual net network that VMware starts.
+
+03:25.860 --> 03:28.080
+And I have my virtual machines configured
+
+03:28.080 --> 03:29.520
+to get internet access.
+
+03:29.520 --> 03:32.220
+And like we said before, this way these machines
+
+03:32.220 --> 03:34.440
+think that the host machine is the router
+
+03:34.440 --> 03:38.130
+and they connect to the virtual NAT network through it
+
+03:38.130 --> 03:40.410
+and get internet access through it.
+
+03:40.410 --> 03:43.743
+And to confirm this, we can simply open up a web browser,
+
+03:45.810 --> 03:48.633
+get started, and just go to google.com.
+
+03:50.490 --> 03:53.850
+And perfect, as you can see, now we have internet access
+
+03:53.850 --> 03:55.263
+on this virtual machine.
+
+03:56.610 --> 03:58.650
+And we can also go into full screen
+
+03:58.650 --> 04:00.870
+by clicking the screen button in here.
+
+04:00.870 --> 04:03.690
+The screen will adjust, but sometimes, as you can see,
+
+04:03.690 --> 04:06.660
+it's not gonna fully go into the right resolution.
+
+04:06.660 --> 04:07.620
+So to fix this,
+
+04:07.620 --> 04:11.250
+you can simply right click anywhere on the desktop,
+
+04:11.250 --> 04:13.560
+go to the display settings,
+
+04:13.560 --> 04:15.720
+and select the resolution that you want.
+
+04:15.720 --> 04:20.361
+So in my case, it's the 1920 by 1080, and perfect.
+
+04:20.361 --> 04:24.450
+As you can see right now, we got the right resolution.
+
+04:24.450 --> 04:26.040
+If you wanna exit the full screen
+
+04:26.040 --> 04:28.920
+you can simply just take the mouse to the top
+
+04:28.920 --> 04:33.000
+and click the green button, and we are out of it.
+
+04:33.000 --> 04:34.470
+And as you can see right now,
+
+04:34.470 --> 04:37.980
+we have this Windows machine running as a virtual machine
+
+04:37.980 --> 04:41.370
+through VMware inside my Apple silicone computer
+
+04:41.370 --> 04:43.110
+alongside my Kali machine,
+
+04:43.110 --> 04:46.890
+which we can access in here in the virtual machine library.
+
+04:46.890 --> 04:49.770
+So now we can try to hack into this Windows machine
+
+04:49.770 --> 04:53.283
+and test attacks against it using the Kali machine.

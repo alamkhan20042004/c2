@@ -1,0 +1,778 @@
+WEBVTT
+
+00:01.110 --> 00:03.180
+Lecturer: Okay, now that we had a quick overview
+
+00:03.180 --> 00:04.890
+of Kali Linux I want
+
+00:04.890 --> 00:08.190
+to spend some time talking about the Linux terminal.
+
+00:08.190 --> 00:09.930
+So, you can access the terminal
+
+00:09.930 --> 00:12.120
+through this application right here.
+
+00:12.120 --> 00:12.953
+So if you click on
+
+00:12.953 --> 00:16.140
+that, it'll open the terminal window for us.
+
+00:16.140 --> 00:19.170
+And as you can see all it is is a black screen
+
+00:19.170 --> 00:20.763
+where you can type commands.
+
+00:21.990 --> 00:25.590
+Now, the Linux terminal is actually very, very powerful
+
+00:25.590 --> 00:28.110
+because it can be used to do anything
+
+00:28.110 --> 00:30.210
+that you can think of, really.
+
+00:30.210 --> 00:32.340
+A lot of the applications in Linux
+
+00:32.340 --> 00:34.560
+that have a graphical interface
+
+00:34.560 --> 00:36.990
+were command prompt programs first
+
+00:36.990 --> 00:40.590
+and then people made a graphical interface for it.
+
+00:40.590 --> 00:43.140
+So a lot of the time maybe the graphical interface
+
+00:43.140 --> 00:44.760
+will be buggy or crash
+
+00:44.760 --> 00:47.283
+and the terminal program will still work.
+
+00:48.300 --> 00:51.120
+Also, a lot of the penetration testing tools
+
+00:51.120 --> 00:53.880
+do not even have a graphical interface.
+
+00:53.880 --> 00:57.393
+A lot of them can only be used throughout the terminal.
+
+00:58.320 --> 00:59.580
+Not only that, but
+
+00:59.580 --> 01:03.360
+in many scenarios you might only have an SSH
+
+01:03.360 --> 01:06.330
+or a command prompt access to a machine.
+
+01:06.330 --> 01:09.450
+So you need to know how to use this command prompt
+
+01:09.450 --> 01:12.180
+in order to achieve your goals.
+
+01:12.180 --> 01:13.440
+So throughout the course,
+
+01:13.440 --> 01:15.870
+we're gonna be using the terminal a lot
+
+01:15.870 --> 01:17.130
+and that's why I want
+
+01:17.130 --> 01:20.850
+to spend some time just showing you the basics of it
+
+01:20.850 --> 01:24.093
+and making sure that you're gonna be comfortable using it.
+
+01:25.230 --> 01:28.200
+Now, the basic idea is you type a command
+
+01:28.200 --> 01:31.920
+and the result will be displayed for you on screen.
+
+01:31.920 --> 01:32.970
+So, let's have a look
+
+01:32.970 --> 01:36.603
+on a very, very simple command which is pwd.
+
+01:37.650 --> 01:40.920
+Now this command prints the current working directory,
+
+01:40.920 --> 01:43.560
+hence the name pwd.
+
+01:43.560 --> 01:48.000
+So if I head enter, you can see it's printing /root
+
+01:48.000 --> 01:51.990
+which means right now I am in the root directory.
+
+01:51.990 --> 01:56.223
+So basically, I am in here. This is the root, it's home.
+
+01:57.480 --> 01:59.790
+So if I do ls, which is a command
+
+01:59.790 --> 02:02.580
+to list all the directories and files
+
+02:02.580 --> 02:05.910
+in the current working directory, we should get all
+
+02:05.910 --> 02:08.133
+of these directories that we see in here.
+
+02:09.420 --> 02:11.070
+So if I hit Enter,
+
+02:11.070 --> 02:14.250
+as you can see I can see all these directories
+
+02:14.250 --> 02:16.023
+in the current working directory.
+
+02:17.040 --> 02:20.730
+Now, another very useful command is the cd command.
+
+02:20.730 --> 02:25.560
+This command allow us to navigate into another directory.
+
+02:25.560 --> 02:28.260
+So for example, let's say I want to navigate
+
+02:28.260 --> 02:30.390
+into the downloads.
+
+02:30.390 --> 02:34.260
+All we have to do is type cd, followed by the name
+
+02:34.260 --> 02:37.590
+of the directory that I want to navigate to.
+
+02:37.590 --> 02:39.363
+So I'm gonna type downloads.
+
+02:40.980 --> 02:45.660
+Now, if I hit Enter, I should be inside the downloads now.
+
+02:45.660 --> 02:49.500
+So if I do pwd to see my current working directory,
+
+02:49.500 --> 02:54.360
+you'll see that it's saying I'm in root/downloads.
+
+02:54.360 --> 02:57.870
+So if I do ls here, it should show me all the directories
+
+02:57.870 --> 03:00.330
+and files inside downloads.
+
+03:00.330 --> 03:04.140
+So if I do enter, as you can see I have a directory
+
+03:04.140 --> 03:05.760
+and a file in here.
+
+03:05.760 --> 03:08.280
+And these are the exact same files that you'll see
+
+03:08.280 --> 03:10.353
+if you double click the downloads here.
+
+03:12.540 --> 03:15.360
+Now, if you want to go back one directory
+
+03:15.360 --> 03:19.252
+so similar to pressing the back button in here, all you have
+
+03:19.252 --> 03:21.690
+to do is do cd, again, the command
+
+03:21.690 --> 03:25.383
+to change the working directory followed by dot dot.
+
+03:26.520 --> 03:30.630
+And now if I do pwd, you'll see I'm back in root.
+
+03:30.630 --> 03:33.420
+And if I do ls, you'll see all the directories
+
+03:33.420 --> 03:34.683
+and files in root.
+
+03:35.850 --> 03:39.960
+So that's all good and there's actually a huge number
+
+03:39.960 --> 03:41.790
+of commands that you can use.
+
+03:41.790 --> 03:44.070
+So I'm going to include a link
+
+03:44.070 --> 03:46.050
+in the resources of this lecture
+
+03:46.050 --> 03:48.870
+of all the Linux commands that you can use.
+
+03:48.870 --> 03:50.670
+You don't need to know them by heart.
+
+03:50.670 --> 03:52.080
+We're actually gonna be using a lot
+
+03:52.080 --> 03:53.430
+of them throughout the course.
+
+03:53.430 --> 03:56.160
+So you're going to naturally learn them
+
+03:56.160 --> 03:57.693
+as you go through the course.
+
+03:58.830 --> 04:00.660
+Now, if you are using a command
+
+04:00.660 --> 04:03.510
+and you're not sure about how this command works,
+
+04:03.510 --> 04:05.940
+you can just use the man command
+
+04:05.940 --> 04:09.450
+to display the manual of this command.
+
+04:09.450 --> 04:11.790
+For example, we've used the ls command here
+
+04:11.790 --> 04:12.720
+to list the files
+
+04:12.720 --> 04:15.600
+and directories in the current working directory.
+
+04:15.600 --> 04:19.380
+But if I do man followed by ls,
+
+04:19.380 --> 04:23.310
+this basically means I'm requesting the manual of ls.
+
+04:23.310 --> 04:26.043
+So I'm asking how can I use the ls command?
+
+04:26.940 --> 04:30.870
+So if I hit Enter you'll see I'll get a screen similar
+
+04:30.870 --> 04:32.460
+to a text file.
+
+04:32.460 --> 04:34.650
+And basically it's giving me a lot
+
+04:34.650 --> 04:38.610
+of information on how to use the ls command.
+
+04:38.610 --> 04:40.470
+So you can see that it's telling us
+
+04:40.470 --> 04:43.800
+that this command will list the directory contents.
+
+04:43.800 --> 04:46.560
+You can see the way it works by typing ls followed
+
+04:46.560 --> 04:48.600
+by the options, followed by a file
+
+04:48.600 --> 04:51.930
+if you want to run it on a file.
+
+04:51.930 --> 04:55.870
+You can see a longer description of the command
+
+04:56.734 --> 04:59.850
+and then you can see all the options
+
+04:59.850 --> 05:03.483
+and the arguments that we can use with this command.
+
+05:04.680 --> 05:06.450
+Now in Linux, most
+
+05:06.450 --> 05:10.290
+of the time, the options will always follow the same syntax.
+
+05:10.290 --> 05:12.690
+So you either use dash letter
+
+05:12.690 --> 05:16.890
+or dash dash a word to specify the argument.
+
+05:16.890 --> 05:19.080
+For example, in here, the -a
+
+05:19.080 --> 05:23.793
+and --all will ignore entries starting with dot.
+
+05:24.930 --> 05:28.890
+So if you keep going down in here you'll see all the options
+
+05:28.890 --> 05:32.103
+and arguments you can use with the ls command.
+
+05:33.120 --> 05:35.370
+And we have another example here.
+
+05:35.370 --> 05:38.400
+We have the -l which means it's going
+
+05:38.400 --> 05:40.890
+to use a long listing format
+
+05:40.890 --> 05:43.850
+which will display more information about the files
+
+05:43.850 --> 05:45.663
+in the current working directory.
+
+05:46.650 --> 05:47.850
+So let's have a look on that.
+
+05:47.850 --> 05:50.670
+I'm gonna press Q to exit this
+
+05:50.670 --> 05:53.280
+and then we're gonna do ls as usual.
+
+05:53.280 --> 05:57.060
+And since we read the manual, we know we can do -l
+
+05:57.060 --> 05:59.940
+to see more information about the files.
+
+05:59.940 --> 06:01.590
+And if I hit enter now,
+
+06:01.590 --> 06:04.470
+you can see I'm still getting the same directories
+
+06:04.470 --> 06:07.590
+but it's also showing me the permissions, the users,
+
+06:07.590 --> 06:09.933
+the date created and so on.
+
+06:10.950 --> 06:12.810
+So you can use the man command
+
+06:12.810 --> 06:16.357
+on any command you want, not only on the ls.
+
+06:16.357 --> 06:20.430
+So you can use it on the pwd, you can use it on the cd
+
+06:20.430 --> 06:24.210
+or any other command, and it'll show you full description
+
+06:24.210 --> 06:28.113
+or the manual page of how to use this command.
+
+06:29.790 --> 06:33.160
+Now, I'm going to clear the screen by typing clear
+
+06:34.650 --> 06:38.580
+and the next thing that I wanna show you is the --help.
+
+06:38.580 --> 06:41.370
+So, this is something that you can use again
+
+06:41.370 --> 06:44.850
+in almost all commands in all programs in Linux.
+
+06:44.850 --> 06:46.980
+So you can just type the program name
+
+06:46.980 --> 06:50.793
+or the command name followed by --help.
+
+06:52.320 --> 06:56.190
+As you might think, this will show you help message telling
+
+06:56.190 --> 06:57.630
+you what this command is
+
+06:57.630 --> 07:01.110
+or what this program is, the arguments that it takes, how
+
+07:01.110 --> 07:04.923
+to use these arguments and examples at the bottom.
+
+07:06.060 --> 07:08.070
+Now, another useful thing with the terminal
+
+07:08.070 --> 07:11.010
+so I'm gonna clear this again, is the arrows.
+
+07:11.010 --> 07:14.430
+So you can press up to go up to see all the commands
+
+07:14.430 --> 07:16.170
+that we executed before.
+
+07:16.170 --> 07:18.150
+And again, you can go down to navigate
+
+07:18.150 --> 07:21.783
+between the commands that you executed previously.
+
+07:22.830 --> 07:26.400
+You can also use the tab for auto complete.
+
+07:26.400 --> 07:29.730
+So again, let's do ls. And you can see all the files.
+
+07:29.730 --> 07:33.180
+And let's say we want to go into documents.
+
+07:33.180 --> 07:36.330
+So we can do cd followed by documents.
+
+07:36.330 --> 07:38.886
+You can type documents, or if you're lazy
+
+07:38.886 --> 07:43.886
+like me you can just do DOC and press Tab.
+
+07:43.920 --> 07:47.580
+And as you can see, it's automatically completing the rest
+
+07:47.580 --> 07:48.813
+of the word for me.
+
+07:49.680 --> 07:51.480
+So this is something that comes very,
+
+07:51.480 --> 07:54.993
+very handy when you're using the terminal for a long time.
+
+07:56.100 --> 07:59.940
+Now, what I also wanna show you is how to install programs
+
+07:59.940 --> 08:02.310
+in Kali from the terminal.
+
+08:02.310 --> 08:05.100
+So first I'm gonna clear this, and the first thing
+
+08:05.100 --> 08:07.650
+that you wanna do is update the sources
+
+08:07.650 --> 08:11.313
+where Kali can search and download programs from.
+
+08:12.360 --> 08:15.873
+So we're gonna do apt-get update.
+
+08:16.890 --> 08:20.400
+Now, app get is the name of the application that allow us
+
+08:20.400 --> 08:22.920
+to download and install programs.
+
+08:22.920 --> 08:25.410
+And we're saying update because I'm saying
+
+08:25.410 --> 08:27.720
+that I want you to update the list
+
+08:27.720 --> 08:30.900
+of all the programs that I can install.
+
+08:30.900 --> 08:33.390
+So I'm gonna hit Enter, and you wanna make sure
+
+08:33.390 --> 08:36.600
+that you have internet connection when running this.
+
+08:36.600 --> 08:39.330
+And as you can see, it's telling me that it's done.
+
+08:39.330 --> 08:44.310
+And now we can go ahead and start installing applications.
+
+08:44.310 --> 08:47.940
+So the first program that I wanna install is actually
+
+08:47.940 --> 08:50.790
+a terminal program, so similar to this one
+
+08:50.790 --> 08:55.260
+but it allow us to have multiple terminal windows open
+
+08:55.260 --> 08:56.463
+in the same window.
+
+08:57.360 --> 08:59.700
+So, in order to install a program
+
+08:59.700 --> 09:02.880
+through the command line we're gonna do apt-get,
+
+09:02.880 --> 09:05.400
+which is again the name of the program that allow us
+
+09:05.400 --> 09:08.760
+to install programs on the system.
+
+09:08.760 --> 09:11.940
+We're gonna say that I want to install
+
+09:11.940 --> 09:15.903
+and the program that I want to install is called Terminator.
+
+09:17.670 --> 09:19.380
+So very, very simple.
+
+09:19.380 --> 09:20.820
+First of all we're typing the name
+
+09:20.820 --> 09:23.250
+of the command, which is apt-get.
+
+09:23.250 --> 09:26.580
+We're saying that I want to install, and the program name
+
+09:26.580 --> 09:30.000
+that I wanna install is called Terminator.
+
+09:30.000 --> 09:34.500
+So I'm gonna hit Enter and this is going to download
+
+09:34.500 --> 09:37.380
+and install Terminator for me.
+
+09:37.380 --> 09:38.880
+So you can use the same command
+
+09:38.880 --> 09:41.130
+to install any program that you want.
+
+09:41.130 --> 09:43.830
+You just need to replace Terminator with the name
+
+09:43.830 --> 09:46.353
+of the program that you want to install.
+
+09:47.370 --> 09:50.460
+Now, I've already downloaded and installed this before
+
+09:50.460 --> 09:52.980
+so it didn't ask me to confirm.
+
+09:52.980 --> 09:54.150
+But, if you're running this
+
+09:54.150 --> 09:57.660
+for the first time, it might ask you to confirm whether
+
+09:57.660 --> 10:00.480
+or not you actually want to install this program.
+
+10:00.480 --> 10:02.340
+So all you'd have to do is press Y
+
+10:02.340 --> 10:05.310
+from the keyboard and hit Enter.
+
+10:05.310 --> 10:07.320
+Now, as you can see, it's done.
+
+10:07.320 --> 10:10.570
+So if I go to my all applications in here
+
+10:12.030 --> 10:17.030
+and just type Terminator, you can see that I have it here.
+
+10:17.220 --> 10:19.500
+So I'm actually gonna drag it and put it
+
+10:19.500 --> 10:24.003
+in my doc so I can access it easily in the future.
+
+10:25.830 --> 10:28.590
+So now I can just click it in here
+
+10:28.590 --> 10:31.590
+and that'll open Terminator for me.
+
+10:31.590 --> 10:34.080
+Now, this is another application that allow me
+
+10:34.080 --> 10:38.070
+to run commands, so it's exactly the same as this.
+
+10:38.070 --> 10:41.580
+So again, I can do ls and pwd.
+
+10:41.580 --> 10:43.170
+The only difference is
+
+10:43.170 --> 10:45.960
+with this one, I can actually right click
+
+10:45.960 --> 10:48.873
+and click on split horizontally, for example.
+
+10:49.800 --> 10:51.810
+And this will split the same screen
+
+10:51.810 --> 10:56.070
+into two screens where I can run commands at the same time.
+
+10:56.070 --> 10:58.350
+So I can have some commands in here
+
+10:58.350 --> 11:00.273
+and I can run commands in here.
+
+11:01.470 --> 11:03.600
+And then I can even split this more
+
+11:03.600 --> 11:07.590
+if I want, again, vertically or horizontally.
+
+11:07.590 --> 11:10.950
+And as you can see, I can have as many terminal windows
+
+11:10.950 --> 11:13.440
+as I want, and this will be very helpful
+
+11:13.440 --> 11:15.990
+in the future when we'll be running a number
+
+11:15.990 --> 11:19.383
+of programs and a number of commands at the same time.
+
+11:20.790 --> 11:22.740
+Now, before I let you go, I just want
+
+11:22.740 --> 11:25.470
+to show you two websites that I'm gonna include
+
+11:25.470 --> 11:27.990
+in the resources of this lecture.
+
+11:27.990 --> 11:30.030
+First of all, we have a website here
+
+11:30.030 --> 11:33.900
+that includes the most common Linux commands, if not all.
+
+11:33.900 --> 11:36.570
+So you can go through them and familiarize yourself
+
+11:36.570 --> 11:38.940
+with them, but keep in mind, you don't need
+
+11:38.940 --> 11:40.590
+to know them all by heart.
+
+11:40.590 --> 11:43.650
+Like I said, as you go through my course,
+
+11:43.650 --> 11:44.910
+and as you continue on
+
+11:44.910 --> 11:47.130
+with your journey you will learn the commands
+
+11:47.130 --> 11:49.023
+that you need as you go.
+
+11:50.310 --> 11:52.080
+Another really useful resource
+
+11:52.080 --> 11:55.830
+that I'm gonna include is explainshell.com.
+
+11:55.830 --> 11:59.550
+This website is designed to explain Linux commands to you.
+
+11:59.550 --> 12:02.100
+So all you have to do is type the commands in here.
+
+12:02.100 --> 12:07.100
+So for example, if you just type ls and hit Explain.
+
+12:08.130 --> 12:11.610
+It'll explain that ls will list directory content.
+
+12:11.610 --> 12:15.510
+You could make it more complex and do ls-la.
+
+12:15.510 --> 12:18.960
+And if we hit enter now, it'll break all the arguments
+
+12:18.960 --> 12:21.420
+and explain every single argument.
+
+12:21.420 --> 12:25.110
+So again, ls, this contents, if we highlight the L
+
+12:25.110 --> 12:27.840
+as you can see, it's telling us that it's going
+
+12:27.840 --> 12:30.990
+to use a long listing format, as we've seen earlier.
+
+12:30.990 --> 12:33.570
+And the A at the end is the same
+
+12:33.570 --> 12:36.240
+as -a, which is all which means
+
+12:36.240 --> 12:39.840
+that we do not want to ignore entries starting with a dot.
+
+12:39.840 --> 12:42.213
+So we do not want to ignore hidden files.
+
+12:43.140 --> 12:44.940
+So you can do any command in here.
+
+12:44.940 --> 12:47.940
+You can do apt-get install, for example
+
+12:47.940 --> 12:49.980
+and it'll actually explain it to you.
+
+12:49.980 --> 12:52.200
+So it'll explain apt is a package manager.
+
+12:52.200 --> 12:55.910
+Install can be used to install packages and so on.
+
+12:55.910 --> 12:57.570
+So if you ever see a Linux command
+
+12:57.570 --> 12:59.730
+that you don't understand, you can always just come
+
+12:59.730 --> 13:02.760
+in here, put the command and it'll break it down to you
+
+13:02.760 --> 13:05.013
+and explain it really nicely.

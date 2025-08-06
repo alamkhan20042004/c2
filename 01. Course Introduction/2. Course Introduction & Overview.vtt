@@ -1,0 +1,278 @@
+WEBVTT
+
+1
+00:00:00.846 --> 00:00:01.679
+<v ->Hello</v>
+
+2
+00:00:01.679 --> 00:00:02.820
+and welcome.
+
+3
+00:00:02.820 --> 00:00:03.880
+My name is Zaid,
+
+4
+00:00:03.880 --> 00:00:06.320
+I'm an ethical worker or computer scientist
+
+5
+00:00:06.320 --> 00:00:08.470
+and I'll be your instructor in this course.
+
+6
+00:00:09.330 --> 00:00:10.700
+In this course I'm gonna teach you
+
+7
+00:00:10.700 --> 00:00:12.730
+ethical hacking from scratch so
+
+8
+00:00:12.730 --> 00:00:15.040
+I'm gonna assume that you have no prior knowledge
+
+9
+00:00:15.040 --> 00:00:16.630
+and by the end of it you will be
+
+10
+00:00:16.630 --> 00:00:19.280
+at a high intermediate level.
+
+11
+00:00:19.280 --> 00:00:20.810
+So we'll start by teaching you
+
+12
+00:00:20.810 --> 00:00:23.440
+how to set up a penetration testing lab
+
+13
+00:00:23.440 --> 00:00:25.680
+and how to install the needed software
+
+14
+00:00:25.680 --> 00:00:27.793
+so you can practice hacking safely.
+
+15
+00:00:28.750 --> 00:00:30.820
+Once done, the course is divided
+
+16
+00:00:30.820 --> 00:00:34.900
+into four main penetration testing sections.
+
+17
+00:00:34.900 --> 00:00:37.590
+The first is the network hacking section
+
+18
+00:00:37.590 --> 00:00:39.640
+where you learn how networks work,
+
+19
+00:00:39.640 --> 00:00:42.010
+how devices communicate with each other
+
+20
+00:00:42.010 --> 00:00:43.980
+and how to exploit this method
+
+21
+00:00:43.980 --> 00:00:46.410
+of communication to control all
+
+22
+00:00:46.410 --> 00:00:49.970
+the connections around you, crack wifi keys
+
+23
+00:00:49.970 --> 00:00:52.280
+and gain access to wifi networks
+
+24
+00:00:52.280 --> 00:00:56.140
+whether they use WEP/ WPA or WPA2
+
+25
+00:00:56.140 --> 00:00:59.790
+and intercept data to capture usernames,
+
+26
+00:00:59.790 --> 00:01:02.650
+passwords, chat messages or anything
+
+27
+00:01:02.650 --> 00:01:05.473
+that anybody does on the same network.
+
+28
+00:01:07.060 --> 00:01:08.610
+Once done with this, we'll move
+
+29
+00:01:08.610 --> 00:01:10.670
+to the gaining access section where
+
+30
+00:01:10.670 --> 00:01:13.400
+you'll learn how to gain access to servers
+
+31
+00:01:13.400 --> 00:01:15.660
+and personal computers.
+
+32
+00:01:15.660 --> 00:01:17.620
+So first, you'll learn how to gather
+
+33
+00:01:17.620 --> 00:01:20.350
+comprehensive information about your target,
+
+34
+00:01:20.350 --> 00:01:22.130
+discover vulnerabilities
+
+35
+00:01:22.130 --> 00:01:25.220
+and exploit them to gain full control
+
+36
+00:01:25.220 --> 00:01:26.683
+over the target system.
+
+37
+00:01:27.940 --> 00:01:30.200
+Not only that but you'll also learn
+
+38
+00:01:30.200 --> 00:01:33.130
+how to generate undetectable back doors
+
+39
+00:01:33.130 --> 00:01:35.900
+and use social engineering to deliver
+
+40
+00:01:35.900 --> 00:01:38.900
+them to your target as a fake update
+
+41
+00:01:38.900 --> 00:01:43.530
+or as a PDF or an image or any other file
+
+42
+00:01:43.530 --> 00:01:46.060
+that they might be interested in.
+
+43
+00:01:46.060 --> 00:01:48.620
+You'll also learn how to spoof emails
+
+44
+00:01:48.620 --> 00:01:50.750
+so when they're delivered to your target
+
+45
+00:01:50.750 --> 00:01:53.350
+they appear as if they're sent from a friend,
+
+46
+00:01:53.350 --> 00:01:56.030
+from their boss or from any address
+
+47
+00:01:56.030 --> 00:01:58.223
+that they are likely to interact with.
+
+48
+00:01:59.670 --> 00:02:01.640
+Once done with all of this, we'll move
+
+49
+00:02:01.640 --> 00:02:04.080
+to the post exploitation section
+
+50
+00:02:04.080 --> 00:02:06.010
+where you'll learn what can you do
+
+51
+00:02:06.010 --> 00:02:08.010
+with the access that you gained
+
+52
+00:02:08.010 --> 00:02:10.210
+in the previous sections.
+
+53
+00:02:10.210 --> 00:02:11.560
+So you'll learn how to interact
+
+54
+00:02:11.560 --> 00:02:13.890
+with the file system, how to execute
+
+55
+00:02:13.890 --> 00:02:18.090
+system commands, record keystrokes, open the webcam
+
+56
+00:02:18.090 --> 00:02:20.880
+and even use the hacked computer
+
+57
+00:02:20.880 --> 00:02:24.003
+as a pivot to hack into other computers.
+
+58
+00:02:25.100 --> 00:02:27.350
+Once done with all of these, we'll move
+
+59
+00:02:27.350 --> 00:02:29.330
+to the website hacking section
+
+60
+00:02:29.330 --> 00:02:31.470
+where you'll learn how websites work,
+
+61
+00:02:31.470 --> 00:02:33.950
+how to gather comprehensive information
+
+62
+00:02:33.950 --> 00:02:35.950
+about a target website
+
+63
+00:02:35.950 --> 00:02:38.360
+and how to discover and exploit
+
+64
+00:02:38.360 --> 00:02:40.940
+a number of dangerous vulnerabilities
+
+65
+00:02:40.940 --> 00:02:43.810
+that allow you to gain full control
+
+66
+00:02:43.810 --> 00:02:45.463
+over the target website.
+
+67
+00:02:46.570 --> 00:02:48.550
+At the end of each section, you'll learn
+
+68
+00:02:48.550 --> 00:02:50.090
+how to secure systems
+
+69
+00:02:50.090 --> 00:02:52.953
+and secure yourself from the discussed attacks.
+

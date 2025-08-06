@@ -1,0 +1,630 @@
+WEBVTT
+
+1
+00:00:01.370 --> 00:00:02.940
+<v Instructor>From the previous lectures,</v>
+
+2
+00:00:02.940 --> 00:00:05.923
+we learned that when it comes to WPA and WPA2,
+
+3
+00:00:07.760 --> 00:00:11.130
+the only packets that contain some information
+
+4
+00:00:11.130 --> 00:00:13.870
+that can help us with cracking the key,
+
+5
+00:00:13.870 --> 00:00:15.633
+are the handshake packets.
+
+6
+00:00:16.800 --> 00:00:19.010
+And in the last lecture, we learned how
+
+7
+00:00:19.010 --> 00:00:22.403
+to capture the handshake and store it in a file.
+
+8
+00:00:23.730 --> 00:00:27.320
+Now the handshake does not contain any information
+
+9
+00:00:27.320 --> 00:00:32.320
+that can help us to recover or recalculate the WPA key.
+
+10
+00:00:33.210 --> 00:00:36.030
+The information in it can only be used
+
+11
+00:00:36.030 --> 00:00:39.920
+to check whether a password is valid or not.
+
+12
+00:00:39.920 --> 00:00:44.200
+Therefore, what we're going to do is to create a wordlist,
+
+13
+00:00:44.200 --> 00:00:46.910
+which is basically a big text file
+
+14
+00:00:46.910 --> 00:00:50.280
+that contains a large number of passwords.
+
+15
+00:00:50.280 --> 00:00:51.740
+Then go through this file,
+
+16
+00:00:51.740 --> 00:00:53.950
+go through the passwords one by one,
+
+17
+00:00:53.950 --> 00:00:56.250
+and use them with the handshake
+
+18
+00:00:56.250 --> 00:01:00.653
+in order to check whether this password is valid or not.
+
+19
+00:01:01.790 --> 00:01:05.880
+You can actually download ready wordlists from the internet,
+
+20
+00:01:05.880 --> 00:01:07.910
+but in this lecture, I wanna teach you
+
+21
+00:01:07.910 --> 00:01:10.520
+how to create your own wordlist,
+
+22
+00:01:10.520 --> 00:01:13.300
+and in the next lecture I'm going to explain to you
+
+23
+00:01:13.300 --> 00:01:16.170
+how the wordlist and the handshake are used
+
+24
+00:01:16.170 --> 00:01:18.420
+in order to recover the password,
+
+25
+00:01:18.420 --> 00:01:21.563
+and we'll see how to do that in practice.
+
+26
+00:01:23.820 --> 00:01:25.380
+So, in this lecture we're gonna learn
+
+27
+00:01:25.380 --> 00:01:29.380
+how you create your own wordlist using a tool called Crunch.
+
+28
+00:01:29.380 --> 00:01:32.140
+This is a really handy skill to have under your belt
+
+29
+00:01:32.140 --> 00:01:34.840
+if you want to be a penetration tester,
+
+30
+00:01:34.840 --> 00:01:37.170
+because you're gonna face a lot of scenarios
+
+31
+00:01:37.170 --> 00:01:40.850
+where a wordlist attack can become very handy.
+
+32
+00:01:40.850 --> 00:01:42.490
+So, using the tool is very simple.
+
+33
+00:01:42.490 --> 00:01:46.130
+All you have to do is just put the name of the tool,
+
+34
+00:01:46.130 --> 00:01:49.560
+and then you specify the minimum number of characters
+
+35
+00:01:49.560 --> 00:01:52.120
+for the passwords to be generated.
+
+36
+00:01:52.120 --> 00:01:55.020
+Then we're gonna specify the maximum number of characters
+
+37
+00:01:55.020 --> 00:01:55.933
+for the password.
+
+38
+00:01:56.970 --> 00:01:59.310
+Then you specify the characters
+
+39
+00:01:59.310 --> 00:02:01.780
+that you want to generate passwords from.
+
+40
+00:02:01.780 --> 00:02:04.410
+For example, you can put all lowercase characters,
+
+41
+00:02:04.410 --> 00:02:06.990
+all uppercase, you can put numbers, digits,
+
+42
+00:02:06.990 --> 00:02:10.130
+or you can just specify a smaller number
+
+43
+00:02:10.130 --> 00:02:11.833
+to make the wordlist smaller.
+
+44
+00:02:12.750 --> 00:02:15.760
+You can also use the option T, which is an optional,
+
+45
+00:02:15.760 --> 00:02:16.830
+to give a pattern.
+
+46
+00:02:16.830 --> 00:02:19.500
+So for example, let's say that you are looking at the person
+
+47
+00:02:19.500 --> 00:02:21.270
+while they were typing their password,
+
+48
+00:02:21.270 --> 00:02:24.520
+and you seen that the password would start with an A.
+
+49
+00:02:24.520 --> 00:02:26.940
+So you can tell Crunch that the password
+
+50
+00:02:26.940 --> 00:02:28.070
+will start with an A,
+
+51
+00:02:28.070 --> 00:02:31.830
+and then give me all possible combination of passwords
+
+52
+00:02:31.830 --> 00:02:33.233
+that start with an A.
+
+53
+00:02:34.300 --> 00:02:36.870
+And after that, we use the -o option
+
+54
+00:02:36.870 --> 00:02:39.720
+to specify the file name where the passwords
+
+55
+00:02:39.720 --> 00:02:40.720
+are gonna be stored.
+
+56
+00:02:41.640 --> 00:02:43.400
+So we have a small, little example here
+
+57
+00:02:43.400 --> 00:02:46.924
+that'll generate a list of passwords
+
+58
+00:02:46.924 --> 00:02:51.170
+that start from six characters to eight characters,
+
+59
+00:02:51.170 --> 00:02:53.260
+and contain these characters right here.
+
+60
+00:02:53.260 --> 00:02:56.900
+So it's gonna create combinations of 123abc,
+
+61
+00:02:56.900 --> 00:02:58.610
+and a dollar sign.
+
+62
+00:02:58.610 --> 00:03:02.010
+And it's gonna store it in a file called wordlist.
+
+63
+00:03:02.010 --> 00:03:05.820
+And these passwords are gonna start with an A,
+
+64
+00:03:05.820 --> 00:03:07.480
+and end with a B.
+
+65
+00:03:07.480 --> 00:03:09.660
+And it will generate passwords based
+
+66
+00:03:09.660 --> 00:03:13.130
+on all possible combinations between the A and the B,
+
+67
+00:03:13.130 --> 00:03:16.820
+so all of the generated passwords will always start with A,
+
+68
+00:03:16.820 --> 00:03:17.773
+and end with B.
+
+69
+00:03:19.000 --> 00:03:21.010
+So let's have an example of the tool.
+
+70
+00:03:21.010 --> 00:03:22.770
+Now the tool actually have a lot of options,
+
+71
+00:03:22.770 --> 00:03:24.530
+other than what we've seen so far.
+
+72
+00:03:24.530 --> 00:03:28.053
+So if you just type in man, crunch,
+
+73
+00:03:29.730 --> 00:03:32.130
+you'll see all the options that you can set,
+
+74
+00:03:32.130 --> 00:03:34.200
+and you'll see detailed description
+
+75
+00:03:34.200 --> 00:03:35.710
+about all of these options.
+
+76
+00:03:35.710 --> 00:03:37.500
+So it's actually really, really good.
+
+77
+00:03:37.500 --> 00:03:39.130
+You can go ahead and spend some time
+
+78
+00:03:39.130 --> 00:03:41.400
+to get familiar with the tool.
+
+79
+00:03:41.400 --> 00:03:42.830
+Now I'm gonna show you the example,
+
+80
+00:03:42.830 --> 00:03:44.850
+and based on the example, you'll be able to run
+
+81
+00:03:44.850 --> 00:03:46.000
+all of these commands.
+
+82
+00:03:46.000 --> 00:03:50.130
+But, if you want to run or create some advanced wordlists,
+
+83
+00:03:50.130 --> 00:03:52.430
+then I highly recommend that you go over this.
+
+84
+00:03:53.950 --> 00:03:56.490
+One of the really cool options that I wanna highlight
+
+85
+00:03:56.490 --> 00:03:58.513
+is the -p option.
+
+86
+00:03:58.513 --> 00:04:02.100
+The -p option tells Crunch to generate passwords
+
+87
+00:04:02.100 --> 00:04:04.310
+that don't have repeating characters.
+
+88
+00:04:04.310 --> 00:04:07.410
+For example, when you specify all lowercase characters,
+
+89
+00:04:07.410 --> 00:04:11.430
+you specify abcd, it'll start by generating passwords made
+
+90
+00:04:11.430 --> 00:04:16.430
+of aaaaaaa, and then abbbbb, and all of that.
+
+91
+00:04:17.500 --> 00:04:21.110
+So, when you do this, Crunch will actually ignore these type
+
+92
+00:04:21.110 --> 00:04:23.280
+of passwords, and it'll only create passwords
+
+93
+00:04:23.280 --> 00:04:25.750
+that don't have any repeating characters.
+
+94
+00:04:25.750 --> 00:04:28.270
+And that'll reduce the size of the wordlist
+
+95
+00:04:28.270 --> 00:04:31.440
+from the number of characters to the power of the length,
+
+96
+00:04:31.440 --> 00:04:33.543
+to the number of characters factorial.
+
+97
+00:04:34.970 --> 00:04:38.420
+If you scroll down you'll actually see more examples
+
+98
+00:04:38.420 --> 00:04:40.930
+of commands and the type of wordlists
+
+99
+00:04:40.930 --> 00:04:42.393
+that will be created.
+
+100
+00:04:43.260 --> 00:04:44.950
+So, again, you can have a look on these,
+
+101
+00:04:44.950 --> 00:04:47.640
+and get yourself familiar with.
+
+102
+00:04:47.640 --> 00:04:49.300
+Once you're done looking at the man,
+
+103
+00:04:49.300 --> 00:04:52.070
+you can just press Q, and you'll be out of it.
+
+104
+00:04:52.070 --> 00:04:53.570
+And we're gonna run our command here,
+
+105
+00:04:53.570 --> 00:04:55.083
+so we're gonna use Crunch.
+
+106
+00:04:56.500 --> 00:04:58.470
+And I want to generate passwords
+
+107
+00:04:58.470 --> 00:05:00.163
+of minimum of six characters,
+
+108
+00:05:01.000 --> 00:05:03.610
+and maximum of eight characters.
+
+109
+00:05:03.610 --> 00:05:06.793
+And I want them to contain combinations of abc.
+
+110
+00:05:07.700 --> 00:05:10.910
+And let's say the digits 1-2.
+
+111
+00:05:10.910 --> 00:05:13.270
+Now in here you can actually keep listing things.
+
+112
+00:05:13.270 --> 00:05:16.260
+You can list characters, you can list uppercase characters,
+
+113
+00:05:16.260 --> 00:05:17.943
+or even symbols if you wanted to.
+
+114
+00:05:18.800 --> 00:05:20.530
+Once you're done with listing the characters,
+
+115
+00:05:20.530 --> 00:05:23.090
+we're gonna specify the file to save it to.
+
+116
+00:05:23.090 --> 00:05:26.297
+And we're gonna save it in a file called test.txt.
+
+117
+00:05:29.790 --> 00:05:31.470
+So the command is very simple.
+
+118
+00:05:31.470 --> 00:05:34.410
+It's crunch, minimum length of the password,
+
+119
+00:05:34.410 --> 00:05:36.270
+the maximum length of the password,
+
+120
+00:05:36.270 --> 00:05:38.240
+followed by the characters that we want to use
+
+121
+00:05:38.240 --> 00:05:41.210
+to generate passwords from, and then O
+
+122
+00:05:41.210 --> 00:05:44.890
+to the file that the passwords are gonna be stored in.
+
+123
+00:05:44.890 --> 00:05:45.890
+I'm gonna hit Enter.
+
+124
+00:05:47.590 --> 00:05:49.100
+And as you can see, now it's telling us
+
+125
+00:05:49.100 --> 00:05:54.100
+that it generated 448,000 passwords, approximately.
+
+126
+00:05:54.660 --> 00:05:57.710
+And they're all stored in a file called test.txt.
+
+127
+00:05:57.710 --> 00:06:01.350
+Now, the size of the file is four megabytes.
+
+128
+00:06:01.350 --> 00:06:06.350
+And now I can open this file by doing cat, test.txt.
+
+129
+00:06:09.330 --> 00:06:11.610
+And as you can see, now we can see all the passwords
+
+130
+00:06:11.610 --> 00:06:13.350
+that have been generated.
+
+131
+00:06:13.350 --> 00:06:16.580
+I'm gonna Ctrl+C out of it, 'cause it's a huge file.
+
+132
+00:06:16.580 --> 00:06:18.680
+And as you can see, it actually contains
+
+133
+00:06:18.680 --> 00:06:22.233
+all possible combinations of abc12.
+
+134
+00:06:24.570 --> 00:06:28.080
+I also want to show you an example of using the -t option.
+
+135
+00:06:28.080 --> 00:06:30.810
+So, I'm gonna set this to only six to six,
+
+136
+00:06:30.810 --> 00:06:32.740
+so it's only six characters.
+
+137
+00:06:32.740 --> 00:06:34.510
+And we're gonna use the -t option,
+
+138
+00:06:34.510 --> 00:06:36.350
+which is the pattern option.
+
+139
+00:06:36.350 --> 00:06:38.650
+And I'm gonna tell it that I want the password
+
+140
+00:06:38.650 --> 00:06:39.950
+to always start with an A.
+
+141
+00:06:41.020 --> 00:06:44.040
+And then I want you to fill all possible combinations
+
+142
+00:06:44.040 --> 00:06:47.890
+of characters between the A, and the B.
+
+143
+00:06:47.890 --> 00:06:50.170
+So I want passwords that start with an A,
+
+144
+00:06:50.170 --> 00:06:51.650
+and end with a B.
+
+145
+00:06:51.650 --> 00:06:53.580
+And in the middle, at the at sign,
+
+146
+00:06:53.580 --> 00:06:58.260
+you can fill all possible combinations of abc12.
+
+147
+00:06:58.260 --> 00:06:59.113
+Gonna hit Enter.
+
+148
+00:07:00.090 --> 00:07:03.070
+As you can see now, the number of passwords is much less,
+
+149
+00:07:03.070 --> 00:07:07.820
+it's only 625 passwords, because I've narrowed down
+
+150
+00:07:07.820 --> 00:07:09.800
+the possibilities of passwords.
+
+151
+00:07:09.800 --> 00:07:14.800
+Again, if I do cat, test.txt,
+
+152
+00:07:15.150 --> 00:07:17.903
+you'll see that I have all the passwords right here.
+
+153
+00:07:19.920 --> 00:07:21.940
+So this is it, tool is really useful.
+
+154
+00:07:21.940 --> 00:07:24.130
+Can be used in many scenarios.
+
+155
+00:07:24.130 --> 00:07:26.380
+I highly recommend that you spend some time with it,
+
+156
+00:07:26.380 --> 00:07:28.490
+and also have a look on some
+
+157
+00:07:28.490 --> 00:07:31.113
+of the existing wordlists out there on the internet.
+

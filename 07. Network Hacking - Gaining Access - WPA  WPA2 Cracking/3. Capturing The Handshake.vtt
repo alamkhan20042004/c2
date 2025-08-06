@@ -1,0 +1,542 @@
+WEBVTT
+
+1
+00:00:01.220 --> 00:00:03.410
+<v Instructor>Now if WPS is disabled</v>
+
+2
+00:00:03.410 --> 00:00:06.800
+on your target network, or if it's enabled,
+
+3
+00:00:06.800 --> 00:00:10.790
+but configured to use push button or PBC,
+
+4
+00:00:10.790 --> 00:00:13.600
+then the method that I showed you in the previous lecture
+
+5
+00:00:13.600 --> 00:00:15.440
+will not work.
+
+6
+00:00:15.440 --> 00:00:19.070
+Therefore you will have to go and crack the actual WPA
+
+7
+00:00:19.930 --> 00:00:22.580
+or WPA to encryption.
+
+8
+00:00:22.580 --> 00:00:25.860
+And like I said, when these encryptions were designed,
+
+9
+00:00:25.860 --> 00:00:29.610
+the developers knew about the weaknesses in WEP
+
+10
+00:00:29.610 --> 00:00:33.660
+and they made sure that they properly fix these weaknesses.
+
+11
+00:00:33.660 --> 00:00:36.160
+They actually did a pretty good job at this.
+
+12
+00:00:36.160 --> 00:00:40.410
+Therefore, we cannot use the same method used in WEP
+
+13
+00:00:40.410 --> 00:00:43.383
+to crack WPA and WPA2.
+
+14
+00:00:44.630 --> 00:00:48.920
+So in WPA2, the keys are unique, they're temporary.
+
+15
+00:00:48.920 --> 00:00:52.390
+They're much longer than what they were in WEP.
+
+16
+00:00:52.390 --> 00:00:56.460
+Therefore the packet sent in the air contained
+
+17
+00:00:56.460 --> 00:01:00.920
+no information that is useful for us.
+
+18
+00:01:00.920 --> 00:01:04.180
+So it doesn't matter even if we capture 1 million packets,
+
+19
+00:01:04.180 --> 00:01:06.853
+we can't use them to crack the key.
+
+20
+00:01:07.920 --> 00:01:11.070
+The only packets that contain useful information
+
+21
+00:01:11.070 --> 00:01:12.983
+are the handshake pockets.
+
+22
+00:01:14.080 --> 00:01:17.630
+These are four pockets transferred between a client
+
+23
+00:01:17.630 --> 00:01:22.060
+and the router when the client connects to the network.
+
+24
+00:01:22.060 --> 00:01:23.460
+So in this lecture,
+
+25
+00:01:23.460 --> 00:01:26.500
+I'm gonna show you how to capture these pockets.
+
+26
+00:01:26.500 --> 00:01:28.060
+And in the next lectures,
+
+27
+00:01:28.060 --> 00:01:33.060
+we'll see how to use them to crack the WPA or WPA2 key.
+
+28
+00:01:34.590 --> 00:01:37.970
+First of all, as usual, you'd wanna run airodump-ng
+
+29
+00:01:37.970 --> 00:01:40.300
+against all the networks around you.
+
+30
+00:01:40.300 --> 00:01:42.730
+I've already done that and as you can see,
+
+31
+00:01:42.730 --> 00:01:44.490
+this is my target right here.
+
+32
+00:01:44.490 --> 00:01:49.100
+It's using WPA2 and this is the Mac address,
+
+33
+00:01:49.100 --> 00:01:50.253
+I'm gonna copy it.
+
+34
+00:01:51.800 --> 00:01:55.050
+And the first thing we'll do is just run airodump-ng
+
+35
+00:01:55.050 --> 00:01:58.040
+on this network and store the data in a file,
+
+36
+00:01:58.040 --> 00:02:01.553
+exactly the same way that we used to do with WEP.
+
+37
+00:02:02.780 --> 00:02:05.207
+So we're just gonna do airodump-ng --bssid
+
+38
+00:02:08.030 --> 00:02:12.900
+and give it bssid of my target, --channel
+
+39
+00:02:14.030 --> 00:02:16.000
+and give it the channel of my target
+
+40
+00:02:16.000 --> 00:02:21.000
+which is 1 --write, to specify a file name,
+
+41
+00:02:21.410 --> 00:02:24.570
+to store all the data that we're gonna capture in.
+
+42
+00:02:24.570 --> 00:02:29.100
+And let's call this WPA handshake
+
+43
+00:02:30.210 --> 00:02:32.820
+because we're gonna capture the handshake.
+
+44
+00:02:32.820 --> 00:02:35.790
+And finally we're gonna give it my wireless adapter
+
+45
+00:02:35.790 --> 00:02:39.220
+in monitor mode, which is mon0.
+
+46
+00:02:39.220 --> 00:02:40.790
+So, very simple command.
+
+47
+00:02:40.790 --> 00:02:43.170
+We've done this multiple times by now,
+
+48
+00:02:43.170 --> 00:02:45.030
+we're using airodump-ng,
+
+49
+00:02:45.030 --> 00:02:47.240
+we're giving it the Mac address of my target,
+
+50
+00:02:47.240 --> 00:02:50.730
+after the bssid, I'm giving a --channel
+
+51
+00:02:50.730 --> 00:02:53.620
+to specify the channel of my target.
+
+52
+00:02:53.620 --> 00:02:57.490
+I'm using --write to store all the data in a file.
+
+53
+00:02:57.490 --> 00:03:00.410
+This file will contain everything that we capture.
+
+54
+00:03:00.410 --> 00:03:04.040
+So if we capture the handshake, it will be in this file.
+
+55
+00:03:04.040 --> 00:03:04.910
+And finally,
+
+56
+00:03:04.910 --> 00:03:07.470
+I'm giving it the name of my wireless adapter
+
+57
+00:03:07.470 --> 00:03:09.320
+in monitor mode.
+
+58
+00:03:09.320 --> 00:03:11.180
+So now I'm gonna hit enter.
+
+59
+00:03:11.180 --> 00:03:13.140
+And as you can see, airodump-ng
+
+60
+00:03:13.140 --> 00:03:15.970
+is working against my target network.
+
+61
+00:03:15.970 --> 00:03:17.230
+And right now,
+
+62
+00:03:17.230 --> 00:03:19.670
+all we have to do is literally sit down
+
+63
+00:03:19.670 --> 00:03:23.160
+and wait for the handshake to be captured.
+
+64
+00:03:23.160 --> 00:03:23.993
+Like I said,
+
+65
+00:03:23.993 --> 00:03:28.360
+the handshake is sent when a client connects to the network.
+
+66
+00:03:28.360 --> 00:03:31.410
+So we'll literally have to sit down and wait until a new
+
+67
+00:03:31.410 --> 00:03:33.410
+client connect to the network.
+
+68
+00:03:33.410 --> 00:03:35.150
+Once a new client connects,
+
+69
+00:03:35.150 --> 00:03:38.300
+we will capture the handshake and you will see in here,
+
+70
+00:03:38.300 --> 00:03:41.633
+airodump telling us that the handshake has been captured.
+
+71
+00:03:42.720 --> 00:03:46.680
+Alternatively, we can use something that we learned before,
+
+72
+00:03:46.680 --> 00:03:50.040
+which is a deauthentication attack.
+
+73
+00:03:50.040 --> 00:03:51.730
+We know using that attack,
+
+74
+00:03:51.730 --> 00:03:54.670
+we can disconnect the client from the network.
+
+75
+00:03:54.670 --> 00:03:57.370
+So we can do this for a very short period of time.
+
+76
+00:03:57.370 --> 00:04:00.340
+We can disconnect this client from the network.
+
+77
+00:04:00.340 --> 00:04:04.630
+He will automatically connect once we stop the attack.
+
+78
+00:04:04.630 --> 00:04:07.260
+Therefore, when he automatically connects,
+
+79
+00:04:07.260 --> 00:04:09.540
+the handshake will be sent in the air
+
+80
+00:04:09.540 --> 00:04:11.890
+and we will be able to capture it,
+
+81
+00:04:11.890 --> 00:04:13.810
+this way we will not have to sit down
+
+82
+00:04:13.810 --> 00:04:17.683
+and wait for someone to voluntarily connect to the network.
+
+83
+00:04:19.300 --> 00:04:21.220
+So we've seen how to do this before,
+
+84
+00:04:21.220 --> 00:04:23.130
+and it's gonna be exactly the same command
+
+85
+00:04:23.130 --> 00:04:24.560
+as we did it before,
+
+86
+00:04:24.560 --> 00:04:29.103
+we used aireplay-ng, we did --deauth.
+
+87
+00:04:31.160 --> 00:04:34.770
+Then we specified a really large number of packets
+
+88
+00:04:34.770 --> 00:04:39.100
+to keep the client disconnected for a long period of time.
+
+89
+00:04:39.100 --> 00:04:41.530
+This time I'm gonna set this to four,
+
+90
+00:04:41.530 --> 00:04:45.050
+to only send four deauthentication packets.
+
+91
+00:04:45.050 --> 00:04:47.290
+This way, my client will be disconnected
+
+92
+00:04:47.290 --> 00:04:49.370
+for a very short period of time.
+
+93
+00:04:49.370 --> 00:04:52.310
+They won't even feel that they got disconnected,
+
+94
+00:04:52.310 --> 00:04:54.780
+but this is enough for the handshake to be sent
+
+95
+00:04:54.780 --> 00:04:56.540
+because they will be disconnected.
+
+96
+00:04:56.540 --> 00:04:58.290
+They will automatically connect.
+
+97
+00:04:58.290 --> 00:05:01.163
+And when they do that, we will capture the handshake.
+
+98
+00:05:02.380 --> 00:05:04.460
+Now, the next argument we wanna set
+
+99
+00:05:04.460 --> 00:05:06.910
+is the Mac address of my target.
+
+100
+00:05:06.910 --> 00:05:08.470
+So we're gonna do -a
+
+101
+00:05:08.470 --> 00:05:11.210
+followed by the Mac address of my target.
+
+102
+00:05:11.210 --> 00:05:14.320
+Then we're gonna do -c followed by the Mac address
+
+103
+00:05:14.320 --> 00:05:17.180
+of the client that we want to disconnect.
+
+104
+00:05:17.180 --> 00:05:19.590
+So it's this client right here.
+
+105
+00:05:19.590 --> 00:05:23.070
+I'm gonna copy, paste it here.
+
+106
+00:05:23.070 --> 00:05:25.440
+And finally, we're gonna give it the name
+
+107
+00:05:25.440 --> 00:05:29.763
+of my wireless adapter in monitor mode, which is mon0.
+
+108
+00:05:31.000 --> 00:05:32.500
+And we are done.
+
+109
+00:05:32.500 --> 00:05:35.380
+Again I've spent a full lecture on this command
+
+110
+00:05:35.380 --> 00:05:38.160
+explaining what a deauthentication attack is.
+
+111
+00:05:38.160 --> 00:05:39.910
+So if it's a bit confusing
+
+112
+00:05:39.910 --> 00:05:42.830
+please go back and revise that lecture.
+
+113
+00:05:42.830 --> 00:05:46.180
+Basically, all we're doing is we're using aireplay-ng
+
+114
+00:05:46.180 --> 00:05:48.450
+to run a deauthentication attack,
+
+115
+00:05:48.450 --> 00:05:52.250
+to disconnect this device for a very short period of time.
+
+116
+00:05:52.250 --> 00:05:55.630
+That's why I'm setting this to only number four,
+
+117
+00:05:55.630 --> 00:05:56.970
+then I'm using -a,
+
+118
+00:05:56.970 --> 00:06:01.340
+to specify the Mac address of my target, -c to specify
+
+119
+00:06:01.340 --> 00:06:05.020
+the Mac address of the client connected to this network.
+
+120
+00:06:05.020 --> 00:06:07.330
+And then I'm giving it to my wireless adapter
+
+121
+00:06:07.330 --> 00:06:08.483
+in monitor mode.
+
+122
+00:06:09.510 --> 00:06:10.930
+Now I'm gonna hit Enter
+
+123
+00:06:10.930 --> 00:06:13.610
+and keep an eye on this side right here.
+
+124
+00:06:13.610 --> 00:06:16.990
+You'll see the handshake will be captured in here.
+
+125
+00:06:16.990 --> 00:06:20.660
+So we're gonna hit Enter, deauthentication packets
+
+126
+00:06:20.660 --> 00:06:23.470
+are being sent and perfect.
+
+127
+00:06:23.470 --> 00:06:26.580
+As you can see, once the client connected again,
+
+128
+00:06:26.580 --> 00:06:28.653
+we receive the handshake.
+
+129
+00:06:29.780 --> 00:06:32.440
+So now we can quit airodump-ng.
+
+130
+00:06:32.440 --> 00:06:35.580
+So Control C because we have the handshake.
+
+131
+00:06:35.580 --> 00:06:38.290
+Now it is stored in the file that we set
+
+132
+00:06:38.290 --> 00:06:42.230
+after the right option, which is called WPA handshake.
+
+133
+00:06:42.230 --> 00:06:43.308
+And in the next lecture,
+
+134
+00:06:43.308 --> 00:06:46.230
+I'll show you how this handshake can be used
+
+135
+00:06:46.230 --> 00:06:48.603
+to get the key for the network.
+

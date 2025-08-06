@@ -1,0 +1,838 @@
+WEBVTT
+
+1
+00:00:00.000 --> 00:00:01.870
+<v Narrator>In this lecture I'd like</v>
+
+2
+00:00:01.870 --> 00:00:04.800
+to talk about WiFi Bands.
+
+3
+00:00:04.800 --> 00:00:06.370
+The band of a network
+
+4
+00:00:06.370 --> 00:00:08.450
+defines what frequency it
+
+5
+00:00:08.450 --> 00:00:11.400
+can use to broadcast the signal.
+
+6
+00:00:11.400 --> 00:00:13.030
+This means it also defines
+
+7
+00:00:13.030 --> 00:00:14.930
+the frequency that the clients
+
+8
+00:00:14.930 --> 00:00:17.030
+or the computers need to be able
+
+9
+00:00:17.030 --> 00:00:19.150
+to support and use in order to
+
+10
+00:00:19.150 --> 00:00:21.680
+be able to connect this network.
+
+11
+00:00:21.680 --> 00:00:23.570
+The two main frequencies used in
+
+12
+00:00:23.570 --> 00:00:28.120
+WiFi networks are 2.4 and 5 gigzhertz.
+
+13
+00:00:28.120 --> 00:00:31.010
+Now previously, when we use airodump-ng
+
+14
+00:00:31.010 --> 00:00:32.970
+we were only sniffing on
+
+15
+00:00:32.970 --> 00:00:35.423
+the 2.4 gigahertz frequency.
+
+16
+00:00:36.520 --> 00:00:37.790
+You can see first of all
+
+17
+00:00:37.790 --> 00:00:38.795
+my wireless adapter is in
+
+18
+00:00:38.795 --> 00:00:41.690
+monitor mode mon0 in here.
+
+19
+00:00:41.690 --> 00:00:44.190
+So if I just do airodump-ng mon0
+
+20
+00:00:49.470 --> 00:00:50.700
+you'll see that I can get the
+
+21
+00:00:50.700 --> 00:00:53.310
+wireless networks around me.
+
+22
+00:00:53.310 --> 00:00:55.620
+But you might have noticed that
+
+23
+00:00:55.620 --> 00:00:58.170
+you won't actually see all the networks
+
+24
+00:00:58.170 --> 00:01:00.633
+around you when you run airodump-ng.
+
+25
+00:01:01.920 --> 00:01:03.550
+I'm gonna control-c this
+
+26
+00:01:03.550 --> 00:01:05.370
+and if I go here to
+
+27
+00:01:05.370 --> 00:01:07.520
+my normal host machine
+
+28
+00:01:07.520 --> 00:01:08.530
+and it actually has a
+
+29
+00:01:08.530 --> 00:01:09.790
+built in wireless adapter
+
+30
+00:01:09.790 --> 00:01:11.925
+so it's not as strong
+
+31
+00:01:11.925 --> 00:01:13.270
+as my alpha adapter.
+
+32
+00:01:13.270 --> 00:01:15.270
+But if I look for networks,
+
+33
+00:01:15.270 --> 00:01:16.540
+you'll see I actually have
+
+34
+00:01:16.540 --> 00:01:18.203
+much more networks in here.
+
+35
+00:01:19.050 --> 00:01:21.250
+And mainly I have networks and
+
+36
+00:01:21.250 --> 00:01:24.030
+in here and the name by 5G.
+
+37
+00:01:24.030 --> 00:01:25.410
+Now the network doesn't have
+
+38
+00:01:25.410 --> 00:01:27.570
+to necessarily end in 5G
+
+39
+00:01:27.570 --> 00:01:28.990
+but here in Ireland if
+
+40
+00:01:28.990 --> 00:01:31.750
+a network broadcasts over five gigahertz
+
+41
+00:01:31.750 --> 00:01:33.400
+the service provider adds
+
+42
+00:01:33.400 --> 00:01:35.370
+5G to the network name.
+
+43
+00:01:35.370 --> 00:01:36.950
+But we also have other networks
+
+44
+00:01:36.950 --> 00:01:38.540
+broadcasting over 5G
+
+45
+00:01:38.540 --> 00:01:40.710
+that don't end in 5G.
+
+46
+00:01:40.710 --> 00:01:42.400
+But basically the main point that
+
+47
+00:01:42.400 --> 00:01:45.660
+I want to talk about is I'm not able
+
+48
+00:01:45.660 --> 00:01:47.680
+to see all the networks around me
+
+49
+00:01:47.680 --> 00:01:49.690
+in here in airodump-ng.
+
+50
+00:01:49.690 --> 00:01:51.840
+And the reason for this is
+
+51
+00:01:51.840 --> 00:01:54.465
+because airodump-ng is only sniffing
+
+52
+00:01:54.465 --> 00:01:57.760
+on 2.0 gigahertz frequency.
+
+53
+00:01:57.760 --> 00:02:00.370
+So if you do this and you don't
+
+54
+00:02:00.370 --> 00:02:02.340
+see all the networks around you,
+
+55
+00:02:02.340 --> 00:02:03.550
+or if you're sniffing
+
+56
+00:02:03.550 --> 00:02:04.707
+on your own network,
+
+57
+00:02:04.707 --> 00:02:06.650
+but you don't see all the clients
+
+58
+00:02:06.650 --> 00:02:08.550
+in your network it's possible
+
+59
+00:02:08.550 --> 00:02:09.400
+that your routers is
+
+60
+00:02:09.400 --> 00:02:10.930
+broadcasting over two bands,
+
+61
+00:02:10.930 --> 00:02:13.470
+over 2.4 and five gigahertz.
+
+62
+00:02:13.470 --> 00:02:14.440
+And if you're not seeing
+
+63
+00:02:14.440 --> 00:02:15.380
+the router at all,
+
+64
+00:02:15.380 --> 00:02:16.640
+if you are not seeing the network
+
+65
+00:02:16.640 --> 00:02:18.440
+at all like what's happening
+
+66
+00:02:18.440 --> 00:02:20.930
+here for me, then the router
+
+67
+00:02:20.930 --> 00:02:22.580
+is probably just broadcasting
+
+68
+00:02:22.580 --> 00:02:24.560
+over five gigahertz.
+
+69
+00:02:24.560 --> 00:02:25.950
+Now this doesn't mean that
+
+70
+00:02:25.950 --> 00:02:27.970
+your wireless adapter is not good.
+
+71
+00:02:27.970 --> 00:02:29.360
+it just literally means that
+
+72
+00:02:29.360 --> 00:02:30.980
+this adapter is not able to
+
+73
+00:02:30.980 --> 00:02:32.720
+see five gigahertz frequency.
+
+74
+00:02:32.720 --> 00:02:34.640
+It's just outside of its limit,
+
+75
+00:02:34.640 --> 00:02:37.010
+outside of its reach.
+
+76
+00:02:37.010 --> 00:02:38.920
+The main problem with five gigahertz
+
+77
+00:02:38.920 --> 00:02:40.250
+is that, there are a lot
+
+78
+00:02:40.250 --> 00:02:41.750
+of wireless adapters that can
+
+79
+00:02:41.750 --> 00:02:43.960
+see it and can communicate with it.
+
+80
+00:02:43.960 --> 00:02:45.700
+But not many of them support
+
+81
+00:02:45.700 --> 00:02:48.060
+monitor mode and packet injection.
+
+82
+00:02:48.060 --> 00:02:50.330
+So you might see me and other people
+
+83
+00:02:50.330 --> 00:02:52.270
+recommending wireless adapters like
+
+84
+00:02:52.270 --> 00:02:53.340
+Alpha AWUS0360NHA
+
+85
+00:02:56.840 --> 00:02:59.920
+This is my most favorite wireless adapter.
+
+86
+00:02:59.920 --> 00:03:02.040
+I use it all the time, even now.
+
+87
+00:03:02.040 --> 00:03:03.780
+But the problem with that adapter is
+
+88
+00:03:03.780 --> 00:03:06.163
+it doesn't pick up five gigahertz frequency.
+
+89
+00:03:07.356 --> 00:03:09.030
+So it doesn't mean that that adapter is bad
+
+90
+00:03:09.030 --> 00:03:10.560
+it just means that it can't see
+
+91
+00:03:10.560 --> 00:03:12.103
+five gigahertz frequency.
+
+92
+00:03:13.710 --> 00:03:15.190
+Like I said, there aren't many
+
+93
+00:03:15.190 --> 00:03:18.750
+wireless adapters that support five gigahertz,
+
+94
+00:03:18.750 --> 00:03:22.450
+but I have an adapter here it's Alpha AWUS0360ACH
+
+95
+00:03:25.320 --> 00:03:27.070
+and this adapter supports both
+
+96
+00:03:27.070 --> 00:03:30.790
+2.4 gigahertz and five gigahertz frequencies.
+
+97
+00:03:30.790 --> 00:03:33.200
+It's not as good as the Alpha
+
+98
+00:03:33.200 --> 00:03:35.520
+but it does the job.
+
+99
+00:03:35.520 --> 00:03:37.090
+Now if you want more information about
+
+100
+00:03:37.090 --> 00:03:38.260
+wireless adapters check out
+
+101
+00:03:38.260 --> 00:03:39.330
+the link in the resources.
+
+102
+00:03:39.330 --> 00:03:40.670
+I'm not going to talk a lot about
+
+103
+00:03:40.670 --> 00:03:42.930
+what wireless adapters do.
+
+104
+00:03:42.930 --> 00:03:44.760
+But in this lecture I wanna show you
+
+105
+00:03:44.760 --> 00:03:47.100
+how to sniff and discover five gigahertz
+
+106
+00:03:47.100 --> 00:03:49.060
+frequency networks and then so that
+
+107
+00:03:49.060 --> 00:03:50.850
+you can use all the attacks that you've
+
+108
+00:03:50.850 --> 00:03:52.292
+learned in my other lecture and
+
+109
+00:03:52.292 --> 00:03:55.010
+in my previous videos with
+
+110
+00:03:55.010 --> 00:03:56.713
+five gigahertz networks.
+
+111
+00:03:57.550 --> 00:03:59.800
+So, the adapter that I'm using right now
+
+112
+00:03:59.800 --> 00:04:01.790
+supports five gigahertz but
+
+113
+00:04:01.790 --> 00:04:03.260
+as you can see, I still
+
+114
+00:04:03.260 --> 00:04:05.300
+can't pick up these networks.
+
+115
+00:04:05.300 --> 00:04:07.410
+That's because I need to specifically
+
+116
+00:04:07.410 --> 00:04:09.730
+tell airodump-ng that I want you
+
+117
+00:04:09.730 --> 00:04:12.680
+to listen on five gigahertz frequencies
+
+118
+00:04:12.680 --> 00:04:14.473
+and five gigahertz channels.
+
+119
+00:04:15.570 --> 00:04:17.260
+To do that, all we have to do is
+
+120
+00:04:17.260 --> 00:04:19.910
+just do airodump-ng like we always do
+
+121
+00:04:22.200 --> 00:04:24.160
+and then we are gonna use a new argument
+
+122
+00:04:24.160 --> 00:04:25.780
+that we haven't see before and
+
+123
+00:04:25.780 --> 00:04:27.573
+this argument is called band.
+
+124
+00:04:29.470 --> 00:04:30.990
+And we're gonna tell it that I want
+
+125
+00:04:30.990 --> 00:04:33.550
+you to sniff on band A
+
+126
+00:04:33.550 --> 00:04:34.840
+and that's the band that
+
+127
+00:04:34.840 --> 00:04:37.680
+supports five gigahertz frequency.
+
+128
+00:04:37.680 --> 00:04:39.192
+And then I'm just going to give it
+
+129
+00:04:39.192 --> 00:04:41.180
+the name of my wireless adapter
+
+130
+00:04:41.180 --> 00:04:43.473
+in monitor mode which is Mon0.
+
+131
+00:04:45.940 --> 00:04:48.340
+So the command is very simple.
+
+132
+00:04:48.340 --> 00:04:49.610
+It's very similar to what
+
+133
+00:04:49.610 --> 00:04:51.050
+we have used before.
+
+134
+00:04:51.050 --> 00:04:52.060
+And all we have to do
+
+135
+00:04:52.060 --> 00:04:54.250
+is just type in airodump-ng
+
+136
+00:04:54.250 --> 00:04:56.013
+followed by the band and
+
+137
+00:04:56.013 --> 00:04:58.760
+that band that we want to use is A
+
+138
+00:04:58.760 --> 00:05:00.140
+and we're following that with
+
+139
+00:05:00.140 --> 00:05:01.873
+our wireless interface.
+
+140
+00:05:03.530 --> 00:05:04.713
+So I'm gonna hit enter,
+
+141
+00:05:07.430 --> 00:05:08.620
+and as you can see as soon
+
+142
+00:05:08.620 --> 00:05:09.870
+as we hit this I'm actually just
+
+143
+00:05:09.870 --> 00:05:11.490
+gonna do control C now 'cause
+
+144
+00:05:11.490 --> 00:05:13.490
+you can see the results.
+
+145
+00:05:13.490 --> 00:05:15.390
+You can see that we got much more
+
+146
+00:05:15.390 --> 00:05:17.720
+networks right now and we have
+
+147
+00:05:17.720 --> 00:05:19.130
+the five gigahertz networks.
+
+148
+00:05:19.130 --> 00:05:21.110
+So we have this network and
+
+149
+00:05:21.110 --> 00:05:21.980
+this network that we
+
+150
+00:05:21.980 --> 00:05:23.590
+weren't able to see.
+
+151
+00:05:23.590 --> 00:05:25.150
+We have the JamesSmithWhiskey
+
+152
+00:05:26.042 --> 00:05:26.875
+newtwork as well.
+
+153
+00:05:26.875 --> 00:05:28.660
+And basically we're able to capture
+
+154
+00:05:28.660 --> 00:05:30.600
+all the networks that use the
+
+155
+00:05:30.600 --> 00:05:33.040
+five gigahertz frequency.
+
+156
+00:05:33.040 --> 00:05:34.850
+Now what you can also do,
+
+157
+00:05:34.850 --> 00:05:36.550
+let me clear the screen.
+
+158
+00:05:36.550 --> 00:05:39.860
+You can specify multiple bands
+
+159
+00:05:39.860 --> 00:05:41.970
+using the band argument.
+
+160
+00:05:41.970 --> 00:05:43.920
+So again, using the same command,
+
+161
+00:05:43.920 --> 00:05:45.993
+instead of just saying band A,
+
+162
+00:05:47.092 --> 00:05:49.208
+we can do band a-b-g
+
+163
+00:05:49.208 --> 00:05:50.943
+and what this will do is
+
+164
+00:05:50.943 --> 00:05:54.880
+it will tell airodump-ng to capture data
+
+165
+00:05:54.880 --> 00:05:59.820
+on both 2.4 and five gigahertz frequencies
+
+166
+00:05:59.820 --> 00:06:01.073
+at the same time.
+
+167
+00:06:02.420 --> 00:06:03.423
+So let me show you.
+
+168
+00:06:05.330 --> 00:06:06.740
+So as you can see right here
+
+169
+00:06:06.740 --> 00:06:09.760
+we're capturing some 2.4 gigahertz networks
+
+170
+00:06:09.760 --> 00:06:11.950
+and we're capturing five gigahertz networks
+
+171
+00:06:11.950 --> 00:06:13.980
+as well at the same time.
+
+172
+00:06:13.980 --> 00:06:15.960
+and we'll also be able to discover
+
+173
+00:06:15.960 --> 00:06:19.840
+clients connecting to both bands.
+
+174
+00:06:19.840 --> 00:06:21.210
+The only problem with using
+
+175
+00:06:22.299 --> 00:06:24.130
+airodump like this is first of all,
+
+176
+00:06:24.130 --> 00:06:25.110
+you need a powerful
+
+177
+00:06:25.110 --> 00:06:27.250
+wireless adapter to do this.
+
+178
+00:06:27.250 --> 00:06:29.820
+Also it will be slightly slower
+
+179
+00:06:29.820 --> 00:06:32.040
+than only sniffing on one band.
+
+180
+00:06:32.040 --> 00:06:33.380
+Because when you're sniffing on
+
+181
+00:06:33.380 --> 00:06:35.260
+two bands you have a lot of channels
+
+182
+00:06:35.260 --> 00:06:37.330
+that airodump-ng has to hop on
+
+183
+00:06:37.330 --> 00:06:39.840
+all of them and discover clients
+
+184
+00:06:39.840 --> 00:06:43.203
+and networks broadcasting on these channels.
+
+185
+00:06:44.140 --> 00:06:46.140
+So, if you want quicker results
+
+186
+00:06:46.140 --> 00:06:48.980
+then you're better off specifying the band A,
+
+187
+00:06:48.980 --> 00:06:50.400
+when you want to sniff on the
+
+188
+00:06:50.400 --> 00:06:52.570
+five gigahertz frequencies and just
+
+189
+00:06:52.570 --> 00:06:55.403
+not specify the band when sniffing on 2.4.
+
+190
+00:06:56.480 --> 00:06:58.660
+But, as you can see you can
+
+191
+00:06:58.660 --> 00:07:00.460
+just run the command like so,
+
+192
+00:07:00.460 --> 00:07:03.470
+with band a-b-g and this way you'll
+
+193
+00:07:03.470 --> 00:07:06.203
+be able to capture data sent over
+
+194
+00:07:06.203 --> 00:07:09.863
+2.4 and five gigahertz frequencies.
+
+195
+00:07:10.780 --> 00:07:14.290
+Also keep in mind, in order to sniff data
+
+196
+00:07:14.290 --> 00:07:17.400
+on five gigahertz frequency, like I said
+
+197
+00:07:17.400 --> 00:07:19.740
+your wireless adapter needs to
+
+198
+00:07:19.740 --> 00:07:22.200
+be able to support this band.
+
+199
+00:07:22.200 --> 00:07:24.690
+So simply adding the band argument
+
+200
+00:07:24.690 --> 00:07:27.714
+will not work unless your wireless adapter
+
+201
+00:07:27.714 --> 00:07:32.143
+can support and can sniff data on this band.
+
+202
+00:07:34.110 --> 00:07:36.180
+One more thing that I wanna note,
+
+203
+00:07:36.180 --> 00:07:37.920
+I've actually said this before.
+
+204
+00:07:37.920 --> 00:07:41.220
+If you run airodump-ng against a network
+
+205
+00:07:41.220 --> 00:07:43.530
+and you see some devices missing
+
+206
+00:07:43.530 --> 00:07:46.260
+then there is a high chance that these devices
+
+207
+00:07:46.260 --> 00:07:48.700
+are connected over five gigahertz.
+
+208
+00:07:48.700 --> 00:07:51.380
+So again, use the band A and then
+
+209
+00:07:51.380 --> 00:07:53.583
+you should be able to see these devices.
+

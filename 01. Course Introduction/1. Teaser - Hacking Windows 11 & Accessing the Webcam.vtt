@@ -1,0 +1,523 @@
+WEBVTT
+
+00:00.150 --> 00:03.060
+-: Now, before we dive into the course content,
+
+00:03.060 --> 00:04.860
+I'd like to give you a teaser
+
+00:04.860 --> 00:07.500
+or a taste of what you'll be able to do
+
+00:07.500 --> 00:09.660
+by the end of the course.
+
+00:09.660 --> 00:12.840
+So this is going to be one example that's based
+
+00:12.840 --> 00:17.760
+on one topic that's covered in one subsection of the course.
+
+00:17.760 --> 00:19.830
+Now, because this is a teaser lecture,
+
+00:19.830 --> 00:22.380
+I'm not gonna explain the technical aspect
+
+00:22.380 --> 00:23.850
+of how am I doing this
+
+00:23.850 --> 00:26.070
+because I'm gonna teach you how to do this
+
+00:26.070 --> 00:27.900
+as you go through the course.
+
+00:27.900 --> 00:31.110
+For now, just sit back and enjoy this lecture.
+
+00:31.110 --> 00:33.180
+And after this lecture, we're gonna dive
+
+00:33.180 --> 00:35.430
+into the course content where you learn how
+
+00:35.430 --> 00:38.670
+to do things like this and much, much more.
+
+00:38.670 --> 00:39.750
+So in this example,
+
+00:39.750 --> 00:42.570
+we're gonna be hacking this Windows 11 computer
+
+00:42.570 --> 00:44.343
+from this hacking machine.
+
+00:45.619 --> 00:46.530
+In the first section of the course,
+
+00:46.530 --> 00:49.080
+I'm gonna show you how to set up your hacking lab
+
+00:49.080 --> 00:50.610
+including this hacking machine
+
+00:50.610 --> 00:52.560
+and the Target Windows machine.
+
+00:52.560 --> 00:56.340
+But for now, what I wanna do is I wanna hack this computer
+
+00:56.340 --> 00:58.173
+from this hacking machine.
+
+00:59.070 --> 01:00.870
+Now, the attack that I'm gonna show you right now
+
+01:00.870 --> 01:03.270
+and everything that I show you throughout the course works
+
+01:03.270 --> 01:06.630
+on Windows 11 and Windows 10 and previous versions
+
+01:06.630 --> 01:10.530
+but for now I'm using Windows 11 because it's the latest.
+
+01:10.530 --> 01:12.630
+And the way that I'm gonna hack that computer,
+
+01:12.630 --> 01:16.410
+mainly I'm gonna be using a framework called Beef.
+
+01:16.410 --> 01:20.479
+Beef is a browser exploitation framework that allow us
+
+01:20.479 --> 01:24.000
+to run a number of attacks against a target browser.
+
+01:24.000 --> 01:26.310
+Now, for us to be able to use Beef,
+
+01:26.310 --> 01:30.450
+we have to inject beef's code into the target browser.
+
+01:30.450 --> 01:32.880
+So we have to actually inject Beef's code
+
+01:32.880 --> 01:35.790
+into the browser of the target computer,
+
+01:35.790 --> 01:38.340
+which happens to be Chrome in this example.
+
+01:38.340 --> 01:41.400
+Now we're gonna use another program called Better Cap
+
+01:41.400 --> 01:45.450
+in order to inject Beef's hook code automatically
+
+01:45.450 --> 01:47.460
+into the target browser.
+
+01:47.460 --> 01:49.920
+So the target user will not even know
+
+01:49.920 --> 01:52.650
+that they clicked or did something suspicious.
+
+01:52.650 --> 01:55.830
+Now I've already configured Better Cap to do that,
+
+01:55.830 --> 01:57.360
+so I'm simply just gonna run it
+
+01:57.360 --> 01:59.410
+by giving it my network interface
+
+02:00.468 --> 02:03.900
+and giving it a script that I'm calling here spoof.cap.
+
+02:03.900 --> 02:06.510
+That will place me in the middle of the connections,
+
+02:06.510 --> 02:10.440
+allowing better cap to inject the hook code
+
+02:10.440 --> 02:13.770
+of Beef into the browser of the target.
+
+02:13.770 --> 02:15.150
+Now I'm gonna show you how to do this
+
+02:15.150 --> 02:18.060
+how to use Better Cap, and how to write this script yourself
+
+02:18.060 --> 02:19.290
+as we go through the course.
+
+02:19.290 --> 02:21.660
+So this is just a teaser for you to enjoy.
+
+02:21.660 --> 02:23.793
+Do not worry about the technicalities.
+
+02:24.871 --> 02:26.760
+So I'm gonna simply run it and now Better Cap
+
+02:26.760 --> 02:29.370
+is gonna intercept all the data that will be sent
+
+02:29.370 --> 02:31.470
+and received from this computer.
+
+02:31.470 --> 02:34.110
+And the last step, I'm gonna run a caplet that is
+
+02:34.110 --> 02:36.870
+called HSTS, hijack caplet.
+
+02:36.870 --> 02:39.990
+This script will allow us to downgrade connections
+
+02:39.990 --> 02:44.610
+and inject Beef's code into the browser.
+
+02:44.610 --> 02:46.560
+Again, I'm gonna show you how to write that script
+
+02:46.560 --> 02:48.270
+and use it later on in the course.
+
+02:48.270 --> 02:50.283
+So just watch it and enjoy.
+
+02:51.322 --> 02:53.010
+So I'm simply gonna hit enter to run that.
+
+02:53.010 --> 02:54.570
+And as you can see, we get no errors,
+
+02:54.570 --> 02:57.750
+meaning that everything is running successfully.
+
+02:57.750 --> 02:59.970
+And I'm also, in here, if you look
+
+02:59.970 --> 03:02.460
+at the top part of my terminal window,
+
+03:02.460 --> 03:05.100
+I'm actually listening for incoming connections
+
+03:05.100 --> 03:08.070
+because eventually the end goal is I wanna be
+
+03:08.070 --> 03:11.130
+able to receive a connection from the target computer,
+
+03:11.130 --> 03:14.220
+from my backdoor so that I can control their computer
+
+03:14.220 --> 03:16.050
+and do anything I want on it.
+
+03:16.050 --> 03:18.360
+So right now I'm listening for incoming connections.
+
+03:18.360 --> 03:20.190
+So when my attack is successful,
+
+03:20.190 --> 03:22.053
+I will get a connection in here.
+
+03:23.430 --> 03:24.540
+So let's go ahead
+
+03:24.540 --> 03:27.240
+to the target computer and simply run the browser.
+
+03:27.240 --> 03:30.210
+So we're assuming that this is the normal target user.
+
+03:30.210 --> 03:32.280
+They run their browser and for example
+
+03:32.280 --> 03:34.320
+they go to Google.ie.
+
+03:34.320 --> 03:36.090
+In order to just browse the internet
+
+03:36.090 --> 03:39.300
+or search for something that is interesting to them.
+
+03:39.300 --> 03:40.800
+Now, when this happens
+
+03:40.800 --> 03:42.910
+Better Cap is gonna automatically
+
+03:43.932 --> 03:45.540
+inject the hook code for Beef.
+
+03:45.540 --> 03:47.370
+And if we go to Beef,
+
+03:47.370 --> 03:50.520
+you can see that now we have a new online browser.
+
+03:50.520 --> 03:54.450
+So right now beef is connected to this browser right here.
+
+03:54.450 --> 03:56.700
+This browser is hooked to Beef
+
+03:56.700 --> 03:59.430
+and therefore we can click on it,
+
+03:59.430 --> 04:02.010
+get detailed information about it,
+
+04:02.010 --> 04:04.260
+and if we click on the commands,
+
+04:04.260 --> 04:06.630
+we'll be able to run a large number
+
+04:06.630 --> 04:11.310
+of commands that'll allow us to do so much on that target.
+
+04:11.310 --> 04:14.813
+Now we will go through all of that later on in the course,
+
+04:14.813 --> 04:16.140
+but the one that I wanna show you right now
+
+04:16.140 --> 04:18.480
+is in the social engineering category.
+
+04:18.480 --> 04:22.200
+It basically shows a fake notification bar
+
+04:22.200 --> 04:24.030
+for Chrome browsers.
+
+04:24.030 --> 04:26.100
+So we're gonna display a message
+
+04:26.100 --> 04:28.860
+saying critical update,
+
+04:28.860 --> 04:31.210
+click here to install
+
+04:33.147 --> 04:37.020
+and then we're gonna give a link to my backdoor.
+
+04:37.020 --> 04:38.940
+So when the user clicks on that message,
+
+04:38.940 --> 04:40.920
+they will install a backdoor.
+
+04:40.920 --> 04:42.960
+Now, I've already created that backdoor
+
+04:42.960 --> 04:45.570
+and hosted it on the web server of Cali.
+
+04:45.570 --> 04:47.820
+Again, I will show you how to use that web server
+
+04:47.820 --> 04:49.800
+and I'll show you how to create backdoors
+
+04:49.800 --> 04:51.210
+later on in the course.
+
+04:51.210 --> 04:53.220
+So for now, we're just executing
+
+04:53.220 --> 04:54.270
+and running information
+
+04:54.270 --> 04:56.703
+that we already know just as a teaser.
+
+04:57.660 --> 05:01.320
+So I'm gonna hit execute and let's go to the target browser.
+
+05:01.320 --> 05:04.020
+And as you can see, we're getting a notification bar
+
+05:04.020 --> 05:07.050
+in here telling us that there is a critical update.
+
+05:07.050 --> 05:08.400
+Click here to install.
+
+05:08.400 --> 05:09.750
+Now you could say that there's an update
+
+05:09.750 --> 05:10.770
+for Chrome or whatever.
+
+05:10.770 --> 05:12.870
+You can make this message more convincing.
+
+05:14.198 --> 05:15.900
+So if you click on install,
+
+05:15.900 --> 05:17.100
+you'll see that the file
+
+05:17.934 --> 05:18.900
+will get downloaded into my downloads
+
+05:18.900 --> 05:20.820
+just like any other file.
+
+05:20.820 --> 05:22.500
+And if I go to the downloads
+
+05:22.500 --> 05:24.600
+let me show you what this file looks like.
+
+05:26.520 --> 05:27.353
+You will notice
+
+05:27.353 --> 05:30.420
+that the file has the right icon for the Chrome installer.
+
+05:30.420 --> 05:33.240
+So right here, I actually have a clean Chrome installer.
+
+05:33.240 --> 05:35.190
+As you can see, I'm naming it clean.
+
+05:35.190 --> 05:38.520
+And this is the one that actually contains a backdoor.
+
+05:38.520 --> 05:41.040
+So you can see the files look identical,
+
+05:41.040 --> 05:43.690
+but if I run the updates that we just downloaded
+
+05:45.240 --> 05:46.726
+you will notice
+
+05:46.726 --> 05:49.320
+that you get this warning for running an executable.
+
+05:49.320 --> 05:52.230
+So we're gonna run it for an unknown publisher.
+
+05:52.230 --> 05:54.150
+And then it's actually gonna let you
+
+05:54.150 --> 05:55.920
+install Chrome as you can see.
+
+05:55.920 --> 05:58.410
+So it's Google update setup.
+
+05:58.410 --> 06:00.009
+If you say yes,
+
+06:00.009 --> 06:02.609
+you'll actually get the normal installer for Chrome.
+
+06:04.318 --> 06:06.810
+But if we go to the hacker machine in here and look
+
+06:06.810 --> 06:10.020
+at where I was listening for incoming and connections,
+
+06:10.020 --> 06:12.540
+you will notice that I actually got a connection
+
+06:12.540 --> 06:14.850
+from the Target Windows machine.
+
+06:14.850 --> 06:17.520
+So now I hacked that computer
+
+06:17.520 --> 06:20.760
+and I can do anything that the normal user can do
+
+06:20.760 --> 06:22.020
+on their computer.
+
+06:22.020 --> 06:24.120
+So I can access their file system
+
+06:24.120 --> 06:25.950
+I can register every key strike
+
+06:25.950 --> 06:27.510
+they type on their keyboard.
+
+06:27.510 --> 06:30.300
+I can listen to their mic, I can turn on their keyboard.
+
+06:30.300 --> 06:31.950
+I can turn on their camera.
+
+06:31.950 --> 06:34.920
+I can do anything that they can do on their computer.
+
+06:34.920 --> 06:38.880
+And just as a quick example to show you how severe this is,
+
+06:38.880 --> 06:41.160
+I'm gonna do webcam
+
+06:41.160 --> 06:42.900
+list to list all
+
+06:42.900 --> 06:45.330
+of the webcams connected to this computer.
+
+06:45.330 --> 06:47.670
+And as you can see, we have only one webcam.
+
+06:47.670 --> 06:51.630
+So I'm gonna do webcam stream number one,
+
+06:51.630 --> 06:54.450
+the first camera and if I hit enter,
+
+06:54.450 --> 06:57.750
+we can see a live stream of the target person.
+
+06:57.750 --> 06:59.370
+Now this is just one example
+
+06:59.370 --> 07:02.310
+of what you're gonna learn in this course, and like I said,
+
+07:02.310 --> 07:04.410
+don't worry about the technical aspects.
+
+07:04.410 --> 07:05.670
+I've connected a number
+
+07:05.670 --> 07:07.830
+of attacks here in order to achieve this.
+
+07:07.830 --> 07:11.160
+But we're gonna focus and cover every single piece
+
+07:11.160 --> 07:13.590
+of the puzzle that allowed us to do this.
+
+07:13.590 --> 07:15.000
+So don't worry about it at all.
+
+07:15.000 --> 07:17.700
+This is just a teaser to show you what you're gonna
+
+07:17.700 --> 07:20.313
+be able to do by the end of the course.

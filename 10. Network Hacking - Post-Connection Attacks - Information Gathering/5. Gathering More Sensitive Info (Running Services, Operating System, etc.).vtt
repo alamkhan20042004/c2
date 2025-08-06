@@ -1,0 +1,650 @@
+WEBVTT
+
+1
+00:00:00.720 --> 00:00:04.880
+<v ->Now, in the previous lecture we had a quick look on Zenmap</v>
+
+2
+00:00:04.880 --> 00:00:07.780
+and how it can be used to gather information.
+
+3
+00:00:07.780 --> 00:00:10.560
+So in this lecture we'll build up on that,
+
+4
+00:00:10.560 --> 00:00:13.950
+and the main scan that I wanna show you right now
+
+5
+00:00:13.950 --> 00:00:15.883
+is the quick scan plus.
+
+6
+00:00:17.570 --> 00:00:21.480
+This scan takes the quick scan one step further.
+
+7
+00:00:21.480 --> 00:00:23.960
+So first of all it'll be slower,
+
+8
+00:00:23.960 --> 00:00:27.870
+but it's going to show us even more information.
+
+9
+00:00:27.870 --> 00:00:32.060
+So first we're gonna be able to see the operating system
+
+10
+00:00:32.060 --> 00:00:35.140
+running on the discovered devices.
+
+11
+00:00:35.140 --> 00:00:38.250
+We will also be able to see the device type,
+
+12
+00:00:38.250 --> 00:00:41.660
+whether it's a phone or a laptop or a router,
+
+13
+00:00:41.660 --> 00:00:45.290
+and we'll be able to discover the program,
+
+14
+00:00:45.290 --> 00:00:49.470
+and the program version running on the discovered ports.
+
+15
+00:00:49.470 --> 00:00:51.010
+So before for example,
+
+16
+00:00:51.010 --> 00:00:53.950
+we were able to discover port 80 is open,
+
+17
+00:00:53.950 --> 00:00:57.740
+but we didn't know what program is running on this port
+
+18
+00:00:57.740 --> 00:01:00.000
+or what version of this program.
+
+19
+00:01:00.000 --> 00:01:03.460
+Getting the exact program version is really helpful
+
+20
+00:01:03.460 --> 00:01:06.090
+when we get to the gaining access section,
+
+21
+00:01:06.090 --> 00:01:08.570
+and you'll see then how we can use that
+
+22
+00:01:08.570 --> 00:01:11.220
+to exploit vulnerable services
+
+23
+00:01:11.220 --> 00:01:14.640
+and gain full control over the computers
+
+24
+00:01:14.640 --> 00:01:17.023
+that have these services installed.
+
+25
+00:01:18.960 --> 00:01:21.270
+Now straight away when you look at the results,
+
+26
+00:01:21.270 --> 00:01:23.790
+you'll se that we got much more information
+
+27
+00:01:23.790 --> 00:01:26.950
+than all of the scans we ran so far.
+
+28
+00:01:26.950 --> 00:01:29.240
+So the first thing you'll notice is the icons
+
+29
+00:01:29.240 --> 00:01:33.070
+beside the IPs of the discovered devices.
+
+30
+00:01:33.070 --> 00:01:35.870
+These icons represent the operating system
+
+31
+00:01:35.870 --> 00:01:38.040
+running on these devices.
+
+32
+00:01:38.040 --> 00:01:39.980
+So right now we have the operating system
+
+33
+00:01:39.980 --> 00:01:42.360
+for all of the connected devices,
+
+34
+00:01:42.360 --> 00:01:45.240
+and now it's shown us the programs running
+
+35
+00:01:45.240 --> 00:01:47.530
+on each of the discovered ports
+
+36
+00:01:47.530 --> 00:01:50.360
+and the versions of these programs.
+
+37
+00:01:50.360 --> 00:01:53.850
+So for example if we look at the 191.168.1.12,
+
+38
+00:01:53.850 --> 00:01:55.090
+the Apple device,
+
+39
+00:01:55.090 --> 00:01:57.460
+on the last scan we knew that port 22 open
+
+40
+00:01:57.460 --> 00:01:59.690
+and we knew that SSH is running on it,
+
+41
+00:01:59.690 --> 00:02:03.220
+but we didn't know what version of SSH was running.
+
+42
+00:02:03.220 --> 00:02:07.083
+Right now we can see that it's running open SSH version 6.1,
+
+43
+00:02:08.360 --> 00:02:10.880
+so we can go on Google and look for exploits
+
+44
+00:02:10.880 --> 00:02:14.430
+and vulnerabilities in this specific version,
+
+45
+00:02:14.430 --> 00:02:16.740
+and we might actually find something.
+
+46
+00:02:16.740 --> 00:02:18.490
+We'll actually talk more about that
+
+47
+00:02:18.490 --> 00:02:20.203
+in the "gaining access" section.
+
+48
+00:02:21.240 --> 00:02:23.430
+Now if you look at the device type,
+
+49
+00:02:23.430 --> 00:02:26.960
+you can see that it's a media device; it's a phone.
+
+50
+00:02:26.960 --> 00:02:29.500
+So before we knew this is an Apple device
+
+51
+00:02:29.500 --> 00:02:31.450
+but we didn't know whether it's a tablet,
+
+52
+00:02:31.450 --> 00:02:33.570
+a phone, or a MacBook.
+
+53
+00:02:33.570 --> 00:02:36.380
+Right now we know that it is a phone.
+
+54
+00:02:36.380 --> 00:02:38.180
+It's also discovering that it's running
+
+55
+00:02:38.180 --> 00:02:40.750
+Apple iOS four, five or six.
+
+56
+00:02:40.750 --> 00:02:43.270
+Now it's actually running a newer version of iOS,
+
+57
+00:02:43.270 --> 00:02:45.900
+I'm not entirely sure, I think nine or 10,
+
+58
+00:02:45.900 --> 00:02:48.410
+but still, it's close enough it's getting me.
+
+59
+00:02:48.410 --> 00:02:50.300
+It's telling me it's an Apple.
+
+60
+00:02:50.300 --> 00:02:53.330
+It's telling me that it's a phone, it's running iOS.
+
+61
+00:02:53.330 --> 00:02:55.113
+So this is really really good.
+
+62
+00:02:56.610 --> 00:03:00.840
+Now if we go to the next device here, the 192.168.1.20.
+
+63
+00:03:00.840 --> 00:03:05.520
+This is a Linux device and when we run the quick scan
+
+64
+00:03:05.520 --> 00:03:10.410
+we are able to identify port 80 and port 49152 open,
+
+65
+00:03:10.410 --> 00:03:12.780
+but again, we didn't know the program running
+
+66
+00:03:12.780 --> 00:03:16.010
+or the service version running on this port.
+
+67
+00:03:16.010 --> 00:03:21.010
+So right now we know it's a Apache httpd 2.2.22,
+
+68
+00:03:21.600 --> 00:03:23.360
+it's running on Ubuntu so again
+
+69
+00:03:23.360 --> 00:03:25.330
+now we have the operating system,
+
+70
+00:03:25.330 --> 00:03:28.520
+the exact version of the service running
+
+71
+00:03:28.520 --> 00:03:31.200
+so we can go and look for weaknesses and exploits
+
+72
+00:03:31.200 --> 00:03:33.730
+in this specific version.
+
+73
+00:03:33.730 --> 00:03:35.540
+And this port, we didn't even know
+
+74
+00:03:35.540 --> 00:03:37.440
+what service was running on it.
+
+75
+00:03:37.440 --> 00:03:40.450
+Right now we know it's a UPnP service
+
+76
+00:03:40.450 --> 00:03:43.480
+and the server is MediaTomb UPnP.
+
+77
+00:03:43.480 --> 00:03:45.640
+We have the exact version again
+
+78
+00:03:45.640 --> 00:03:48.290
+so again we can go ahead and look for exploits
+
+79
+00:03:48.290 --> 00:03:50.290
+in these specific versions,
+
+80
+00:03:50.290 --> 00:03:52.550
+and if we discover any we'll be able
+
+81
+00:03:52.550 --> 00:03:56.400
+to gain full control on this computer.
+
+82
+00:03:56.400 --> 00:04:01.210
+Again if we go down to the 192.168.1.22 machine we can see
+
+83
+00:04:01.210 --> 00:04:06.040
+that it's running a Microsoft HTTPAPI, on port 5357.
+
+84
+00:04:09.220 --> 00:04:11.640
+You can also browse by the services.
+
+85
+00:04:11.640 --> 00:04:14.950
+So from here on the left if you click on services
+
+86
+00:04:14.950 --> 00:04:19.250
+you'll be able to categorize the discovered clients
+
+87
+00:04:19.250 --> 00:04:20.540
+based on the services.
+
+88
+00:04:20.540 --> 00:04:23.570
+So if we click on http we'll see all the clients
+
+89
+00:04:23.570 --> 00:04:25.940
+that have a http service running.
+
+90
+00:04:25.940 --> 00:04:29.450
+If you click on ssh we can see the Apple device here.
+
+91
+00:04:29.450 --> 00:04:32.743
+It's the only device that has a ssh service running.
+
+92
+00:04:33.990 --> 00:04:37.090
+So let me actually show you a quick and fun example.
+
+93
+00:04:37.090 --> 00:04:38.860
+If we go back here to the hosts
+
+94
+00:04:38.860 --> 00:04:43.780
+and go back to the apple device, the 192.168.1.12.
+
+95
+00:04:43.780 --> 00:04:46.470
+As we see and as I said we know it's a phone,
+
+96
+00:04:46.470 --> 00:04:47.890
+we know it's an Apple phone,
+
+97
+00:04:47.890 --> 00:04:51.340
+we know that it has an ssh service installed on it
+
+98
+00:04:51.340 --> 00:04:56.070
+running on port 22, and we know that ssh is a service
+
+99
+00:04:56.070 --> 00:05:00.700
+that allows you to remotely execute system commands
+
+100
+00:05:00.700 --> 00:05:05.700
+on the computer that has the ssh service installed.
+
+101
+00:05:05.820 --> 00:05:08.680
+Now obviously before you can use this service
+
+102
+00:05:08.680 --> 00:05:11.170
+you have to use a username and a password.
+
+103
+00:05:11.170 --> 00:05:14.440
+Once you authenticate it will allow you to execute
+
+104
+00:05:14.440 --> 00:05:18.883
+system commands remotely on that computer or on that phone.
+
+105
+00:05:19.720 --> 00:05:24.720
+Now by default iOS devices do not have an ssh server.
+
+106
+00:05:24.880 --> 00:05:28.380
+Usually when you jailbreak the phone or the device
+
+107
+00:05:28.380 --> 00:05:31.880
+it will automatically install an ssh server
+
+108
+00:05:31.880 --> 00:05:34.470
+and the password for that server
+
+109
+00:05:34.470 --> 00:05:37.320
+is set to "alpine", by default.
+
+110
+00:05:37.320 --> 00:05:39.920
+That's A-L-P-I-N-E.
+
+111
+00:05:39.920 --> 00:05:41.950
+Now since we know that this is an iPhone
+
+112
+00:05:41.950 --> 00:05:45.440
+and it has port 22 open with open ssh server,
+
+113
+00:05:45.440 --> 00:05:48.200
+we know that that this phone has been jailbroken.
+
+114
+00:05:48.200 --> 00:05:49.920
+Now since the phone is jailbroken,
+
+115
+00:05:49.920 --> 00:05:53.580
+we know the password to log into ssh is "alpine"
+
+116
+00:05:53.580 --> 00:05:55.850
+unless the user changed it.
+
+117
+00:05:55.850 --> 00:05:58.730
+Now most users do not even know about this,
+
+118
+00:05:58.730 --> 00:06:00.640
+and even the ones that know about this,
+
+119
+00:06:00.640 --> 00:06:03.760
+like myself, are too lazy to change it.
+
+120
+00:06:03.760 --> 00:06:06.150
+So it's always worth a try if you discover
+
+121
+00:06:06.150 --> 00:06:08.770
+a phone like this in the same network.
+
+122
+00:06:08.770 --> 00:06:10.700
+It's always worth a try to go and try
+
+123
+00:06:10.700 --> 00:06:13.760
+to connect to it with the default password.
+
+124
+00:06:13.760 --> 00:06:15.940
+So I'm just gonna go to my terminal
+
+125
+00:06:15.940 --> 00:06:19.097
+and I'm gonna try to connect to this phone using ssh.
+
+126
+00:06:20.050 --> 00:06:23.200
+So I'm gonna type "ssh root",
+
+127
+00:06:23.200 --> 00:06:26.944
+which is the username for the admin in Linux,
+
+128
+00:06:26.944 --> 00:06:31.944
+"@192.168.1.12". This is the IP of the phone.
+
+129
+00:06:32.420 --> 00:06:33.630
+I'm gonna hit enter.
+
+130
+00:06:33.630 --> 00:06:35.890
+It's asking me if I should trust this connection,
+
+131
+00:06:35.890 --> 00:06:39.810
+I'm gonna say yes, and now it's asking me for the password.
+
+132
+00:06:39.810 --> 00:06:42.310
+And like I said, when the phone is jailbroken
+
+133
+00:06:42.310 --> 00:06:44.980
+the password is set to "alpine".
+
+134
+00:06:44.980 --> 00:06:48.750
+So I'm gonna type A-L-P-I-N-E.
+
+135
+00:06:48.750 --> 00:06:50.143
+I'm gonna hit enter.
+
+136
+00:06:51.140 --> 00:06:54.570
+And as you can see, I logged in as root.
+
+137
+00:06:54.570 --> 00:06:57.880
+So right now I have the highest privileges on the phone
+
+138
+00:06:57.880 --> 00:07:01.700
+and I can do whatever I want on the system.
+
+139
+00:07:01.700 --> 00:07:03.820
+And now we can use system commands
+
+140
+00:07:03.820 --> 00:07:06.003
+to completely control the phone.
+
+141
+00:07:07.370 --> 00:07:09.720
+Now this is a little bit ahead of time,
+
+142
+00:07:09.720 --> 00:07:12.080
+we are still in the "network hacking" section,
+
+143
+00:07:12.080 --> 00:07:13.730
+so don't worry too much about this,
+
+144
+00:07:13.730 --> 00:07:17.480
+we'll talk more about it in the "gaining access" section,
+
+145
+00:07:17.480 --> 00:07:20.520
+but it's just a quick example that I wanted to show you
+
+146
+00:07:20.520 --> 00:07:23.590
+of how powerful information gathering is,
+
+147
+00:07:23.590 --> 00:07:26.860
+because we literally did not exploit anything right here,
+
+148
+00:07:26.860 --> 00:07:29.860
+we just relied on the information we gathered
+
+149
+00:07:29.860 --> 00:07:32.200
+and we were able to hack an iPhone
+
+150
+00:07:32.200 --> 00:07:34.623
+that is connected to the same network as us.
+
+151
+00:07:36.610 --> 00:07:39.960
+Now like I said Nmap is a huge tool.
+
+152
+00:07:39.960 --> 00:07:41.420
+I highly recommend you go ahead
+
+153
+00:07:41.420 --> 00:07:43.900
+and try the other profiles in here,
+
+154
+00:07:43.900 --> 00:07:45.970
+and like I said, once done with the course,
+
+155
+00:07:45.970 --> 00:07:49.940
+I think the Nmap book would be a really really good read.
+
+156
+00:07:49.940 --> 00:07:52.067
+We'll also use Nmap much more in the
+
+157
+00:07:52.067 --> 00:07:54.540
+"gaining access" section and we'll see how we can use
+
+158
+00:07:54.540 --> 00:07:58.170
+this information to gain full control over the computers
+
+159
+00:07:58.170 --> 00:08:01.840
+using code execution vulnerabilities and so on.
+
+160
+00:08:01.840 --> 00:08:03.950
+But in this lecture I just wanted to give you
+
+161
+00:08:03.950 --> 00:08:06.670
+a quick overview and we'll build up on this
+
+162
+00:08:06.670 --> 00:08:08.353
+as we go through the course.
+

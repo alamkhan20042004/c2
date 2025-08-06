@@ -1,0 +1,474 @@
+WEBVTT
+
+1
+00:00:00.450 --> 00:00:02.170
+<v Instructor>Now that we have associated</v>
+
+2
+00:00:02.170 --> 00:00:03.970
+with our target network,
+
+3
+00:00:03.970 --> 00:00:08.520
+we can start communicating with it, and it won't ignore us.
+
+4
+00:00:08.520 --> 00:00:11.790
+So now we can go and start injecting packets
+
+5
+00:00:11.790 --> 00:00:16.220
+into the traffic to force the access point
+
+6
+00:00:16.220 --> 00:00:20.020
+to generate new packets with new IVs.
+
+7
+00:00:20.020 --> 00:00:22.320
+This will increase the number of data
+
+8
+00:00:22.320 --> 00:00:24.470
+really, really quickly, allowing us
+
+9
+00:00:24.470 --> 00:00:27.740
+to crack WEP networks in minutes,
+
+10
+00:00:27.740 --> 00:00:30.140
+even if the network was not busy,
+
+11
+00:00:30.140 --> 00:00:33.023
+like the one that we are targeting right now.
+
+12
+00:00:34.360 --> 00:00:36.820
+Now, there are a number of ways to do this,
+
+13
+00:00:36.820 --> 00:00:39.320
+but in this course, I'm going to explain
+
+14
+00:00:39.320 --> 00:00:41.130
+the most reliable method
+
+15
+00:00:41.130 --> 00:00:45.113
+which is using an ARP request replay attack.
+
+16
+00:00:46.330 --> 00:00:48.200
+I actually explain other methods
+
+17
+00:00:48.200 --> 00:00:50.100
+in my network hacking course,
+
+18
+00:00:50.100 --> 00:00:52.470
+but they are a little bit more complex
+
+19
+00:00:52.470 --> 00:00:54.820
+and have less success rate.
+
+20
+00:00:54.820 --> 00:00:56.950
+So this is the most reliable method
+
+21
+00:00:56.950 --> 00:00:59.610
+and it should work against most networks
+
+22
+00:00:59.610 --> 00:01:04.450
+if you have a good signal and a good wireless adapter.
+
+23
+00:01:04.450 --> 00:01:06.710
+So the idea behind this method is
+
+24
+00:01:06.710 --> 00:01:09.400
+to wait for an ARP packet,
+
+25
+00:01:09.400 --> 00:01:12.980
+and I'll talk about ARP in more details later on.
+
+26
+00:01:12.980 --> 00:01:16.800
+So for now, just think of it as a special type of a packet
+
+27
+00:01:16.800 --> 00:01:18.810
+that we're gonna be waiting on.
+
+28
+00:01:18.810 --> 00:01:21.700
+Once this packet is sent in the network,
+
+29
+00:01:21.700 --> 00:01:25.370
+we're going to capture it and retransmit it.
+
+30
+00:01:25.370 --> 00:01:28.440
+Once we do this, the router is forced
+
+31
+00:01:28.440 --> 00:01:31.713
+to generate a new packet with a new IV.
+
+32
+00:01:33.660 --> 00:01:37.890
+So by repeating this process, we will be forcing the router
+
+33
+00:01:37.890 --> 00:01:42.820
+to continuously generate new packets with new IVs.
+
+34
+00:01:42.820 --> 00:01:46.410
+Then once we have enough data, once we have enough IVs,
+
+35
+00:01:46.410 --> 00:01:48.320
+we can run aircrack-ng,
+
+36
+00:01:48.320 --> 00:01:51.973
+exactly as we seen before and crack the key.
+
+37
+00:01:53.000 --> 00:01:55.343
+So let me show you how to do this in practice.
+
+38
+00:01:56.690 --> 00:01:58.170
+Now, as you can see,
+
+39
+00:01:58.170 --> 00:02:02.610
+I'm already running airodump-ng against my target network.
+
+40
+00:02:02.610 --> 00:02:05.590
+And I have already associated with it
+
+41
+00:02:05.590 --> 00:02:08.220
+as shown in the previous lecture.
+
+42
+00:02:08.220 --> 00:02:10.690
+So the only thing that's left right now
+
+43
+00:02:10.690 --> 00:02:13.680
+is to run the ARP replay attack
+
+44
+00:02:13.680 --> 00:02:16.600
+in order to inject packets into the traffic,
+
+45
+00:02:16.600 --> 00:02:19.830
+and force the router to generate new packets
+
+46
+00:02:19.830 --> 00:02:21.903
+and increase the number of data.
+
+47
+00:02:22.970 --> 00:02:26.480
+To do that, we're gonna use aireplay-ng again.
+
+48
+00:02:26.480 --> 00:02:29.130
+And the command is actually gonna be very similar
+
+49
+00:02:29.130 --> 00:02:31.230
+to this command right here.
+
+50
+00:02:31.230 --> 00:02:34.403
+So I'm actually gonna copy all of this because I'm lazy,
+
+51
+00:02:35.430 --> 00:02:39.830
+and I'm gonna clear this, and paste the command here.
+
+52
+00:02:39.830 --> 00:02:43.510
+Now, there are only a few things that I need to modify.
+
+53
+00:02:43.510 --> 00:02:45.510
+First of all, I don't want to run
+
+54
+00:02:45.510 --> 00:02:47.510
+a fake authentication attack,
+
+55
+00:02:47.510 --> 00:02:50.100
+so I'm gonna remove all of this,
+
+56
+00:02:50.100 --> 00:02:54.203
+and I want to run an ARP replay attack.
+
+57
+00:02:56.090 --> 00:02:58.550
+Also, this attack does not take a number,
+
+58
+00:02:58.550 --> 00:03:00.910
+so I'm gonna remove this number.
+
+59
+00:03:00.910 --> 00:03:05.910
+And I'm also gonna replace the a with b, and we're done.
+
+60
+00:03:06.010 --> 00:03:09.200
+So if you look at it, you'll see it's actually very similar
+
+61
+00:03:09.200 --> 00:03:10.960
+to this command right here.
+
+62
+00:03:10.960 --> 00:03:13.070
+We're using aireplay-ng,
+
+63
+00:03:13.070 --> 00:03:16.490
+but instead of doing a fake authentication attack,
+
+64
+00:03:16.490 --> 00:03:19.220
+we're doing an ARP replay attack,
+
+65
+00:03:19.220 --> 00:03:22.020
+we're giving it the MAC address of my target network
+
+66
+00:03:22.020 --> 00:03:25.120
+after the b instead of the a.
+
+67
+00:03:25.120 --> 00:03:26.890
+Then we're giving it the MAC address
+
+68
+00:03:26.890 --> 00:03:29.800
+of my wireless adapter after the h,
+
+69
+00:03:29.800 --> 00:03:31.900
+which is identical to this.
+
+70
+00:03:31.900 --> 00:03:32.890
+And then we're giving it
+
+71
+00:03:32.890 --> 00:03:36.070
+my wireless adapter in monitor mode.
+
+72
+00:03:36.070 --> 00:03:40.420
+Now, I'm actually gonna associate again, before I do that,
+
+73
+00:03:40.420 --> 00:03:43.660
+and then I'm gonna hit Enter here.
+
+74
+00:03:43.660 --> 00:03:46.150
+And what's happening right now is
+
+75
+00:03:46.150 --> 00:03:50.540
+my wireless adapter is waiting for an ARP packet,
+
+76
+00:03:50.540 --> 00:03:54.290
+once there is an ARP packet transmitted in this network,
+
+77
+00:03:54.290 --> 00:03:58.430
+it's gonna capture it, and it's going to retransmit it.
+
+78
+00:03:58.430 --> 00:04:01.470
+Once it does that, the access point will be forced
+
+79
+00:04:01.470 --> 00:04:04.320
+to generate a new packet with a new IV,
+
+80
+00:04:04.320 --> 00:04:07.020
+and we'll keep doing this, forcing the access point
+
+81
+00:04:07.020 --> 00:04:10.783
+to continually generate new packets with new IVs.
+
+82
+00:04:11.810 --> 00:04:13.970
+So you should just wait for it right now,
+
+83
+00:04:13.970 --> 00:04:16.520
+we're literally just waiting for an ARP packets
+
+84
+00:04:16.520 --> 00:04:18.880
+to be sent in the air.
+
+85
+00:04:18.880 --> 00:04:21.120
+And as you can see, the number of data
+
+86
+00:04:21.120 --> 00:04:23.990
+is increasing now very, very quickly, which means
+
+87
+00:04:23.990 --> 00:04:27.560
+that we actually managed to capture an ARP packet.
+
+88
+00:04:27.560 --> 00:04:31.470
+This ARP packet got retransmitted, forced the router
+
+89
+00:04:31.470 --> 00:04:34.300
+to generate a new packet with a new IV,
+
+90
+00:04:34.300 --> 00:04:37.500
+and we are continually doing this process,
+
+91
+00:04:37.500 --> 00:04:41.643
+forcing the router to generate new packets with new IVs.
+
+92
+00:04:42.630 --> 00:04:45.720
+So right now we can go ahead and run aircrack-ng,
+
+93
+00:04:45.720 --> 00:04:48.450
+to crack this network, and before I do that,
+
+94
+00:04:48.450 --> 00:04:51.340
+I'll actually just associate one more time.
+
+95
+00:04:51.340 --> 00:04:53.333
+And then I'm gonna do aircrack-ng,
+
+96
+00:04:56.660 --> 00:04:58.820
+and give it the name of the file
+
+97
+00:04:58.820 --> 00:05:00.630
+which we're storing the data in,
+
+98
+00:05:00.630 --> 00:05:05.367
+which is called arpreplay-01.cap.
+
+99
+00:05:06.950 --> 00:05:08.650
+So I'm gonna hit Enter,
+
+100
+00:05:08.650 --> 00:05:11.610
+and you'll notice the cracking process right now
+
+101
+00:05:11.610 --> 00:05:15.790
+will actually require more data packets.
+
+102
+00:05:15.790 --> 00:05:17.600
+The reason for this is,
+
+103
+00:05:17.600 --> 00:05:20.690
+I've actually modified the settings of this network,
+
+104
+00:05:20.690 --> 00:05:24.600
+so that it uses 128 bit key,
+
+105
+00:05:24.600 --> 00:05:29.600
+because in WEP, you can either use a 64 bit or 128 bit key,
+
+106
+00:05:30.490 --> 00:05:34.410
+and obviously, the 128 key is longer.
+
+107
+00:05:34.410 --> 00:05:36.810
+Therefore, I actually modified the key length
+
+108
+00:05:36.810 --> 00:05:40.540
+for this lecture to make sure it's the longest key possible.
+
+109
+00:05:40.540 --> 00:05:43.200
+And as you can see, we still managed to get it
+
+110
+00:05:43.200 --> 00:05:46.520
+within about 47,000 packets.
+
+111
+00:05:46.520 --> 00:05:48.870
+We have the key right here in ASCII,
+
+112
+00:05:48.870 --> 00:05:51.270
+and we have the key in here in hex,
+
+113
+00:05:51.270 --> 00:05:54.233
+where we can use after we remove the colons.
+
+114
+00:05:55.070 --> 00:05:58.130
+So perfect, now we managed to crack the target network,
+
+115
+00:05:58.130 --> 00:06:00.100
+it was idle as you could see,
+
+116
+00:06:00.100 --> 00:06:03.670
+the was no data being sent, and we managed to do this
+
+117
+00:06:03.670 --> 00:06:06.240
+by forcing the target access point
+
+118
+00:06:06.240 --> 00:06:09.223
+to generate new packets with new IVs.
+

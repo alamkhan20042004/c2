@@ -1,0 +1,454 @@
+WEBVTT
+
+1
+00:00:00.810 --> 00:00:01.970
+<v Instructor>The first encryption</v>
+
+2
+00:00:01.970 --> 00:00:05.740
+that we'll learn how to break is called WEP,
+
+3
+00:00:05.740 --> 00:00:08.043
+or Wired Equivalent Privacy.
+
+4
+00:00:09.060 --> 00:00:13.700
+This is an old encryption, that can be easily broken.
+
+5
+00:00:13.700 --> 00:00:16.610
+The reason why I'm still covering it in this course,
+
+6
+00:00:16.610 --> 00:00:19.530
+is first of all, because like I said, it's very simple,
+
+7
+00:00:19.530 --> 00:00:22.030
+so it's a good starting point.
+
+8
+00:00:22.030 --> 00:00:25.950
+Also, it's still used sometimes in some networks.
+
+9
+00:00:25.950 --> 00:00:29.160
+Therefore, you can't really call yourself a hacker,
+
+10
+00:00:29.160 --> 00:00:31.860
+and then if you see a network that uses WEP,
+
+11
+00:00:31.860 --> 00:00:32.780
+you'll get stuck,
+
+12
+00:00:32.780 --> 00:00:35.293
+and you won't even be able to break into it.
+
+13
+00:00:36.170 --> 00:00:40.180
+So in this lecture, I'm gonna explain how WEP works,
+
+14
+00:00:40.180 --> 00:00:43.780
+and what's the weakness that we can use to break it.
+
+15
+00:00:43.780 --> 00:00:45.120
+And in the next lecture,
+
+16
+00:00:45.120 --> 00:00:47.230
+you'll see how we can use this weakness
+
+17
+00:00:47.230 --> 00:00:50.390
+in order to break WEP and get the key
+
+18
+00:00:50.390 --> 00:00:52.803
+for any network that uses WEP.
+
+19
+00:00:54.450 --> 00:00:59.360
+So basically, WEP uses an algorithm called RC4
+
+20
+00:00:59.360 --> 00:01:01.750
+to encrypt its the data.
+
+21
+00:01:01.750 --> 00:01:04.250
+So the way this works is basically,
+
+22
+00:01:04.250 --> 00:01:07.200
+if a client wants to send something to the router,
+
+23
+00:01:07.200 --> 00:01:09.600
+and let's say it wants to send this text,
+
+24
+00:01:09.600 --> 00:01:11.660
+data to send to the router,
+
+25
+00:01:11.660 --> 00:01:15.440
+it will first encrypt this using a key.
+
+26
+00:01:15.440 --> 00:01:19.940
+Therefore this normal text will be converted into gibberish
+
+27
+00:01:19.940 --> 00:01:21.393
+as you can see here.
+
+28
+00:01:22.280 --> 00:01:25.490
+This encrypted packet will be sent into the air,
+
+29
+00:01:25.490 --> 00:01:29.070
+so if a hacker captures this packet as we seen before,
+
+30
+00:01:29.070 --> 00:01:30.690
+if we open this packet,
+
+31
+00:01:30.690 --> 00:01:32.720
+we'll see that it's full of gibberish.
+
+32
+00:01:32.720 --> 00:01:35.920
+Even though it actually contains useful information,
+
+33
+00:01:35.920 --> 00:01:39.123
+we won't be able to read it because it's encrypted.
+
+34
+00:01:40.030 --> 00:01:42.780
+The access point will receive this encrypted packet,
+
+35
+00:01:42.780 --> 00:01:45.990
+and it will be able to transform it
+
+36
+00:01:45.990 --> 00:01:50.480
+back to its original form because it has the key.
+
+37
+00:01:50.480 --> 00:01:53.590
+Therefore, it'll actually be able to read the contents
+
+38
+00:01:53.590 --> 00:01:55.823
+which is, data to send to the router.
+
+39
+00:01:56.960 --> 00:01:58.760
+The same happens if the router
+
+40
+00:01:58.760 --> 00:02:00.950
+wants to send something back to the client,
+
+41
+00:02:00.950 --> 00:02:03.140
+it will first encrypt it using a key,
+
+42
+00:02:03.140 --> 00:02:04.300
+send it to the client,
+
+43
+00:02:04.300 --> 00:02:06.250
+the client will be able to decrypt it
+
+44
+00:02:06.250 --> 00:02:08.033
+because it has the key.
+
+45
+00:02:08.900 --> 00:02:10.870
+So the concept is always the same,
+
+46
+00:02:10.870 --> 00:02:13.900
+the transmitter encrypts the data using a key,
+
+47
+00:02:13.900 --> 00:02:15.360
+sends it to the receiver,
+
+48
+00:02:15.360 --> 00:02:17.760
+the receiver is able to decrypt it,
+
+49
+00:02:17.760 --> 00:02:20.520
+because it also has the key, therefore,
+
+50
+00:02:20.520 --> 00:02:23.120
+anybody who captures the packet in the middle,
+
+51
+00:02:23.120 --> 00:02:24.470
+they will get the packet,
+
+52
+00:02:24.470 --> 00:02:27.260
+but they won't be able to see the contents
+
+53
+00:02:27.260 --> 00:02:30.380
+because they do not have the key.
+
+54
+00:02:30.380 --> 00:02:35.120
+So the algorithm and the way RC4 works is actually fine,
+
+55
+00:02:35.120 --> 00:02:36.970
+the problem is with the way
+
+56
+00:02:36.970 --> 00:02:41.280
+that WEP implement this algorithm.
+
+57
+00:02:41.280 --> 00:02:42.710
+And to understand it,
+
+58
+00:02:42.710 --> 00:02:46.680
+let's zoom in a little bit more on each step.
+
+59
+00:02:46.680 --> 00:02:48.600
+So going back to the first step,
+
+60
+00:02:48.600 --> 00:02:52.520
+we have the client trying to send data to the router,
+
+61
+00:02:52.520 --> 00:02:54.770
+and the data that wants to send is,
+
+62
+00:02:54.770 --> 00:02:56.623
+data to send to the router.
+
+63
+00:02:57.620 --> 00:02:59.864
+So in order to encrypt this,
+
+64
+00:02:59.864 --> 00:03:04.864
+WEP tries to generate a unique key for each packet.
+
+65
+00:03:05.630 --> 00:03:08.850
+So literally each packet that's sent into the air,
+
+66
+00:03:08.850 --> 00:03:13.850
+it tries to create a new unique key for it, to do that,
+
+67
+00:03:14.930 --> 00:03:19.673
+it generates a random 24 bit initialization vector.
+
+68
+00:03:20.680 --> 00:03:24.370
+The initialization vector is then added to the password
+
+69
+00:03:24.370 --> 00:03:26.300
+of the network to the actual key
+
+70
+00:03:26.300 --> 00:03:29.130
+that people use to connect to the network.
+
+71
+00:03:29.130 --> 00:03:31.300
+This generates a key stream,
+
+72
+00:03:31.300 --> 00:03:35.450
+and then this key stream is used to encrypt this packet
+
+73
+00:03:35.450 --> 00:03:38.633
+and transform it into gibberish.
+
+74
+00:03:40.980 --> 00:03:43.210
+So basically, we have the key stream
+
+75
+00:03:43.210 --> 00:03:45.610
+plus the data that we need to encrypt,
+
+76
+00:03:45.610 --> 00:03:46.990
+gives us the gibberish,
+
+77
+00:03:46.990 --> 00:03:49.953
+and then the gibberish is sent into the air.
+
+78
+00:03:51.340 --> 00:03:54.140
+But before sending this into the air,
+
+79
+00:03:54.140 --> 00:03:59.130
+WEP will also append the initialization vector.
+
+80
+00:03:59.130 --> 00:04:03.830
+This is the 24 bit random number that I said it creates
+
+81
+00:04:03.830 --> 00:04:08.830
+in order to make sure that each packet has a unique key.
+
+82
+00:04:08.890 --> 00:04:11.820
+The reason why it adds the initialization vector
+
+83
+00:04:11.820 --> 00:04:14.150
+to the packet is because
+
+84
+00:04:14.150 --> 00:04:16.630
+once the router receives this packet,
+
+85
+00:04:16.630 --> 00:04:19.420
+it needs to be able to decrypt it,
+
+86
+00:04:19.420 --> 00:04:23.240
+and to decrypt it, it needs the key and the IV.
+
+87
+00:04:23.240 --> 00:04:25.180
+But the router already has the key,
+
+88
+00:04:25.180 --> 00:04:27.070
+so there is no need to send that.
+
+89
+00:04:27.070 --> 00:04:29.813
+Therefore we just need to send it the IV.
+
+90
+00:04:31.530 --> 00:04:35.380
+So when the router receives the packet, it has the IV,
+
+91
+00:04:35.380 --> 00:04:37.350
+it has the password or the key,
+
+92
+00:04:37.350 --> 00:04:39.340
+so it can generate a key stream
+
+93
+00:04:39.340 --> 00:04:43.160
+and then use that key stream to transform this gibberish
+
+94
+00:04:43.160 --> 00:04:46.163
+into its original form and read the packet.
+
+95
+00:04:48.120 --> 00:04:50.430
+So if you think about what I said,
+
+96
+00:04:50.430 --> 00:04:53.420
+you can probably guess what the weakness is.
+
+97
+00:04:53.420 --> 00:04:57.240
+Basically, the IV is sent in plain text,
+
+98
+00:04:57.240 --> 00:04:58.480
+so if you look at this,
+
+99
+00:04:58.480 --> 00:05:01.330
+you can see the packet content is encrypted,
+
+100
+00:05:01.330 --> 00:05:03.460
+so if someone captures this packet,
+
+101
+00:05:03.460 --> 00:05:05.780
+they won't be able to read this,
+
+102
+00:05:05.780 --> 00:05:09.363
+but they will be able to read the IV in plain text.
+
+103
+00:05:10.230 --> 00:05:15.230
+Also, the size of the IV is only 24 bits.
+
+104
+00:05:15.350 --> 00:05:17.940
+Now considering the huge amount of traffic
+
+105
+00:05:17.940 --> 00:05:21.250
+that can be generated on a Wi-Fi network,
+
+106
+00:05:21.250 --> 00:05:23.260
+this number is not big enough,
+
+107
+00:05:23.260 --> 00:05:28.260
+and the IVs will start getting repeated in a busy network.
+
+108
+00:05:28.960 --> 00:05:33.340
+This makes WEP vulnerable to statistical attacks,
+
+109
+00:05:33.340 --> 00:05:36.440
+so we can use a tool called Aircrack-ng
+
+110
+00:05:36.440 --> 00:05:38.100
+to determine the key stream,
+
+111
+00:05:38.100 --> 00:05:40.500
+once we have enough repeated IVs.
+
+112
+00:05:40.500 --> 00:05:44.830
+And from that it will also be able to crack WEP,
+
+113
+00:05:44.830 --> 00:05:47.143
+and give us the key to the network.
+

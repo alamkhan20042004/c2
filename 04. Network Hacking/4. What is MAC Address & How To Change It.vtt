@@ -1,0 +1,626 @@
+WEBVTT
+
+1
+00:00:00.630 --> 00:00:02.160
+<v ->When it comes to networking,</v>
+
+2
+00:00:02.160 --> 00:00:05.883
+you've probably heard of the term MAC address a lot.
+
+3
+00:00:06.740 --> 00:00:08.060
+So in this lecture,
+
+4
+00:00:08.060 --> 00:00:10.820
+I'm gonna cover what do we mean by MAC address,
+
+5
+00:00:10.820 --> 00:00:13.993
+what it's used for, and how to change it.
+
+6
+00:00:13.993 --> 00:00:15.632
+(dramatic music)
+
+7
+00:00:15.632 --> 00:00:18.215
+(loud banging)
+
+8
+00:00:20.100 --> 00:00:23.550
+MAC address stands for Media Access Control,
+
+9
+00:00:23.550 --> 00:00:26.850
+it's a permanent, physical, and unique address
+
+10
+00:00:26.850 --> 00:00:29.170
+assigned to network interfaces
+
+11
+00:00:29.170 --> 00:00:31.590
+by the device manufacturer.
+
+12
+00:00:31.590 --> 00:00:33.560
+So whether you have a wireless card,
+
+13
+00:00:33.560 --> 00:00:35.990
+or a wired, or Ethernet card,
+
+14
+00:00:35.990 --> 00:00:38.000
+each one of these network cards
+
+15
+00:00:38.000 --> 00:00:41.960
+come with a specific address that is unique to this card.
+
+16
+00:00:41.960 --> 00:00:44.490
+So there is no two devices in the world
+
+17
+00:00:44.490 --> 00:00:46.690
+that would have the same MAC address.
+
+18
+00:00:46.690 --> 00:00:49.970
+And this address will always be the same
+
+19
+00:00:49.970 --> 00:00:51.720
+to this specific device,
+
+20
+00:00:51.720 --> 00:00:54.040
+even if you unplug it from your computer,
+
+21
+00:00:54.040 --> 00:00:55.890
+connect it to another computer,
+
+22
+00:00:55.890 --> 00:01:00.343
+then this network device will always have the same address.
+
+23
+00:01:01.570 --> 00:01:04.160
+So you might already know that the IP address
+
+24
+00:01:04.160 --> 00:01:08.070
+is used in the internet to identify computers,
+
+25
+00:01:08.070 --> 00:01:11.900
+and communicate between devices on the internet.
+
+26
+00:01:11.900 --> 00:01:14.850
+The MAC address is used within the network
+
+27
+00:01:14.850 --> 00:01:19.423
+to identify devices and transfer data between devices.
+
+28
+00:01:20.360 --> 00:01:22.730
+So each piece of data or packet
+
+29
+00:01:22.730 --> 00:01:24.660
+that is sent within the network
+
+30
+00:01:24.660 --> 00:01:28.900
+contains a source MAC and a destination MAC.
+
+31
+00:01:28.900 --> 00:01:31.120
+Therefore, this packet would flow
+
+32
+00:01:31.120 --> 00:01:33.863
+from the source MAC to the destination MAC.
+
+33
+00:01:35.010 --> 00:01:38.440
+So because this is a physical unique address
+
+34
+00:01:38.440 --> 00:01:41.710
+to each interface, to each network device,
+
+35
+00:01:41.710 --> 00:01:45.010
+and because it is used to identify devices,
+
+36
+00:01:45.010 --> 00:01:48.673
+then changing it will make you anonymous on the network.
+
+37
+00:01:49.670 --> 00:01:52.460
+Not only that, but the MAC address is often used
+
+38
+00:01:52.460 --> 00:01:55.660
+by filters to prevent or allow devices
+
+39
+00:01:55.660 --> 00:01:57.160
+to connect to networks,
+
+40
+00:01:57.160 --> 00:02:00.040
+and do specific tasks on the network.
+
+41
+00:02:00.040 --> 00:02:02.080
+So being able to change your MAC address
+
+42
+00:02:02.080 --> 00:02:04.080
+to another device's MAC address
+
+43
+00:02:04.080 --> 00:02:06.870
+will allow you to impersonate this device
+
+44
+00:02:06.870 --> 00:02:08.830
+and allow you to do things
+
+45
+00:02:08.830 --> 00:02:11.040
+that you might not be able to do.
+
+46
+00:02:11.040 --> 00:02:13.280
+So you'd be able to bypass filters,
+
+47
+00:02:13.280 --> 00:02:16.450
+or connect to networks that only specific devices
+
+48
+00:02:16.450 --> 00:02:19.290
+with specific MAC addresses can connect to,
+
+49
+00:02:19.290 --> 00:02:22.333
+and you will also be able to hide your identity.
+
+50
+00:02:23.500 --> 00:02:26.300
+Now changing the MAC address is very, very simple,
+
+51
+00:02:26.300 --> 00:02:28.313
+so let me show you how to do that.
+
+52
+00:02:29.530 --> 00:02:33.540
+First of all, I'm going to use the ifconfig command
+
+53
+00:02:33.540 --> 00:02:36.250
+to list all the network interfaces
+
+54
+00:02:36.250 --> 00:02:38.783
+available on my Kali machine.
+
+55
+00:02:39.890 --> 00:02:43.540
+What I mean by network interface is any device
+
+56
+00:02:43.540 --> 00:02:46.360
+that allow us to connect to a network.
+
+57
+00:02:46.360 --> 00:02:48.610
+So an example is a Wi-Fi card,
+
+58
+00:02:48.610 --> 00:02:51.223
+or an Ethernet card, and so on.
+
+59
+00:02:52.450 --> 00:02:56.030
+So you can see first of all we have eth0,
+
+60
+00:02:56.030 --> 00:03:00.750
+and this is a virtual interface created by virtual box
+
+61
+00:03:00.750 --> 00:03:03.993
+when we set Kali to use iNet network.
+
+62
+00:03:04.850 --> 00:03:08.890
+So you can see the interface name is eth0,
+
+63
+00:03:08.890 --> 00:03:11.990
+you can see it has an IP address because like I said,
+
+64
+00:03:11.990 --> 00:03:13.780
+it's connected to a network.
+
+65
+00:03:13.780 --> 00:03:17.723
+So if we go here, we can see it saying Wired Connected.
+
+66
+00:03:18.570 --> 00:03:22.350
+So this is the interface that represents the wired network
+
+67
+00:03:22.350 --> 00:03:24.420
+that Kali is connected to,
+
+68
+00:03:24.420 --> 00:03:26.803
+which is actually a virtual NAT network.
+
+69
+00:03:27.790 --> 00:03:30.950
+You can also see the netmask, the broadcast,
+
+70
+00:03:30.950 --> 00:03:34.030
+and a really important piece of information,
+
+71
+00:03:34.030 --> 00:03:35.453
+which is the ether.
+
+72
+00:03:36.320 --> 00:03:41.203
+This is the MAC address of this virtual interface.
+
+73
+00:03:42.330 --> 00:03:44.150
+Now, you can see similar information
+
+74
+00:03:44.150 --> 00:03:49.150
+for my other two interfaces, the lo and the lan0.
+
+75
+00:03:49.370 --> 00:03:53.040
+The only thing is you can see for both of these interfaces,
+
+76
+00:03:53.040 --> 00:03:56.210
+we do not have an IP address.
+
+77
+00:03:56.210 --> 00:03:57.870
+And the main reason for that
+
+78
+00:03:57.870 --> 00:04:00.670
+is because none of these interfaces
+
+79
+00:04:00.670 --> 00:04:02.453
+is connected to a network.
+
+80
+00:04:03.390 --> 00:04:07.780
+Now lo is the default interface created by Linux,
+
+81
+00:04:07.780 --> 00:04:11.810
+and lan0 is my real wireless adapter,
+
+82
+00:04:11.810 --> 00:04:15.710
+so I can use it to connect to Wi-Fi networks.
+
+83
+00:04:15.710 --> 00:04:18.530
+But if I go on the network in here,
+
+84
+00:04:18.530 --> 00:04:21.150
+you'll see Wi-Fi is not connected,
+
+85
+00:04:21.150 --> 00:04:24.170
+because I actually didn't connect to any network,
+
+86
+00:04:24.170 --> 00:04:27.723
+and that's why it does not have an IP address.
+
+87
+00:04:29.420 --> 00:04:32.010
+Now, this doesn't matter because what we want to do
+
+88
+00:04:32.010 --> 00:04:34.740
+is to just change the MAC address,
+
+89
+00:04:34.740 --> 00:04:38.250
+which again, is shown here under the ether part,
+
+90
+00:04:38.250 --> 00:04:41.863
+so similar to what you're seeing here for eth0.
+
+91
+00:04:42.880 --> 00:04:45.960
+Now, in order to change any of the values
+
+92
+00:04:45.960 --> 00:04:47.510
+that you see in here,
+
+93
+00:04:47.510 --> 00:04:51.093
+you have to first disable the interface.
+
+94
+00:04:52.120 --> 00:04:56.200
+So in this example, we want to change the MAC address,
+
+95
+00:04:56.200 --> 00:04:58.820
+so that is represented by the ether
+
+96
+00:04:58.820 --> 00:05:00.913
+and the value is right here.
+
+97
+00:05:01.880 --> 00:05:04.870
+So in order to disable an interface,
+
+98
+00:05:04.870 --> 00:05:09.480
+we're gonna do ifconfig followed by the interface name,
+
+99
+00:05:09.480 --> 00:05:14.480
+which is lan0 in my example, followed by down to disable it.
+
+100
+00:05:15.670 --> 00:05:17.700
+Now, if I hit Enter, you'll see
+
+101
+00:05:17.700 --> 00:05:19.730
+the command runs with no errors,
+
+102
+00:05:19.730 --> 00:05:23.310
+so it means that it got executed properly.
+
+103
+00:05:23.310 --> 00:05:25.320
+And the next thing that we need to do,
+
+104
+00:05:25.320 --> 00:05:28.750
+is to change the option that we want to change.
+
+105
+00:05:28.750 --> 00:05:31.910
+And in this example, we want to change the ether,
+
+106
+00:05:31.910 --> 00:05:33.963
+which is the MAC address.
+
+107
+00:05:34.800 --> 00:05:37.283
+So first, we're gonna type ifconfig,
+
+108
+00:05:38.260 --> 00:05:41.350
+we're gonna type the interface that we want to change,
+
+109
+00:05:41.350 --> 00:05:45.960
+one of its options, then we're gonna type
+
+110
+00:05:45.960 --> 00:05:49.440
+the option that we want to change.
+
+111
+00:05:49.440 --> 00:05:53.100
+And what we want to change is the hardware address,
+
+112
+00:05:53.100 --> 00:05:56.323
+so we're gonna do hw ether.
+
+113
+00:05:57.380 --> 00:05:59.420
+Then we're gonna give it the address
+
+114
+00:05:59.420 --> 00:06:02.520
+that we want to change the MAC address to.
+
+115
+00:06:02.520 --> 00:06:07.520
+So for example, I'm gonna use 00:11:22:33:44:55.
+
+116
+00:06:10.840 --> 00:06:12.670
+Very, very simple command,
+
+117
+00:06:12.670 --> 00:06:16.210
+we're doing ifconfig lan0 to select the interface
+
+118
+00:06:16.210 --> 00:06:18.410
+that we want to change its option,
+
+119
+00:06:18.410 --> 00:06:21.160
+we wanna set the hardware address,
+
+120
+00:06:21.160 --> 00:06:25.670
+and we wanna set this address to this specific address.
+
+121
+00:06:25.670 --> 00:06:27.810
+So you can use any address that you want,
+
+122
+00:06:27.810 --> 00:06:30.370
+following the same format shown here.
+
+123
+00:06:30.370 --> 00:06:33.963
+Just make sure your address starts with 00.
+
+124
+00:06:34.930 --> 00:06:37.270
+So I'm gonna hit Enter and again,
+
+125
+00:06:37.270 --> 00:06:39.020
+we don't see any error messages,
+
+126
+00:06:39.020 --> 00:06:42.470
+so it means the command got executed properly.
+
+127
+00:06:42.470 --> 00:06:46.560
+And finally, we just need to enable the interface
+
+128
+00:06:46.560 --> 00:06:50.360
+because we disabled it, by doing, ifconfig lan0 down,
+
+129
+00:06:50.360 --> 00:06:55.360
+so we just need to do, ifconfig lan0 up, to enable it.
+
+130
+00:06:57.840 --> 00:06:59.881
+Now the interface is enabled,
+
+131
+00:06:59.881 --> 00:07:02.393
+and if we do ifconfig again,
+
+132
+00:07:03.650 --> 00:07:06.610
+and look at the ether part in here,
+
+133
+00:07:06.610 --> 00:07:09.310
+you can see that it is changed
+
+134
+00:07:09.310 --> 00:07:11.953
+to the MAC address that we specified.
+
+135
+00:07:13.970 --> 00:07:16.840
+Now, this is done, and your MAC address has changed.
+
+136
+00:07:16.840 --> 00:07:20.700
+Now, you can go ahead and start using the interface
+
+137
+00:07:20.700 --> 00:07:23.700
+and it'll appear to have this MAC address
+
+138
+00:07:23.700 --> 00:07:26.290
+instead of its original MAC address.
+
+139
+00:07:26.290 --> 00:07:30.543
+And like I said, this can be useful in so many scenarios.
+
+140
+00:07:32.050 --> 00:07:35.670
+Now, keep in mind, the MAC address will revert back
+
+141
+00:07:35.670 --> 00:07:39.520
+to the original one once you restart the computer,
+
+142
+00:07:39.520 --> 00:07:43.170
+because we're only changing the MAC address in memory,
+
+143
+00:07:43.170 --> 00:07:47.070
+we're not really changing the physical MAC address.
+
+144
+00:07:47.070 --> 00:07:49.970
+But if your MAC address is resetting
+
+145
+00:07:49.970 --> 00:07:53.140
+to the original one without restarting,
+
+146
+00:07:53.140 --> 00:07:54.840
+then something is going wrong.
+
+147
+00:07:54.840 --> 00:07:58.240
+And it's probably happening because your network manager
+
+148
+00:07:58.240 --> 00:08:00.970
+is resetting the MAC address.
+
+149
+00:08:00.970 --> 00:08:03.130
+Not everybody will face this issue,
+
+150
+00:08:03.130 --> 00:08:05.730
+so I'm not gonna cover it in this lecture,
+
+151
+00:08:05.730 --> 00:08:07.520
+but if you face this issue,
+
+152
+00:08:07.520 --> 00:08:10.360
+if your MAC address goes back to the original one
+
+153
+00:08:10.360 --> 00:08:12.690
+without restarting the computer,
+
+154
+00:08:12.690 --> 00:08:14.860
+then check out the YouTube video
+
+155
+00:08:14.860 --> 00:08:16.950
+in the resources of this lecture,
+
+156
+00:08:16.950 --> 00:08:19.543
+it'll show you how to fix this issue.
+

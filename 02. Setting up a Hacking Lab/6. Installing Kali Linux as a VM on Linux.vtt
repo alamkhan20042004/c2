@@ -1,0 +1,685 @@
+WEBVTT
+
+00:00.000 --> 00:00.990
+Instructor: In this lecture,
+
+00:00.990 --> 00:02.880
+I'm gonna show you how to install
+
+00:02.880 --> 00:07.083
+Kali Linux as a virtual machine inside Linux.
+
+00:08.130 --> 00:11.300
+Skip this lecture if you have it already installed,
+
+00:11.300 --> 00:13.800
+and revise the previous lectures
+
+00:13.800 --> 00:17.883
+to see how to install it on Windows or Apple macOS.
+
+00:19.080 --> 00:23.070
+Now, I already have it downloaded in here in my downloads.
+
+00:23.070 --> 00:25.680
+And as you can see, this is an archive
+
+00:25.680 --> 00:28.350
+with a 7 zip extension.
+
+00:28.350 --> 00:32.850
+The actual virtual image is compressed inside this archive.
+
+00:32.850 --> 00:34.447
+We did this to reduce its size,
+
+00:34.447 --> 00:36.600
+so you can download it quicker.
+
+00:36.600 --> 00:39.270
+But in order to use this virtual image,
+
+00:39.270 --> 00:42.240
+we're gonna have to uncompress the archive.
+
+00:42.240 --> 00:44.850
+To do that, you simply have to right click it
+
+00:44.850 --> 00:47.610
+and click on extract here.
+
+00:47.610 --> 00:49.110
+You're gonna need to give it some time
+
+00:49.110 --> 00:54.110
+to fully uncompress the archive and reveal its content.
+
+00:54.390 --> 00:58.050
+Once this is done, you're gonna see a new directory in here
+
+00:58.050 --> 01:00.840
+that contains the actual image,
+
+01:00.840 --> 01:05.163
+and you'll notice that this folder ends with .vmwarevm.
+
+01:06.120 --> 01:09.840
+So in order to run this virtual image of Kali Linux,
+
+01:09.840 --> 01:12.930
+we need to install a virtualization software.
+
+01:12.930 --> 01:16.650
+And the software that we're gonna use is called VMware.
+
+01:16.650 --> 01:18.789
+Now you can download VMware from the same page
+
+01:18.789 --> 01:20.938
+where you downloaded the custom Kali.
+
+01:20.938 --> 01:22.683
+I'm gonna include its link in the resources
+
+01:22.683 --> 01:24.750
+of this lecture as well.
+
+01:24.750 --> 01:26.310
+And we're just gonna scroll down
+
+01:26.310 --> 01:28.380
+past the Kali download links.
+
+01:28.380 --> 01:30.330
+You'll see we have a new section here
+
+01:30.330 --> 01:32.670
+that has the VMware player download links
+
+01:32.670 --> 01:34.770
+for all operating systems.
+
+01:34.770 --> 01:36.169
+And since we're installing Kali
+
+01:36.169 --> 01:38.820
+on a Linux computer in this lecture,
+
+01:38.820 --> 01:41.160
+we're gonna download the Linux version in here
+
+01:41.160 --> 01:43.320
+by clicking on this link.
+
+01:43.320 --> 01:45.450
+Click on download one more time
+
+01:45.450 --> 01:47.223
+and give it some time to download.
+
+01:48.150 --> 01:49.206
+Once the download is complete,
+
+01:49.206 --> 01:53.040
+we're gonna be able to see it here in our downloads.
+
+01:53.040 --> 01:55.440
+This is the installer for VMware,
+
+01:55.440 --> 01:58.740
+the software that we're gonna use to run virtual machines
+
+01:58.740 --> 02:01.515
+inside our current operating system.
+
+02:01.515 --> 02:02.940
+And to install it,
+
+02:02.940 --> 02:05.430
+we're first gonna need to open our terminal
+
+02:05.430 --> 02:06.999
+and navigate to the location
+
+02:06.999 --> 02:09.720
+where we have this installer downloaded,
+
+02:09.720 --> 02:11.550
+which is in my downloads.
+
+02:11.550 --> 02:13.290
+So I'm gonna use the CD command
+
+02:13.290 --> 02:16.539
+to change my working directory to downloads.
+
+02:16.539 --> 02:19.343
+And if I do ls to list all of the files,
+
+02:19.343 --> 02:22.091
+you'll see we have the file in here.
+
+02:22.091 --> 02:24.120
+And before running this file,
+
+02:24.120 --> 02:28.260
+we need to change its permissions to unexecutable.
+
+02:28.260 --> 02:32.700
+So to do that, we're gonna do chmod + x,
+
+02:32.700 --> 02:34.203
+followed by the file name.
+
+02:35.250 --> 02:36.720
+I'm gonna hit Enter.
+
+02:36.720 --> 02:38.910
+And now if I do ls,
+
+02:38.910 --> 02:42.150
+you'll notice that the file name is listed in green,
+
+02:42.150 --> 02:45.690
+meaning that this is an executable.
+
+02:45.690 --> 02:47.760
+Now, before running this executable,
+
+02:47.760 --> 02:52.080
+we're gonna have to install the Build Essentials package
+
+02:52.080 --> 02:55.290
+because it is required by this installer
+
+02:55.290 --> 02:58.260
+to install VMware for us.
+
+02:58.260 --> 03:01.260
+Now I'm doing all of these steps on Ubuntu,
+
+03:01.260 --> 03:05.190
+but installing VMware should be pretty much the same
+
+03:05.190 --> 03:10.170
+on most Linux and especially Debian based distributions.
+
+03:10.170 --> 03:12.755
+So in order to install the Build Essentials,
+
+03:12.755 --> 03:16.033
+I'm first gonna have to update the list of sources
+
+03:16.033 --> 03:18.515
+that I can download packages from.
+
+03:18.515 --> 03:23.515
+And to do that, we're gonna do sudo apt get update.
+
+03:24.570 --> 03:26.610
+I'm gonna input my password.
+
+03:26.610 --> 03:28.560
+Once the sources are updated,
+
+03:28.560 --> 03:31.200
+we're ready to install the Build Essentials.
+
+03:31.200 --> 03:35.610
+So we're gonna do sudo apt-get install
+
+03:35.610 --> 03:39.960
+build essential gcc-12.
+
+03:39.960 --> 03:42.090
+We're gonna hit Enter.
+
+03:42.090 --> 03:43.019
+I've already installed this,
+
+03:43.019 --> 03:46.500
+that's why it's automatically installing it for me.
+
+03:46.500 --> 03:49.140
+But in your case, it's gonna ask you to confirm,
+
+03:49.140 --> 03:50.849
+and all you'll have to do is simply hit Enter
+
+03:50.849 --> 03:53.563
+to confirm that you want to install it.
+
+03:53.563 --> 03:55.710
+If you don't see any errors at all,
+
+03:55.710 --> 03:58.200
+it means everything got installed properly.
+
+03:58.200 --> 03:59.850
+So I'm gonna clear the screen,
+
+03:59.850 --> 04:01.452
+and I'm gonna do ls one more time
+
+04:01.452 --> 04:03.630
+just to show you what we want to run.
+
+04:03.630 --> 04:05.219
+We wanna run this executable,
+
+04:05.219 --> 04:07.760
+which is the same file as this one.
+
+04:07.760 --> 04:10.470
+And to run executables in Linux,
+
+04:10.470 --> 04:13.309
+you simply have to do dot forward slash
+
+04:13.309 --> 04:15.783
+followed by the executable name.
+
+04:16.650 --> 04:18.958
+Now also, we need to run this as admin.
+
+04:18.958 --> 04:22.863
+Therefore, I'm gonna type sudo before the command.
+
+04:23.880 --> 04:25.499
+I'm gonna hit Enter
+
+04:25.499 --> 04:29.820
+and we're gonna give it some time to extract the installer.
+
+04:29.820 --> 04:33.510
+And once it's done, we're gonna go to all of our software
+
+04:33.510 --> 04:35.853
+and we're gonna run VMware player.
+
+04:36.960 --> 04:39.737
+We're gonna accept the agreement and click next,
+
+04:39.737 --> 04:42.423
+accept the license, next.
+
+04:43.260 --> 04:45.750
+We're gonna say we don't want to share data,
+
+04:45.750 --> 04:48.060
+and we click on finish.
+
+04:48.060 --> 04:49.683
+We're gonna put the password.
+
+04:51.240 --> 04:53.550
+And perfect, here we go.
+
+04:53.550 --> 04:56.670
+During the installation, you might also get an option
+
+04:56.670 --> 04:58.593
+to either use the free or the paid version.
+
+04:58.593 --> 05:01.020
+Make sure you select the free one
+
+05:01.020 --> 05:03.929
+because we're using it for non-commercial use.
+
+05:03.929 --> 05:06.270
+So right now, we're ready to create
+
+05:06.270 --> 05:10.530
+or open ready virtual machines using VMware.
+
+05:10.530 --> 05:13.380
+And the virtual machine that we actually want to run
+
+05:13.380 --> 05:15.690
+is the customized version of Kali
+
+05:15.690 --> 05:19.350
+that we just downloaded at the start of the video.
+
+05:19.350 --> 05:20.183
+So to do that,
+
+05:20.183 --> 05:23.190
+we're simply gonna click on open a virtual machine
+
+05:23.190 --> 05:26.370
+or go to file and open virtual machine.
+
+05:26.370 --> 05:27.826
+We're gonna navigate to the location
+
+05:27.826 --> 05:30.360
+where we downloaded this virtual machine.
+
+05:30.360 --> 05:32.310
+So we're gonna go to downloads,
+
+05:32.310 --> 05:34.290
+we're gonna double click it in here
+
+05:34.290 --> 05:36.472
+and select the only file that we can select,
+
+05:36.472 --> 05:38.986
+which is the .vmx file.
+
+05:38.986 --> 05:41.430
+We're gonna double click it.
+
+05:41.430 --> 05:44.555
+And here we go, we have it imported in here in VMware,
+
+05:44.555 --> 05:46.226
+and we can easily start it now
+
+05:46.226 --> 05:49.053
+by clicking on power on in here.
+
+05:49.920 --> 05:52.620
+Now, before doing that, I just wanna show you
+
+05:52.620 --> 05:55.410
+how to modify the virtual machine settings.
+
+05:55.410 --> 05:57.270
+You do not need to do this.
+
+05:57.270 --> 05:59.460
+I'm simply showing you how to do that
+
+05:59.460 --> 06:02.730
+so you get an idea on how to modify the settings.
+
+06:02.730 --> 06:05.250
+Because modifying virtual machine settings
+
+06:05.250 --> 06:06.690
+is always the same
+
+06:06.690 --> 06:10.650
+regardless of what type of virtual machine it is.
+
+06:10.650 --> 06:11.722
+So we're gonna click on
+
+06:11.722 --> 06:14.070
+edit virtual machine settings in here
+
+06:14.070 --> 06:15.349
+to modify the settings.
+
+06:15.349 --> 06:18.480
+And as you can see, the first thing that you can modify
+
+06:18.480 --> 06:21.690
+is the amount of memory that the virtual machine has,
+
+06:21.690 --> 06:25.548
+and you can increase it or decrease it by moving the slider.
+
+06:25.548 --> 06:28.890
+It's set to two gigabytes by default, and that is good.
+
+06:28.890 --> 06:30.930
+So I'm gonna keep it at that.
+
+06:30.930 --> 06:32.811
+Next, you can modify the number of processors
+
+06:32.811 --> 06:34.488
+that the machine has.
+
+06:34.488 --> 06:36.969
+Again, it's set to two by default.
+
+06:36.969 --> 06:40.710
+I'm gonna keep it at that because that's pretty good.
+
+06:40.710 --> 06:43.200
+You can also modify the network settings.
+
+06:43.200 --> 06:47.940
+And as you can see right now, it's set to use a NAT network.
+
+06:47.940 --> 06:50.460
+We're also gonna keep this as NAT.
+
+06:50.460 --> 06:53.640
+This is great because this setting will basically create
+
+06:53.640 --> 06:56.652
+a virtual network where my host machine
+
+06:56.652 --> 06:59.713
+is going to be the router for this network.
+
+06:59.713 --> 07:01.984
+And then all the virtual machines
+
+07:01.984 --> 07:06.000
+are going to be clients connected to this network.
+
+07:06.000 --> 07:08.250
+So they're going to get internet connection
+
+07:08.250 --> 07:10.560
+from my host machine.
+
+07:10.560 --> 07:13.980
+And at the same time, all of my virtual machines
+
+07:13.980 --> 07:18.510
+will be connected to the same virtual network.
+
+07:18.510 --> 07:21.360
+This is very handy because my virtual machines
+
+07:21.360 --> 07:24.180
+will be able to communicate with each other
+
+07:24.180 --> 07:26.503
+and therefore, will be able to use the Kali machine
+
+07:26.503 --> 07:28.410
+to hack into the others,
+
+07:28.410 --> 07:32.670
+will be able to test network attacks and do much more.
+
+07:32.670 --> 07:34.750
+So this setting will first allow my virtual machines
+
+07:34.750 --> 07:36.780
+to have internet connection,
+
+07:36.780 --> 07:40.050
+and it'll also allow them to communicate with each other
+
+07:40.050 --> 07:43.230
+through this virtual NAT network.
+
+07:43.230 --> 07:44.880
+Now, this virtual network
+
+07:44.880 --> 07:48.840
+will rely on the connection of your host computer.
+
+07:48.840 --> 07:51.540
+So it'll not need any extra interfaces,
+
+07:51.540 --> 07:53.702
+it'll not need any extra adapters.
+
+07:53.702 --> 07:57.120
+And as far as the virtual machines are concerned,
+
+07:57.120 --> 08:00.270
+they are connected to an ethernet network,
+
+08:00.270 --> 08:04.413
+but in reality, they are connected through the host machine.
+
+08:05.310 --> 08:09.000
+Finally, you can also modify the display settings in here,
+
+08:09.000 --> 08:11.550
+and I usually like to tick this option
+
+08:11.550 --> 08:13.950
+to accelerate 3D graphics.
+
+08:13.950 --> 08:16.260
+If you get issues with it, you can untick it,
+
+08:16.260 --> 08:19.890
+but usually it gives you nicer and smoother animations
+
+08:19.890 --> 08:21.213
+with virtual machines.
+
+08:22.170 --> 08:24.030
+So we're gonna save the settings
+
+08:24.030 --> 08:27.510
+and we can go ahead and start this virtual machine
+
+08:27.510 --> 08:31.173
+by selecting it and clicking on power on in here.
+
+08:32.640 --> 08:34.300
+We're gonna say I copied it
+
+08:35.190 --> 08:37.540
+and we're just gonna give it some time to load.
+
+08:38.430 --> 08:41.760
+And as you can see, if everything goes as expected,
+
+08:41.760 --> 08:45.390
+you should get the default login screen for Kali.
+
+08:45.390 --> 08:47.070
+So I'm gonna click in here
+
+08:47.070 --> 08:50.910
+and I'm gonna put the username as root, R-O-O-T,
+
+08:50.910 --> 08:54.210
+hit Enter, and the password is the reverse of that.
+
+08:54.210 --> 08:57.090
+So it's T-O-O-R.
+
+08:57.090 --> 09:00.810
+We're gonna hit Enter and give it some time.
+
+09:00.810 --> 09:02.340
+And great, as you can see,
+
+09:02.340 --> 09:04.860
+now we have another operating system,
+
+09:04.860 --> 09:08.040
+Kali Linux installed as a virtual machine
+
+09:08.040 --> 09:12.666
+inside our own main host operating system.
+
+09:12.666 --> 09:14.337
+Now we can put this in full screen
+
+09:14.337 --> 09:16.986
+by going to virtual machine in here
+
+09:16.986 --> 09:19.503
+and clicking on enter full screen.
+
+09:20.550 --> 09:22.590
+This screen should automatically resize
+
+09:22.590 --> 09:24.180
+as you can see in here.
+
+09:24.180 --> 09:27.870
+And in most cases, the icons should look normal,
+
+09:27.870 --> 09:32.870
+but in my case, they look small because I have a 4K display.
+
+09:32.970 --> 09:36.510
+So we're gonna need to manually modify the display settings.
+
+09:36.510 --> 09:40.263
+And to do that, we're gonna right click, go to settings,
+
+09:41.844 --> 09:45.483
+and we're gonna set the scale to 200.
+
+09:46.560 --> 09:48.273
+I'm gonna click on apply.
+
+09:49.680 --> 09:51.706
+We're gonna keep the changes and perfect.
+
+09:51.706 --> 09:54.390
+Now Kali looks normal for me.
+
+09:54.390 --> 09:55.560
+You don't have to do this
+
+09:55.560 --> 09:57.510
+if Kali looked normal from the start.
+
+09:57.510 --> 09:59.850
+Only if you have a high resolution screen,
+
+09:59.850 --> 10:01.950
+you might have to do this.
+
+10:01.950 --> 10:03.426
+Now, I know this operating system
+
+10:03.426 --> 10:07.710
+might look a little bit confusing and scary.
+
+10:07.710 --> 10:09.506
+But don't worry about it at all,
+
+10:09.506 --> 10:12.271
+I will teach you how to use it step by step
+
+10:12.271 --> 10:15.000
+as we go through the course.
+
+10:15.000 --> 10:18.000
+If you face any issues while installing Kali,
+
+10:18.000 --> 10:20.070
+check out the featured questions first.
+
+10:20.070 --> 10:21.630
+And if you don't see your answer,
+
+10:21.630 --> 10:24.930
+feel free to ask us in the QnA or in the forums
+
+10:24.930 --> 10:29.223
+and we will respond to you within a maximum of 15 hours.
+
+10:30.270 --> 10:33.990
+And to turn off Kali, you can simply click here,
+
+10:33.990 --> 10:36.723
+go to power off and power off.
+
+10:37.680 --> 10:39.930
+Click on power off one more time,
+
+10:39.930 --> 10:41.763
+and the machine will shut down.

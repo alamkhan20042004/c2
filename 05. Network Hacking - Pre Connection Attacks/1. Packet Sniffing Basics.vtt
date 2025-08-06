@@ -1,0 +1,498 @@
+WEBVTT
+
+1
+00:00:01.210 --> 00:00:03.640
+<v Instructor>Now that we have enabled monitor mode</v>
+
+2
+00:00:03.640 --> 00:00:06.150
+on our wireless interface,
+
+3
+00:00:06.150 --> 00:00:09.556
+we are able to capture all the wifi packets
+
+4
+00:00:09.556 --> 00:00:12.680
+sent within our range,
+
+5
+00:00:12.680 --> 00:00:16.390
+even if the packet is not directed to our computer,
+
+6
+00:00:16.390 --> 00:00:20.020
+even if we're not connected to the target network,
+
+7
+00:00:20.020 --> 00:00:22.690
+and even without knowing the key
+
+8
+00:00:22.690 --> 00:00:25.800
+or the password to the target network.
+
+9
+00:00:25.800 --> 00:00:28.810
+So all we need right now is a program
+
+10
+00:00:28.810 --> 00:00:32.000
+that can capture these packets for us.
+
+11
+00:00:32.000 --> 00:00:36.240
+The program that we're going to use is called Airodump-NG.
+
+12
+00:00:36.240 --> 00:00:39.340
+It's part of the Aircrack-NG suit,
+
+13
+00:00:39.340 --> 00:00:41.040
+and it's a packet-sniffer,
+
+14
+00:00:41.040 --> 00:00:43.470
+so it's basically a program designed
+
+15
+00:00:43.470 --> 00:00:47.270
+to capture packets while you're in monitor mode.
+
+16
+00:00:47.270 --> 00:00:48.860
+So it will allow us to see
+
+17
+00:00:48.860 --> 00:00:51.530
+all the wireless networks around us,
+
+18
+00:00:51.530 --> 00:00:55.660
+and show us detailed information about it's MAC address,
+
+19
+00:00:55.660 --> 00:00:57.990
+it's channel, it's encryption,
+
+20
+00:00:57.990 --> 00:01:02.253
+the clients connected to this network, and so on.
+
+21
+00:01:03.360 --> 00:01:06.240
+So, let me show you how we're gonna use it.
+
+22
+00:01:06.240 --> 00:01:09.420
+First of all, you need to enable monitor mode
+
+23
+00:01:09.420 --> 00:01:13.593
+on your wireless adapter, as shown in the previous lectures.
+
+24
+00:01:14.780 --> 00:01:19.490
+So, if I go to my Kali machine, and run iwconfig
+
+25
+00:01:19.490 --> 00:01:23.233
+to list all the wireless devices on this computer,
+
+26
+00:01:24.160 --> 00:01:27.410
+you'll see that I have an interface called mon0,
+
+27
+00:01:27.410 --> 00:01:31.173
+and this interface is in monitor mode.
+
+28
+00:01:32.240 --> 00:01:35.500
+Now dependent on the way that you enabled monitor mode,
+
+29
+00:01:35.500 --> 00:01:40.200
+this can be called lan0, it can be called lan0mon,
+
+30
+00:01:40.200 --> 00:01:41.640
+it doesn't really matter.
+
+31
+00:01:41.640 --> 00:01:44.160
+You just wanna make sure you enable monitor mode
+
+32
+00:01:44.160 --> 00:01:46.560
+using one of the methods shown before,
+
+33
+00:01:46.560 --> 00:01:48.960
+and then, use the name of the adapter
+
+34
+00:01:48.960 --> 00:01:52.363
+that is in monitor mode when you run Airodump-NG.
+
+35
+00:01:53.930 --> 00:01:55.790
+Now to run Airodump-NG,
+
+36
+00:01:55.790 --> 00:01:57.900
+we're just gonna type the name of the program,
+
+37
+00:01:57.900 --> 00:01:59.183
+which is airodump-ng,
+
+38
+00:02:00.720 --> 00:02:03.680
+followed by the name of my wireless adapter
+
+39
+00:02:03.680 --> 00:02:08.680
+in monitor mode, which is mon0, as you can see in here.
+
+40
+00:02:09.770 --> 00:02:11.150
+So the command is very simple.
+
+41
+00:02:11.150 --> 00:02:14.650
+We're typing the program name, which is airodump-ng,
+
+42
+00:02:14.650 --> 00:02:17.990
+followed by the name of my interface in monitor mode.
+
+43
+00:02:17.990 --> 00:02:21.500
+If I hit Enter, you'll see it'll start working,
+
+44
+00:02:21.500 --> 00:02:24.960
+discovering all the wireless networks around me,
+
+45
+00:02:24.960 --> 00:02:28.063
+and displaying useful information about them.
+
+46
+00:02:29.870 --> 00:02:33.310
+This program will continue working unless you quit it,
+
+47
+00:02:33.310 --> 00:02:34.790
+and to quit this program,
+
+48
+00:02:34.790 --> 00:02:37.993
+you have to press Control+C from your keyboard.
+
+49
+00:02:38.870 --> 00:02:41.040
+You can actually use Control+C
+
+50
+00:02:41.040 --> 00:02:44.023
+to quit any running program in your terminal.
+
+51
+00:02:44.910 --> 00:02:48.390
+Now that we stopped the program, let's analyze the output
+
+52
+00:02:48.390 --> 00:02:51.283
+so we understand what it's showing us.
+
+53
+00:02:52.190 --> 00:02:54.390
+So first of all, if we look at this column,
+
+54
+00:02:54.390 --> 00:02:58.930
+the ESSID column, it should be a little bit familiar to you,
+
+55
+00:02:58.930 --> 00:03:00.720
+and basically this shows us
+
+56
+00:03:00.720 --> 00:03:04.353
+the names of the wireless networks around us.
+
+57
+00:03:05.390 --> 00:03:07.460
+So if I just go to my Mac machine
+
+58
+00:03:07.460 --> 00:03:09.750
+and look for wireless networks,
+
+59
+00:03:09.750 --> 00:03:12.830
+you'll see the same names that we see in here
+
+60
+00:03:12.830 --> 00:03:16.093
+displayed under the ESSID.
+
+61
+00:03:17.660 --> 00:03:20.920
+Now all of the other columns show us more information
+
+62
+00:03:20.920 --> 00:03:23.560
+about the network name that you see in here,
+
+63
+00:03:23.560 --> 00:03:26.980
+and this information will actually be very useful to us
+
+64
+00:03:26.980 --> 00:03:28.973
+as we go through the course.
+
+65
+00:03:30.320 --> 00:03:32.630
+The first column, the BSSID,
+
+66
+00:03:32.630 --> 00:03:36.043
+shows us the MAC address of the target network.
+
+67
+00:03:37.250 --> 00:03:39.760
+Next, we have the PwR.
+
+68
+00:03:39.760 --> 00:03:43.350
+So this is the signal strength, or the power,
+
+69
+00:03:43.350 --> 00:03:44.483
+of the network.
+
+70
+00:03:45.510 --> 00:03:48.660
+Now the higher the number, the better signal we have.
+
+71
+00:03:48.660 --> 00:03:52.430
+So for example, the network with the best signal right here
+
+72
+00:03:52.430 --> 00:03:53.443
+is this one.
+
+73
+00:03:55.270 --> 00:03:57.690
+Next, we have the beacons.
+
+74
+00:03:57.690 --> 00:04:01.520
+These are frames, sent by the network
+
+75
+00:04:01.520 --> 00:04:04.580
+in order to broadcast it's existence.
+
+76
+00:04:04.580 --> 00:04:07.510
+So every network, even if it's set to be hidden,
+
+77
+00:04:07.510 --> 00:04:10.360
+always sends these type of frames,
+
+78
+00:04:10.360 --> 00:04:13.320
+basically broadcasting it's existence,
+
+79
+00:04:13.320 --> 00:04:16.620
+and telling all the wireless devices around it
+
+80
+00:04:16.620 --> 00:04:19.497
+that "I exist, I have this BSSID.
+
+81
+00:04:19.497 --> 00:04:22.797
+"I work on this channel, I use this encryption,
+
+82
+00:04:22.797 --> 00:04:24.747
+"and my name is this."
+
+83
+00:04:26.520 --> 00:04:30.790
+Next, we have the number of data packets, or data frames,
+
+84
+00:04:30.790 --> 00:04:32.670
+and these are the useful packets
+
+85
+00:04:32.670 --> 00:04:34.810
+that we'll talk about later on,
+
+86
+00:04:34.810 --> 00:04:37.323
+once we get to the cracking section.
+
+87
+00:04:38.430 --> 00:04:41.480
+This column represents the number of data packets
+
+88
+00:04:41.480 --> 00:04:44.323
+that we collected in the past 10 seconds.
+
+89
+00:04:45.330 --> 00:04:46.900
+Next we have the channel,
+
+90
+00:04:46.900 --> 00:04:50.190
+which is the channel that the network works on.
+
+91
+00:04:50.190 --> 00:04:53.540
+So for example, this network right here, the Test AP,
+
+92
+00:04:53.540 --> 00:04:55.330
+works on channel 6.
+
+93
+00:04:55.330 --> 00:04:58.543
+This network works on channel 1, and so on.
+
+94
+00:04:59.910 --> 00:05:04.803
+Next, we have the maximum speed supported by the network.
+
+95
+00:05:05.720 --> 00:05:09.060
+The encryption is a very important column,
+
+96
+00:05:09.060 --> 00:05:13.610
+and it shows us the encryption used by the network.
+
+97
+00:05:13.610 --> 00:05:17.700
+So we can see that the Test AP network is using WPA.
+
+98
+00:05:17.700 --> 00:05:20.820
+We can see we have a network that uses WEP.
+
+99
+00:05:20.820 --> 00:05:24.450
+We can see this network right here is an open network,
+
+100
+00:05:24.450 --> 00:05:25.920
+so it doesn't use encryption.
+
+101
+00:05:25.920 --> 00:05:29.350
+We don't even need a password to connect to it.
+
+102
+00:05:29.350 --> 00:05:33.103
+And we can see we have a WPA2 network right here.
+
+103
+00:05:34.680 --> 00:05:38.270
+CIPHER is the cipher used in the network.
+
+104
+00:05:38.270 --> 00:05:42.370
+So we can see here we have CCMP, we have WEP,
+
+105
+00:05:42.370 --> 00:05:44.673
+and we have CCMP again here.
+
+106
+00:05:45.612 --> 00:05:48.830
+AUTH is the authentication used on that network,
+
+107
+00:05:48.830 --> 00:05:52.730
+and in here we can see it's PSK, Pre-Shared Key,
+
+108
+00:05:52.730 --> 00:05:55.640
+and MGT for this network.
+
+109
+00:05:55.640 --> 00:05:59.440
+Now don't worry about the ENC, the CIPHER and the AUTH.
+
+110
+00:05:59.440 --> 00:06:02.770
+We will talk about breaking into all these networks,
+
+111
+00:06:02.770 --> 00:06:05.710
+into WEP, WPA, and WPA2,
+
+112
+00:06:05.710 --> 00:06:08.303
+in the gaining access section.
+
+113
+00:06:09.600 --> 00:06:13.050
+And finally, you can see we have the ESSID section,
+
+114
+00:06:13.050 --> 00:06:16.170
+which shows the name of the network.
+
+115
+00:06:16.170 --> 00:06:19.090
+So this is what you see when you look for networks
+
+116
+00:06:19.090 --> 00:06:20.563
+in your network manager.
+
+117
+00:06:21.720 --> 00:06:23.210
+So that's it for this lecture.
+
+118
+00:06:23.210 --> 00:06:25.260
+I just wanted to give you a quick look
+
+119
+00:06:25.260 --> 00:06:27.980
+on how to discover all the networks around us
+
+120
+00:06:27.980 --> 00:06:29.183
+using Airodump-NG.
+
+121
+00:06:30.070 --> 00:06:32.700
+Don't worry about Airodump-NG too much now.
+
+122
+00:06:32.700 --> 00:06:35.790
+We're gonna be using it a lot in the next lectures,
+
+123
+00:06:35.790 --> 00:06:38.230
+and you'll get very comfortable with using it
+
+124
+00:06:38.230 --> 00:06:40.013
+as we go through the course.
+

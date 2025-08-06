@@ -1,0 +1,582 @@
+WEBVTT
+
+1
+00:00:01.120 --> 00:00:02.610
+<v Instructor>From the previous lectures,</v>
+
+2
+00:00:02.610 --> 00:00:06.240
+we learned the basics of how networks work.
+
+3
+00:00:06.240 --> 00:00:10.410
+We learned that devices on the same network communicate
+
+4
+00:00:10.410 --> 00:00:13.200
+with each other using packets.
+
+5
+00:00:13.200 --> 00:00:15.750
+So regardless of what you do on the network,
+
+6
+00:00:15.750 --> 00:00:17.360
+whether you're watching a video,
+
+7
+00:00:17.360 --> 00:00:19.800
+whether you're logging into a website,
+
+8
+00:00:19.800 --> 00:00:22.370
+sending chat messages, sending emails,
+
+9
+00:00:22.370 --> 00:00:24.240
+regardless of what you're doing,
+
+10
+00:00:24.240 --> 00:00:27.990
+all the data is sent as packets.
+
+11
+00:00:27.990 --> 00:00:29.430
+Now, in the network,
+
+12
+00:00:29.430 --> 00:00:32.890
+devices ensure that these packets go
+
+13
+00:00:32.890 --> 00:00:36.920
+in the right direction using the MAC address
+
+14
+00:00:36.920 --> 00:00:41.310
+so each packet has a source MAC and a destination MAC
+
+15
+00:00:41.310 --> 00:00:45.130
+and it flows from the source to the destination.
+
+16
+00:00:45.130 --> 00:00:47.130
+So in this example, we have the client,
+
+17
+00:00:47.130 --> 00:00:48.540
+it has this MAC,
+
+18
+00:00:48.540 --> 00:00:51.650
+we have the access point which has this MAC
+
+19
+00:00:51.650 --> 00:00:54.330
+and as an example, if this client wanted
+
+20
+00:00:54.330 --> 00:00:56.940
+to send a packet to the router,
+
+21
+00:00:56.940 --> 00:00:59.350
+it will set the destination MAC
+
+22
+00:00:59.350 --> 00:01:01.523
+to the router's MAC address.
+
+23
+00:01:02.570 --> 00:01:04.720
+Therefore, by default,
+
+24
+00:01:04.720 --> 00:01:09.720
+each device only receives data that has the destination MAC
+
+25
+00:01:10.866 --> 00:01:13.593
+as its own MAC address.
+
+26
+00:01:14.600 --> 00:01:18.020
+But if you remember, I said in wireless networks,
+
+27
+00:01:18.020 --> 00:01:19.490
+if you're within range,
+
+28
+00:01:19.490 --> 00:01:22.790
+then you'll be able to capture all of this communication
+
+29
+00:01:22.790 --> 00:01:26.440
+because these packets are literally sent in the air.
+
+30
+00:01:26.440 --> 00:01:27.900
+So we can just capture them
+
+31
+00:01:27.900 --> 00:01:30.590
+even if they do not have our MAC address
+
+32
+00:01:30.590 --> 00:01:32.283
+as the destination MAC.
+
+33
+00:01:33.660 --> 00:01:36.330
+To do this, we need to change the mode
+
+34
+00:01:36.330 --> 00:01:39.820
+of operation of our wireless interface
+
+35
+00:01:39.820 --> 00:01:42.883
+so that it operates in monitor mode.
+
+36
+00:01:43.970 --> 00:01:45.840
+So let me show you what I mean.
+
+37
+00:01:45.840 --> 00:01:48.230
+If I go to my computer here,
+
+38
+00:01:48.230 --> 00:01:51.320
+and run iwconfig this time,
+
+39
+00:01:51.320 --> 00:01:55.270
+so we've seen ifconfig which lists all the interfaces,
+
+40
+00:01:55.270 --> 00:02:00.270
+we can use iwconfig to see the wireless interfaces only.
+
+41
+00:02:00.910 --> 00:02:03.660
+And you can see, we have lan0 right here
+
+42
+00:02:03.660 --> 00:02:06.263
+which is my external wireless adapter.
+
+43
+00:02:06.263 --> 00:02:10.420
+And you can see the mode of this adapter
+
+44
+00:02:10.420 --> 00:02:12.023
+is set to Managed.
+
+45
+00:02:12.023 --> 00:02:16.350
+What this means is basically this is the default mode
+
+46
+00:02:16.350 --> 00:02:18.970
+of all wireless devices
+
+47
+00:02:18.970 --> 00:02:21.780
+and what it means is this device
+
+48
+00:02:21.780 --> 00:02:24.230
+will only capture packets
+
+49
+00:02:24.230 --> 00:02:26.330
+that has the destination MAC
+
+50
+00:02:26.330 --> 00:02:28.990
+as the MAC address of this device.
+
+51
+00:02:28.990 --> 00:02:32.250
+So basically it'll only capture devices
+
+52
+00:02:32.250 --> 00:02:35.653
+that are directed to my Kali machine.
+
+53
+00:02:36.760 --> 00:02:38.620
+But this is not what we want.
+
+54
+00:02:38.620 --> 00:02:42.580
+What we want is to be able to capture all the packets
+
+55
+00:02:42.580 --> 00:02:44.360
+that are within our range,
+
+56
+00:02:44.360 --> 00:02:46.190
+even if they are sent to the router
+
+57
+00:02:46.190 --> 00:02:49.263
+and even if they are set to another device.
+
+58
+00:02:50.190 --> 00:02:52.880
+So to do this, we need to set the mode
+
+59
+00:02:52.880 --> 00:02:55.683
+to Monitor mode instead of Managed mode.
+
+60
+00:02:56.910 --> 00:03:00.070
+So as usual, before you can change the options
+
+61
+00:03:00.070 --> 00:03:02.750
+of your interface, you have to disable it
+
+62
+00:03:02.750 --> 00:03:05.030
+and previously, we've seen we can do that
+
+63
+00:03:05.030 --> 00:03:07.530
+by doing ifconfig, the device name
+
+64
+00:03:07.530 --> 00:03:10.253
+which is lan0 in my case, down.
+
+65
+00:03:11.760 --> 00:03:14.750
+Then we can enable monitor mode.
+
+66
+00:03:14.750 --> 00:03:16.860
+But before we do that,
+
+67
+00:03:16.860 --> 00:03:19.350
+I'm actually going to run a command
+
+68
+00:03:19.350 --> 00:03:21.160
+to kill any process
+
+69
+00:03:21.160 --> 00:03:24.890
+that could interfere with using my interface
+
+70
+00:03:24.890 --> 00:03:26.410
+in monitor mode.
+
+71
+00:03:26.410 --> 00:03:28.510
+So the command that I'm gonna run right now
+
+72
+00:03:28.510 --> 00:03:30.250
+is not mandatory
+
+73
+00:03:30.250 --> 00:03:34.100
+but running it will actually give you better results
+
+74
+00:03:34.100 --> 00:03:35.830
+when you come to running the attacks
+
+75
+00:03:35.830 --> 00:03:38.830
+that you will learn as we go in the course.
+
+76
+00:03:38.830 --> 00:03:42.623
+So this command is gonna be airman-ng check kill.
+
+77
+00:03:45.030 --> 00:03:47.140
+Now you'll notice when you're on this command,
+
+78
+00:03:47.140 --> 00:03:49.810
+it'll actually kill the network manager
+
+79
+00:03:49.810 --> 00:03:51.700
+that usually runs in here.
+
+80
+00:03:51.700 --> 00:03:56.300
+So you'll completely lose your internet connection.
+
+81
+00:03:56.300 --> 00:03:57.930
+But this is no problem
+
+82
+00:03:57.930 --> 00:04:01.570
+because we will only need to be in monitor mode
+
+83
+00:04:01.570 --> 00:04:04.470
+when we are running pre-connection attacks
+
+84
+00:04:04.470 --> 00:04:06.900
+so attacks that do not require us
+
+85
+00:04:06.900 --> 00:04:08.810
+to connect to any network.
+
+86
+00:04:08.810 --> 00:04:11.280
+So we actually do not need internet connection
+
+87
+00:04:11.280 --> 00:04:15.803
+to run any of the attacks that require monitor mode.
+
+88
+00:04:17.130 --> 00:04:19.690
+Now we're gonna enable monitor mode.
+
+89
+00:04:19.690 --> 00:04:21.873
+So we're gonna do iwconfig.
+
+90
+00:04:23.340 --> 00:04:25.120
+Followed by the interface name
+
+91
+00:04:25.120 --> 00:04:27.680
+that we want to enable monitor mode on
+
+92
+00:04:27.680 --> 00:04:28.913
+which is lan0.
+
+93
+00:04:30.030 --> 00:04:32.660
+We're gonna say that I want to change the mode
+
+94
+00:04:33.527 --> 00:04:35.693
+and I want to change that to monitor.
+
+95
+00:04:37.310 --> 00:04:39.300
+So very, very simple command.
+
+96
+00:04:39.300 --> 00:04:42.040
+We're using iwconfig to change the mode.
+
+97
+00:04:42.040 --> 00:04:44.000
+We're giving the name of the interface
+
+98
+00:04:44.000 --> 00:04:46.140
+that we want to change its mode.
+
+99
+00:04:46.140 --> 00:04:48.490
+We're saying I want to change the mode
+
+100
+00:04:48.490 --> 00:04:51.203
+and I want to set it to monitor mode.
+
+101
+00:04:52.370 --> 00:04:55.320
+Now, if I hit Enter, you'll see the command will run
+
+102
+00:04:55.320 --> 00:04:59.400
+with no errors which means the command got executed properly
+
+103
+00:04:59.400 --> 00:05:02.710
+and finally, we'll need to enable the interface,
+
+104
+00:05:02.710 --> 00:05:04.440
+again similar to what we did
+
+105
+00:05:04.440 --> 00:05:06.210
+when we changed the monitor address.
+
+106
+00:05:06.210 --> 00:05:10.443
+So we just have to do ifconfig lan0 up.
+
+107
+00:05:12.010 --> 00:05:12.980
+That's done.
+
+108
+00:05:12.980 --> 00:05:16.685
+Now, if I run iwconfig again,
+
+109
+00:05:16.685 --> 00:05:20.363
+you'll see that the mode is set to Monitor now.
+
+110
+00:05:21.300 --> 00:05:25.480
+So basically this interface now can be used
+
+111
+00:05:25.480 --> 00:05:29.720
+to capture any packet that is within our range,
+
+112
+00:05:29.720 --> 00:05:32.620
+not only the packets that are directed
+
+113
+00:05:32.620 --> 00:05:33.973
+to this computer.
+
+114
+00:05:35.180 --> 00:05:37.720
+That's why in the future you'll see how we can use it
+
+115
+00:05:37.720 --> 00:05:40.120
+to sniff packets, to analyze them
+
+116
+00:05:40.120 --> 00:05:42.423
+and even break into networks.
+
+117
+00:05:44.110 --> 00:05:45.860
+So in the future,
+
+118
+00:05:45.860 --> 00:05:49.720
+if I say use your interface in monitor mode,
+
+119
+00:05:49.720 --> 00:05:50.860
+this is what I mean.
+
+120
+00:05:50.860 --> 00:05:53.390
+You'll basically have to enable monitor mode
+
+121
+00:05:53.390 --> 00:05:55.093
+as shown in here.
+
+122
+00:05:56.230 --> 00:05:59.420
+Now, I've also included a YouTube video
+
+123
+00:05:59.420 --> 00:06:01.500
+in the resources of this lecture
+
+124
+00:06:01.500 --> 00:06:03.800
+to show an alternative method
+
+125
+00:06:03.800 --> 00:06:06.010
+to enable monitor mode
+
+126
+00:06:06.010 --> 00:06:09.060
+just in case you got errors with this method
+
+127
+00:06:09.060 --> 00:06:10.850
+or you tried to follow something
+
+128
+00:06:10.850 --> 00:06:12.600
+that I do in the next lectures
+
+129
+00:06:12.600 --> 00:06:13.900
+and it didn't work.
+
+130
+00:06:13.900 --> 00:06:17.690
+Then you can come back and try the alternative method.
+
+131
+00:06:17.690 --> 00:06:20.390
+But if this worked and if monitor mode
+
+132
+00:06:20.390 --> 00:06:21.910
+is enabled successfully,
+
+133
+00:06:21.910 --> 00:06:23.900
+then you don't need to watch that video,
+
+134
+00:06:23.900 --> 00:06:26.023
+you can just continue with the course.
+
+135
+00:06:26.910 --> 00:06:28.960
+One more thing to keep in mind,
+
+136
+00:06:28.960 --> 00:06:33.760
+not all wireless adapters support monitor mode.
+
+137
+00:06:33.760 --> 00:06:35.070
+So for this to work,
+
+138
+00:06:35.070 --> 00:06:36.020
+you need to make sure
+
+139
+00:06:36.020 --> 00:06:40.440
+that your actual adapter supports monitor mode.
+
+140
+00:06:40.440 --> 00:06:43.170
+There are a number of adapters that support that
+
+141
+00:06:43.170 --> 00:06:47.520
+and I've included another video again in the resources
+
+142
+00:06:47.520 --> 00:06:50.150
+of me talking about wireless adapters,
+
+143
+00:06:50.150 --> 00:06:51.850
+hot to pick the best one
+
+144
+00:06:51.850 --> 00:06:55.060
+and which ones that I recommend and use
+
+145
+00:06:55.060 --> 00:06:57.553
+when I'm testing the security of networks.
+

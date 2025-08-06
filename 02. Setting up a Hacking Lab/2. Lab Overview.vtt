@@ -1,0 +1,474 @@
+WEBVTT
+
+1
+00:00:00.550 --> 00:00:01.610
+<v Instructor>As I mentioned,</v>
+
+2
+00:00:01.610 --> 00:00:05.010
+this course is going to be highly practical.
+
+3
+00:00:05.010 --> 00:00:07.240
+Therefore you will need a lab,
+
+4
+00:00:07.240 --> 00:00:10.660
+a place where you can practice and experiment
+
+5
+00:00:10.660 --> 00:00:14.103
+with the things that you're going to learn in the course.
+
+6
+00:00:15.050 --> 00:00:16.020
+Not only that,
+
+7
+00:00:16.020 --> 00:00:20.350
+but having a lab is essential for hackers or pen testers
+
+8
+00:00:20.350 --> 00:00:23.400
+because let's say you discovered a new attack
+
+9
+00:00:23.400 --> 00:00:25.770
+or you want to experiment with a new attack
+
+10
+00:00:25.770 --> 00:00:29.110
+or you learn something new online, and you want to test it.
+
+11
+00:00:29.110 --> 00:00:31.560
+Then the perfect place for you to test this
+
+12
+00:00:31.560 --> 00:00:35.803
+and practice hacking is a hacking or a testing lab.
+
+13
+00:00:36.930 --> 00:00:38.230
+Now to create a lab,
+
+14
+00:00:38.230 --> 00:00:40.870
+you just need the number of computers with different
+
+15
+00:00:40.870 --> 00:00:44.440
+operating systems and you will need a number of networks
+
+16
+00:00:44.440 --> 00:00:46.550
+if you're testing network attacks.
+
+17
+00:00:46.550 --> 00:00:48.900
+And if you're testing website attacks,
+
+18
+00:00:48.900 --> 00:00:52.690
+then you will need to install websites on these computers.
+
+19
+00:00:52.690 --> 00:00:56.560
+Or you can do all of this inside your computer,
+
+20
+00:00:56.560 --> 00:01:00.670
+inside one machine and install everything else
+
+21
+00:01:00.670 --> 00:01:02.800
+as virtual machines.
+
+22
+00:01:02.800 --> 00:01:05.110
+And this is what we're going to do.
+
+23
+00:01:05.110 --> 00:01:07.630
+So let's say you have your computer right here.
+
+24
+00:01:07.630 --> 00:01:10.890
+This is your main computer that you use every day
+
+25
+00:01:10.890 --> 00:01:14.820
+to check your emails or even to watch this course,
+
+26
+00:01:14.820 --> 00:01:18.580
+this computer might be running Windows or OS X or Linux,
+
+27
+00:01:18.580 --> 00:01:21.720
+it doesn't really matter, it can run any operating system.
+
+28
+00:01:21.720 --> 00:01:25.530
+You can keep all the programs that you love and like,
+
+29
+00:01:25.530 --> 00:01:30.530
+and install a virtualization software such as virtual box,
+
+30
+00:01:30.670 --> 00:01:34.070
+or VMware, a virtualization software,
+
+31
+00:01:34.070 --> 00:01:38.640
+allow us to create a number of virtual computers
+
+32
+00:01:38.640 --> 00:01:40.970
+inside your main computer.
+
+33
+00:01:40.970 --> 00:01:45.400
+So we can have three or four or five or 10 computers
+
+34
+00:01:45.400 --> 00:01:49.720
+all installed inside your main operating system,
+
+35
+00:01:49.720 --> 00:01:51.623
+inside your main computer.
+
+36
+00:01:52.790 --> 00:01:55.680
+The really cool thing about this is you will not need
+
+37
+00:01:55.680 --> 00:01:57.200
+a number of computers.
+
+38
+00:01:57.200 --> 00:02:00.983
+You can do everything inside a single computer.
+
+39
+00:02:02.100 --> 00:02:03.440
+So what we're going to do
+
+40
+00:02:03.440 --> 00:02:05.840
+is we're gonna have a hacking machine.
+
+41
+00:02:05.840 --> 00:02:08.700
+This is going to be the machine that we will use
+
+42
+00:02:08.700 --> 00:02:11.500
+in order to hack into other machines.
+
+43
+00:02:11.500 --> 00:02:13.880
+We're going to install Kali Linux on it
+
+44
+00:02:13.880 --> 00:02:16.503
+and we'll talk about what that is later on.
+
+45
+00:02:17.400 --> 00:02:20.550
+And we're going to have two target machines,
+
+46
+00:02:20.550 --> 00:02:23.570
+these are machines that we're gonna try to hack into
+
+47
+00:02:23.570 --> 00:02:26.510
+and practice hacking against.
+
+48
+00:02:26.510 --> 00:02:28.850
+One of them is gonna be running Windows
+
+49
+00:02:28.850 --> 00:02:32.030
+and the other one is going to be running an operating system
+
+50
+00:02:32.030 --> 00:02:33.660
+called Metasploitable
+
+51
+00:02:33.660 --> 00:02:36.083
+and we will talk about that once we get to it.
+
+52
+00:02:37.600 --> 00:02:40.510
+Now it is very important to understand
+
+53
+00:02:40.510 --> 00:02:43.600
+that you will not lose any functionality
+
+54
+00:02:43.600 --> 00:02:47.800
+when you install an operating system as a virtual machine,
+
+55
+00:02:47.800 --> 00:02:50.470
+you can use that machine exactly
+
+56
+00:02:50.470 --> 00:02:53.193
+as if it's a real physical machine.
+
+57
+00:02:54.240 --> 00:02:57.780
+So the really cool thing about using virtual machines,
+
+58
+00:02:57.780 --> 00:03:01.100
+first of all, you're not gonna lose any functionality.
+
+59
+00:03:01.100 --> 00:03:04.750
+Second, all the machines are going to be isolated.
+
+60
+00:03:04.750 --> 00:03:06.440
+So as we go through the course,
+
+61
+00:03:06.440 --> 00:03:09.270
+we're gonna be trying to hack into these machines
+
+62
+00:03:09.270 --> 00:03:13.060
+and we might actually break one of them, but that's fine.
+
+63
+00:03:13.060 --> 00:03:15.430
+It will not affect your host machine.
+
+64
+00:03:15.430 --> 00:03:18.740
+You will be able to easily fix this and go back
+
+65
+00:03:18.740 --> 00:03:21.860
+to a snapshot of when the machine was working
+
+66
+00:03:21.860 --> 00:03:24.903
+without affecting your main computer.
+
+67
+00:03:25.930 --> 00:03:29.000
+The other cool thing is that you'll be able to have a number
+
+68
+00:03:29.000 --> 00:03:31.960
+of different versions of each these machines
+
+69
+00:03:31.960 --> 00:03:35.690
+and you'll be able to change the configuration easily,
+
+70
+00:03:35.690 --> 00:03:37.720
+change the network settings,
+
+71
+00:03:37.720 --> 00:03:41.350
+or switch between different states of these machines
+
+72
+00:03:41.350 --> 00:03:42.423
+and so on.
+
+73
+00:03:43.260 --> 00:03:45.700
+So by using virtualization,
+
+74
+00:03:45.700 --> 00:03:48.000
+you will not lose any functionality,
+
+75
+00:03:48.000 --> 00:03:51.173
+but you will gain so many cool features.
+
+76
+00:03:52.100 --> 00:03:55.820
+And the main thing to keep in mind is your host machine,
+
+77
+00:03:55.820 --> 00:03:58.660
+your main computer will never be affected.
+
+78
+00:03:58.660 --> 00:04:00.690
+It's completely isolated.
+
+79
+00:04:00.690 --> 00:04:03.300
+And if we break any of these machines,
+
+80
+00:04:03.300 --> 00:04:06.510
+nothing will happen to your precious computer
+
+81
+00:04:06.510 --> 00:04:08.920
+that you use every day.
+
+82
+00:04:08.920 --> 00:04:11.710
+And this way you can always use your host machine
+
+83
+00:04:11.710 --> 00:04:15.010
+for daily use, for checking emails, watching the videos,
+
+84
+00:04:15.010 --> 00:04:17.180
+doing whatever you do normally,
+
+85
+00:04:17.180 --> 00:04:20.000
+and then use your virtual machines for hacking
+
+86
+00:04:20.000 --> 00:04:21.733
+and practicing the attacks.
+
+87
+00:04:22.610 --> 00:04:25.710
+And this is what we're gonna be doing in this course.
+
+88
+00:04:25.710 --> 00:04:26.543
+So right here,
+
+89
+00:04:26.543 --> 00:04:28.440
+I have a Windows computer
+
+90
+00:04:28.440 --> 00:04:31.410
+that does not contain any hacking tools.
+
+91
+00:04:31.410 --> 00:04:33.820
+So I can't really use it for hacking,
+
+92
+00:04:33.820 --> 00:04:38.190
+but I have a virtualization software called VMware
+
+93
+00:04:38.190 --> 00:04:39.600
+installed on it.
+
+94
+00:04:39.600 --> 00:04:43.670
+And this software allows me to run multiple
+
+95
+00:04:43.670 --> 00:04:46.970
+operating systems as virtual machines
+
+96
+00:04:46.970 --> 00:04:50.020
+within this host computer.
+
+97
+00:04:50.020 --> 00:04:53.450
+So I can use the host computer for my data use
+
+98
+00:04:53.450 --> 00:04:55.610
+and then use the virtual machines
+
+99
+00:04:55.610 --> 00:04:59.770
+for whatever use I want for testing or for hacking.
+
+100
+00:04:59.770 --> 00:05:01.760
+So if I zoom in here on the left,
+
+101
+00:05:01.760 --> 00:05:04.980
+you can see that I have a Kali Linux installed.
+
+102
+00:05:04.980 --> 00:05:08.240
+This is an operating system that we will use for hacking.
+
+103
+00:05:08.240 --> 00:05:10.660
+You can see I have another windows computer.
+
+104
+00:05:10.660 --> 00:05:12.470
+You can see that I have Linux.
+
+105
+00:05:12.470 --> 00:05:14.990
+All of it installed as virtual machines,
+
+106
+00:05:14.990 --> 00:05:16.750
+and then we're gonna be using these
+
+107
+00:05:16.750 --> 00:05:19.080
+as we go through the course for hacking
+
+108
+00:05:19.080 --> 00:05:21.690
+or for testing without affecting
+
+109
+00:05:21.690 --> 00:05:25.983
+our main host operating system, this windows computer.
+
+110
+00:05:27.040 --> 00:05:29.490
+Now don't worry about any of this,
+
+111
+00:05:29.490 --> 00:05:32.570
+in the next lectures I will show you in details
+
+112
+00:05:32.570 --> 00:05:36.440
+how to install this virtualization software, VMware,
+
+113
+00:05:36.440 --> 00:05:40.310
+on all of the major operating systems, on Windows,
+
+114
+00:05:40.310 --> 00:05:42.243
+Linux or Apple macOS.
+
+115
+00:05:43.970 --> 00:05:45.420
+As we go through the course,
+
+116
+00:05:45.420 --> 00:05:47.860
+I will also show you in details
+
+117
+00:05:47.860 --> 00:05:50.860
+how to install these operating systems
+
+118
+00:05:50.860 --> 00:05:53.783
+as virtual machines within VMware.
+

@@ -1,0 +1,586 @@
+WEBVTT
+
+1
+00:00:01.050 --> 00:00:02.860
+<v Instructor>So from the previous lecture,</v>
+
+2
+00:00:02.860 --> 00:00:05.870
+we know, in order to crack WEP,
+
+3
+00:00:05.870 --> 00:00:09.370
+we need to first capture a large number of packets,
+
+4
+00:00:09.370 --> 00:00:12.650
+this means that we'll capture a large number of IVs,
+
+5
+00:00:12.650 --> 00:00:14.970
+the IVs, because they are short,
+
+6
+00:00:14.970 --> 00:00:16.480
+they will be repeated,
+
+7
+00:00:16.480 --> 00:00:21.020
+therefore we'll be able to use a tool called aircrack-ng
+
+8
+00:00:21.020 --> 00:00:23.180
+to run statistical attacks
+
+9
+00:00:23.180 --> 00:00:25.453
+and crack the WEP key.
+
+10
+00:00:26.290 --> 00:00:29.330
+So, we're using airodump-ng to capture the data
+
+11
+00:00:29.330 --> 00:00:31.240
+and we've seen how to do this before,
+
+12
+00:00:31.240 --> 00:00:33.270
+then we're using aircrack-ng
+
+13
+00:00:33.270 --> 00:00:36.650
+to analyze this data and break the key.
+
+14
+00:00:36.650 --> 00:00:38.503
+Let's see how to do this in practice.
+
+15
+00:00:39.550 --> 00:00:43.270
+So I already have my wireless adapter in monitor mode.
+
+16
+00:00:43.270 --> 00:00:45.440
+And it's called mon0.
+
+17
+00:00:45.440 --> 00:00:48.010
+I've also already run airodump-ng
+
+18
+00:00:48.010 --> 00:00:50.450
+to list all the networks around me
+
+19
+00:00:50.450 --> 00:00:53.576
+and as you can see, I have only one network using WEP.
+
+20
+00:00:53.576 --> 00:00:56.850
+This is called Test AP3
+
+21
+00:00:56.850 --> 00:00:59.360
+and this is my actual network
+
+22
+00:00:59.360 --> 00:01:00.850
+that I use every day.
+
+23
+00:01:00.850 --> 00:01:02.900
+I've just configured it to use WEP
+
+24
+00:01:02.900 --> 00:01:04.990
+to make this lecture.
+
+25
+00:01:04.990 --> 00:01:07.100
+The main reason why I'm targeting the network
+
+26
+00:01:07.100 --> 00:01:08.560
+that I use daily
+
+27
+00:01:08.560 --> 00:01:11.030
+because like I said, for this to work,
+
+28
+00:01:11.030 --> 00:01:14.340
+we need to capture a large number of packets
+
+29
+00:01:14.340 --> 00:01:17.203
+and therefore we need a busy network,
+
+30
+00:01:17.203 --> 00:01:19.630
+a network that gets used constantly
+
+31
+00:01:19.630 --> 00:01:22.430
+to capture a large number of packets.
+
+32
+00:01:22.430 --> 00:01:24.070
+If the network is idle,
+
+33
+00:01:24.070 --> 00:01:26.530
+then the process is a little bit complex
+
+34
+00:01:26.530 --> 00:01:29.260
+and I will cover that in the next lecture.
+
+35
+00:01:29.260 --> 00:01:32.120
+So for now, let's focus on the simplest form
+
+36
+00:01:32.120 --> 00:01:36.300
+which is how to break into a busy network.
+
+37
+00:01:36.300 --> 00:01:39.723
+So I'm gonna copy the BSSID of this network.
+
+38
+00:01:41.400 --> 00:01:45.340
+And I'm gonna run airodump-ng against this network only.
+
+39
+00:01:45.340 --> 00:01:47.620
+So I showed you how to do this before.
+
+40
+00:01:47.620 --> 00:01:50.010
+I'm gonna do airodump.ng.
+
+41
+00:01:50.010 --> 00:01:55.010
+I'm gonna do --bssid to specify the BSSID of the network.
+
+42
+00:01:55.470 --> 00:01:57.850
+Then I'm gonna do --channel
+
+43
+00:01:57.850 --> 00:01:59.780
+to specify the channel of the network
+
+44
+00:01:59.780 --> 00:02:02.053
+and we can see it's running on number one.
+
+45
+00:02:03.590 --> 00:02:06.210
+And I'm gonna do --write
+
+46
+00:02:06.210 --> 00:02:09.830
+to store everything that we capture into a file
+
+47
+00:02:09.830 --> 00:02:12.423
+and let's call this file basic_wep.
+
+48
+00:02:13.820 --> 00:02:16.590
+And then I'm gonna specify my wireless adapter
+
+49
+00:02:16.590 --> 00:02:18.543
+in monitor mode which is mon0.
+
+50
+00:02:19.670 --> 00:02:21.250
+So we ran this command before
+
+51
+00:02:21.250 --> 00:02:23.260
+in the targeted sniffing lecture.
+
+52
+00:02:23.260 --> 00:02:25.890
+All we're doing is we're running airodump.ng
+
+53
+00:02:25.890 --> 00:02:28.940
+against a specific network with this MAC address,
+
+54
+00:02:28.940 --> 00:02:32.020
+with this channel and we're storing everything in a file
+
+55
+00:02:32.020 --> 00:02:33.557
+called basic_wep.
+
+56
+00:02:34.750 --> 00:02:36.190
+I'm gonna hit Enter
+
+57
+00:02:36.190 --> 00:02:38.930
+and as you can see, airodump.ng is working
+
+58
+00:02:38.930 --> 00:02:40.730
+against my target network
+
+59
+00:02:40.730 --> 00:02:42.660
+and if you notice,
+
+60
+00:02:42.660 --> 00:02:44.730
+you'll see the data in here
+
+61
+00:02:44.730 --> 00:02:47.240
+is increasing really, really fast.
+
+62
+00:02:47.240 --> 00:02:49.310
+So this is something that I told you,
+
+63
+00:02:49.310 --> 00:02:50.680
+I'll talk about it later
+
+64
+00:02:50.680 --> 00:02:53.410
+when we were talking airodump.ng
+
+65
+00:02:53.410 --> 00:02:56.570
+because I didn't want to talk about IVs
+
+66
+00:02:56.570 --> 00:02:58.410
+at that early stage.
+
+67
+00:02:58.410 --> 00:03:01.350
+So basically what you see under the Data column
+
+68
+00:03:01.350 --> 00:03:03.680
+is the number of useful packets
+
+69
+00:03:03.680 --> 00:03:06.100
+that contain a different IV
+
+70
+00:03:06.100 --> 00:03:09.490
+that we can use in order to crack the key.
+
+71
+00:03:09.490 --> 00:03:11.790
+So the higher this number is,
+
+72
+00:03:11.790 --> 00:03:14.020
+the more likely we will be able
+
+73
+00:03:14.020 --> 00:03:15.850
+to crack the key.
+
+74
+00:03:15.850 --> 00:03:18.420
+As you can see, this number is increasing very fast
+
+75
+00:03:18.420 --> 00:03:20.960
+because like I said, this is a busy network
+
+76
+00:03:20.960 --> 00:03:23.380
+that is being used at the moment
+
+77
+00:03:23.380 --> 00:03:26.860
+by my own computers and my own devices.
+
+78
+00:03:26.860 --> 00:03:29.170
+If yours isn't increasing fast,
+
+79
+00:03:29.170 --> 00:03:31.790
+then don't worry, we will tackle this problem
+
+80
+00:03:31.790 --> 00:03:33.033
+in the next lectures.
+
+81
+00:03:33.880 --> 00:03:36.710
+So for now, we're capturing a lot of data
+
+82
+00:03:36.710 --> 00:03:38.430
+and this should actually be enough
+
+83
+00:03:38.430 --> 00:03:40.230
+to crack the key.
+
+84
+00:03:40.230 --> 00:03:41.600
+So what I'm gonna do,
+
+85
+00:03:41.600 --> 00:03:44.580
+I'm gonna go down to my other terminal in here
+
+86
+00:03:44.580 --> 00:03:47.030
+and if we actually list the files,
+
+87
+00:03:47.030 --> 00:03:49.370
+you'll see that we have the capture file
+
+88
+00:03:49.370 --> 00:03:52.020
+that we specified in the write argument
+
+89
+00:03:52.020 --> 00:03:56.580
+and like I said, we're always interested in the .cap file.
+
+90
+00:03:56.580 --> 00:03:58.600
+So all we have to do right now
+
+91
+00:03:58.600 --> 00:04:00.210
+is do step two in here.
+
+92
+00:04:00.210 --> 00:04:02.600
+Run aircrack-ng against the file
+
+93
+00:04:02.600 --> 00:04:04.903
+that we captured in order to crack the key.
+
+94
+00:04:06.030 --> 00:04:08.360
+So I'm gonna do aircrack.ng
+
+95
+00:04:10.240 --> 00:04:11.940
+followed by the file name
+
+96
+00:04:11.940 --> 00:04:14.973
+which is basic_wep-01.cap.
+
+97
+00:04:17.280 --> 00:04:18.723
+I'm gonna hit Enter.
+
+98
+00:04:19.780 --> 00:04:21.130
+And as you can see,
+
+99
+00:04:21.130 --> 00:04:23.843
+it's telling us that the key is found.
+
+100
+00:04:24.870 --> 00:04:26.550
+So let me cancel this here
+
+101
+00:04:27.690 --> 00:04:30.370
+and right now, we can connect
+
+102
+00:04:30.370 --> 00:04:33.890
+to the target network which is called Test_AP3
+
+103
+00:04:33.890 --> 00:04:35.730
+using this ASCII password,
+
+104
+00:04:35.730 --> 00:04:38.700
+so you can literally just copy this and paste it
+
+105
+00:04:38.700 --> 00:04:41.403
+or you can connect using this key.
+
+106
+00:04:42.340 --> 00:04:43.790
+Now, in some cases,
+
+107
+00:04:43.790 --> 00:04:46.630
+you will not see this ASCII password.
+
+108
+00:04:46.630 --> 00:04:48.830
+That's why I'm gonna show you how to connect
+
+109
+00:04:48.830 --> 00:04:50.310
+using this key right here
+
+110
+00:04:50.310 --> 00:04:52.033
+because you'll always get this.
+
+111
+00:04:53.140 --> 00:04:54.813
+So I'm gonna copy this.
+
+112
+00:04:56.200 --> 00:04:57.550
+And I'm just gonna paste it here.
+
+113
+00:04:57.550 --> 00:05:00.090
+You can paste it anywhere in a normal text editor
+
+114
+00:05:00.090 --> 00:05:01.880
+or anywhere you want.
+
+115
+00:05:01.880 --> 00:05:03.200
+And all you have to do
+
+116
+00:05:03.200 --> 00:05:04.970
+is remove the colons
+
+117
+00:05:04.970 --> 00:05:07.513
+that we see in here between the numbers.
+
+118
+00:05:08.781 --> 00:05:10.333
+So I'm gonna remove this one,
+
+119
+00:05:11.446 --> 00:05:12.910
+I'm gonna remove this one,
+
+120
+00:05:12.910 --> 00:05:15.500
+this one and this.
+
+121
+00:05:15.500 --> 00:05:17.713
+And now, we can just copy this.
+
+122
+00:05:19.080 --> 00:05:20.260
+And just to show you,
+
+123
+00:05:20.260 --> 00:05:23.630
+I'm actually gonna connect from my host machine.
+
+124
+00:05:23.630 --> 00:05:25.310
+You can connect from Kali
+
+125
+00:05:25.310 --> 00:05:27.480
+but when we enabled monitor mode,
+
+126
+00:05:27.480 --> 00:05:29.440
+we killed a lot of processes
+
+127
+00:05:29.440 --> 00:05:32.705
+and sometimes even after you restart these processes,
+
+128
+00:05:32.705 --> 00:05:34.700
+getting connecting to your target
+
+129
+00:05:34.700 --> 00:05:36.230
+will be a little bit buggy
+
+130
+00:05:36.230 --> 00:05:38.620
+so it's best to literally just restart Kali
+
+131
+00:05:38.620 --> 00:05:40.030
+and connect again.
+
+132
+00:05:40.030 --> 00:05:42.840
+So just to save all of this time,
+
+133
+00:05:42.840 --> 00:05:45.040
+I'm going to connect from here.
+
+134
+00:05:45.040 --> 00:05:47.040
+I'm just gonna click here,
+
+135
+00:05:47.040 --> 00:05:50.430
+I'm gonna connect to Test AP3.
+
+136
+00:05:50.430 --> 00:05:52.983
+And I'm going to paste the password.
+
+137
+00:05:53.960 --> 00:05:55.960
+So I'm just gonna click on Show the Password
+
+138
+00:05:55.960 --> 00:05:56.950
+to show it to you.
+
+139
+00:05:56.950 --> 00:05:58.280
+Again, the same password,
+
+140
+00:05:58.280 --> 00:06:00.240
+we just remove the colons.
+
+141
+00:06:00.240 --> 00:06:02.420
+I'm gonna click on Join.
+
+142
+00:06:02.420 --> 00:06:04.742
+And as you can see, we managed to connect
+
+143
+00:06:04.742 --> 00:06:07.300
+and we can test this connection
+
+144
+00:06:07.300 --> 00:06:11.010
+by going to Google and perfect.
+
+145
+00:06:11.010 --> 00:06:12.840
+As you can see, it's working
+
+146
+00:06:12.840 --> 00:06:16.853
+and we managed to break the WEP encryption.
+

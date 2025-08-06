@@ -1,0 +1,310 @@
+WEBVTT
+
+1
+00:00:00.850 --> 00:00:03.290
+<v ->The first penetration testing section</v>
+
+2
+00:00:03.290 --> 00:00:04.820
+in this course is gonna be
+
+3
+00:00:04.820 --> 00:00:07.230
+the network hacking section.
+
+4
+00:00:07.230 --> 00:00:08.470
+The reason why I chose
+
+5
+00:00:08.470 --> 00:00:09.690
+to start with this,
+
+6
+00:00:09.690 --> 00:00:11.140
+because everything,
+
+7
+00:00:11.140 --> 00:00:12.260
+if you think of it,
+
+8
+00:00:12.260 --> 00:00:14.240
+is connected to a network.
+
+9
+00:00:14.240 --> 00:00:15.610
+So, whether you're target
+
+10
+00:00:15.610 --> 00:00:17.240
+is a personal computer,
+
+11
+00:00:17.240 --> 00:00:18.630
+whether it's a server,
+
+12
+00:00:18.630 --> 00:00:19.960
+whether it's a company
+
+13
+00:00:19.960 --> 00:00:22.110
+or even if it's just a website,
+
+14
+00:00:22.110 --> 00:00:23.840
+all of these systems
+
+15
+00:00:23.840 --> 00:00:26.460
+are actually connected to a network.
+
+16
+00:00:26.460 --> 00:00:27.820
+Literally when you just connect
+
+17
+00:00:27.820 --> 00:00:28.810
+to the internet,
+
+18
+00:00:28.810 --> 00:00:30.230
+you're connecting to a network
+
+19
+00:00:30.230 --> 00:00:31.230
+because the internet
+
+20
+00:00:31.230 --> 00:00:33.639
+is just a really really big network.
+
+21
+00:00:33.639 --> 00:00:35.383
+So, it is very important
+
+22
+00:00:35.383 --> 00:00:36.900
+that you understand
+
+23
+00:00:36.900 --> 00:00:38.250
+how networks work
+
+24
+00:00:38.250 --> 00:00:40.030
+and how devices communicate
+
+25
+00:00:40.030 --> 00:00:40.863
+with each other
+
+26
+00:00:40.863 --> 00:00:42.418
+before we actually move
+
+27
+00:00:42.418 --> 00:00:44.870
+into the next sections.
+
+28
+00:00:44.870 --> 00:00:46.020
+So, this section
+
+29
+00:00:46.020 --> 00:00:47.630
+is actually gonna be divided
+
+30
+00:00:47.630 --> 00:00:49.810
+into three subsections.
+
+31
+00:00:49.810 --> 00:00:51.340
+In the first subsection
+
+32
+00:00:51.340 --> 00:00:52.700
+we're gonna talk about
+
+33
+00:00:52.700 --> 00:00:54.010
+all of the attacks
+
+34
+00:00:54.010 --> 00:00:55.190
+that you can do
+
+35
+00:00:55.190 --> 00:00:57.330
+before connecting to a network.
+
+36
+00:00:57.330 --> 00:00:59.310
+So you literally just have a computer
+
+37
+00:00:59.310 --> 00:01:01.070
+with a network interface,
+
+38
+00:01:01.070 --> 00:01:02.860
+possibly a Wi-Fi adapter
+
+39
+00:01:03.770 --> 00:01:04.603
+and we're gonna see
+
+40
+00:01:04.603 --> 00:01:05.780
+what can you do now
+
+41
+00:01:05.780 --> 00:01:08.063
+before even connecting to anything.
+
+42
+00:01:08.980 --> 00:01:10.420
+In the section subsection
+
+43
+00:01:10.420 --> 00:01:11.253
+I'm gonna show you
+
+44
+00:01:11.253 --> 00:01:13.310
+how to crack Wi-Fi keys
+
+45
+00:01:13.310 --> 00:01:15.950
+and gain access to Wi-Fi networks,
+
+46
+00:01:15.950 --> 00:01:17.110
+whether they use WEP,
+
+47
+00:01:17.110 --> 00:01:17.943
+WPA,
+
+48
+00:01:18.950 --> 00:01:20.453
+or WPA2.
+
+49
+00:01:21.820 --> 00:01:23.180
+Once you have the access,
+
+50
+00:01:23.180 --> 00:01:25.430
+you can move to the third section
+
+51
+00:01:25.430 --> 00:01:26.990
+which will apply for both
+
+52
+00:01:26.990 --> 00:01:30.700
+Wi-Fi and wired networks.
+
+53
+00:01:30.700 --> 00:01:32.360
+All of the attacks that you will learn
+
+54
+00:01:32.360 --> 00:01:34.050
+in the third subsection
+
+55
+00:01:34.050 --> 00:01:36.330
+apply whenever you are able
+
+56
+00:01:36.330 --> 00:01:37.630
+to connect to the network.
+
+57
+00:01:37.630 --> 00:01:39.498
+Once you're able to gain access
+
+58
+00:01:39.498 --> 00:01:41.580
+to the network.
+
+59
+00:01:41.580 --> 00:01:43.800
+And here is where the real fun starts,
+
+60
+00:01:43.800 --> 00:01:45.030
+because you're gonna learn
+
+61
+00:01:45.030 --> 00:01:46.917
+a number of powerful attacks
+
+62
+00:01:46.917 --> 00:01:49.050
+that will allow you to intercept
+
+63
+00:01:49.050 --> 00:01:50.970
+the connections in the network
+
+64
+00:01:50.970 --> 00:01:53.330
+and capture everything sent in it,
+
+65
+00:01:53.330 --> 00:01:54.870
+including usernames,
+
+66
+00:01:54.870 --> 00:01:57.749
+passwords, URLs, chat messages,
+
+67
+00:01:57.749 --> 00:01:58.582
+and so on.
+
+68
+00:01:59.790 --> 00:02:00.623
+Not only that,
+
+69
+00:02:00.623 --> 00:02:03.010
+but you'll also be able to modify data
+
+70
+00:02:03.010 --> 00:02:05.070
+as it's being sent in the air.
+
+71
+00:02:05.070 --> 00:02:07.470
+So you'll be able to control the requests,
+
+72
+00:02:07.470 --> 00:02:09.410
+serve people fake updates,
+
+73
+00:02:09.410 --> 00:02:10.484
+inject evil code
+
+74
+00:02:10.484 --> 00:02:12.960
+into the pages that they load
+
+75
+00:02:12.960 --> 00:02:15.620
+and so many other cool things.
+
+76
+00:02:15.620 --> 00:02:17.790
+So everything in the third section
+
+77
+00:02:17.790 --> 00:02:21.553
+will apply for both Wi-Fi and wired networks.
+

@@ -1,0 +1,370 @@
+WEBVTT
+
+00:00.420 --> 00:02.310
+Instructor: Now to practice some of the attacks
+
+00:02.310 --> 00:05.130
+that we're gonna learn in the future lectures,
+
+00:05.130 --> 00:09.060
+you need to have a target machine, or a victim machine.
+
+00:09.060 --> 00:12.420
+So this is a computer that you're going to target
+
+00:12.420 --> 00:14.610
+and try to hack and test the attacks
+
+00:14.610 --> 00:16.503
+that we're gonna learn against.
+
+00:17.340 --> 00:19.740
+So you can do this against any machine,
+
+00:19.740 --> 00:23.730
+but I highly recommend installing target machines
+
+00:23.730 --> 00:25.920
+as virtual machines.
+
+00:25.920 --> 00:29.160
+This is great because it won't break a real computer for you
+
+00:29.160 --> 00:30.960
+if you actually break something.
+
+00:30.960 --> 00:32.820
+It's also very easy to fix,
+
+00:32.820 --> 00:35.460
+even if you have a computer that you don't care about.
+
+00:35.460 --> 00:37.530
+It's very easy to fix virtual machines.
+
+00:37.530 --> 00:39.810
+You can just remove it and reinstall it
+
+00:39.810 --> 00:42.093
+or store a snapshot and go back to it.
+
+00:43.560 --> 00:44.640
+Now, as we all know,
+
+00:44.640 --> 00:47.400
+Windows is a very common operating system.
+
+00:47.400 --> 00:49.860
+It's used by a lot of people.
+
+00:49.860 --> 00:53.340
+So in this video I'm gonna show you how to install Windows
+
+00:53.340 --> 00:57.120
+as a virtual machine on all operating systems
+
+00:57.120 --> 00:58.920
+so that we can test the attacks
+
+00:58.920 --> 01:01.410
+that we're going to learn against it.
+
+01:01.410 --> 01:04.860
+If you have an Apple computer that uses an M Chip,
+
+01:04.860 --> 01:07.980
+then skip this lecture and watch the next lecture.
+
+01:07.980 --> 01:10.440
+That one will show you how to install Windows
+
+01:10.440 --> 01:12.960
+on an Apple M computer.
+
+01:12.960 --> 01:15.420
+For Windows, Linux, and Apple computers
+
+01:15.420 --> 01:16.950
+that use the Intel chip,
+
+01:16.950 --> 01:18.750
+you can continue watching this lecture
+
+01:18.750 --> 01:21.660
+to learn how to install Windows on it.
+
+01:21.660 --> 01:25.080
+Now, Microsoft has released ready virtual images
+
+01:25.080 --> 01:27.180
+for people to test windows
+
+01:27.180 --> 01:31.080
+so we can actually download a virtual image of Windows
+
+01:31.080 --> 01:33.123
+for free from Microsoft.
+
+01:33.960 --> 01:35.520
+I'm gonna include the download links
+
+01:35.520 --> 01:37.920
+in the resources of this lecture.
+
+01:37.920 --> 01:39.690
+Now, I've already done that
+
+01:39.690 --> 01:42.990
+and I already have it in here in my downloads.
+
+01:42.990 --> 01:44.640
+As you can see, we have it here,
+
+01:44.640 --> 01:47.550
+MSEDGE.windows10.VMware.
+
+01:47.550 --> 01:51.360
+And as you can see from the icon, this is a zip archive.
+
+01:51.360 --> 01:54.720
+Therefore, in order to use the contents inside it,
+
+01:54.720 --> 01:57.510
+we have to uncompress this file.
+
+01:57.510 --> 01:59.130
+So to do that on Windows,
+
+01:59.130 --> 02:01.383
+simply we're gonna have to double click it,
+
+02:02.640 --> 02:04.470
+copy the content,
+
+02:04.470 --> 02:08.010
+go back one directory and paste it here.
+
+02:08.010 --> 02:11.310
+We're gonna give it some time to uncompress the content.
+
+02:11.310 --> 02:13.110
+On Mac you can do the same,
+
+02:13.110 --> 02:16.140
+simply double click and it will uncompress the content.
+
+02:16.140 --> 02:18.540
+And on Linux, you'll have to right click
+
+02:18.540 --> 02:21.270
+and click on extract here.
+
+02:21.270 --> 02:24.480
+Now I'm doing these steps from a Windows host computer,
+
+02:24.480 --> 02:28.020
+but you should be able to follow them on Apple MacOS,
+
+02:28.020 --> 02:30.330
+and Linux because we are essentially
+
+02:30.330 --> 02:34.143
+using the same virtualization software, which is VMware.
+
+02:35.370 --> 02:36.990
+Once this is done, we're gonna have
+
+02:36.990 --> 02:39.570
+another directory in here with the contents
+
+02:39.570 --> 02:41.880
+of the virtual Windows image.
+
+02:41.880 --> 02:43.800
+To import this to VMware,
+
+02:43.800 --> 02:45.993
+we're gonna first of all run VMware.
+
+02:47.430 --> 02:50.100
+We're gonna click on Open Virtual Machine,
+
+02:50.100 --> 02:53.223
+or go to Player, File, Open.
+
+02:54.420 --> 02:56.490
+We're gonna navigate to the location
+
+02:56.490 --> 02:58.920
+where we have this file in here.
+
+02:58.920 --> 03:02.340
+So it's gonna be in my downloads
+
+03:02.340 --> 03:04.830
+in MSEdge.windows10.VMware,
+
+03:04.830 --> 03:07.740
+and we're gonna select the only file
+
+03:07.740 --> 03:10.620
+that we can actually select from the list.
+
+03:10.620 --> 03:12.250
+We're gonna click on open
+
+03:13.110 --> 03:15.960
+and we can set the name of the machine in here.
+
+03:15.960 --> 03:19.260
+So for example, I can set it to Windows 10.
+
+03:19.260 --> 03:21.420
+You can change the path where it's gonna be stored,
+
+03:21.420 --> 03:23.370
+but we're gonna keep that the same,
+
+03:23.370 --> 03:26.433
+and we're gonna click on import to import it.
+
+03:27.300 --> 03:28.950
+You're gonna have to give it a bit of time
+
+03:28.950 --> 03:31.653
+to import this machine into VMware.
+
+03:33.840 --> 03:34.673
+And Perfect.
+
+03:34.673 --> 03:37.260
+As you can see now, it's imported in here.
+
+03:37.260 --> 03:39.750
+And as usual, we can simply start it
+
+03:39.750 --> 03:42.210
+by clicking on the green play button.
+
+03:42.210 --> 03:43.410
+But before doing that,
+
+03:43.410 --> 03:47.130
+I actually wanna modify the amount of memory it has.
+
+03:47.130 --> 03:50.700
+So we're gonna right click and go to settings.
+
+03:50.700 --> 03:52.590
+And as you can see by default
+
+03:52.590 --> 03:55.440
+it's set to have four gigabytes of memory.
+
+03:55.440 --> 03:57.150
+I think that's a little bit too much.
+
+03:57.150 --> 03:58.770
+It doesn't need that much.
+
+03:58.770 --> 04:01.080
+So we're gonna set that to two
+
+04:01.080 --> 04:03.756
+by dragging the slider down to two.
+
+04:03.756 --> 04:06.000
+W we're gonna click on okay,
+
+04:06.000 --> 04:09.333
+and start it by clicking on the green play button.
+
+04:10.770 --> 04:11.603
+And Perfect.
+
+04:11.603 --> 04:14.040
+As you can see now, the machine started.
+
+04:14.040 --> 04:19.040
+We're gonna click inside and click again to log in.
+
+04:19.080 --> 04:22.863
+The default password in here is capital Passw0rd!
+
+04:28.530 --> 04:32.370
+I'm gonna hit enter, and here we go.
+
+04:32.370 --> 04:37.320
+We have a fully working virtual Windows 10 computer
+
+04:37.320 --> 04:40.830
+installed inside our main machine.
+
+04:40.830 --> 04:43.710
+and we did that so we can test attacks
+
+04:43.710 --> 04:46.080
+against this virtual machine
+
+04:46.080 --> 04:49.230
+without affecting our host computer.
+
+04:49.230 --> 04:52.080
+Now we can go in full screen by clicking here
+
+04:52.080 --> 04:54.660
+and go into full screen.
+
+04:54.660 --> 04:58.050
+The screen should automatically resize, if it doesn't,
+
+04:58.050 --> 05:01.590
+right click display settings
+
+05:01.590 --> 05:05.220
+and you can set it to the right resolution for your screen.
+
+05:05.220 --> 05:09.090
+I'm gonna set it to 3840 by 2160
+
+05:09.090 --> 05:12.030
+because I have 4K screen,
+
+05:12.030 --> 05:14.700
+you can see that the icons are actually really small
+
+05:14.700 --> 05:17.640
+because I have such a high resolution screen.
+
+05:17.640 --> 05:19.950
+In your case, you'll only face this issue
+
+05:19.950 --> 05:22.200
+if you have a 4K screen.
+
+05:22.200 --> 05:24.450
+So you'll also probably need to set
+
+05:24.450 --> 05:27.360
+the scaling in here to 200.
+
+05:27.360 --> 05:28.530
+And as you can see now,
+
+05:28.530 --> 05:32.580
+the icon size has changed to the normal size.
+
+05:32.580 --> 05:34.500
+Now, if you face any other issues,
+
+05:34.500 --> 05:36.390
+check out the featured questions,
+
+05:36.390 --> 05:38.010
+and if you don't find an answer,
+
+05:38.010 --> 05:40.920
+feel free to ask us and we will respond to you
+
+05:40.920 --> 05:43.323
+within a maximum of 15 hours.

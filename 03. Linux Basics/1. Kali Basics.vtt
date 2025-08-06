@@ -1,0 +1,340 @@
+WEBVTT
+
+00:00.300 --> 00:02.610
+Instructor: Now that we have Kali Linux installed,
+
+00:02.610 --> 00:04.950
+I want to give you a basic overview
+
+00:04.950 --> 00:07.530
+of this operating system in this lecture
+
+00:07.530 --> 00:09.300
+so that you're comfortable with it.
+
+00:09.300 --> 00:12.000
+And we're gonna be using it throughout the whole course.
+
+00:12.000 --> 00:14.700
+So everything is gonna become easier for you
+
+00:14.700 --> 00:16.173
+as we go through the course.
+
+00:17.370 --> 00:19.110
+Now, the first thing that I want to talk about
+
+00:19.110 --> 00:21.360
+is the status bar in here.
+
+00:21.360 --> 00:24.990
+So you can see we have an applications menu in here,
+
+00:24.990 --> 00:27.060
+and inside it you can see
+
+00:27.060 --> 00:29.433
+all the applications are categorized.
+
+00:30.270 --> 00:33.090
+So we have information gathering applications,
+
+00:33.090 --> 00:36.780
+vulnerability analysis, web application analysis,
+
+00:36.780 --> 00:40.170
+reverse engineering, and so on.
+
+00:40.170 --> 00:42.720
+So you can go on each one of these entries
+
+00:42.720 --> 00:45.273
+and just select any program that you want to run.
+
+00:46.320 --> 00:49.170
+And the next menu that we have is the Places,
+
+00:49.170 --> 00:53.250
+which shows you the most common Places in the file system.
+
+00:53.250 --> 00:56.583
+So we have Home, we have the Documents, Downloads and so on.
+
+00:57.570 --> 00:59.520
+So you can access the places from here,
+
+00:59.520 --> 01:01.380
+and then you click on Home,
+
+01:01.380 --> 01:05.010
+or you can just click on the files icon in here on the left.
+
+01:05.010 --> 01:08.160
+And both of these will bring you to the Home directory,
+
+01:08.160 --> 01:10.980
+which is actually the root directory.
+
+01:10.980 --> 01:13.350
+So it says Home in here,
+
+01:13.350 --> 01:17.190
+but the actual location of this, if I do Control + L,
+
+01:17.190 --> 01:19.923
+you'll see it is /root.
+
+01:20.970 --> 01:23.610
+So inside this you can see we have our Downloads,
+
+01:23.610 --> 01:25.830
+Music, Pictures, similar to the way
+
+01:25.830 --> 01:28.353
+that you'd have it in Windows and OSX.
+
+01:29.430 --> 01:31.530
+We also have the timing here.
+
+01:31.530 --> 01:34.740
+And in here on the right, we have more controls.
+
+01:34.740 --> 01:38.610
+So the first thing that we have in here is the workspaces.
+
+01:38.610 --> 01:42.780
+So Linux comes with multiple workspaces by default.
+
+01:42.780 --> 01:44.760
+Basically what this allow us to do
+
+01:44.760 --> 01:47.550
+is we can have this desktop in here, for example,
+
+01:47.550 --> 01:50.970
+we can open the Places and we can, for example,
+
+01:50.970 --> 01:53.583
+navigate to Downloads and do some work in here.
+
+01:54.450 --> 01:59.450
+But if we go here to workplaces and go to the second one,
+
+02:00.120 --> 02:02.130
+you can see that I have an empty desktop,
+
+02:02.130 --> 02:03.930
+that I can do whatever I want.
+
+02:03.930 --> 02:06.483
+And for example, I can launch Firefox in here.
+
+02:08.250 --> 02:11.700
+And then again, if I want to go back to the first workspace,
+
+02:11.700 --> 02:14.760
+click on number one, and I'm back in here.
+
+02:14.760 --> 02:17.610
+And because I've already used up two spaces,
+
+02:17.610 --> 02:21.030
+the system is already creating a third empty space.
+
+02:21.030 --> 02:23.370
+So I can click on that and as you can see,
+
+02:23.370 --> 02:26.223
+I'm in the third space where I can do more stuff.
+
+02:27.330 --> 02:31.140
+The next part of the status bar is this last part in here.
+
+02:31.140 --> 02:32.520
+And if you click on it,
+
+02:32.520 --> 02:34.560
+basically the first thing it'll allow you to do
+
+02:34.560 --> 02:36.510
+is control the sound.
+
+02:36.510 --> 02:39.150
+Next, you'll see your connections.
+
+02:39.150 --> 02:42.000
+So as you can see right now, and as I showed you before,
+
+02:42.000 --> 02:45.570
+this is showing up as if we're connected to a wired network
+
+02:45.570 --> 02:47.610
+because I configured this network
+
+02:47.610 --> 02:49.233
+to use an ng network.
+
+02:50.220 --> 02:53.610
+If you have a wireless adapter connected to this computer,
+
+02:53.610 --> 02:55.830
+you should be able to see it here.
+
+02:55.830 --> 02:58.470
+If you don't see it, then follow the link
+
+02:58.470 --> 03:00.360
+in the resources of this lecture
+
+03:00.360 --> 03:03.720
+to see how to properly connect your wireless adapter
+
+03:03.720 --> 03:07.173
+or any USB device to a virtual machine.
+
+03:08.070 --> 03:12.900
+Now, I should note, you can only use external USB adapters
+
+03:12.900 --> 03:16.440
+in order to access wifi networks from Kali.
+
+03:16.440 --> 03:19.143
+You cannot use the built-in wifi card,
+
+03:20.040 --> 03:22.710
+but Kali should have internet connection anyway
+
+03:22.710 --> 03:25.560
+because it is configured to use an ng network.
+
+03:25.560 --> 03:26.760
+And as you can see in here,
+
+03:26.760 --> 03:29.790
+it's telling me my wired is connected.
+
+03:29.790 --> 03:33.453
+So if I actually go down to Firefox, I'll close this.
+
+03:35.340 --> 03:38.253
+And if I just go to google.com,
+
+03:39.090 --> 03:41.643
+you can see it is connected to the internet.
+
+03:43.620 --> 03:46.023
+So let's go back to where we were.
+
+03:47.100 --> 03:49.770
+And if we click here,
+
+03:49.770 --> 03:52.920
+we also have the battery settings.
+
+03:52.920 --> 03:55.680
+You have this button to turn off the machine.
+
+03:55.680 --> 03:57.600
+This is to lock the machine.
+
+03:57.600 --> 03:59.730
+And this will show the preferences
+
+03:59.730 --> 04:02.340
+where you can modify the preferences of the machine.
+
+04:02.340 --> 04:04.530
+So you have Bluetooth, wifi,
+
+04:04.530 --> 04:07.500
+change the background and so on.
+
+04:07.500 --> 04:10.260
+So you can spend some time getting familiar with this.
+
+04:10.260 --> 04:12.900
+It's very easy and very intuitive.
+
+04:12.900 --> 04:15.990
+Same goes to the file manager in here, very intuitive.
+
+04:15.990 --> 04:17.550
+Double click to go in.
+
+04:17.550 --> 04:19.020
+You can right click and archive
+
+04:19.020 --> 04:21.540
+and extract here to uncompress it.
+
+04:21.540 --> 04:24.630
+You can navigate throughout these files by clicking them.
+
+04:24.630 --> 04:26.250
+And then you have the trash here,
+
+04:26.250 --> 04:28.890
+which contains the deleted files.
+
+04:28.890 --> 04:30.690
+Now we also have the doc in here,
+
+04:30.690 --> 04:33.540
+which contains the favorite applications.
+
+04:33.540 --> 04:36.960
+And you can also access all the other applications
+
+04:36.960 --> 04:41.070
+by clicking on this icon right here, the show applications.
+
+04:41.070 --> 04:42.780
+And this will show you a menu
+
+04:42.780 --> 04:45.000
+with the most frequent applications.
+
+04:45.000 --> 04:46.560
+You can click through these arrows
+
+04:46.560 --> 04:48.870
+to load all of the applications.
+
+04:48.870 --> 04:51.270
+You can also use this search box
+
+04:51.270 --> 04:53.460
+to search through these applications.
+
+04:53.460 --> 04:56.040
+For example, if I wanted to search for
+
+04:56.040 --> 04:58.290
+this program right here, nikto,
+
+04:58.290 --> 05:00.990
+all I have to do is type "nik",
+
+05:00.990 --> 05:04.020
+and as you can see, it's filtering it for me.
+
+05:04.020 --> 05:05.430
+And last but not least,
+
+05:05.430 --> 05:07.770
+you can also switch between the desktops
+
+05:07.770 --> 05:10.500
+that I showed you in here through this menu
+
+05:10.500 --> 05:12.753
+by clicking on these desktops.
+
+05:13.830 --> 05:15.870
+And if you wanna exit out of this,
+
+05:15.870 --> 05:18.660
+you can simply press the Escape button on your keyboard
+
+05:18.660 --> 05:22.263
+or press the show apps icon in here on the left.

@@ -1,0 +1,638 @@
+WEBVTT
+
+1
+00:00:00.130 --> 00:00:04.060
+<v ->Information gathering is one of the most important steps</v>
+
+2
+00:00:04.060 --> 00:00:07.150
+when it comes to hacking or penetration testing.
+
+3
+00:00:07.150 --> 00:00:07.983
+If you think of it,
+
+4
+00:00:07.983 --> 00:00:10.720
+you can't really gain access to a system,
+
+5
+00:00:10.720 --> 00:00:13.589
+if you don't have enough information about it.
+
+6
+00:00:13.589 --> 00:00:14.752
+So for example,
+
+7
+00:00:14.752 --> 00:00:18.150
+let's say you're connected to a network and one of the
+
+8
+00:00:18.150 --> 00:00:21.505
+devices connected to this network is your target.
+
+9
+00:00:21.505 --> 00:00:23.497
+Now for you to hack into that target,
+
+10
+00:00:23.497 --> 00:00:27.173
+first, you need to discover all of the connected clients
+
+11
+00:00:27.173 --> 00:00:28.293
+to this network,
+
+12
+00:00:28.293 --> 00:00:29.760
+get their Mac address,
+
+13
+00:00:29.760 --> 00:00:30.673
+their IP address.
+
+14
+00:00:30.673 --> 00:00:31.947
+And then from there,
+
+15
+00:00:31.947 --> 00:00:35.768
+try to maybe gather more information or run some attacks in
+
+16
+00:00:35.768 --> 00:00:39.531
+order to gain access to your target.
+
+17
+00:00:39.531 --> 00:00:40.364
+Now,
+
+18
+00:00:40.364 --> 00:00:43.510
+there are a number of programs that will do this for you.
+
+19
+00:00:43.510 --> 00:00:46.210
+Examples are Net Discover and EnMap,
+
+20
+00:00:46.210 --> 00:00:48.440
+which do this job really, really well.
+
+21
+00:00:48.440 --> 00:00:51.199
+So in this lecture, we'll start with the simpler one,
+
+22
+00:00:51.199 --> 00:00:55.660
+which is Net Discover and see how to use it to quickly map
+
+23
+00:00:55.660 --> 00:00:58.300
+the network we're connected to.
+
+24
+00:00:58.300 --> 00:00:59.810
+And in the next lecture,
+
+25
+00:00:59.810 --> 00:01:01.619
+I'm going to show you how to use EnMap,
+
+26
+00:01:01.619 --> 00:01:05.532
+to gather detailed information about all of the clients
+
+27
+00:01:05.532 --> 00:01:08.253
+connected to the same network.
+
+28
+00:01:09.610 --> 00:01:12.103
+So I have my Cali terminal in here.
+
+29
+00:01:12.103 --> 00:01:14.720
+And if I do, ifconfig,
+
+30
+00:01:14.720 --> 00:01:16.664
+you'll see, I have ETA zero,
+
+31
+00:01:16.664 --> 00:01:18.797
+it has an IP address.
+
+32
+00:01:18.797 --> 00:01:20.084
+And like I said,
+
+33
+00:01:20.084 --> 00:01:24.500
+this is the virtual interface created by virtual box,
+
+34
+00:01:24.500 --> 00:01:28.694
+when we set the Cali machine to use an ad network.
+
+35
+00:01:28.694 --> 00:01:29.527
+Now,
+
+36
+00:01:29.527 --> 00:01:33.290
+I also said that this knot network behaves exactly like an
+
+37
+00:01:33.290 --> 00:01:34.565
+ethernet network.
+
+38
+00:01:34.565 --> 00:01:37.428
+And as far as the Cali machine is concerned,
+
+39
+00:01:37.428 --> 00:01:41.870
+it thinks that it is connected to our real wired network.
+
+40
+00:01:41.870 --> 00:01:44.530
+And as you can see in here it's telling me that wired
+
+41
+00:01:44.530 --> 00:01:45.363
+connected.
+
+42
+00:01:46.680 --> 00:01:50.207
+Now I have my virtual windows machine right here.
+
+43
+00:01:50.207 --> 00:01:54.581
+It is configured to use the same Nat network as the Cali
+
+44
+00:01:54.581 --> 00:01:56.150
+machine.
+
+45
+00:01:56.150 --> 00:01:59.320
+Remember, we're still in the network hacking section.
+
+46
+00:01:59.320 --> 00:02:03.442
+So both you and the target machine need to be connected to
+
+47
+00:02:03.442 --> 00:02:05.590
+the same network.
+
+48
+00:02:05.590 --> 00:02:08.620
+So as far as these two computers are concerned,
+
+49
+00:02:08.620 --> 00:02:11.665
+they think that they are connected to the same network.
+
+50
+00:02:11.665 --> 00:02:15.690
+So what I want to do right now is use Net Discover and see
+
+51
+00:02:15.690 --> 00:02:19.430
+how we can use it to discover all devices connected to the
+
+52
+00:02:19.430 --> 00:02:20.363
+same network.
+
+53
+00:02:21.540 --> 00:02:22.373
+Now,
+
+54
+00:02:22.373 --> 00:02:24.580
+the method that I'm going to show you will work exactly the
+
+55
+00:02:24.580 --> 00:02:25.413
+same,
+
+56
+00:02:25.413 --> 00:02:27.720
+whether you're using it against a virtual network like I'm
+
+57
+00:02:27.720 --> 00:02:29.603
+doing right now or against real network.
+
+58
+00:02:29.603 --> 00:02:33.783
+And even if your target is a wifi or a wireless network.
+
+59
+00:02:34.870 --> 00:02:37.320
+So all you have to do is type the name of the program,
+
+60
+00:02:37.320 --> 00:02:40.180
+which is net discover and then type dash R
+
+61
+00:02:40.180 --> 00:02:45.180
+or to specify an IP range to search for.
+
+62
+00:02:45.350 --> 00:02:48.870
+This needs to be arranged that can be accessed by you.
+
+63
+00:02:48.870 --> 00:02:53.170
+So right now you can see that my IP is 10 0 2 16,
+
+64
+00:02:53.170 --> 00:02:57.170
+and I can only access IPS on the same sub-net.
+
+65
+00:02:57.170 --> 00:03:02.050
+So IP is on the same, sub-net start at 10 0 2 0.
+
+66
+00:03:02.050 --> 00:03:05.920
+And they would end at 10 0 2 2 5 4,
+
+67
+00:03:05.920 --> 00:03:10.433
+because 2, 5, 4 is the last IP that a client can have.
+
+68
+00:03:11.570 --> 00:03:16.570
+So my range is going to be 10, zero, two one,
+
+69
+00:03:16.590 --> 00:03:20.160
+and I want to search for clients that might have an IP of
+
+70
+00:03:20.160 --> 00:03:23.830
+10 0 2 1, 10 0 2 2, 10 0 2 3,
+
+71
+00:03:23.830 --> 00:03:28.023
+all the way up to 10 0 2, 25, 4.
+
+72
+00:03:28.900 --> 00:03:31.970
+So instead of manually typing all of these IPS,
+
+73
+00:03:31.970 --> 00:03:36.970
+I can just type over 24 and net discover will automatically
+
+74
+00:03:37.040 --> 00:03:41.480
+know that I'm trying to search for all of the IPS that start
+
+75
+00:03:41.480 --> 00:03:46.480
+at 10 0 2 1 and end 10 0 2, 25, 4.
+
+76
+00:03:46.600 --> 00:03:51.130
+So this is a way of specifying an IP range for the whole
+
+77
+00:03:51.130 --> 00:03:52.550
+subnet.
+
+78
+00:03:52.550 --> 00:03:53.943
+So if I hit enter now,
+
+79
+00:03:55.410 --> 00:03:59.380
+you'll see that net discover will show me all the IPS of the
+
+80
+00:03:59.380 --> 00:04:03.030
+devices connected to the same network and note that the
+
+81
+00:04:03.030 --> 00:04:06.530
+first three parts of the IPS are always the same because
+
+82
+00:04:06.530 --> 00:04:08.880
+they are on the same sub-net.
+
+83
+00:04:08.880 --> 00:04:12.910
+And I also have the Mac addresses of these clients and Net
+
+84
+00:04:12.910 --> 00:04:16.943
+Discovers also attempting to guess the device vendor.
+
+85
+00:04:17.800 --> 00:04:21.050
+Now, if I press Q, this will quit the program.
+
+86
+00:04:21.050 --> 00:04:25.030
+And right now we have a list of all the connected clients to
+
+87
+00:04:25.030 --> 00:04:26.762
+the same network.
+
+88
+00:04:26.762 --> 00:04:28.090
+Now, like I said,
+
+89
+00:04:28.090 --> 00:04:31.730
+you can also use this method to discover clients connected
+
+90
+00:04:31.730 --> 00:04:34.430
+to the same wifi network.
+
+91
+00:04:34.430 --> 00:04:38.412
+The only thing is right now, if I do, ifconfig,
+
+92
+00:04:38.412 --> 00:04:42.385
+you can see that my Cali machine does not have a wireless
+
+93
+00:04:42.385 --> 00:04:46.731
+adapter, it's not connected to a wifi network.
+
+94
+00:04:46.731 --> 00:04:48.406
+And like I said before,
+
+95
+00:04:48.406 --> 00:04:52.760
+you cannot access the built in wireless card from a virtual
+
+96
+00:04:52.760 --> 00:04:54.340
+machine.
+
+97
+00:04:54.340 --> 00:04:55.173
+Therefore,
+
+98
+00:04:55.173 --> 00:04:58.810
+if you want to do this or run any of the wireless attacks
+
+99
+00:04:58.810 --> 00:05:01.880
+that we're going to see in the future against a real
+
+100
+00:05:01.880 --> 00:05:04.085
+computer and a real wireless network,
+
+101
+00:05:04.085 --> 00:05:07.653
+you're going to need to use a wireless adapter.
+
+102
+00:05:08.910 --> 00:05:11.700
+Now I'm going to include links in the description that will
+
+103
+00:05:11.700 --> 00:05:15.680
+help you pick a good adopter that works with Cali Linux.
+
+104
+00:05:15.680 --> 00:05:18.530
+But right now I actually have one and I'm just going to
+
+105
+00:05:18.530 --> 00:05:21.120
+connect it and use it just to prove to you.
+
+106
+00:05:21.120 --> 00:05:23.680
+If things work on the virtual machines,
+
+107
+00:05:23.680 --> 00:05:25.738
+connected to the virtual network,
+
+108
+00:05:25.738 --> 00:05:29.419
+they will work exactly the same against a real network with
+
+109
+00:05:29.419 --> 00:05:31.810
+real machines.
+
+110
+00:05:31.810 --> 00:05:34.687
+So I'm going to connect my adapter now.
+
+111
+00:05:34.687 --> 00:05:39.687
+And if I do, if config, it's still not showing up,
+
+112
+00:05:40.200 --> 00:05:42.450
+let's see if it shows up now.
+
+113
+00:05:42.450 --> 00:05:43.781
+Perfect. As you can see,
+
+114
+00:05:43.781 --> 00:05:46.733
+I have an adapter now called LAN zero.
+
+115
+00:05:47.680 --> 00:05:51.440
+And what I'm going to do is I need to connect this adapter
+
+116
+00:05:51.440 --> 00:05:52.813
+to a wifi network first,
+
+117
+00:05:52.813 --> 00:05:56.900
+before I can discover all the connected clients to this
+
+118
+00:05:56.900 --> 00:05:57.733
+network.
+
+119
+00:05:58.590 --> 00:06:01.360
+So I'm going to go to my network manager.
+
+120
+00:06:01.360 --> 00:06:04.900
+I'm going to click in here and you want to click on select
+
+121
+00:06:04.900 --> 00:06:08.320
+network, as you can see automatically.
+
+122
+00:06:08.320 --> 00:06:11.130
+Now it's actually connected to a network. But,
+
+123
+00:06:11.130 --> 00:06:12.000
+in your case,
+
+124
+00:06:12.000 --> 00:06:14.870
+you'd want to select the network and click on connect,
+
+125
+00:06:14.870 --> 00:06:16.967
+and then it'll ask you for the password.
+
+126
+00:06:16.967 --> 00:06:20.590
+So now I'm actually connected. And you'll see if I do,
+
+127
+00:06:20.590 --> 00:06:24.667
+ifconfig again, right now, LAN zero has
+
+128
+00:06:24.667 --> 00:06:26.433
+an IP address.
+
+129
+00:06:27.680 --> 00:06:30.290
+So this means that it is connected to a network.
+
+130
+00:06:30.290 --> 00:06:34.575
+And this means that we can use it now with net discover.
+
+131
+00:06:34.575 --> 00:06:35.560
+So again,
+
+132
+00:06:35.560 --> 00:06:38.410
+I'm going to use the exact same command that I used before,
+
+133
+00:06:38.410 --> 00:06:41.740
+just to show you and prove to you that if this works against
+
+134
+00:06:41.740 --> 00:06:45.321
+virtual machines, it'll work against real machines.
+
+135
+00:06:45.321 --> 00:06:48.081
+And the only difference is going to be the IP.
+
+136
+00:06:48.081 --> 00:06:50.460
+So I'm going to remove this IP.
+
+137
+00:06:50.460 --> 00:06:52.093
+And as you can see right now, my IP is
+
+138
+00:06:52.093 --> 00:06:55.663
+1 9 2 1 6 8 1 8.
+
+139
+00:06:56.620 --> 00:06:59.700
+So therefore the range that I'm going to look for is going
+
+140
+00:06:59.700 --> 00:07:04.700
+to start at 1 9 2 1 6 8 8 1 1.
+
+141
+00:07:05.110 --> 00:07:07.530
+And I'm going to leave the over 24 here,
+
+142
+00:07:07.530 --> 00:07:10.220
+because this will tell Net Discover
+
+143
+00:07:10.220 --> 00:07:15.050
+that I want to start at 1 9 2 1 6 8 1 1 and finish at
+
+144
+00:07:15.050 --> 00:07:17.833
+1 9 2 1 6 8 2 5 4.
+
+145
+00:07:18.790 --> 00:07:20.693
+So if I hit enter now,
+
+146
+00:07:22.785 --> 00:07:24.220
+as you can see,
+
+147
+00:07:24.220 --> 00:07:27.640
+it's discovering all the connected clients,
+
+148
+00:07:27.640 --> 00:07:30.730
+all their IP addresses all their Mac addresses,
+
+149
+00:07:30.730 --> 00:07:33.000
+and it's guessing the manufacturer.
+
+150
+00:07:33.000 --> 00:07:35.850
+And you can see it's also discovering some Apple devices
+
+151
+00:07:35.850 --> 00:07:38.040
+here. So as you can see,
+
+152
+00:07:38.040 --> 00:07:41.723
+it's working perfectly using the exact same command.
+
+153
+00:07:42.680 --> 00:07:46.690
+Now, I only did this just to show you that if things work
+
+154
+00:07:46.690 --> 00:07:50.040
+against virtual machines and I guess virtual networks,
+
+155
+00:07:50.040 --> 00:07:53.460
+then they will work against real machines because these
+
+156
+00:07:53.460 --> 00:07:57.300
+virtual machines and virtual networks are modeled over real
+
+157
+00:07:57.300 --> 00:08:00.680
+machines. And as far as the machines are concerned,
+
+158
+00:08:00.680 --> 00:08:03.353
+they actually think they are real computers and real
+
+159
+00:08:03.353 --> 00:08:04.423
+machines.
+

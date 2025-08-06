@@ -1,0 +1,822 @@
+WEBVTT
+
+1
+00:00:00.000 --> 00:00:02.790
+<v ->So far, we learned a number of techniques</v>
+
+2
+00:00:02.790 --> 00:00:06.500
+that hackers can use to gain access to networks,
+
+3
+00:00:06.500 --> 00:00:09.723
+even if they use WPA and WPA2.
+
+4
+00:00:10.690 --> 00:00:11.690
+If this happens,
+
+5
+00:00:11.690 --> 00:00:14.020
+and a hacker manages to gain access
+
+6
+00:00:14.020 --> 00:00:16.550
+to your computer, it's game over.
+
+7
+00:00:16.550 --> 00:00:20.270
+They'll be able to run so much more powerful attacks
+
+8
+00:00:20.270 --> 00:00:23.430
+to spy on every single connected device
+
+9
+00:00:23.430 --> 00:00:28.430
+and potentially even gain full control over these devices.
+
+10
+00:00:28.690 --> 00:00:30.110
+We will be covering all of
+
+11
+00:00:30.110 --> 00:00:32.630
+that in the next section of this course,
+
+12
+00:00:32.630 --> 00:00:34.690
+but before we get into that section,
+
+13
+00:00:34.690 --> 00:00:36.550
+I want to spend one more lecture
+
+14
+00:00:36.550 --> 00:00:39.990
+showing you how to implement the security settings
+
+15
+00:00:39.990 --> 00:00:42.570
+that I recommended in the previous lecture,
+
+16
+00:00:42.570 --> 00:00:45.680
+to stop hackers from gaining access to your network,
+
+17
+00:00:45.680 --> 00:00:48.100
+and being able to do all of the attacks
+
+18
+00:00:48.100 --> 00:00:51.100
+that I'm gonna show you in the next section.
+
+19
+00:00:51.100 --> 00:00:52.760
+So, to implement the changes
+
+20
+00:00:52.760 --> 00:00:55.200
+that we discussed in the previous lecture,
+
+21
+00:00:55.200 --> 00:00:58.930
+we will have to first access the router's settings page.
+
+22
+00:00:58.930 --> 00:01:01.620
+And to do that, you're gonna first need to go
+
+23
+00:01:01.620 --> 00:01:03.040
+to your terminal,
+
+24
+00:01:03.040 --> 00:01:06.863
+and we're gonna run the IP route command.
+
+25
+00:01:07.950 --> 00:01:09.620
+This is a very simple command
+
+26
+00:01:09.620 --> 00:01:12.740
+that will simply show us the default gateways
+
+27
+00:01:12.740 --> 00:01:15.160
+in our current network.
+
+28
+00:01:15.160 --> 00:01:18.010
+So as you can see, the first default gateway is
+
+29
+00:01:18.010 --> 00:01:21.550
+10, zero, two, one; this is the one for ETH zero,
+
+30
+00:01:21.550 --> 00:01:24.460
+and the default gateway is basically the router,
+
+31
+00:01:24.460 --> 00:01:26.520
+because as we know, the router is used
+
+32
+00:01:26.520 --> 00:01:29.010
+as the default gateway to the internet.
+
+33
+00:01:29.010 --> 00:01:30.970
+So this is the default gateway
+
+34
+00:01:30.970 --> 00:01:33.030
+for the virtual NAT network
+
+35
+00:01:33.030 --> 00:01:35.940
+that this machine is configured to connect to.
+
+36
+00:01:35.940 --> 00:01:38.820
+And below it, we can see the default gateway
+
+37
+00:01:38.820 --> 00:01:41.080
+for the real wifi network
+
+38
+00:01:41.080 --> 00:01:43.730
+that lan zero is connected to.
+
+39
+00:01:43.730 --> 00:01:44.563
+It's saying
+
+40
+00:01:44.563 --> 00:01:46.660
+that the default gateway for lan zero
+
+41
+00:01:46.660 --> 00:01:50.930
+is this specific IP address.
+
+42
+00:01:50.930 --> 00:01:53.450
+Now for you to see this, obviously lan zero
+
+43
+00:01:53.450 --> 00:01:56.750
+needs to be connected to your wireless network.
+
+44
+00:01:56.750 --> 00:02:01.070
+So if I look here on my networks on the wifi
+
+45
+00:02:01.070 --> 00:02:02.950
+and select network, you'll see
+
+46
+00:02:02.950 --> 00:02:05.440
+that I'm actually connected to this network,
+
+47
+00:02:05.440 --> 00:02:07.790
+which is my current wifi network.
+
+48
+00:02:07.790 --> 00:02:09.750
+Now, if you're being deauthenticated
+
+49
+00:02:09.750 --> 00:02:11.900
+and you're not able to connect to your own network
+
+50
+00:02:11.900 --> 00:02:15.460
+using wifi, then you can connect to your network
+
+51
+00:02:15.460 --> 00:02:17.810
+using an ethernet cable,
+
+52
+00:02:17.810 --> 00:02:20.680
+that way, the deauthentication attack
+
+53
+00:02:20.680 --> 00:02:22.270
+will not work against you,
+
+54
+00:02:22.270 --> 00:02:24.630
+and you'll still be able to see
+
+55
+00:02:24.630 --> 00:02:27.400
+the default gateway IP in here,
+
+56
+00:02:27.400 --> 00:02:29.790
+and use it to access the router settings
+
+57
+00:02:29.790 --> 00:02:33.100
+and modify them to improve your security.
+
+58
+00:02:33.100 --> 00:02:34.720
+Once you see the default gateway,
+
+59
+00:02:34.720 --> 00:02:37.230
+this is the IP of your router,
+
+60
+00:02:37.230 --> 00:02:38.250
+and this is the IP
+
+61
+00:02:38.250 --> 00:02:39.943
+that we're gonna use to access the
+
+62
+00:02:39.943 --> 00:02:44.090
+routers settings page to modify its settings.
+
+63
+00:02:44.090 --> 00:02:45.610
+So I'm gonna copy this,
+
+64
+00:02:45.610 --> 00:02:47.810
+and I'm gonna go to my web browser,
+
+65
+00:02:47.810 --> 00:02:50.310
+and we're simply gonna put it in the address bar,
+
+66
+00:02:50.310 --> 00:02:51.543
+and navigate to it.
+
+67
+00:02:52.980 --> 00:02:55.610
+It's gonna ask you for a username
+
+68
+00:02:55.610 --> 00:02:57.100
+and a password.
+
+69
+00:02:57.100 --> 00:03:00.030
+Now, in many cases, you'll find this written
+
+70
+00:03:00.030 --> 00:03:00.890
+under the router
+
+71
+00:03:00.890 --> 00:03:03.090
+or at the back of the router on a sticker.
+
+72
+00:03:03.090 --> 00:03:05.380
+If you can't find it there, then look at the manual
+
+73
+00:03:05.380 --> 00:03:07.080
+for the default password.
+
+74
+00:03:07.080 --> 00:03:09.160
+A lot of the time it's admin,
+
+75
+00:03:09.160 --> 00:03:12.100
+or it could be the actual network key,
+
+76
+00:03:12.100 --> 00:03:13.900
+the default network key.
+
+77
+00:03:13.900 --> 00:03:17.030
+So I already have my password copied in my clipboard,
+
+78
+00:03:17.030 --> 00:03:18.650
+and I'm just gonna paste it here
+
+79
+00:03:18.650 --> 00:03:19.623
+and login.
+
+80
+00:03:21.490 --> 00:03:22.323
+And as you can see,
+
+81
+00:03:22.323 --> 00:03:25.280
+we have access now to the router settings page
+
+82
+00:03:25.280 --> 00:03:26.390
+and this control panel;
+
+83
+00:03:26.390 --> 00:03:28.060
+you can modify any setting
+
+84
+00:03:28.060 --> 00:03:30.200
+that is related to the router.
+
+85
+00:03:30.200 --> 00:03:31.033
+Keep in mind
+
+86
+00:03:31.033 --> 00:03:33.230
+that your control panel might look different.
+
+87
+00:03:33.230 --> 00:03:36.080
+This control panel looks different dependent on the router
+
+88
+00:03:36.080 --> 00:03:37.040
+that you have,
+
+89
+00:03:37.040 --> 00:03:38.290
+but the settings
+
+90
+00:03:38.290 --> 00:03:40.290
+that we want to modify are the same.
+
+91
+00:03:40.290 --> 00:03:41.850
+So you're just gonna have to look through it
+
+92
+00:03:41.850 --> 00:03:43.220
+through the different tabs
+
+93
+00:03:43.220 --> 00:03:44.170
+or the different layout
+
+94
+00:03:44.170 --> 00:03:46.350
+that you have, to find the settings
+
+95
+00:03:46.350 --> 00:03:48.040
+that I'm gonna modify.
+
+96
+00:03:48.040 --> 00:03:49.310
+Now, as you know, the main thing
+
+97
+00:03:49.310 --> 00:03:52.650
+that we want to modify is the wifi, the wifi settings.
+
+98
+00:03:52.650 --> 00:03:56.030
+So in my case, I have it in here under this cog
+
+99
+00:03:56.030 --> 00:03:59.930
+on the right, in your case, it might be in a different tab,
+
+100
+00:03:59.930 --> 00:04:01.020
+or in a different window,
+
+101
+00:04:01.020 --> 00:04:02.560
+or in a dropdown menu.
+
+102
+00:04:02.560 --> 00:04:05.430
+You just want to make sure you find the wifi settings.
+
+103
+00:04:05.430 --> 00:04:07.653
+So I'm just gonna click on it in here.
+
+104
+00:04:09.200 --> 00:04:11.600
+So in the basic settings in here, you can see,
+
+105
+00:04:11.600 --> 00:04:12.810
+you have the different bands
+
+106
+00:04:12.810 --> 00:04:14.890
+that the router is running on.
+
+107
+00:04:14.890 --> 00:04:16.040
+That's okay.
+
+108
+00:04:16.040 --> 00:04:18.670
+You can see we have the network name so you can modify it
+
+109
+00:04:18.670 --> 00:04:19.670
+from here.
+
+110
+00:04:19.670 --> 00:04:20.503
+You can see
+
+111
+00:04:20.503 --> 00:04:22.330
+that it is set to visible,
+
+112
+00:04:22.330 --> 00:04:25.380
+so you can untick this box to make the network invisible
+
+113
+00:04:25.380 --> 00:04:28.120
+so it doesn't broadcast its name.
+
+114
+00:04:28.120 --> 00:04:28.953
+The main thing
+
+115
+00:04:28.953 --> 00:04:31.460
+that we want to modify in here is the security,
+
+116
+00:04:31.460 --> 00:04:34.000
+and you can see in my case, it's already set to
+
+117
+00:04:34.000 --> 00:04:36.040
+WPA2 personal.
+
+118
+00:04:36.040 --> 00:04:38.430
+So make sure you're using WPA2
+
+119
+00:04:38.430 --> 00:04:40.120
+for maximum security,
+
+120
+00:04:40.120 --> 00:04:41.220
+and you want to make sure,
+
+121
+00:04:41.220 --> 00:04:43.100
+as mentioned in the previous lecture,
+
+122
+00:04:43.100 --> 00:04:45.270
+that you use a long password
+
+123
+00:04:45.270 --> 00:04:46.590
+that is made of small
+
+124
+00:04:46.590 --> 00:04:48.890
+and capital letters, special characters
+
+125
+00:04:48.890 --> 00:04:49.860
+and numbers,
+
+126
+00:04:49.860 --> 00:04:52.740
+and make it at least 14 characters.
+
+127
+00:04:52.740 --> 00:04:55.840
+That way it's very difficult to crack.
+
+128
+00:04:55.840 --> 00:04:57.210
+Once you're done with your settings,
+
+129
+00:04:57.210 --> 00:04:59.660
+you can click on apply to apply the settings,
+
+130
+00:04:59.660 --> 00:05:01.630
+but in my case, I haven't changed anything
+
+131
+00:05:01.630 --> 00:05:02.603
+so that's fine.
+
+132
+00:05:04.290 --> 00:05:06.560
+The next thing we want to do, as you remember,
+
+133
+00:05:06.560 --> 00:05:08.700
+we were able to crack networks
+
+134
+00:05:08.700 --> 00:05:10.450
+regardless of what key they used,
+
+135
+00:05:10.450 --> 00:05:12.240
+even if the key was complex,
+
+136
+00:05:12.240 --> 00:05:16.210
+if WPS pin authentication was enabled.
+
+137
+00:05:16.210 --> 00:05:19.460
+So you're gonna need to find where your WPS settings are.
+
+138
+00:05:19.460 --> 00:05:21.820
+In my case, it's in here in a different tab,
+
+139
+00:05:21.820 --> 00:05:23.270
+we're gonna click on it,
+
+140
+00:05:23.270 --> 00:05:24.210
+and we're gonna make sure
+
+141
+00:05:24.210 --> 00:05:25.840
+that it is disabled.
+
+142
+00:05:25.840 --> 00:05:26.673
+So,
+
+143
+00:05:26.673 --> 00:05:29.680
+and here, as you can see, WPS is on in my case.
+
+144
+00:05:29.680 --> 00:05:32.670
+So I'm gonna click on it, one click, to disable it.
+
+145
+00:05:32.670 --> 00:05:35.910
+And we're gonna click on apply to apply the changes.
+
+146
+00:05:35.910 --> 00:05:38.780
+In some routers, this will disable it for both bonds,
+
+147
+00:05:38.780 --> 00:05:41.850
+in my case, I need to manually also go to the settings
+
+148
+00:05:41.850 --> 00:05:44.550
+of the five gigahertz by clicking in here,
+
+149
+00:05:44.550 --> 00:05:47.120
+and disable it manually for that.
+
+150
+00:05:47.120 --> 00:05:49.740
+I got disconnected for a bit of time,
+
+151
+00:05:49.740 --> 00:05:52.580
+because when you change settings within the router,
+
+152
+00:05:52.580 --> 00:05:53.920
+it will need to restart.
+
+153
+00:05:53.920 --> 00:05:55.160
+So you need to give it some time
+
+154
+00:05:55.160 --> 00:05:56.410
+once you click on apply
+
+155
+00:05:56.410 --> 00:06:00.600
+or save for the router to restart with the new settings.
+
+156
+00:06:00.600 --> 00:06:03.350
+We're gonna refresh now, just to see if we have it back.
+
+157
+00:06:03.350 --> 00:06:05.070
+As you can see, we still don't have it back
+
+158
+00:06:05.070 --> 00:06:07.313
+so we need to give it a bit of time.
+
+159
+00:06:08.350 --> 00:06:10.440
+Okay, so I'm being asked to log in again
+
+160
+00:06:10.440 --> 00:06:12.173
+because the router restarted.
+
+161
+00:06:13.260 --> 00:06:16.003
+And we're gonna go back to the wifi settings, WPS.
+
+162
+00:06:19.800 --> 00:06:22.160
+And as you can see, it's off now.
+
+163
+00:06:22.160 --> 00:06:24.633
+So we also want to go to the five gigahertz,
+
+164
+00:06:26.110 --> 00:06:28.720
+and we want to make sure it's off as well.
+
+165
+00:06:28.720 --> 00:06:30.880
+You might not have to do this on your router,
+
+166
+00:06:30.880 --> 00:06:32.820
+but in my case, I have to do it manually
+
+167
+00:06:32.820 --> 00:06:33.930
+for the five gigahertz.
+
+168
+00:06:33.930 --> 00:06:36.360
+and for the two point four gigahertz.
+
+169
+00:06:36.360 --> 00:06:37.193
+Another feature
+
+170
+00:06:37.193 --> 00:06:40.330
+that you might find useful is the MAC filtering
+
+171
+00:06:40.330 --> 00:06:41.540
+or access control.
+
+172
+00:06:41.540 --> 00:06:44.120
+You might find this under different names.
+
+173
+00:06:44.120 --> 00:06:47.750
+This allows us to define a list of MAC addresses
+
+174
+00:06:47.750 --> 00:06:49.200
+that can connect
+
+175
+00:06:49.200 --> 00:06:52.200
+or should be disconnected from the network.
+
+176
+00:06:52.200 --> 00:06:55.130
+So from here, you can select to create an allow
+
+177
+00:06:55.130 --> 00:06:56.740
+or a deny list.
+
+178
+00:06:56.740 --> 00:06:58.750
+So if we go on the allow list,
+
+179
+00:06:58.750 --> 00:07:01.280
+we're gonna be specifying the MAC addresses
+
+180
+00:07:01.280 --> 00:07:04.250
+that are allowed to connect to the network.
+
+181
+00:07:04.250 --> 00:07:05.420
+All you have to do is simply
+
+182
+00:07:05.420 --> 00:07:07.380
+put the MAC address here, add it
+
+183
+00:07:07.380 --> 00:07:08.350
+and save it,
+
+184
+00:07:08.350 --> 00:07:11.910
+and then only these specified MAC addresses will be allowed
+
+185
+00:07:11.910 --> 00:07:13.473
+to connect to the network.
+
+186
+00:07:14.380 --> 00:07:15.620
+So that's pretty much it.
+
+187
+00:07:15.620 --> 00:07:16.550
+You just want to make sure
+
+188
+00:07:16.550 --> 00:07:20.440
+that you're using WPA2, disable WPS,
+
+189
+00:07:20.440 --> 00:07:23.700
+and use a long password made up of small letters,
+
+190
+00:07:23.700 --> 00:07:25.520
+capital letters, numbers,
+
+191
+00:07:25.520 --> 00:07:27.410
+and special characters.
+
+192
+00:07:27.410 --> 00:07:29.680
+You can also use the access control
+
+193
+00:07:29.680 --> 00:07:31.930
+or MAC filtering to prevent
+
+194
+00:07:31.930 --> 00:07:34.690
+or allow certain MAC addresses.
+
+195
+00:07:34.690 --> 00:07:38.690
+Also, keep in mind if you were being deauthenticated
+
+196
+00:07:38.690 --> 00:07:39.680
+from your own network,
+
+197
+00:07:39.680 --> 00:07:42.880
+so if you're not able to connect to your own network
+
+198
+00:07:42.880 --> 00:07:46.360
+using the wifi settings in here through wifi,
+
+199
+00:07:46.360 --> 00:07:50.810
+then you can connect to the router using an ethernet cable,
+
+200
+00:07:50.810 --> 00:07:53.090
+and that's why the deauthentication attack
+
+201
+00:07:53.090 --> 00:07:54.730
+will not work against you.
+
+202
+00:07:54.730 --> 00:07:56.540
+Then you'll be able to come in here,
+
+203
+00:07:56.540 --> 00:08:00.220
+modify the network settings to prevent the attacker
+
+204
+00:08:00.220 --> 00:08:03.030
+from launching attacks against you,
+
+205
+00:08:03.030 --> 00:08:05.417
+without being deauthenticated.
+

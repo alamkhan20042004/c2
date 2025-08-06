@@ -1,0 +1,571 @@
+WEBVTT
+
+00:00.180 --> 00:02.190
+Instructor: The first operating system
+
+00:02.190 --> 00:07.190
+that we're going to install in our lab is Kali Linux.
+
+00:07.530 --> 00:09.150
+See, throughout the course,
+
+00:09.150 --> 00:12.780
+we're going to use a number of hacking tools.
+
+00:12.780 --> 00:15.750
+You can install each of these tools manually,
+
+00:15.750 --> 00:19.830
+or you can do what most hackers do, including myself,
+
+00:19.830 --> 00:23.580
+and save time and effort and use an operating system
+
+00:23.580 --> 00:25.023
+designed for hacking.
+
+00:25.920 --> 00:29.550
+We're gonna use an operating system called Kali Linux.
+
+00:29.550 --> 00:32.550
+It's a Linux distro based on Debian,
+
+00:32.550 --> 00:34.890
+and the only difference between Kali
+
+00:34.890 --> 00:38.310
+and the actual original Debian Linux distro
+
+00:38.310 --> 00:41.068
+is the fact that Kali has a lot of hacking
+
+00:41.068 --> 00:44.346
+and penetration testing tools pre-installed
+
+00:44.346 --> 00:46.860
+and pre-configured in it.
+
+00:46.860 --> 00:49.260
+Therefore, once you install Kali,
+
+00:49.260 --> 00:52.560
+you will have access to so many hacking tools
+
+00:52.560 --> 00:55.920
+without the need to install or configure any of them,
+
+00:55.920 --> 00:59.730
+which will save you a lot of time and a lot of effort.
+
+00:59.730 --> 01:01.536
+Now, just like any other operating system,
+
+01:01.536 --> 01:04.350
+you can install it as a main machine
+
+01:04.350 --> 01:07.140
+or as a virtual machine.
+
+01:07.140 --> 01:09.990
+Now, I'm going to install it as a virtual machine,
+
+01:09.990 --> 01:13.050
+because like I explained in the previous lecture,
+
+01:13.050 --> 01:14.960
+we will not lose any functionality
+
+01:14.960 --> 01:18.510
+by using operating systems as virtual machines,
+
+01:18.510 --> 01:20.790
+and it comes with a lot of benefits
+
+01:20.790 --> 01:23.647
+because it's completely isolated from our computer
+
+01:23.647 --> 01:26.734
+that we always use, so if we break the virtual machine
+
+01:26.734 --> 01:29.490
+or if we want to delete it and reset it,
+
+01:29.490 --> 01:32.613
+it will not affect our main operating system.
+
+01:33.720 --> 01:35.280
+Now, the first thing that you wanna do
+
+01:35.280 --> 01:38.280
+is download the virtual image of Kali Linux,
+
+01:38.280 --> 01:42.090
+so you can download it from the resources of this lecture.
+
+01:42.090 --> 01:44.970
+To access the resources of the current lecture,
+
+01:44.970 --> 01:47.460
+we're gonna scroll down to the lecture,
+
+01:47.460 --> 01:50.490
+we're gonna click on the resources icon,
+
+01:50.490 --> 01:53.373
+and then we're gonna click on the resource that we want.
+
+01:55.680 --> 01:58.140
+Now, before going ahead with this,
+
+01:58.140 --> 02:00.000
+I want to highlight something
+
+02:00.000 --> 02:04.530
+that is very, very, very important, so please pay attention.
+
+02:04.530 --> 02:09.530
+This is a custom Kali image that I made for my courses.
+
+02:09.780 --> 02:13.110
+It is smoother and faster than the original one,
+
+02:13.110 --> 02:14.871
+it fixes a number of bugs,
+
+02:14.871 --> 02:18.870
+and it contains a number of extra programs
+
+02:18.870 --> 02:20.700
+that we need for this course
+
+02:20.700 --> 02:24.273
+and are not included in the original release.
+
+02:25.200 --> 02:28.350
+You do not have to use this custom image.
+
+02:28.350 --> 02:30.750
+You can use the original one.
+
+02:30.750 --> 02:34.620
+You can even use just a normal Linux distribution
+
+02:34.620 --> 02:38.190
+as long as you know how to manually install
+
+02:38.190 --> 02:39.900
+all of the missing programs
+
+02:39.900 --> 02:43.320
+and apply the fixes that I did myself,
+
+02:43.320 --> 02:46.653
+and you can see a full list of them here on the left.
+
+02:48.210 --> 02:52.200
+Therefore, if you ask us a question in the Q and A section
+
+02:52.200 --> 02:54.450
+and you're not using the custom image,
+
+02:54.450 --> 02:55.948
+the first thing that we will ask you
+
+02:55.948 --> 03:00.420
+is to use the custom Kali image that we made for you,
+
+03:00.420 --> 03:03.570
+because we will not know the changes you made
+
+03:03.570 --> 03:05.700
+in order to fix it.
+
+03:05.700 --> 03:08.340
+So if you have a 64-bit computer,
+
+03:08.340 --> 03:10.890
+download it from one of these links,
+
+03:10.890 --> 03:13.590
+or if you have a 32=bit computer,
+
+03:13.590 --> 03:16.833
+then download the 32-bit version from here.
+
+03:17.700 --> 03:21.030
+For Apple users, if you have an Apple computer,
+
+03:21.030 --> 03:23.550
+then you should download the 64-bit version
+
+03:23.550 --> 03:25.800
+if you have an older Apple computer
+
+03:25.800 --> 03:29.220
+that uses a 64-bit processor,
+
+03:29.220 --> 03:31.190
+or if you have a newer Apple computer
+
+03:31.190 --> 03:36.190
+with a Silicon ARM chip, like the M1, M2, M3, and so on,
+
+03:37.260 --> 03:38.894
+then make sure you download the version
+
+03:38.894 --> 03:43.053
+that is made specifically for your computer from here.
+
+03:44.430 --> 03:45.960
+While waiting on the download,
+
+03:45.960 --> 03:48.870
+check out our VIP community right here
+
+03:48.870 --> 03:50.640
+and our YouTube channel.
+
+03:50.640 --> 03:54.150
+We actually post hacking content on it regularly,
+
+03:54.150 --> 03:56.430
+so you'll probably find this very, very useful,
+
+03:56.430 --> 03:58.860
+so make sure you subscribe to stay updated
+
+03:58.860 --> 04:01.800
+with the latest stuff that we post in here.
+
+04:01.800 --> 04:03.840
+Once the download is complete,
+
+04:03.840 --> 04:08.280
+you'll be ready to install Kali as a virtual machine.
+
+04:08.280 --> 04:11.250
+I will walk you through that in the next lectures.
+
+04:11.250 --> 04:15.510
+but before moving on, we need to enable virtualization
+
+04:15.510 --> 04:17.670
+to run virtual machines.
+
+04:17.670 --> 04:21.690
+You only need to do that if you're running Windows or Linux.
+
+04:21.690 --> 04:25.860
+You do not need to do this if you're running Apple MacOS,
+
+04:25.860 --> 04:27.485
+as Apple computers come
+
+04:27.485 --> 04:31.230
+with virtualization enabled by default.
+
+04:31.230 --> 04:33.240
+so skip the rest of this lecture
+
+04:33.240 --> 04:35.760
+if you're using an Apple computer.
+
+04:35.760 --> 04:37.860
+If you're using Windows or Linux,
+
+04:37.860 --> 04:41.460
+then continue with me to see how to enable it.
+
+04:41.460 --> 04:43.950
+So on Windows, before enabling it,
+
+04:43.950 --> 04:46.890
+if you wanna check if it is already enabled,
+
+04:46.890 --> 04:49.023
+you're gonna have to go to the start menu.
+
+04:49.890 --> 04:51.843
+We're gonna look for the task manager.
+
+04:53.490 --> 04:54.753
+I have it right here.
+
+04:56.070 --> 04:58.890
+I'm gonna click on more details,
+
+04:58.890 --> 05:01.320
+I'm gonna go on performance,
+
+05:01.320 --> 05:05.460
+and if you look in here beside virtualization,
+
+05:05.460 --> 05:07.560
+if it's saying enabled for you,
+
+05:07.560 --> 05:09.540
+then you can skip the rest of this lecture
+
+05:09.540 --> 05:11.490
+and move on to the next lecture.
+
+05:11.490 --> 05:14.640
+If it's saying disabled, then continue with this lecture
+
+05:14.640 --> 05:18.840
+to learn how to enable virtualization.
+
+05:18.840 --> 05:20.880
+So to do that, we're gonna have
+
+05:20.880 --> 05:23.250
+to first restart the computer,
+
+05:23.250 --> 05:26.280
+and as it's booting, as it's starting,
+
+05:26.280 --> 05:29.040
+you're gonna have to press a key combination,
+
+05:29.040 --> 05:32.190
+usually one of the F keys from your keyboard,
+
+05:32.190 --> 05:34.020
+to enter the BIOS settings,
+
+05:34.020 --> 05:36.150
+and from there, we can enable it,
+
+05:36.150 --> 05:37.980
+so let me show you how to do it.
+
+05:37.980 --> 05:39.930
+Keep in mind, you only need to do this
+
+05:39.930 --> 05:42.540
+if virtualization is disabled.
+
+05:42.540 --> 05:44.746
+If it's enabled, then you can simply skip this
+
+05:44.746 --> 05:47.523
+and continue with the rest of the course.
+
+05:48.390 --> 05:50.490
+Entering the BIOS settings varies depending
+
+05:50.490 --> 05:52.146
+on the computer that you have
+
+05:52.146 --> 05:54.270
+and depending on the motherboard.
+
+05:54.270 --> 05:55.710
+On the right here, I have a table
+
+05:55.710 --> 05:58.530
+of the most common computers
+
+05:58.530 --> 06:01.080
+along with the buttons that you need to press
+
+06:01.080 --> 06:03.840
+in order to enter the BIOS settings,
+
+06:03.840 --> 06:07.410
+so as soon as you turn on the computer or restart it,
+
+06:07.410 --> 06:11.100
+you'll need to press the button relevant to your computer
+
+06:11.100 --> 06:14.670
+in here in order to enter the BIOS settings.
+
+06:14.670 --> 06:16.380
+Once you're there, you wanna make sure
+
+06:16.380 --> 06:18.660
+you enable virtualization,
+
+06:18.660 --> 06:22.023
+so let me show you how to do this on a real computer.
+
+06:23.010 --> 06:25.290
+This is a Lenovo computer,
+
+06:25.290 --> 06:28.380
+therefore, based on the table that I just showed you,
+
+06:28.380 --> 06:33.030
+I will need to press F2 as soon as I turn on this computer
+
+06:33.030 --> 06:35.883
+in order to enter into its BIOS settings.
+
+06:36.720 --> 06:39.930
+So first, I'm gonna hit the power button to turn it on,
+
+06:39.930 --> 06:43.230
+and as it's being turned on, I'm gonna keep pressing F2
+
+06:43.230 --> 06:46.543
+to enter the settings, and perfect.
+
+06:46.543 --> 06:50.340
+As you can see, I am in the BIOS settings right now.
+
+06:50.340 --> 06:53.340
+Now, keep in mind, depending on your computer,
+
+06:53.340 --> 06:57.390
+the settings might look different than what I have in here.
+
+06:57.390 --> 06:59.340
+The main thing you need to keep in mind
+
+06:59.340 --> 07:01.863
+is to enable virtualization.
+
+07:02.730 --> 07:04.556
+This option can be found in a different window
+
+07:04.556 --> 07:07.140
+in any of these windows or tabs,
+
+07:07.140 --> 07:09.270
+but the main thing you wanna keep in mind is
+
+07:09.270 --> 07:14.160
+to look for an option called virtualization, VT-x, AMD-V,
+
+07:14.160 --> 07:18.060
+or any of the options in here and enable it.
+
+07:18.060 --> 07:20.436
+So as you can see, for me, the first window that I see
+
+07:20.436 --> 07:22.950
+is just an information window.
+
+07:22.950 --> 07:26.190
+It doesn't really allow me to modify anything.
+
+07:26.190 --> 07:28.260
+Now, you can use the keyboard to navigate
+
+07:28.260 --> 07:30.570
+between these windows or these tabs,
+
+07:30.570 --> 07:32.730
+so I'm gonna press the right arrow
+
+07:32.730 --> 07:35.580
+to go to the configuration window,
+
+07:35.580 --> 07:38.193
+and in here, the only thing that I wanna modify
+
+07:38.193 --> 07:41.940
+is Intel virtualization technology,
+
+07:41.940 --> 07:46.080
+so I'm gonna use the down arrow to navigate to that,
+
+07:46.080 --> 07:48.570
+and I'm gonna hit enter to change the setting,
+
+07:48.570 --> 07:50.700
+press down to set it to enabled,
+
+07:50.700 --> 07:53.160
+and hit enter again to select it.
+
+07:53.160 --> 07:55.390
+Now, if you're not sure about how to use this interface,
+
+07:55.390 --> 07:56.730
+because like I said,
+
+07:56.730 --> 07:59.490
+you might actually get a different interface,
+
+07:59.490 --> 08:02.610
+keep an eye on the instructions that you see at the bottom,
+
+08:02.610 --> 08:04.452
+as they tell you exactly how to navigate
+
+08:04.452 --> 08:07.290
+and modify the settings.
+
+08:07.290 --> 08:09.480
+Now, I'm done with the configuration window.
+
+08:09.480 --> 08:11.640
+I'm gonna press the right arrow again
+
+08:11.640 --> 08:13.740
+to go into the security tab.
+
+08:13.740 --> 08:15.060
+We're gonna go to the exit,
+
+08:15.060 --> 08:18.630
+so again, I'm gonna press the right arrow again,
+
+08:18.630 --> 08:23.250
+and I'm gonna select the first option, exit saving settings.
+
+08:23.250 --> 08:25.350
+It's gonna ask me, do I really wanna do this?
+
+08:25.350 --> 08:27.120
+I'm gonna say yes.
+
+08:27.120 --> 08:30.570
+The computer will restart with virtualization enabled,
+
+08:30.570 --> 08:32.190
+so in the next lectures
+
+08:32.190 --> 08:34.710
+when we get to installing virtual machines,
+
+08:34.710 --> 08:37.833
+these virtual machines will run with no issues.
+
+08:39.150 --> 08:41.040
+If you've done everything properly,
+
+08:41.040 --> 08:46.040
+now if you go again to the Task Manager, go to performance,
+
+08:46.680 --> 08:49.893
+you should see that virtualization is enabled.
+
+08:51.090 --> 08:52.170
+If you couldn't do that,
+
+08:52.170 --> 08:54.300
+please ask us in the Q and A section,
+
+08:54.300 --> 08:56.730
+and we'll be happy to help you.
+
+08:56.730 --> 08:59.220
+Keep in mind that you only need to do this
+
+08:59.220 --> 09:03.570
+if you're running Windows or Linux as the host computer
+
+09:03.570 --> 09:04.983
+on your main computer.
+
+09:06.120 --> 09:08.790
+If you're running Apple MacOS,
+
+09:08.790 --> 09:10.380
+then you do not need to do this,
+
+09:10.380 --> 09:12.363
+and you should have skipped this part.

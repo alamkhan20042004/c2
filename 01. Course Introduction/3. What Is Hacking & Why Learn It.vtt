@@ -1,0 +1,193 @@
+WEBVTT
+
+00:00.662 --> 00:02.520
+-: Now as I promised you,
+
+00:02.520 --> 00:05.370
+this course is going to be highly practical,
+
+00:05.370 --> 00:08.763
+but I also promised that I will not neglect the theory.
+
+00:09.900 --> 00:14.220
+Now what we mean by hacking is being able to gain access
+
+00:14.220 --> 00:18.180
+to a system that you're not supposed to have access to.
+
+00:18.180 --> 00:21.240
+So for example, logging into an email account
+
+00:21.240 --> 00:23.700
+that you're not supposed to have access to
+
+00:23.700 --> 00:26.013
+is considered hacking that account.
+
+00:26.880 --> 00:29.880
+Gaining access to a remote computer that you're not
+
+00:29.880 --> 00:33.480
+supposed to have access to is hacking that computer.
+
+00:33.480 --> 00:36.150
+Reading information that you're not supposed to
+
+00:36.150 --> 00:39.363
+be able to read, again is considered hacking.
+
+00:40.350 --> 00:43.980
+So you can see that there is a large number of ways to hack
+
+00:43.980 --> 00:46.710
+into a system, and the word hacking can refer
+
+00:46.710 --> 00:50.850
+to a number of things, but the main concept is the same.
+
+00:50.850 --> 00:53.970
+Gaining access or being able to do things that
+
+00:53.970 --> 00:58.560
+you're not supposed to be able to do is considered hacking.
+
+00:58.560 --> 01:01.110
+Now, there are three main types of hackers.
+
+01:01.110 --> 01:02.850
+We have the black-hat hackers.
+
+01:02.850 --> 01:06.510
+These are the bad people that hack systems illegally
+
+01:06.510 --> 01:08.190
+in order to steal money
+
+01:08.190 --> 01:11.193
+or to achieve their own illegal goals.
+
+01:12.060 --> 01:15.330
+The second part of hackers are the white-hat hackers.
+
+01:15.330 --> 01:17.070
+So this is us.
+
+01:17.070 --> 01:19.710
+These people use the same techniques used
+
+01:19.710 --> 01:23.790
+by the black-hat hackers, and they also hack into systems,
+
+01:23.790 --> 01:26.280
+but they only hack into systems
+
+01:26.280 --> 01:28.650
+that they have permission to hack
+
+01:28.650 --> 01:31.953
+in order to test the security of these systems.
+
+01:32.910 --> 01:36.390
+And finally, we have the gray-hat hackers.
+
+01:36.390 --> 01:38.580
+These are a mixture of the two.
+
+01:38.580 --> 01:41.010
+So they'll hack into any system, even if they
+
+01:41.010 --> 01:44.880
+don't have permission to test the security of the system,
+
+01:44.880 --> 01:48.480
+but they will never steal money or damage that system.
+
+01:48.480 --> 01:50.490
+And in most cases, they'll go ahead
+
+01:50.490 --> 01:53.700
+and tell the administrator of that system.
+
+01:53.700 --> 01:56.100
+But what they do is still illegal
+
+01:56.100 --> 01:58.230
+because they test the security
+
+01:58.230 --> 02:00.660
+of systems that they do not own
+
+02:00.660 --> 02:02.853
+or do not have permission to test.
+
+02:03.840 --> 02:06.817
+Now one big question that people always ask is,
+
+02:06.817 --> 02:07.650
+"Why hacking?
+
+02:07.650 --> 02:09.690
+Why teach or learn hacking?"
+
+02:09.690 --> 02:12.090
+Well, hacking is an existing industry.
+
+02:12.090 --> 02:15.270
+There are lots of job opportunities for ethical hackers,
+
+02:15.270 --> 02:18.570
+for people like us who would go ahead and test the security
+
+02:18.570 --> 02:21.900
+of systems to make sure that these systems are secure
+
+02:21.900 --> 02:24.960
+and not vulnerable to black-hat hackers.
+
+02:24.960 --> 02:26.520
+There is actually a huge demand
+
+02:26.520 --> 02:28.350
+for ethical hackers these days
+
+02:28.350 --> 02:32.130
+because of the increased amount of hacking attacks.
+
+02:32.130 --> 02:34.710
+So we hear on the daily big systems
+
+02:34.710 --> 02:37.230
+and big companies are getting hacked.
+
+02:37.230 --> 02:39.300
+Not so long ago, Uber got hacked
+
+02:39.300 --> 02:44.300
+and information of more than 56 million users were exposed.
+
+02:44.400 --> 02:47.430
+So companies like Uber, Facebook, and Google,
+
+02:47.430 --> 02:50.400
+they hire hackers in order to try and hack
+
+02:50.400 --> 02:53.730
+into their systems and tell them where the weaknesses are
+
+02:53.730 --> 02:55.560
+so that they can fix it.
+
+02:55.560 --> 02:58.140
+They also have bug bounty programs where they
+
+02:58.140 --> 03:01.380
+literally ask all the hackers around the world to go ahead
+
+03:01.380 --> 03:02.970
+and try to hack into their websites
+
+03:02.970 --> 03:05.490
+and with their web applications, and if they could,
+
+03:05.490 --> 03:08.313
+they will pay them a bounty for the bugs that they find.

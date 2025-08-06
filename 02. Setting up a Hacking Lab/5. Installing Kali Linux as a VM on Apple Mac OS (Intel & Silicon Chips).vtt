@@ -1,0 +1,634 @@
+WEBVTT
+
+00:00.660 --> 00:02.250
+Instructor: In this lecture, I'm gonna show you
+
+00:02.250 --> 00:04.350
+how to install Kali Linux
+
+00:04.350 --> 00:07.863
+as a virtual machine on Apple macOS.
+
+00:10.020 --> 00:12.720
+Skip this lecture if you already have Kali
+
+00:12.720 --> 00:14.370
+and VMware installed,
+
+00:14.370 --> 00:17.070
+or if you want to install it on Linux.
+
+00:17.070 --> 00:20.790
+I will cover installing it on Linux in the next lecture.
+
+00:20.790 --> 00:22.950
+The installation steps that I'm gonna show you
+
+00:22.950 --> 00:25.290
+will work on all Apple computers,
+
+00:25.290 --> 00:28.620
+whether they use the older 64-bit processors
+
+00:28.620 --> 00:32.490
+or the new silicon chips, the M1, M2, M3, and so on.
+
+00:32.490 --> 00:34.710
+Just make sure you download the correct version
+
+00:34.710 --> 00:36.030
+from the download page.
+
+00:36.030 --> 00:38.940
+If you have an older 64-bit Apple computer,
+
+00:38.940 --> 00:41.490
+then download the 64-bit version.
+
+00:41.490 --> 00:44.790
+If you have one of the newer Apple silicon computers,
+
+00:44.790 --> 00:46.560
+then make sure you download the version
+
+00:46.560 --> 00:49.950
+that is made for the Apple silicon computers.
+
+00:49.950 --> 00:51.900
+I already have the correct version
+
+00:51.900 --> 00:55.200
+downloaded for my computer in my downloads in here,
+
+00:55.200 --> 00:57.360
+but as you can see, it is compressed
+
+00:57.360 --> 00:59.370
+inside a 7-Zip archive.
+
+00:59.370 --> 01:01.770
+We did this to reduce the size of the image
+
+01:01.770 --> 01:03.540
+so you can download it faster.
+
+01:03.540 --> 01:07.050
+So in order to use it, we have to decompress it first,
+
+01:07.050 --> 01:10.770
+and to do that, you can simply double click the archive.
+
+01:10.770 --> 01:14.160
+As you can see now, the archive is getting decompressed.
+
+01:14.160 --> 01:17.310
+You wanna give it some time. This might take a minute or so.
+
+01:17.310 --> 01:20.520
+Once done, you're gonna get a new file as you can see,
+
+01:20.520 --> 01:24.990
+and this new file has a .vmwarevm extension.
+
+01:24.990 --> 01:27.780
+So this is the actual virtual image file
+
+01:27.780 --> 01:32.010
+that will allow us to run Kali Linux as a virtual machine.
+
+01:32.010 --> 01:35.040
+To do this, to run Kali Linux as a virtual machine
+
+01:35.040 --> 01:37.620
+inside our current operating system,
+
+01:37.620 --> 01:40.830
+we're gonna have to install a virtualization software.
+
+01:40.830 --> 01:44.340
+And the one that we're going to use is called VMware.
+
+01:44.340 --> 01:46.680
+You can download VMware from the same page
+
+01:46.680 --> 01:49.440
+where you downloaded the custom Kali Linux.
+
+01:49.440 --> 01:50.630
+I'm gonna include its link
+
+01:50.630 --> 01:53.730
+in the resources of this lecture as well.
+
+01:53.730 --> 01:56.520
+And we're simply gonna scroll down
+
+01:56.520 --> 01:58.650
+past the Kali download links.
+
+01:58.650 --> 02:02.250
+You'll see a section here that allows you to download VMware
+
+02:02.250 --> 02:04.290
+for all operating systems.
+
+02:04.290 --> 02:07.170
+Now since we're installing Kali on an Apple computer,
+
+02:07.170 --> 02:08.940
+make sure you download the version
+
+02:08.940 --> 02:10.920
+that is made for Apple computers.
+
+02:10.920 --> 02:12.570
+So we're gonna click on this link
+
+02:13.500 --> 02:15.900
+and we're gonna click on Download one more time.
+
+02:17.550 --> 02:19.710
+If you get a message like this one
+
+02:19.710 --> 02:22.140
+saying unverified download blocked,
+
+02:22.140 --> 02:24.360
+click Download file anyway.
+
+02:24.360 --> 02:25.380
+You're only getting this
+
+02:25.380 --> 02:27.690
+because you're downloading the file from here,
+
+02:27.690 --> 02:30.540
+but you can validate the integrity of the file
+
+02:30.540 --> 02:32.790
+using the signature in here.
+
+02:32.790 --> 02:34.110
+Once the download is complete,
+
+02:34.110 --> 02:36.240
+you're gonna see VMware downloaded
+
+02:36.240 --> 02:38.640
+in your downloads directory in Finder.
+
+02:38.640 --> 02:41.340
+And to install it, we're simply gonna double click it.
+
+02:42.300 --> 02:44.130
+And installing it is identical
+
+02:44.130 --> 02:47.400
+to installing any program on Apple macOS.
+
+02:47.400 --> 02:51.333
+So we're simply gonna double click it, click Open,
+
+02:53.280 --> 02:58.280
+enter the password, agree to the terms.
+
+02:58.410 --> 03:01.440
+This program is free to use for personal use,
+
+03:01.440 --> 03:02.700
+which is what we're doing here.
+
+03:02.700 --> 03:05.130
+So you can simply use the product key
+
+03:05.130 --> 03:07.350
+that I'm using myself here in this video.
+
+03:07.350 --> 03:10.380
+I'm also gonna include it in the resources of this lecture.
+
+03:10.380 --> 03:13.293
+And we're gonna click on Continue and Done.
+
+03:14.340 --> 03:16.620
+Now you might be asked for permissions
+
+03:16.620 --> 03:19.080
+to offer extra features, so we're gonna allow it.
+
+03:19.080 --> 03:19.950
+You can allow this
+
+03:19.950 --> 03:22.323
+by clicking on the system preferences here.
+
+03:23.490 --> 03:26.730
+Click on the lock icon to edit the preferences,
+
+03:26.730 --> 03:31.730
+put the password, and tick the box next to VMware.
+
+03:31.800 --> 03:34.320
+Once done, we're gonna close the preferences,
+
+03:34.320 --> 03:35.490
+and as you can see,
+
+03:35.490 --> 03:38.430
+we have VMware's welcome screen right here,
+
+03:38.430 --> 03:39.960
+which will allow you to create
+
+03:39.960 --> 03:42.360
+or import a new virtual machine.
+
+03:42.360 --> 03:44.790
+I'm actually gonna close this because I want to show you
+
+03:44.790 --> 03:46.800
+how to launch the program from scratch,
+
+03:46.800 --> 03:50.280
+and then how to import and add virtual machines to it.
+
+03:50.280 --> 03:53.820
+So to do that simply we're gonna go to all applications,
+
+03:53.820 --> 03:57.360
+and you can look for VMware in the search bar
+
+03:57.360 --> 04:00.333
+or simply just scroll through until you find it.
+
+04:02.160 --> 04:03.900
+One click will start the program
+
+04:03.900 --> 04:06.450
+and you'll see that we're back to the same welcome screen
+
+04:06.450 --> 04:10.050
+that allows us to create or import new virtual machines.
+
+04:10.050 --> 04:12.930
+But we actually want to use a ready virtual machine
+
+04:12.930 --> 04:15.270
+that I've already created for you.
+
+04:15.270 --> 04:18.150
+So all you have to do is simply go back to the downloads
+
+04:18.150 --> 04:21.360
+where you downloaded the custom Kali in Finder.
+
+04:21.360 --> 04:23.190
+And this is the image that I downloaded
+
+04:23.190 --> 04:26.040
+and showed you at the start of the lecture.
+
+04:26.040 --> 04:27.900
+The whole process that I showed you so far
+
+04:27.900 --> 04:30.120
+should work on all Apple computers.
+
+04:30.120 --> 04:31.260
+You just want to make sure
+
+04:31.260 --> 04:34.170
+that you download the correct version for your computer.
+
+04:34.170 --> 04:36.690
+If you have a silicon-based ARM processor,
+
+04:36.690 --> 04:39.030
+then make sure you download the ARM version.
+
+04:39.030 --> 04:41.550
+If you have an older 64-bit processor,
+
+04:41.550 --> 04:44.730
+then make sure you download the 64-bit version.
+
+04:44.730 --> 04:46.980
+So I have the correct version downloaded in here,
+
+04:46.980 --> 04:51.630
+and I'm simply going to double click it to run it in VMware.
+
+04:51.630 --> 04:54.390
+Now, because this is the first time I run this machine,
+
+04:54.390 --> 04:56.430
+it's given me an option to upgrade it.
+
+04:56.430 --> 04:59.310
+You might not always get this depending on your settings,
+
+04:59.310 --> 05:01.080
+but if you get it, click on Upgrade.
+
+05:01.080 --> 05:02.670
+This will give you more features
+
+05:02.670 --> 05:05.070
+and more freedom with using the virtual machine.
+
+05:05.070 --> 05:07.590
+And we're gonna say OK for this warning message,
+
+05:07.590 --> 05:09.570
+and we're gonna say that we copied it.
+
+05:09.570 --> 05:12.510
+And perfect, now this virtual machine is actually booting
+
+05:12.510 --> 05:15.090
+inside my own operating system.
+
+05:15.090 --> 05:17.100
+So now it's asking us to log in.
+
+05:17.100 --> 05:20.760
+The default username is root, R-O-O-T,
+
+05:20.760 --> 05:24.240
+and the default password is toor, T-O-O-R.
+
+05:24.240 --> 05:25.983
+I'm gonna hit Enter to log in.
+
+05:26.880 --> 05:28.770
+And perfect, now I'm logged in
+
+05:28.770 --> 05:32.190
+and I'm running Kali Linux as a virtual machine
+
+05:32.190 --> 05:35.070
+inside my main operating system,
+
+05:35.070 --> 05:38.460
+which is this macOS computer.
+
+05:38.460 --> 05:39.660
+To go on full screen,
+
+05:39.660 --> 05:42.540
+you can simply click the green button in here
+
+05:42.540 --> 05:45.510
+and the resolution will automatically change.
+
+05:45.510 --> 05:47.910
+I know this might look a little bit scary,
+
+05:47.910 --> 05:49.530
+but don't worry about it.
+
+05:49.530 --> 05:51.720
+I will walk you through it step by step
+
+05:51.720 --> 05:53.310
+as we go through the course,
+
+05:53.310 --> 05:56.043
+and you'll see how easy it is to use it for hacking.
+
+05:57.510 --> 05:59.310
+For now, to exit the full screen,
+
+05:59.310 --> 06:01.920
+you can simply go to the top, keep the mouse there,
+
+06:01.920 --> 06:03.723
+and click the green button again.
+
+06:04.680 --> 06:06.030
+And to turn this machine off,
+
+06:06.030 --> 06:08.790
+you can simply click the turn off button in here,
+
+06:08.790 --> 06:11.973
+click the power button again, and click Power Off.
+
+06:14.280 --> 06:17.913
+Click Power Off one more time, and now the machine is off.
+
+06:18.990 --> 06:20.640
+Now in here on the top right,
+
+06:20.640 --> 06:23.430
+you can see we have a VMware icon,
+
+06:23.430 --> 06:25.410
+and if you click it, you'll see a list
+
+06:25.410 --> 06:27.210
+of all of the virtual machines
+
+06:27.210 --> 06:29.970
+installed inside your current operating system.
+
+06:29.970 --> 06:31.860
+As you can see, I only have one
+
+06:31.860 --> 06:34.530
+because we already installed one so far.
+
+06:34.530 --> 06:36.900
+If you click the virtual machine library in here,
+
+06:36.900 --> 06:38.700
+again, it'll show you a nice window
+
+06:38.700 --> 06:41.220
+with a list of all the installed virtual machines.
+
+06:41.220 --> 06:44.310
+And if you wanna edit the settings of any of these machines,
+
+06:44.310 --> 06:47.523
+you can simply right click it and click on Settings.
+
+06:48.750 --> 06:51.270
+This machine is already configured to run well,
+
+06:51.270 --> 06:54.150
+but you can modify this if you have more resources
+
+06:54.150 --> 06:56.220
+to get it to run even faster.
+
+06:56.220 --> 06:58.560
+So I just wanna show you how to modify the settings
+
+06:58.560 --> 07:01.650
+because the process is the same for any virtual machine
+
+07:01.650 --> 07:04.170
+that you might install even in the future.
+
+07:04.170 --> 07:06.660
+Usually, the main settings that affect performance
+
+07:06.660 --> 07:09.270
+are the processors and memory.
+
+07:09.270 --> 07:11.370
+So here you can adjust the amount of memory
+
+07:11.370 --> 07:14.463
+that this virtual machine can use by moving the slider,
+
+07:15.480 --> 07:17.790
+and you can change the number of processors
+
+07:17.790 --> 07:21.390
+that this machine can use using this dropdown menu.
+
+07:21.390 --> 07:23.340
+By default, this is set to two processors
+
+07:23.340 --> 07:24.960
+and two gigabytes of memory.
+
+07:24.960 --> 07:27.420
+This is enough to run the machine decently,
+
+07:27.420 --> 07:28.920
+but if you have more resources,
+
+07:28.920 --> 07:30.570
+then feel free to increase this
+
+07:30.570 --> 07:33.510
+to get the virtual machine to run even faster.
+
+07:33.510 --> 07:34.440
+Now, let's go back
+
+07:34.440 --> 07:36.870
+and I also wanna show you the network settings
+
+07:36.870 --> 07:39.030
+for this specific virtual machine.
+
+07:39.030 --> 07:39.863
+And as you can see,
+
+07:39.863 --> 07:42.630
+by default, this is set to share with my Mac,
+
+07:42.630 --> 07:45.840
+and this basically sets up a virtual network
+
+07:45.840 --> 07:47.520
+where my host machine
+
+07:47.520 --> 07:50.610
+is going to be the router for this network,
+
+07:50.610 --> 07:52.830
+and then all the virtual machines
+
+07:52.830 --> 07:56.550
+are going to be clients connected to this network.
+
+07:56.550 --> 07:58.830
+So they're going to get internet connection
+
+07:58.830 --> 08:01.110
+from my host machine.
+
+08:01.110 --> 08:04.530
+And at the same time, all of my virtual machines
+
+08:04.530 --> 08:09.090
+will be connected to the same virtual network.
+
+08:09.090 --> 08:11.940
+This is very handy because my virtual machines
+
+08:11.940 --> 08:14.760
+will be able to communicate with each other,
+
+08:14.760 --> 08:17.460
+and therefore will be able to use the Kali machine
+
+08:17.460 --> 08:18.960
+to hack into the others,
+
+08:18.960 --> 08:23.220
+will be able to test network attacks and do much more.
+
+08:23.220 --> 08:25.740
+So this setting will first allow my virtual machines
+
+08:25.740 --> 08:27.330
+to have internet connection,
+
+08:27.330 --> 08:30.600
+and it'll also allow them to communicate with each other
+
+08:30.600 --> 08:33.780
+through this virtual NAT network.
+
+08:33.780 --> 08:37.770
+Now, this virtual network will rely on the connection
+
+08:37.770 --> 08:39.390
+of your host computer.
+
+08:39.390 --> 08:42.090
+So it will not need any extra interfaces,
+
+08:42.090 --> 08:44.580
+it will not need any extra adapters.
+
+08:44.580 --> 08:47.670
+And as far as the virtual machines are concerned,
+
+08:47.670 --> 08:50.850
+they are connected to an ethernet network,
+
+08:50.850 --> 08:54.963
+but in reality, they are connected through the host machine.
+
+08:56.250 --> 08:58.080
+Again, click on Show All to go back
+
+08:58.080 --> 09:00.240
+to all of the other settings.
+
+09:00.240 --> 09:02.820
+But like I said, you don't need to modify anything.
+
+09:02.820 --> 09:04.230
+Everything should be configured
+
+09:04.230 --> 09:08.250
+and set properly for you to run with no issues at all.
+
+09:08.250 --> 09:09.600
+If you face any issues,
+
+09:09.600 --> 09:11.190
+then check out the featured questions,
+
+09:11.190 --> 09:12.810
+and feel free to ask us.
+
+09:12.810 --> 09:16.233
+We will respond to you within less than 15 hours.
+
+09:17.190 --> 09:20.160
+And like I said, don't worry about how to use Kali.
+
+09:20.160 --> 09:22.740
+I will cover that in detail step by step
+
+09:22.740 --> 09:24.213
+as we go through the course.

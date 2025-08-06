@@ -1,0 +1,590 @@
+WEBVTT
+
+1
+00:00:00.440 --> 00:00:02.390
+<v Instructor>In this lecture, I'm gonna show you</v>
+
+2
+00:00:02.390 --> 00:00:07.390
+how to connect a USB device to a virtual machine.
+
+3
+00:00:07.730 --> 00:00:11.180
+As an example, I'll be connecting a wireless adapter
+
+4
+00:00:11.180 --> 00:00:13.430
+to the virtual Kali machine,
+
+5
+00:00:13.430 --> 00:00:15.320
+but this method can be used
+
+6
+00:00:15.320 --> 00:00:18.623
+to connect any type of USB adapter.
+
+7
+00:00:19.490 --> 00:00:21.600
+As mentioned in the course requirements,
+
+8
+00:00:21.600 --> 00:00:25.010
+you need a wireless adapter for the cracking sections
+
+9
+00:00:25.010 --> 00:00:26.540
+of the course.
+
+10
+00:00:26.540 --> 00:00:31.040
+These two sections account for less than 8% of the course.
+
+11
+00:00:31.040 --> 00:00:33.840
+So, if you don't have a wireless adapter
+
+12
+00:00:33.840 --> 00:00:37.850
+and can't afford to buy one, then that's completely fine.
+
+13
+00:00:37.850 --> 00:00:40.520
+You could simply skip these two sections,
+
+14
+00:00:40.520 --> 00:00:44.230
+continue from the network hacking post-exploitation section,
+
+15
+00:00:44.230 --> 00:00:47.650
+and you'll be able to do everything else in the course
+
+16
+00:00:47.650 --> 00:00:49.783
+without a wireless adapter.
+
+17
+00:00:50.650 --> 00:00:52.790
+Now, what we mean by a wireless adapter
+
+18
+00:00:52.790 --> 00:00:54.570
+is simply a USB device
+
+19
+00:00:54.570 --> 00:00:56.410
+that you connect to your computer
+
+20
+00:00:56.410 --> 00:00:58.660
+and it allows your computer to communicate
+
+21
+00:00:58.660 --> 00:01:00.570
+with Wi-Fi networks.
+
+22
+00:01:00.570 --> 00:01:02.940
+Now, most modern computers come
+
+23
+00:01:02.940 --> 00:01:05.000
+with built-in wireless cards.
+
+24
+00:01:05.000 --> 00:01:08.760
+The only problem is these built-in wireless cards
+
+25
+00:01:08.760 --> 00:01:10.540
+are not good for hacking.
+
+26
+00:01:10.540 --> 00:01:13.450
+The Wi-Fi or wireless adapter that we need
+
+27
+00:01:13.450 --> 00:01:16.960
+needs to support monitor mode, packet injection,
+
+28
+00:01:16.960 --> 00:01:18.293
+and AP mode.
+
+29
+00:01:19.170 --> 00:01:21.630
+I will include a video in the resources
+
+30
+00:01:21.630 --> 00:01:24.760
+to help you pick a good wireless adapter.
+
+31
+00:01:24.760 --> 00:01:28.010
+And don't worry about what we mean by these modes.
+
+32
+00:01:28.010 --> 00:01:31.000
+We will talk about this as we go through the course,
+
+33
+00:01:31.000 --> 00:01:33.660
+but, basically, you need to get a wireless adapter
+
+34
+00:01:33.660 --> 00:01:35.880
+that supports all of these three modes
+
+35
+00:01:35.880 --> 00:01:38.750
+and it should be supported by Kali Linux.
+
+36
+00:01:38.750 --> 00:01:40.310
+The main thing you want to keep in mind
+
+37
+00:01:40.310 --> 00:01:42.800
+is the brand does not matter.
+
+38
+00:01:42.800 --> 00:01:45.270
+What you need to look for is any adapter
+
+39
+00:01:45.270 --> 00:01:48.740
+that uses any of these two chip sets.
+
+40
+00:01:48.740 --> 00:01:51.520
+The chip set is the brains of the wireless adapter.
+
+41
+00:01:51.520 --> 00:01:54.060
+It's what does most of the work and, therefore,
+
+42
+00:01:54.060 --> 00:01:57.140
+if you get any adapter, regardless of what brand it is,
+
+43
+00:01:57.140 --> 00:01:59.730
+if it uses any of these two chip sets,
+
+44
+00:01:59.730 --> 00:02:02.110
+it should support all of these modes
+
+45
+00:02:02.110 --> 00:02:04.527
+and it should work with everything that I'm gonna do
+
+46
+00:02:04.527 --> 00:02:07.240
+and you'll learn in this course.
+
+47
+00:02:07.240 --> 00:02:09.730
+So anyway, check out the video in the resources
+
+48
+00:02:09.730 --> 00:02:14.000
+for more information on how to pick a good wireless adapter.
+
+49
+00:02:14.000 --> 00:02:16.570
+I'm also gonna include the link in the resources
+
+50
+00:02:16.570 --> 00:02:20.120
+for our own shop where we sell supported wireless adapters,
+
+51
+00:02:20.120 --> 00:02:22.040
+but you do not have to buy it from us.
+
+52
+00:02:22.040 --> 00:02:23.520
+You can buy it from anywhere,
+
+53
+00:02:23.520 --> 00:02:25.090
+as long as you get an adapter
+
+54
+00:02:25.090 --> 00:02:28.660
+that uses one of the recommended chipsets.
+
+55
+00:02:28.660 --> 00:02:30.850
+The wireless adapter that I'm gonna be connecting
+
+56
+00:02:30.850 --> 00:02:33.480
+to this computer is actually gonna be this one
+
+57
+00:02:33.480 --> 00:02:37.340
+that uses the Realtek 8812AU chip set.
+
+58
+00:02:37.340 --> 00:02:39.090
+You can follow the same instructions
+
+59
+00:02:39.090 --> 00:02:40.990
+for whatever wireless adapter,
+
+60
+00:02:40.990 --> 00:02:43.840
+as long as it's supported by Kali.
+
+61
+00:02:43.840 --> 00:02:47.663
+So what we need to do is simply run VMware.
+
+62
+00:02:48.700 --> 00:02:51.270
+We're gonna click on the Kali machine.
+
+63
+00:02:51.270 --> 00:02:55.220
+We're gonna right click it and go to its settings.
+
+64
+00:02:55.220 --> 00:02:59.883
+We're gonna click on add in here to add a USB controller.
+
+65
+00:03:00.920 --> 00:03:02.750
+We're gonna select that we want to add
+
+66
+00:03:02.750 --> 00:03:05.630
+a USB controller in here.
+
+67
+00:03:05.630 --> 00:03:07.383
+We're gonna click on finish,
+
+68
+00:03:08.310 --> 00:03:11.500
+and in the settings for the USB compatibility,
+
+69
+00:03:11.500 --> 00:03:13.783
+I'm going to set this to 3.1.
+
+70
+00:03:14.870 --> 00:03:19.120
+I'm gonna click on show all USB input devices,
+
+71
+00:03:19.120 --> 00:03:21.780
+and we're gonna click on OK.
+
+72
+00:03:21.780 --> 00:03:23.340
+And we're done.
+
+73
+00:03:23.340 --> 00:03:25.300
+Now before starting Kali,
+
+74
+00:03:25.300 --> 00:03:28.500
+make sure that you disconnect the wireless adapter.
+
+75
+00:03:28.500 --> 00:03:31.600
+So if you already have it connected to your computer,
+
+76
+00:03:31.600 --> 00:03:33.560
+physically disconnect it
+
+77
+00:03:33.560 --> 00:03:36.480
+from the USB port from the computer.
+
+78
+00:03:36.480 --> 00:03:39.910
+Make sure you do that before starting Kali.
+
+79
+00:03:39.910 --> 00:03:42.313
+So, I'm gonna go ahead and start it.
+
+80
+00:03:44.110 --> 00:03:46.030
+I'm gonna log in.
+
+81
+00:03:46.030 --> 00:03:50.030
+Once logged in, let's go and open up our terminal.
+
+82
+00:03:50.030 --> 00:03:53.120
+And I'm gonna run ifconfig.
+
+83
+00:03:53.120 --> 00:03:55.130
+This command is used to list
+
+84
+00:03:55.130 --> 00:03:57.280
+all of the network interfaces
+
+85
+00:03:57.280 --> 00:03:59.920
+connected to this computer.
+
+86
+00:03:59.920 --> 00:04:01.170
+And if I hit enter,
+
+87
+00:04:01.170 --> 00:04:04.430
+you'll see right now I have two interfaces.
+
+88
+00:04:04.430 --> 00:04:07.260
+One of them is called eth0.
+
+89
+00:04:07.260 --> 00:04:10.300
+This is a virtual ethernet interface
+
+90
+00:04:10.300 --> 00:04:13.020
+that is actually created by VMware,
+
+91
+00:04:13.020 --> 00:04:15.360
+in order to connect this machine
+
+92
+00:04:15.360 --> 00:04:18.030
+through the virtual NOC network.
+
+93
+00:04:18.030 --> 00:04:19.820
+You also have lo,
+
+94
+00:04:19.820 --> 00:04:24.520
+which is the virtual loopback interface used in Linux.
+
+95
+00:04:24.520 --> 00:04:27.150
+So both of these are virtual interfaces.
+
+96
+00:04:27.150 --> 00:04:29.940
+None of them is our wireless adapter,
+
+97
+00:04:29.940 --> 00:04:30.870
+but that is normal
+
+98
+00:04:30.870 --> 00:04:34.020
+because I haven't connected my wireless adapter yet.
+
+99
+00:04:34.020 --> 00:04:38.170
+So I'm gonna go ahead and connect it to my computer.
+
+100
+00:04:38.170 --> 00:04:40.330
+And as you can see, as soon as I do that,
+
+101
+00:04:40.330 --> 00:04:42.030
+we're gonna get a popup.
+
+102
+00:04:42.030 --> 00:04:44.720
+The popup is asking us, what do we want to do with this?
+
+103
+00:04:44.720 --> 00:04:47.060
+Do we want to connect it to the host?
+
+104
+00:04:47.060 --> 00:04:50.580
+So the host is the main computer, the Windows computer.
+
+105
+00:04:50.580 --> 00:04:54.060
+Or do we want to connect it to the virtual machine?
+
+106
+00:04:54.060 --> 00:04:55.870
+Now, we obviously want to connect it
+
+107
+00:04:55.870 --> 00:04:58.890
+to the virtual machine, so I'm selecting this option.
+
+108
+00:04:58.890 --> 00:05:01.520
+This is the virtual machine that we're connecting it to,
+
+109
+00:05:01.520 --> 00:05:02.900
+which is my Kali machine.
+
+110
+00:05:02.900 --> 00:05:04.360
+That is perfect.
+
+111
+00:05:04.360 --> 00:05:06.700
+And we're gonna tick this box
+
+112
+00:05:06.700 --> 00:05:08.590
+so that it always connects it
+
+113
+00:05:08.590 --> 00:05:10.240
+to this machine in the future.
+
+114
+00:05:10.240 --> 00:05:12.683
+It won't show me this popup message.
+
+115
+00:05:13.550 --> 00:05:14.383
+Once we do that,
+
+116
+00:05:14.383 --> 00:05:16.980
+we're gonna see another popup that simply tells us
+
+117
+00:05:16.980 --> 00:05:20.860
+that we can always connect and disconnect USB devices
+
+118
+00:05:20.860 --> 00:05:24.460
+using the USB icon in here on the top right.
+
+119
+00:05:24.460 --> 00:05:25.293
+So that's fine.
+
+120
+00:05:25.293 --> 00:05:28.240
+I'm gonna say thank you, don't show me this either.
+
+121
+00:05:28.240 --> 00:05:30.275
+We're gonna click on OK.
+
+122
+00:05:30.275 --> 00:05:35.275
+And now, if we run the exact same command, ifconfig, again,
+
+123
+00:05:35.650 --> 00:05:39.090
+you'll notice that I have another interface.
+
+124
+00:05:39.090 --> 00:05:41.810
+So we still have eth0, which is like I said,
+
+125
+00:05:41.810 --> 00:05:44.600
+the virtual interface that is used to connect
+
+126
+00:05:44.600 --> 00:05:46.710
+to the virtual NOC network.
+
+127
+00:05:46.710 --> 00:05:50.160
+We also still have lo, the loopback interface,
+
+128
+00:05:50.160 --> 00:05:54.250
+and we have a new interface right now called, lan0,
+
+129
+00:05:54.250 --> 00:05:59.230
+which is my wireless adapter that I just connected to Kali.
+
+130
+00:05:59.230 --> 00:06:02.020
+So now we can go ahead and use this adapter
+
+131
+00:06:02.020 --> 00:06:05.290
+to discover wireless networks around us and hack them.
+
+132
+00:06:05.290 --> 00:06:09.340
+And we will talk about that in details in the next lectures.
+
+133
+00:06:09.340 --> 00:06:13.690
+And as mentioned, you only need this for 10% of the course,
+
+134
+00:06:13.690 --> 00:06:15.563
+only for the cracking section.
+
+135
+00:06:16.500 --> 00:06:19.510
+Also, now, if we look here on the top right,
+
+136
+00:06:19.510 --> 00:06:22.880
+you'll notice that we have an option for Wi-Fi,
+
+137
+00:06:22.880 --> 00:06:24.250
+and if we click on it,
+
+138
+00:06:24.250 --> 00:06:28.120
+we can select a network and connect to a Wi-Fi network.
+
+139
+00:06:28.120 --> 00:06:29.640
+Now, I don't want to do that,
+
+140
+00:06:29.640 --> 00:06:33.010
+and you should not do that because we don't need to do this.
+
+141
+00:06:33.010 --> 00:06:34.810
+We don't need the wireless adapter
+
+142
+00:06:34.810 --> 00:06:36.890
+to connect to Wi-Fi networks.
+
+143
+00:06:36.890 --> 00:06:39.420
+We already have internet access in here
+
+144
+00:06:39.420 --> 00:06:43.060
+through the virtual NOC network through eth0.
+
+145
+00:06:43.060 --> 00:06:45.420
+We're only using the wireless adapter
+
+146
+00:06:45.420 --> 00:06:49.140
+to actually discover wireless networks and hack them,
+
+147
+00:06:49.140 --> 00:06:50.903
+not to connect to them.
+
