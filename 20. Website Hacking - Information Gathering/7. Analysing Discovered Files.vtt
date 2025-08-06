@@ -1,0 +1,386 @@
+WEBVTT
+
+1
+00:00:00.950 --> 00:00:02.810
+<v Instructor>So, we can see here from the result,</v>
+
+2
+00:00:02.810 --> 00:00:06.350
+it was able to find a number of files.
+
+3
+00:00:06.350 --> 00:00:08.010
+Some of them we already know of.
+
+4
+00:00:08.010 --> 00:00:09.780
+Now the favicon is just an icon.
+
+5
+00:00:09.780 --> 00:00:13.200
+Footer and header, these are probably only style files.
+
+6
+00:00:13.200 --> 00:00:15.300
+Index is the index that we see usually,
+
+7
+00:00:15.300 --> 00:00:16.760
+so it's all right.
+
+8
+00:00:16.760 --> 00:00:19.200
+Login, we can see that we discovered a page
+
+9
+00:00:19.200 --> 00:00:21.060
+that allows people to login.
+
+10
+00:00:21.060 --> 00:00:23.510
+Now, in many scenarios I was able to find username
+
+11
+00:00:23.510 --> 00:00:24.970
+and password of our target,
+
+12
+00:00:24.970 --> 00:00:27.970
+exploiting a really complex exploit.
+
+13
+00:00:27.970 --> 00:00:30.160
+And then ending up not being able to login
+
+14
+00:00:30.160 --> 00:00:32.120
+'cause I couldn't find where to login.
+
+15
+00:00:32.120 --> 00:00:34.600
+So tools like this could be very useful.
+
+16
+00:00:34.600 --> 00:00:36.420
+And here we can see that we have a login page
+
+17
+00:00:36.420 --> 00:00:37.763
+that we can use to login.
+
+18
+00:00:39.200 --> 00:00:42.320
+Page not found, not very useful.
+
+19
+00:00:42.320 --> 00:00:44.140
+You can see the PHP info file.
+
+20
+00:00:44.140 --> 00:00:46.800
+Now this file is usually very, very useful,
+
+21
+00:00:46.800 --> 00:00:49.610
+because it displays a lot of information about
+
+22
+00:00:49.610 --> 00:00:53.210
+the PHP interpreter running on the web server.
+
+23
+00:00:55.996 --> 00:00:57.892
+And as you can see, this file contains
+
+24
+00:00:57.892 --> 00:00:59.236
+a lot of information.
+
+25
+00:00:59.236 --> 00:01:00.620
+A lot of them are useful now.
+
+26
+00:01:00.620 --> 00:01:04.128
+You get to know some of the directories.
+
+27
+00:01:04.128 --> 00:01:06.420
+You know that it's running PHP 5.
+
+28
+00:01:06.420 --> 00:01:08.903
+The configuration is stored in this file.
+
+29
+00:01:10.380 --> 00:01:13.660
+INI files is usually the config files for PHPs.
+
+30
+00:01:13.660 --> 00:01:16.883
+So you can see all the places where they're stored.
+
+31
+00:01:18.300 --> 00:01:20.130
+And going down you'll see all
+
+32
+00:01:20.130 --> 00:01:22.033
+the permissions, the installed.
+
+33
+00:01:22.900 --> 00:01:25.330
+We can see here it has MySQL.
+
+34
+00:01:25.330 --> 00:01:27.000
+So it's using MySQL.
+
+35
+00:01:27.000 --> 00:01:31.620
+And you can see the directories where different types
+
+36
+00:01:31.620 --> 00:01:34.700
+of configurations are stored.
+
+37
+00:01:34.700 --> 00:01:36.270
+You can also see all the modules
+
+38
+00:01:36.270 --> 00:01:39.200
+and extensions that are being used with PHP.
+
+39
+00:01:39.200 --> 00:01:41.803
+So this file is usually very, very useful.
+
+40
+00:01:45.550 --> 00:01:46.990
+You can see we managed to find
+
+41
+00:01:46.990 --> 00:01:49.310
+where the phpMyAdmin login is,
+
+42
+00:01:49.310 --> 00:01:51.690
+and that's basically the login that's used
+
+43
+00:01:51.690 --> 00:01:53.393
+to login to the database.
+
+44
+00:01:56.090 --> 00:01:59.450
+Another very useful file is the robots.txt.
+
+45
+00:01:59.450 --> 00:02:02.290
+And that is the file that tells search engines,
+
+46
+00:02:02.290 --> 00:02:05.090
+such as Google, how to deal with the website.
+
+47
+00:02:05.090 --> 00:02:07.850
+So it usually contains files that
+
+48
+00:02:07.850 --> 00:02:09.890
+we don't want the website or Google
+
+49
+00:02:09.890 --> 00:02:11.700
+to see or to read.
+
+50
+00:02:11.700 --> 00:02:14.000
+So if we can read that file,
+
+51
+00:02:14.000 --> 00:02:15.810
+then we'll be able to see what
+
+52
+00:02:16.780 --> 00:02:18.843
+the web admin is trying to hide.
+
+53
+00:02:20.920 --> 00:02:24.690
+So go in in here, we can see that
+
+54
+00:02:24.690 --> 00:02:26.290
+the web admin doesn't want Google
+
+55
+00:02:26.290 --> 00:02:28.703
+to see a directory called passwords.
+
+56
+00:02:29.740 --> 00:02:32.090
+Okay, and it also doesn't want it to see
+
+57
+00:02:32.090 --> 00:02:34.123
+a file called config.inc.
+
+58
+00:02:35.490 --> 00:02:38.300
+And it also doesn't want it see these other files.
+
+59
+00:02:38.300 --> 00:02:39.730
+So let's have a look on the passwords
+
+60
+00:02:39.730 --> 00:02:42.430
+and the config.inc as examples.
+
+61
+00:02:42.430 --> 00:02:44.453
+So I'm just going to open a new tab,
+
+62
+00:02:45.690 --> 00:02:49.253
+and we're going to put our address like so.
+
+63
+00:02:51.610 --> 00:02:52.910
+So it's the current directory and
+
+64
+00:02:52.910 --> 00:02:54.623
+then we just put passwords after.
+
+65
+00:02:55.990 --> 00:02:59.663
+In that we can see that there's a file called accounts.txt.
+
+66
+00:03:01.000 --> 00:03:02.580
+And going here, we can see that
+
+67
+00:03:02.580 --> 00:03:04.950
+we got some usernames and passwords.
+
+68
+00:03:04.950 --> 00:03:08.500
+So we can see there is admin, adminPass.
+
+69
+00:03:08.500 --> 00:03:10.530
+We can see that we have a password
+
+70
+00:03:10.530 --> 00:03:12.293
+as Adrian and some password.
+
+71
+00:03:13.840 --> 00:03:16.360
+So we managed to find usernames and passwords.
+
+72
+00:03:16.360 --> 00:03:17.550
+Now we're still not sure what
+
+73
+00:03:17.550 --> 00:03:19.380
+these usernames and passwords for,
+
+74
+00:03:19.380 --> 00:03:20.710
+but we're sure that we were able
+
+75
+00:03:20.710 --> 00:03:22.423
+to find very useful stuff.
+
+76
+00:03:23.360 --> 00:03:26.693
+Another useful file is the config.inc.
+
+77
+00:03:27.630 --> 00:03:29.143
+So let's see what's in that.
+
+78
+00:03:30.020 --> 00:03:34.500
+And from here we can see that we have information
+
+79
+00:03:34.500 --> 00:03:35.870
+that allows to connect
+
+80
+00:03:35.870 --> 00:03:38.450
+to the database, because these are saying
+
+81
+00:03:38.450 --> 00:03:41.490
+dbhouse, dbuser, dbpass, and name.
+
+82
+00:03:41.490 --> 00:03:43.610
+So we can see that the username is root
+
+83
+00:03:43.610 --> 00:03:45.520
+and the password is blank.
+
+84
+00:03:45.520 --> 00:03:47.470
+So we can go ahead and try to connect
+
+85
+00:03:47.470 --> 00:03:50.310
+to the database, based on these commands,
+
+86
+00:03:50.310 --> 00:03:53.593
+and then we should be able to get access to that database.
+
+87
+00:03:55.030 --> 00:03:57.470
+Also, using these passwords, we're still
+
+88
+00:03:57.470 --> 00:03:59.270
+not sure what we can use them for,
+
+89
+00:03:59.270 --> 00:04:01.570
+but we can add them to a list,
+
+90
+00:04:01.570 --> 00:04:03.220
+try to login to the admin.
+
+91
+00:04:03.220 --> 00:04:05.510
+Or just store them in a list so
+
+92
+00:04:05.510 --> 00:04:07.160
+that we can use it if we're going
+
+93
+00:04:07.160 --> 00:04:09.610
+to do any brute force attack.
+
+94
+00:04:09.610 --> 00:04:12.720
+So then again, this is another video
+
+95
+00:04:12.720 --> 00:04:14.390
+that just shows how important
+
+96
+00:04:14.390 --> 00:04:17.113
+and powerful information gathering can be.
+

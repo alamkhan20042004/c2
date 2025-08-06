@@ -1,0 +1,270 @@
+WEBVTT
+
+1
+00:00:01.510 --> 00:00:02.790
+<v Instructor>Okay, now let's have a look</v>
+
+2
+00:00:02.790 --> 00:00:04.824
+on a stored XSS example.
+
+3
+00:00:04.824 --> 00:00:08.246
+Now stored XSS is very similar to our reflected one.
+
+4
+00:00:08.246 --> 00:00:12.410
+It allows you to inject JavaScript code into the browser,
+
+5
+00:00:12.410 --> 00:00:15.607
+the code is executed on the people that visit the page.
+
+6
+00:00:15.607 --> 00:00:18.179
+The only difference is with the reflected,
+
+7
+00:00:18.179 --> 00:00:21.155
+you have to send the URL to your target.
+
+8
+00:00:21.155 --> 00:00:23.331
+So the target had to actually click on a URL
+
+9
+00:00:23.331 --> 00:00:27.163
+for the exploited to run or for the code to run.
+
+10
+00:00:28.060 --> 00:00:30.360
+In the stored XSS,
+
+11
+00:00:30.360 --> 00:00:33.293
+the code will actually be stored into the database
+
+12
+00:00:33.293 --> 00:00:34.676
+or into the page.
+
+13
+00:00:34.676 --> 00:00:38.157
+So every time any person runs that page,
+
+14
+00:00:38.157 --> 00:00:41.510
+they will see your code and your code will be executed.
+
+15
+00:00:41.510 --> 00:00:43.587
+So you won't need to interact with any users
+
+16
+00:00:43.587 --> 00:00:45.187
+or send them anything.
+
+17
+00:00:45.187 --> 00:00:47.498
+Therefore, this could be much more dangerous
+
+18
+00:00:47.498 --> 00:00:50.061
+than reflected XSS.
+
+19
+00:00:50.061 --> 00:00:52.130
+So, let's have a look on this.
+
+20
+00:00:52.130 --> 00:00:56.520
+Now I clicked on the XSS stored here on the left,
+
+21
+00:00:56.520 --> 00:00:57.432
+and you have this page.
+
+22
+00:00:57.432 --> 00:00:59.330
+And this page just allows you
+
+23
+00:00:59.330 --> 00:01:02.392
+to add a message to the system.
+
+24
+00:01:02.392 --> 00:01:04.823
+So I'm going to put my name as Zaid.
+
+25
+00:01:05.664 --> 00:01:07.913
+We're just going to do a normal test first,
+
+26
+00:01:07.913 --> 00:01:11.789
+and we're going to put a message body for example.
+
+27
+00:01:11.789 --> 00:01:14.701
+And then I'm going to sign the guestbook
+
+28
+00:01:14.701 --> 00:01:17.325
+and you can see that Zaid added a message
+
+29
+00:01:17.325 --> 00:01:19.235
+called "message body".
+
+30
+00:01:19.235 --> 00:01:23.302
+So if you would go to here
+
+31
+00:01:23.302 --> 00:01:24.883
+and to another mission,
+
+32
+00:01:24.883 --> 00:01:27.724
+so this is a different mission to a different place.
+
+33
+00:01:27.724 --> 00:01:29.720
+And if we go into the XSS store,
+
+34
+00:01:29.720 --> 00:01:31.760
+we can see that there's two entries.
+
+35
+00:01:31.760 --> 00:01:34.004
+So the entries are being loaded from the database
+
+36
+00:01:34.004 --> 00:01:37.773
+and they contain the entries in that database.
+
+37
+00:01:37.773 --> 00:01:40.003
+So if we manage to inject code in here,
+
+38
+00:01:40.003 --> 00:01:42.625
+then any person who runs this page,
+
+39
+00:01:42.625 --> 00:01:44.077
+the code will run it
+
+40
+00:01:44.077 --> 00:01:47.107
+without even having to send that person anything.
+
+41
+00:01:47.107 --> 00:01:49.323
+So let's try to inject stuff here.
+
+42
+00:01:49.323 --> 00:01:51.308
+So let's put my name as Zaid,
+
+43
+00:01:51.308 --> 00:01:54.339
+and I'm going to try to put my code in here.
+
+44
+00:01:54.339 --> 00:01:56.245
+So I'm going to try to inject into the message
+
+45
+00:01:56.245 --> 00:01:58.403
+and I'm going to put it as "script".
+
+46
+00:01:58.403 --> 00:02:00.931
+I'm going to use the exact test code
+
+47
+00:02:00.931 --> 00:02:03.310
+that we used in the previous video,
+
+48
+00:02:03.310 --> 00:02:05.210
+just a message saying XSS.
+
+49
+00:02:05.210 --> 00:02:06.499
+Again, very basic code,
+
+50
+00:02:06.499 --> 00:02:10.573
+but it serves for the purposes of this video.
+
+51
+00:02:11.430 --> 00:02:12.980
+And we're going to say "alert",
+
+52
+00:02:15.687 --> 00:02:17.010
+"XSS",
+
+53
+00:02:17.010 --> 00:02:20.270
+and I'm going to try to sign the guestbook.
+
+54
+00:02:20.270 --> 00:02:22.645
+And as we can see now, I got the XSS here,
+
+55
+00:02:22.645 --> 00:02:26.440
+but the real magic happens when a normal person-
+
+56
+00:02:26.440 --> 00:02:27.573
+so let's just go home first
+
+57
+00:02:27.573 --> 00:02:30.005
+and let's assume this is just the normal website
+
+58
+00:02:30.005 --> 00:02:32.507
+and people just are coming and browsing it,
+
+59
+00:02:32.507 --> 00:02:34.970
+and once they're going to go to the guestbook,
+
+60
+00:02:34.970 --> 00:02:37.568
+JavaScript code will be executed on their system
+
+61
+00:02:37.568 --> 00:02:39.360
+from that website.
+
+62
+00:02:39.360 --> 00:02:41.054
+So the code is coming from that website
+
+63
+00:02:41.054 --> 00:02:42.474
+and it's going to be executed
+
+64
+00:02:42.474 --> 00:02:46.033
+on every person that visits this page.
+
+65
+00:02:47.609 --> 00:02:50.090
+Again, we're just showing a proof of concept here.
+
+66
+00:02:50.090 --> 00:02:53.557
+In future videos, we'll show how to further exploit
+
+67
+00:02:53.557 --> 00:02:55.333
+this kind of vulnerability.
+

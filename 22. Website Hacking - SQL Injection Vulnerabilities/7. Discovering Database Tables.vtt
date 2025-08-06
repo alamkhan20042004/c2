@@ -1,0 +1,242 @@
+WEBVTT
+
+1
+00:00:01.760 --> 00:00:04.960 line:15% 
+<v ->Okay, so now we know our target database</v>
+
+2
+00:00:04.960 --> 00:00:06.523 line:15% 
+is called owasp10.
+
+3
+00:00:08.243 --> 00:00:10.250 line:15% 
+Let's try and discover the tables
+
+4
+00:00:10.250 --> 00:00:12.750 line:15% 
+that exist in that database.
+
+5
+00:00:12.750 --> 00:00:14.950 line:15% 
+So this is our select statement,
+
+6
+00:00:14.950 --> 00:00:18.070 line:15% 
+it's a union select 1 and we have these things.
+
+7
+00:00:18.070 --> 00:00:21.230 line:15% 
+So I'm gonna leave this or change these to null.
+
+8
+00:00:21.230 --> 00:00:23.650 line:15% 
+'Cause I only wanna select one thing now
+
+9
+00:00:23.650 --> 00:00:26.760 line:15% 
+and I'm gonna set this to null as well.
+
+10
+00:00:26.760 --> 00:00:30.020 line:15% 
+And in number two, we're going to select
+
+11
+00:00:32.200 --> 00:00:33.033 line:15% 
+table name
+
+12
+00:00:37.890 --> 00:00:38.723 line:15% 
+from.
+
+13
+00:00:40.410 --> 00:00:41.640 line:15% 
+Now we're gonna select this from
+
+14
+00:00:41.640 --> 00:00:44.210 line:15% 
+a database called Information Schema.
+
+15
+00:00:44.210 --> 00:00:47.710 line:15% 
+Now I said this in the first video of SQL,
+
+16
+00:00:47.710 --> 00:00:50.840 line:15% 
+that information schema is a default database
+
+17
+00:00:50.840 --> 00:00:53.800 line:15% 
+created by MySQL and it contains information
+
+18
+00:00:53.800 --> 00:00:56.430 line:15% 
+about all other databases.
+
+19
+00:00:56.430 --> 00:00:57.380 line:15% 
+So what we're doing now,
+
+20
+00:00:57.380 --> 00:01:00.360 line:15% 
+we're selecting the table name from information
+
+21
+00:01:03.310 --> 00:01:08.193 line:15% 
+schema dot, and after the dot, you put the table.
+
+22
+00:01:11.110 --> 00:01:13.630 line:15% 
+So basically we're selecting a table
+
+23
+00:01:13.630 --> 00:01:18.390 line:15% 
+called tables from a database called information schema.
+
+24
+00:01:18.390 --> 00:01:22.070 line:15% 
+And the column that we're selecting is called table name.
+
+25
+00:01:22.070 --> 00:01:24.700 line:15% 
+So we're selecting table name from the database
+
+26
+00:01:24.700 --> 00:01:28.503 line:15% 
+that's called information schema from the table tables.
+
+27
+00:01:29.440 --> 00:01:33.050 line:15% 
+Let's execute this and see if we can get all the tables
+
+28
+00:01:33.050 --> 00:01:36.103
+that exist in owasp10 database.
+
+29
+00:01:44.460 --> 00:01:48.210
+So we can see we got 237 records.
+
+30
+00:01:48.210 --> 00:01:50.480
+And you can see all the tables that we have,
+
+31
+00:01:50.480 --> 00:01:52.970
+so these are all the tables
+
+32
+00:01:54.600 --> 00:01:56.053
+that we have access to.
+
+33
+00:01:57.100 --> 00:01:59.640
+So again, I said, we were logged in as Root,
+
+34
+00:01:59.640 --> 00:02:02.290
+therefore we can actually see tables from
+
+35
+00:02:02.290 --> 00:02:05.300
+other web applications, such as The Tiki Wiki.
+
+36
+00:02:05.300 --> 00:02:09.128
+But in real life scenarios you'll only see tables
+
+37
+00:02:09.128 --> 00:02:12.200
+related to your current database,
+
+38
+00:02:12.200 --> 00:02:13.923
+which is Mutillidae.
+
+39
+00:02:16.000 --> 00:02:20.090 line:15% 
+So what I'm going to do is, I'm going to use a where clause
+
+40
+00:02:20.090 --> 00:02:23.420 line:15% 
+and I'm gonna say where the table
+
+41
+00:02:26.670 --> 00:02:29.480 line:15% 
+schema is equal to
+
+42
+00:02:30.530 --> 00:02:31.363
+owasp10.
+
+43
+00:02:32.204 --> 00:02:35.310 line:15% 
+So owasp10 was what we got when we executed,
+
+44
+00:02:35.310 --> 00:02:38.790 line:15% 
+when we selected the database, so we got owasp10,
+
+45
+00:02:38.790 --> 00:02:42.620 line:15% 
+which is our current database that Mutillidae is working on.
+
+46
+00:02:42.620 --> 00:02:44.730 line:15% 
+So we are using the same statement,
+
+47
+00:02:44.730 --> 00:02:46.360 line:15% 
+we're selecting the table name
+
+48
+00:02:46.360 --> 00:02:48.350 line:15% 
+from information schema tables,
+
+49
+00:02:48.350 --> 00:02:50.810 line:15% 
+where the table schema
+
+50
+00:02:51.700 --> 00:02:53.133
+is owasp10.
+
+51
+00:02:54.370 --> 00:02:55.533 line:15% 
+So I'm gonna copy that.
+
+52
+00:02:57.860 --> 00:02:59.683
+And execute it here.
+
+53
+00:03:06.820 --> 00:03:11.110
+And as you can see now, we have so much less tables,
+
+54
+00:03:11.110 --> 00:03:13.270
+and we only have the ones that we're interested in.
+
+55
+00:03:13.270 --> 00:03:17.160
+So we have the accounts, the blogs, captured data,
+
+56
+00:03:17.160 --> 00:03:21.250
+credit cards, hitlog and the pen test tools.
+
+57
+00:03:21.250 --> 00:03:24.090
+Now if you remember, in the first or the second video,
+
+58
+00:03:24.090 --> 00:03:26.756
+in the SQL injection videos,
+
+59
+00:03:26.756 --> 00:03:30.690
+I showed you what's the content of the OWASP table was.
+
+60
+00:03:30.690 --> 00:03:33.753
+And it was these tables of the OWASP database.
+

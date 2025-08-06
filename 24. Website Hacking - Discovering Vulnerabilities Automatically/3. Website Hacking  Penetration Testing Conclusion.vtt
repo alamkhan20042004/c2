@@ -1,0 +1,510 @@
+WEBVTT
+
+1
+00:00:00.530 --> 00:00:02.860
+<v ->So far in the website hacking section,</v>
+
+2
+00:00:02.860 --> 00:00:06.560
+we learned how to gather information about a target website,
+
+3
+00:00:06.560 --> 00:00:09.820
+how to discover a number of vulnerabilities
+
+4
+00:00:09.820 --> 00:00:11.350
+in the web application
+
+5
+00:00:11.350 --> 00:00:16.080
+and how to exploit these vulnerabilities to gain access.
+
+6
+00:00:16.080 --> 00:00:18.230
+I actually cover more vulnerabilities
+
+7
+00:00:18.230 --> 00:00:21.470
+and more advanced techniques in my website hacking course.
+
+8
+00:00:21.470 --> 00:00:24.690
+This is just an introductory course to most hacking fields,
+
+9
+00:00:24.690 --> 00:00:26.880
+without diving too deep in any.
+
+10
+00:00:26.880 --> 00:00:28.300
+Check out the bonus lecture,
+
+11
+00:00:28.300 --> 00:00:31.100
+the last lecture of the course for more information.
+
+12
+00:00:31.100 --> 00:00:33.270
+But in all of the previous lectures,
+
+13
+00:00:33.270 --> 00:00:36.350
+I knew what kind of vulnerability I'm going to use.
+
+14
+00:00:36.350 --> 00:00:37.810
+And that's because I'm teaching you
+
+15
+00:00:37.810 --> 00:00:39.860
+these specific vulnerabilities.
+
+16
+00:00:39.860 --> 00:00:42.760
+So people usually ask me at the end of the section,
+
+17
+00:00:42.760 --> 00:00:46.030
+so how do I know which vulnerability to use,
+
+18
+00:00:46.030 --> 00:00:48.767
+or how do I know which vulnerability to try?
+
+19
+00:00:48.767 --> 00:00:52.200
+And the answer is try all of them.
+
+20
+00:00:52.200 --> 00:00:54.930
+I only try a specific vulnerability per lecture
+
+21
+00:00:54.930 --> 00:00:57.740
+because I've already done my tests and I've already,
+
+22
+00:00:57.740 --> 00:01:00.420
+and I already know what to try and what to show you.
+
+23
+00:01:00.420 --> 00:01:02.260
+So I don't waste your time,
+
+24
+00:01:02.260 --> 00:01:05.500
+but if you're pen testing a specific website,
+
+25
+00:01:05.500 --> 00:01:08.450
+you're going to have to try every single vulnerability
+
+26
+00:01:08.450 --> 00:01:09.750
+that you learned.
+
+27
+00:01:09.750 --> 00:01:12.450
+So the basic methodology would be to,
+
+28
+00:01:12.450 --> 00:01:15.750
+first of all, gather as much information as possible
+
+29
+00:01:15.750 --> 00:01:17.680
+about the target, as usual;
+
+30
+00:01:17.680 --> 00:01:19.390
+discover all of the sub domains,
+
+31
+00:01:19.390 --> 00:01:20.830
+all of the hidden directories,
+
+32
+00:01:20.830 --> 00:01:23.880
+all of the web applications installed on it.
+
+33
+00:01:23.880 --> 00:01:26.238
+And then for every domain or sub domain,
+
+34
+00:01:26.238 --> 00:01:29.100
+we're going to click on every single link.
+
+35
+00:01:29.100 --> 00:01:33.000
+We basically want to use every single feature of the website
+
+36
+00:01:33.000 --> 00:01:36.110
+and get an understanding of how this website works.
+
+37
+00:01:36.110 --> 00:01:37.070
+So when we break it,
+
+38
+00:01:37.070 --> 00:01:40.760
+we know we actually broke this and it might be vulnerable.
+
+39
+00:01:40.760 --> 00:01:44.014
+Then for every link for every page that we browse,
+
+40
+00:01:44.014 --> 00:01:46.850
+we're going to try all of the vulnerabilities
+
+41
+00:01:46.850 --> 00:01:50.400
+that we learned by testing the parameters in this page.
+
+42
+00:01:50.400 --> 00:01:53.370
+And what I mean by the parameters is the input boxes
+
+43
+00:01:53.370 --> 00:01:54.980
+that you see on the page.
+
+44
+00:01:54.980 --> 00:01:58.640
+And you want to test the data that is sent over the URL
+
+45
+00:01:58.640 --> 00:02:00.730
+after the equal sign.
+
+46
+00:02:00.730 --> 00:02:03.930
+So let me show you a quick example of what I mean.
+
+47
+00:02:03.930 --> 00:02:06.700
+Let's assume that you're trying to discover vulnerabilities
+
+48
+00:02:06.700 --> 00:02:07.867
+in google.com.
+
+49
+00:02:07.867 --> 00:02:10.510
+You're going to come to google.com.
+
+50
+00:02:10.510 --> 00:02:12.970
+We're going to discover every single sub domain
+
+51
+00:02:12.970 --> 00:02:14.060
+on google.com.
+
+52
+00:02:14.060 --> 00:02:17.030
+So you're going to have to go to accounts.google.com,
+
+53
+00:02:17.030 --> 00:02:19.696
+adsense.google.com, and so on.
+
+54
+00:02:19.696 --> 00:02:22.220
+And for every page that we get in here,
+
+55
+00:02:22.220 --> 00:02:24.650
+we're going to click on every single link.
+
+56
+00:02:24.650 --> 00:02:27.740
+So for example, we have the "how search works" link in here.
+
+57
+00:02:27.740 --> 00:02:29.630
+We're going to open it in a new tab
+
+58
+00:02:29.630 --> 00:02:31.350
+and we're going to come to it.
+
+59
+00:02:31.350 --> 00:02:33.290
+You'll notice that in this page, again,
+
+60
+00:02:33.290 --> 00:02:34.210
+we have more links.
+
+61
+00:02:34.210 --> 00:02:35.270
+So we're going to have to click
+
+62
+00:02:35.270 --> 00:02:37.470
+on every single link of these.
+
+63
+00:02:37.470 --> 00:02:39.940
+And then for every page that we get, we're going to,
+
+64
+00:02:39.940 --> 00:02:41.420
+first of all, try to use it
+
+65
+00:02:41.420 --> 00:02:43.510
+to see what the page does to get an idea
+
+66
+00:02:43.510 --> 00:02:45.872
+of the features that this page has.
+
+67
+00:02:45.872 --> 00:02:50.540
+And then we're going to try to discover the vulnerabilities
+
+68
+00:02:50.540 --> 00:02:53.240
+that we learned by manipulating the inputs.
+
+69
+00:02:53.240 --> 00:02:55.010
+So we're going to first play with the inputs
+
+70
+00:02:55.010 --> 00:02:56.290
+in here in the URL.
+
+71
+00:02:56.290 --> 00:02:57.720
+So you can see this URL.
+
+72
+00:02:57.720 --> 00:03:00.030
+We have FG is equal to one.
+
+73
+00:03:00.030 --> 00:03:02.290
+So after the FG equals one,
+
+74
+00:03:02.290 --> 00:03:04.290
+we can actually try to inject stuff.
+
+75
+00:03:04.290 --> 00:03:06.205
+We can test for SQL injections.
+
+76
+00:03:06.205 --> 00:03:09.425
+We can test for XSS and so on.
+
+77
+00:03:09.425 --> 00:03:14.425
+And we can also go ahead and test this input box for XSS.
+
+78
+00:03:15.070 --> 00:03:17.693
+Google was actually vulnerable to an XSS,
+
+79
+00:03:17.693 --> 00:03:19.990
+and they paid a huge bounty,
+
+80
+00:03:19.990 --> 00:03:21.077
+I can't remember what it was,
+
+81
+00:03:21.077 --> 00:03:23.430
+to the person that found it.
+
+82
+00:03:23.430 --> 00:03:25.960
+So don't think that these vulnerabilities don't exist
+
+83
+00:03:25.960 --> 00:03:28.190
+in big websites like Google.
+
+84
+00:03:28.190 --> 00:03:31.320
+So the main things we'll be testing is the input boxes
+
+85
+00:03:31.320 --> 00:03:34.110
+and the things that we see after the equal sign.
+
+86
+00:03:34.110 --> 00:03:35.960
+And you'll basically have to test literally
+
+87
+00:03:35.960 --> 00:03:38.610
+every single vulnerability that you learned, like I said.
+
+88
+00:03:38.610 --> 00:03:41.547
+There is no way to know by simply looking at a page
+
+89
+00:03:41.547 --> 00:03:44.140
+that it's going to be vulnerable to an SQL injection
+
+90
+00:03:44.140 --> 00:03:46.903
+or to an XSS, for example.
+
+91
+00:03:47.840 --> 00:03:50.410
+Now, in other cases, you might have websites,
+
+92
+00:03:50.410 --> 00:03:52.353
+like zSecurity here, for example,
+
+93
+00:03:52.353 --> 00:03:54.733
+where if you click on a link,
+
+94
+00:03:54.733 --> 00:03:58.070
+you'll actually not see the equal sign in the URL.
+
+95
+00:03:58.070 --> 00:04:00.460
+So you won't see the data that is being sent
+
+96
+00:04:00.460 --> 00:04:02.659
+to the server in the URL.
+
+97
+00:04:02.659 --> 00:04:06.050
+This does not mean that this web application,
+
+98
+00:04:06.050 --> 00:04:07.859
+this page, does not send data
+
+99
+00:04:07.859 --> 00:04:10.141
+to the server side application,
+
+100
+00:04:10.141 --> 00:04:13.140
+but it's just more hidden and harder
+
+101
+00:04:13.140 --> 00:04:16.050
+to see the data that is being sent.
+
+102
+00:04:16.050 --> 00:04:17.440
+You can actually see the data
+
+103
+00:04:17.440 --> 00:04:20.930
+that is being sent and manipulated using a proxy.
+
+104
+00:04:20.930 --> 00:04:24.690
+So Burp Suite is a really popular pen testing framework
+
+105
+00:04:24.690 --> 00:04:26.547
+that actually comes with its own proxy
+
+106
+00:04:26.547 --> 00:04:29.370
+where you could intercept requests sent
+
+107
+00:04:29.370 --> 00:04:32.070
+from this current page to the web server.
+
+108
+00:04:32.070 --> 00:04:34.250
+So you can actually get more parameters
+
+109
+00:04:34.250 --> 00:04:37.024
+and be able to test these parameters
+
+110
+00:04:37.024 --> 00:04:39.290
+for the vulnerabilities that we learned.
+
+111
+00:04:39.290 --> 00:04:40.810
+And you'll also be able to use it
+
+112
+00:04:40.810 --> 00:04:44.320
+to bypass certain types of security measures.
+
+113
+00:04:44.320 --> 00:04:45.810
+Now we actually cover Burp Suite
+
+114
+00:04:45.810 --> 00:04:46.643
+and I cover a lot
+
+115
+00:04:46.643 --> 00:04:49.970
+of other more advanced web application vulnerabilities
+
+116
+00:04:49.970 --> 00:04:53.150
+and techniques, like I said, in the website hacking course.
+
+117
+00:04:53.150 --> 00:04:54.850
+I don't cover them here because this
+
+118
+00:04:54.850 --> 00:04:58.200
+is an introductory course to ethical hacking in general.
+
+119
+00:04:58.200 --> 00:05:00.970
+And the goal of this course is to introduce you
+
+120
+00:05:00.970 --> 00:05:02.863
+to most ethical hacking fields
+
+121
+00:05:02.863 --> 00:05:05.520
+without diving too deep in any.
+
+122
+00:05:05.520 --> 00:05:06.640
+So if you want to learn more
+
+123
+00:05:06.640 --> 00:05:09.457
+about web application pen testing, about Burp Suite,
+
+124
+00:05:09.457 --> 00:05:12.422
+about OS top 10 vulnerabilities,
+
+125
+00:05:12.422 --> 00:05:14.730
+then check out the bonus lecture.
+
+126
+00:05:14.730 --> 00:05:17.719
+It includes that course and to see all of the other courses
+
+127
+00:05:17.719 --> 00:05:19.813
+that are applicable to you.
+

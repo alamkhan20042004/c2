@@ -1,0 +1,256 @@
+WEBVTT
+
+00:00.140 --> 00:05.240
+Okay, now that we have our script ready, in this lecture, I'm going to show you how to compile it
+
+00:05.240 --> 00:08.600
+to an executable and how to change its icon.
+
+00:09.440 --> 00:12.920
+The script is written in a scripting language called Autoit.
+
+00:13.070 --> 00:16.280
+Autoit is pre-installed in the custom Kali.
+
+00:16.280 --> 00:21.530
+If you're not using the custom Kali, then you're going to have to manually install it from the link
+
+00:21.530 --> 00:23.510
+in the resources of this lecture.
+
+00:24.080 --> 00:27.200
+So Autoit should be already installed for you by now.
+
+00:27.200 --> 00:35.270
+And now all we have to do is first rename this file and change the extension from a dot txt to a dot
+
+00:35.270 --> 00:36.110
+o3.
+
+00:38.330 --> 00:42.980
+Then we're going to go to all programs and look for compile.
+
+00:42.980 --> 00:45.080
+So I'm going to type in compile in here.
+
+00:45.590 --> 00:50.660
+And you'll see that I have the application that will compile auto with scripts for me.
+
+00:50.660 --> 00:52.220
+So I'm going to click on that.
+
+00:54.090 --> 00:55.830
+And this is very, very simple.
+
+00:55.830 --> 01:00.510
+As you can see the first thing that it asks you for is the source Autoit script.
+
+01:00.510 --> 01:02.340
+And that's the file that we made.
+
+01:02.340 --> 01:07.860
+So I'm just going to click on browse and you'd have to navigate to downloads from here.
+
+01:07.860 --> 01:09.720
+But I'm already in downloads.
+
+01:09.930 --> 01:13.290
+So I'm just going to click on it and click on open.
+
+01:13.770 --> 01:19.130
+You can also set where it's going to be stored, but I'm just going to keep it to be stored at the downloads.
+
+01:19.730 --> 01:24.890
+And then you can see here you can actually change the icon and use a custom icon.
+
+01:25.310 --> 01:30.170
+To do this, we'll have to first download an icon that represents our file.
+
+01:30.680 --> 01:36.980
+Now if your file was a PDF, then you can just come in to this website which is called Icon Archive
+
+01:36.980 --> 01:38.360
+and then download.
+
+01:38.360 --> 01:43.570
+Just look for a PDF or MP3 and you'll see icons that represent these files.
+
+01:43.660 --> 01:50.710
+However, in my case, I'm trying to use an image as the file that the person sees, and windows usually
+
+01:50.710 --> 01:52.840
+shows a preview of the image.
+
+01:52.840 --> 01:55.810
+It doesn't really show a specific icon for images.
+
+01:55.810 --> 02:00.880
+So what I want to do is I want to convert the GT-R image to an icon.
+
+02:01.150 --> 02:06.520
+And to do that, I'm just going to go to Google and just Google Image to ICO.
+
+02:07.270 --> 02:14.320
+Now I've actually tried a few of them, and the best one that preserved the quality was this one hour
+
+02:14.320 --> 02:15.610
+w designer.
+
+02:15.610 --> 02:18.490
+So you can try different ones on your own time.
+
+02:18.490 --> 02:24.430
+And what you want to do now is download the image that you want to make an icon of.
+
+02:24.430 --> 02:29.800
+And in my case, I want the same image that the person will see, so I'm just going to save it.
+
+02:31.690 --> 02:33.700
+and save it in the downloads.
+
+02:33.700 --> 02:34.510
+That's fine.
+
+02:35.380 --> 02:39.430
+And then in here we're going to go to browse to select it.
+
+02:40.210 --> 02:42.850
+And we have the image here double click.
+
+02:43.840 --> 02:47.620
+And then we're going to keep this to icon for Windows 7 or Vista.
+
+02:47.620 --> 02:48.550
+That's fine.
+
+02:49.180 --> 02:50.980
+And I'm just going to click on download.
+
+02:51.670 --> 02:55.480
+This will convert it to an icon for me a dot ICO.
+
+02:55.480 --> 02:58.060
+So I can just click on okay to save it.
+
+02:58.060 --> 03:06.040
+And then I'm going to go back to my compiler and we're going to set the option in here the icon I'm
+
+03:06.040 --> 03:10.420
+going to click on browse and select the icon that we just downloaded.
+
+03:10.420 --> 03:16.990
+Now again in your case you might have to navigate to route from here and then go to downloads.
+
+03:17.710 --> 03:21.760
+And then we have the icon in here, the one that we just created.
+
+03:22.090 --> 03:25.210
+I'm going to click on open and that's it.
+
+03:25.210 --> 03:26.650
+All the options are set.
+
+03:26.680 --> 03:34.240
+So all we had to do for this is set the location for the script and then set the icon in here.
+
+03:35.260 --> 03:36.970
+I'm going to click on convert.
+
+03:37.720 --> 03:40.570
+And that has generated the file for me.
+
+03:40.600 --> 03:42.160
+I'm going to click on okay.
+
+03:42.190 --> 03:44.290
+And I'm just going to close everything.
+
+03:46.810 --> 03:49.540
+Now you can see we have the executable in here.
+
+03:49.540 --> 03:51.340
+So this is a dot exe.
+
+03:51.490 --> 03:53.920
+And this one was the old script.
+
+03:54.070 --> 03:59.650
+So when you're sending to the target you want to be sending the exe the executable here.
+
+04:00.250 --> 04:03.550
+I'm just going to rename this to GT-R image.
+
+04:05.440 --> 04:07.210
+And then I'm going to copy it.
+
+04:07.990 --> 04:13.960
+And I'm going to put it in my web server at var ww HTML evil files.
+
+04:17.320 --> 04:23.560
+Before downloading this at the target computer, you want to listen for incoming connections from Metasploit.
+
+04:23.560 --> 04:26.020
+And I showed you how to do that before.
+
+04:26.020 --> 04:30.400
+So right now I'm only going to do show options to show you the options that I've set.
+
+04:30.430 --> 04:36.250
+And if you don't remember how to do this, then please go back to the listening for Incoming Connections
+
+04:36.250 --> 04:36.880
+lecture.
+
+04:36.880 --> 04:43.030
+As I explained all of this in details, for now, I'm only going to do exploit to wait for incoming
+
+04:43.030 --> 04:43.870
+connections.
+
+04:44.260 --> 04:45.280
+Now everything is ready.
+
+04:45.280 --> 04:49.180
+I'm going to go to the windows machine and download the file.
+
+04:49.360 --> 04:57.550
+So the file is going to be at HTTP ten 2014 213 Evil files GTR imagex.
+
+04:58.660 --> 05:01.540
+I'm going to hit enter and we're going to save the file.
+
+05:06.460 --> 05:11.140
+And as you can see we see a file that has an icon.
+
+05:11.140 --> 05:14.920
+That's an image icon which has a preview of the image.
+
+05:14.920 --> 05:16.690
+So it's very representative.
+
+05:16.690 --> 05:25.890
+And if we double click this file and run it, you see that we get an image that corresponds to the icon.
+
+05:25.890 --> 05:32.250
+But if we go to the Kali machine, you'll see that we got an interpreter session here.
+
+05:32.250 --> 05:37.980
+And basically now we hacked into the target computer and we can do anything that we want there.
+
+05:37.980 --> 05:40.770
+So just to confirm I'm going to do sysinfo.
+
+05:42.960 --> 05:48.000
+And as you can see, now we're inside the target computer and we have full access to it.
+
+05:48.030 --> 05:53.850
+We managed to do this with a file that has an icon of an image, and actually displayed an image to
+
+05:53.850 --> 05:55.050
+the target person.
+
+05:55.140 --> 06:02.070
+And like I said, this method can be used to combine our backdoor or evil file with any file that you
+
+06:02.070 --> 06:07.920
+want, with an image, with a PDF, with a song, or anything that the target person is interested in.

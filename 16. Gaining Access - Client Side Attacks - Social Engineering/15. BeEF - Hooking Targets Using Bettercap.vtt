@@ -1,0 +1,490 @@
+WEBVTT
+
+1
+00:00:00.110 --> 00:00:01.460
+<v Instructor>In the previous video,</v>
+
+2
+00:00:01.460 --> 00:00:04.550
+I showed you how to hook a target to BeEF
+
+3
+00:00:04.550 --> 00:00:08.263
+using a basic hook method, using a HTML page.
+
+4
+00:00:09.370 --> 00:00:11.930
+In this lecture, I want to show you a better way
+
+5
+00:00:11.930 --> 00:00:15.683
+of doing this if you are able to intercept connections.
+
+6
+00:00:17.200 --> 00:00:20.260
+So as I showed you in the network hacking section,
+
+7
+00:00:20.260 --> 00:00:24.090
+we can inject JavaScript code in the target browser
+
+8
+00:00:24.090 --> 00:00:26.703
+if we are able to become the man in the middle.
+
+9
+00:00:27.540 --> 00:00:31.670
+And since BeEF uses JavaScript code to hook targets,
+
+10
+00:00:31.670 --> 00:00:35.610
+we can actually use the exact same method we learned earlier
+
+11
+00:00:35.610 --> 00:00:39.060
+to inject BeEFs hook code in every website,
+
+12
+00:00:39.060 --> 00:00:43.410
+the target loads, this will allow us to hook targets
+
+13
+00:00:43.410 --> 00:00:44.770
+and keep them hooked
+
+14
+00:00:44.770 --> 00:00:47.453
+without directly communicating with them.
+
+15
+00:00:48.620 --> 00:00:51.690
+So I have BeEF already running in here.
+
+16
+00:00:51.690 --> 00:00:54.350
+And like I said, in order to hook targets,
+
+17
+00:00:54.350 --> 00:00:57.460
+we're gonna have to inject BeEF's JavaScript code
+
+18
+00:00:57.460 --> 00:01:00.110
+into the browser that they load.
+
+19
+00:01:00.110 --> 00:01:03.530
+So to do this, I've included custom JavaScript code
+
+20
+00:01:03.530 --> 00:01:05.810
+in the resources of this lecture.
+
+21
+00:01:05.810 --> 00:01:08.350
+So first of all, download it from there,
+
+22
+00:01:08.350 --> 00:01:11.140
+I already have it downloaded here.
+
+23
+00:01:11.140 --> 00:01:12.470
+And before using this,
+
+24
+00:01:12.470 --> 00:01:14.623
+I'm gonna double click it to modify it.
+
+25
+00:01:15.550 --> 00:01:18.600
+So as you can see, it's actually very, very simple code,
+
+26
+00:01:18.600 --> 00:01:21.930
+it's gonna create a new element in every page,
+
+27
+00:01:21.930 --> 00:01:23.780
+which will load BeEFs code,
+
+28
+00:01:23.780 --> 00:01:27.523
+and it'll append this element to the head of the page.
+
+29
+00:01:28.640 --> 00:01:32.400
+So the only thing you need to modify right here is your IP,
+
+30
+00:01:32.400 --> 00:01:35.470
+and you want to replace that with the IP of the Kali machine
+
+31
+00:01:35.470 --> 00:01:37.110
+that is running BeEF.
+
+32
+00:01:37.110 --> 00:01:40.240
+As you know, you can do if config to get your IP,
+
+33
+00:01:40.240 --> 00:01:42.320
+I already know what my IP is.
+
+34
+00:01:42.320 --> 00:01:47.283
+So I'm gonna put it here 10, 20, 14, 207.
+
+35
+00:01:48.200 --> 00:01:52.630
+So I'm gonna save this Ctrl S and quit Ctrl Q.
+
+36
+00:01:52.630 --> 00:01:55.200
+Now our JavaScript code is ready.
+
+37
+00:01:55.200 --> 00:01:58.670
+And all we have to do is literally injected exactly
+
+38
+00:01:58.670 --> 00:02:00.210
+as I showed you before,
+
+39
+00:02:00.210 --> 00:02:03.980
+when we injected the simple alert JavaScript code.
+
+40
+00:02:03.980 --> 00:02:07.580
+So all we have to do right now is put the location
+
+41
+00:02:07.580 --> 00:02:11.660
+of this file in the HSTS hijack caplet.
+
+42
+00:02:11.660 --> 00:02:13.000
+I'm going through this quickly,
+
+43
+00:02:13.000 --> 00:02:16.080
+because I spent a full lecture showing how to use this.
+
+44
+00:02:16.080 --> 00:02:19.200
+So if you don't remember how JavaScript injection works,
+
+45
+00:02:19.200 --> 00:02:21.363
+please go back and revise that lecture.
+
+46
+00:02:22.290 --> 00:02:24.040
+So I'm gonna go to the location
+
+47
+00:02:24.040 --> 00:02:27.980
+where I have the HSTS hijack caplet.
+
+48
+00:02:27.980 --> 00:02:30.660
+This is the modified one, the one that I included
+
+49
+00:02:30.660 --> 00:02:32.570
+in the resources of that lecture,
+
+50
+00:02:32.570 --> 00:02:34.888
+not the one that comes with bettercap,
+
+51
+00:02:34.888 --> 00:02:37.630
+because as I mentioned, the one that comes with bettercap
+
+52
+00:02:37.630 --> 00:02:39.433
+does not work as we wanted.
+
+53
+00:02:40.530 --> 00:02:41.820
+So what I want to do right now
+
+54
+00:02:41.820 --> 00:02:45.850
+is modify the hstshijack.cap file.
+
+55
+00:02:45.850 --> 00:02:49.660
+As you know, if we want to inject a custom JavaScript code,
+
+56
+00:02:49.660 --> 00:02:53.160
+we have to modify the payload in here.
+
+57
+00:02:53.160 --> 00:02:56.780
+And as you can see, it's already injecting JavaScript code
+
+58
+00:02:56.780 --> 00:02:59.120
+called keylogger.js.
+
+59
+00:02:59.120 --> 00:03:02.350
+So we want to add our custom JavaScript code.
+
+60
+00:03:02.350 --> 00:03:05.680
+So I'm gonna add a comma, followed by the location
+
+61
+00:03:05.680 --> 00:03:08.120
+of the file that I want to inject,
+
+62
+00:03:08.120 --> 00:03:11.220
+which as you know, I have my file in downloads in here
+
+63
+00:03:11.220 --> 00:03:12.653
+and it's called injectbeef.js.
+
+64
+00:03:14.660 --> 00:03:18.270
+So first of all, I'm actually gonna add a star colon
+
+65
+00:03:18.270 --> 00:03:22.400
+to say that I want to inject this file into every page,
+
+66
+00:03:22.400 --> 00:03:26.000
+the target loads, and then I'm gonna put the full path
+
+67
+00:03:26.000 --> 00:03:29.740
+to my JavaScript file, which is, as I showed you,
+
+68
+00:03:29.740 --> 00:03:34.740
+in root, downloads, injectbeef.js.
+
+69
+00:03:36.520 --> 00:03:37.930
+It's as simple as that.
+
+70
+00:03:37.930 --> 00:03:41.900
+I'm gonna save it Ctrl S and quit Ctrl Q.
+
+71
+00:03:41.900 --> 00:03:43.720
+And perfect, so that's done.
+
+72
+00:03:43.720 --> 00:03:46.830
+And all we need to do right now is run bettercap
+
+73
+00:03:46.830 --> 00:03:51.580
+to inject this file into every website the target loads,
+
+74
+00:03:51.580 --> 00:03:54.700
+so we're gonna run better cap using the exact same command
+
+75
+00:03:54.700 --> 00:03:56.620
+that we used to use before,
+
+76
+00:03:56.620 --> 00:03:58.650
+we're setting the interface to the interface
+
+77
+00:03:58.650 --> 00:04:01.140
+that's connected to the target network.
+
+78
+00:04:01.140 --> 00:04:04.630
+And I'm giving it a caplet to load and the caplet
+
+79
+00:04:04.630 --> 00:04:07.280
+that I want to load is this sproof caplet,
+
+80
+00:04:07.280 --> 00:04:09.360
+because as I showed you earlier,
+
+81
+00:04:09.360 --> 00:04:12.110
+this caplet will run an AARP spoofing attack,
+
+82
+00:04:12.110 --> 00:04:14.513
+putting me in the middle of the connection.
+
+83
+00:04:15.670 --> 00:04:19.470
+And perfect, as you can see the couplet runs with no errors.
+
+84
+00:04:19.470 --> 00:04:22.613
+So right now, I should be intercepting connections.
+
+85
+00:04:22.613 --> 00:04:24.990
+And the next thing I want to do is to load
+
+86
+00:04:24.990 --> 00:04:29.930
+the HSTS hijack applet, so I can bypass HTTPS,
+
+87
+00:04:29.930 --> 00:04:34.930
+partially bypass HSTS, and inject the JavaScript code
+
+88
+00:04:35.400 --> 00:04:36.940
+that we just configured,
+
+89
+00:04:36.940 --> 00:04:41.100
+the code that's in the inject BeEF JavaScript file.
+
+90
+00:04:41.100 --> 00:04:45.460
+So I'm just gonna type H S and press tab to autocomplete,
+
+91
+00:04:45.460 --> 00:04:48.660
+hit Enter and everything runs with no errors.
+
+92
+00:04:48.660 --> 00:04:49.920
+So that's perfect.
+
+93
+00:04:49.920 --> 00:04:53.280
+Now, I should be intercepting all the data that sent
+
+94
+00:04:53.280 --> 00:04:56.930
+and received by the target ad because we configured
+
+95
+00:04:56.930 --> 00:05:01.290
+bettercap to inject the hook code in every page that loads,
+
+96
+00:05:01.290 --> 00:05:04.520
+we should be able to hook our target to BeEF
+
+97
+00:05:04.520 --> 00:05:07.420
+as soon as they load any website.
+
+98
+00:05:07.420 --> 00:05:09.780
+So let's go to the target computer.
+
+99
+00:05:09.780 --> 00:05:14.100
+And actually always a good idea to test against normal HTTP
+
+100
+00:05:14.100 --> 00:05:16.780
+pages first against the simplest case,
+
+101
+00:05:16.780 --> 00:05:19.980
+but I've already tested this before, and I know it works.
+
+102
+00:05:19.980 --> 00:05:21.780
+So I'm gonna go ahead and test it
+
+103
+00:05:21.780 --> 00:05:25.253
+against the HTTPS page straight away.
+
+104
+00:05:26.140 --> 00:05:29.290
+It's also a good idea to remove the browsing data.
+
+105
+00:05:29.290 --> 00:05:30.990
+But I've already done that.
+
+106
+00:05:30.990 --> 00:05:34.223
+So I'm just gonna go to stack overflow.com.
+
+107
+00:05:35.740 --> 00:05:38.770
+As you can see, the page is loading in normal HTTP,
+
+108
+00:05:38.770 --> 00:05:41.770
+even though it uses HTTPS by default,
+
+109
+00:05:41.770 --> 00:05:46.770
+that means our HSTS hijack is downgrading HTTPS to HTTP.
+
+110
+00:05:47.080 --> 00:05:51.060
+And it should have also injected my inject BeEF code.
+
+111
+00:05:51.060 --> 00:05:53.250
+So let's go to BeEF to confirm
+
+112
+00:05:53.250 --> 00:05:55.720
+and see if we hooked the target.
+
+113
+00:05:55.720 --> 00:05:59.140
+And perfect, as you can see, we have a new online browser
+
+114
+00:05:59.140 --> 00:06:02.400
+showing up in here, which we can communicate with
+
+115
+00:06:02.400 --> 00:06:05.200
+and run commands on, as I'm gonna show you
+
+116
+00:06:05.200 --> 00:06:06.250
+in the next lectures.
+
+117
+00:06:07.670 --> 00:06:11.820
+So now the BeEF hook code will be injected in every website,
+
+118
+00:06:11.820 --> 00:06:15.394
+the target loads, this will work against HTTP websites,
+
+119
+00:06:15.394 --> 00:06:20.394
+HTTPs websites and even partially work against HSTS websites
+
+120
+00:06:21.140 --> 00:06:22.680
+like I showed you before.
+
+121
+00:06:22.680 --> 00:06:26.090
+If the target goes to the HSTS website,
+
+122
+00:06:26.090 --> 00:06:29.843
+through a search engine that only uses normal HTTPS.
+

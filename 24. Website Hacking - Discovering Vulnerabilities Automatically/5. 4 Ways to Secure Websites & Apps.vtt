@@ -1,0 +1,652 @@
+WEBVTT
+
+00:00.120 --> 00:00.960
+-: Hello, everyone.
+
+00:00.960 --> 00:04.080
+Today, instead of talking about hacking and breaking
+
+00:04.080 --> 00:06.300
+into systems as we usually do,
+
+00:06.300 --> 00:09.600
+we're gonna talk about security and specifically,
+
+00:09.600 --> 00:12.840
+how to secure websites, web applications,
+
+00:12.840 --> 00:15.120
+mobile applications, and so on.
+
+00:15.120 --> 00:18.780
+Obviously, hacks and breaches have a huge negative impact
+
+00:18.780 --> 00:22.110
+on companies from the loss of customer trust,
+
+00:22.110 --> 00:26.370
+to financial losses, leaked user data, legal issues,
+
+00:26.370 --> 00:28.140
+and the list goes on.
+
+00:28.140 --> 00:30.630
+Now, if you go and do a quick Google search
+
+00:30.630 --> 00:33.420
+on how to secure your website or application,
+
+00:33.420 --> 00:35.970
+you're gonna get a lot of garbage.
+
+00:35.970 --> 00:39.630
+I was actually so disappointed at the click-baitey articles
+
+00:39.630 --> 00:41.400
+that actually did not explain
+
+00:41.400 --> 00:44.040
+or give any useful information.
+
+00:44.040 --> 00:46.560
+Most of them suggested that you use backups,
+
+00:46.560 --> 00:50.190
+use strong passwords, and make sure you use HTTPS,
+
+00:50.190 --> 00:52.710
+but backups don't secure your website.
+
+00:52.710 --> 00:55.080
+They simply help you recover.
+
+00:55.080 --> 00:58.710
+Also, you using HTTPS encrypts the communication,
+
+00:58.710 --> 01:00.960
+but it doesn't really secure the website.
+
+01:00.960 --> 01:04.230
+The only one useful tip was use strong passwords,
+
+01:04.230 --> 01:06.540
+but most hackers are not gonna sit down
+
+01:06.540 --> 01:08.580
+and try to guess the password like you see
+
+01:08.580 --> 01:09.870
+in Hollywood movies.
+
+01:09.870 --> 01:11.970
+They're gonna rely on vulnerabilities
+
+01:11.970 --> 01:14.160
+and weaknesses within your application
+
+01:14.160 --> 01:15.999
+and they will exploit them to gain access
+
+01:15.999 --> 01:19.200
+to it regardless of what password you use,
+
+01:19.200 --> 01:22.830
+even if you have a very, very complex password
+
+01:22.830 --> 01:24.870
+even if you're using HTTPS,
+
+01:24.870 --> 01:26.430
+and even if you have backups,
+
+01:26.430 --> 01:28.980
+a lot of this is actually irrelevant.
+
+01:28.980 --> 01:30.960
+Also, it doesn't really matter where you
+
+01:30.960 --> 01:32.520
+have the application hosted,
+
+01:32.520 --> 01:35.910
+whether you using AWS or any other cloud provider.
+
+01:35.910 --> 01:38.820
+And it doesn't matter how you're deploying this application,
+
+01:38.820 --> 01:41.760
+if you're using Kubernetes or if you're using Docker,
+
+01:41.760 --> 01:43.140
+it doesn't really matter.
+
+01:43.140 --> 01:45.030
+It's actually very, very simple.
+
+01:45.030 --> 01:47.250
+If you have a vulnerable web application,
+
+01:47.250 --> 01:49.830
+then hackers are going to use these vulnerabilities
+
+01:49.830 --> 01:53.130
+or weaknesses to gain access to this application.
+
+01:53.130 --> 01:54.720
+So anyway, enough ranting.
+
+01:54.720 --> 01:55.860
+Let's talk about how
+
+01:55.860 --> 01:59.310
+to actually secure websites and applications.
+
+01:59.310 --> 02:01.230
+First of all, before we start talking about it,
+
+02:01.230 --> 02:03.300
+it is very important to understand
+
+02:03.300 --> 02:07.260
+that achieving 100% security is impossible.
+
+02:07.260 --> 02:11.430
+All which we are trying to do is to improve the security
+
+02:11.430 --> 02:13.620
+of our applications and make sure
+
+02:13.620 --> 02:16.200
+that they are as secure as possible.
+
+02:16.200 --> 02:19.110
+With that being said, the following four approaches
+
+02:19.110 --> 02:22.410
+will help you improve the security of your applications,
+
+02:22.410 --> 02:25.020
+regardless of what kind of applications they are,
+
+02:25.020 --> 02:27.030
+and regardless where they're installed, like I said,
+
+02:27.030 --> 02:28.950
+doesn't matter if you install them on Amazon
+
+02:28.950 --> 02:32.010
+or anywhere else, on AWS or anything else,
+
+02:32.010 --> 02:33.780
+and it doesn't matter how you're deploying it,
+
+02:33.780 --> 02:35.730
+if you're using Docker and so on.
+
+02:35.730 --> 02:37.770
+So the first thing that you should do
+
+02:37.770 --> 02:41.250
+is make sure that you are writing secure code.
+
+02:41.250 --> 02:44.010
+This way, your application is built from the ground up
+
+02:44.010 --> 02:47.190
+to be secure and to not introduce any bugs
+
+02:47.190 --> 02:50.340
+or vulnerabilities that can be exploited by hackers
+
+02:50.340 --> 02:51.870
+to gain access.
+
+02:51.870 --> 02:53.850
+Now, this would be great if you can do it,
+
+02:53.850 --> 02:56.610
+but the problem is it's easier said than done
+
+02:56.610 --> 02:59.940
+because the developers need to be educated and taught
+
+02:59.940 --> 03:01.560
+the methods that hackers use
+
+03:01.560 --> 03:04.200
+to exploit systems and gain access.
+
+03:04.200 --> 03:06.870
+And even if you do that, a lot of the time,
+
+03:06.870 --> 03:09.690
+developers rely on third party libraries.
+
+03:09.690 --> 03:12.960
+And the whole application might be written by someone else.
+
+03:12.960 --> 03:15.270
+Therefore, you simply cannot write secure code
+
+03:15.270 --> 03:17.130
+because you're not actually the writer
+
+03:17.130 --> 03:19.680
+or the developer of this application.
+
+03:19.680 --> 03:21.780
+Which brings me to the second point.
+
+03:21.780 --> 03:23.391
+Review the code.
+
+03:23.391 --> 03:24.990
+This is actually really good,
+
+03:24.990 --> 03:27.300
+even if you wrote the application yourself,
+
+03:27.300 --> 03:30.150
+and even if you made sure that you write secure code,
+
+03:30.150 --> 03:32.520
+it's a really good idea to get that code reviewed
+
+03:32.520 --> 03:34.830
+by other developers or another team
+
+03:34.830 --> 03:37.590
+just in case the developers that wrote the application
+
+03:37.590 --> 03:39.960
+missed something or overlooked something,
+
+03:39.960 --> 03:42.720
+then it'll be caught at the review stage.
+
+03:42.720 --> 03:46.050
+Also, if you are using code written by other developers
+
+03:46.050 --> 03:48.150
+or third party libraries, then again,
+
+03:48.150 --> 03:49.800
+a code review will fix this problem
+
+03:49.800 --> 03:51.690
+because you can review everything.
+
+03:51.690 --> 03:53.400
+And again, this is really, really good
+
+03:53.400 --> 03:56.070
+because you're actually reviewing every single line,
+
+03:56.070 --> 03:58.500
+and making sure that nothing is vulnerable
+
+03:58.500 --> 04:01.650
+or will allow hackers to exploit your application
+
+04:01.650 --> 04:03.240
+and gain access.
+
+04:03.240 --> 04:04.740
+The main disadvantage here
+
+04:04.740 --> 04:07.200
+is that if you have a large code base,
+
+04:07.200 --> 04:09.480
+this could be very time consuming,
+
+04:09.480 --> 04:13.020
+and it could also be very expensive.
+
+04:13.020 --> 04:16.290
+The third approach, which is very essential in my opinion,
+
+04:16.290 --> 04:18.150
+is getting a pen test done.
+
+04:18.150 --> 04:20.460
+In a pen test, you basically hire a team
+
+04:20.460 --> 04:24.240
+of ethical hackers to try and hack your application.
+
+04:24.240 --> 04:26.910
+These ethical hackers will approach your application
+
+04:26.910 --> 04:29.130
+the same way that black hat hackers do.
+
+04:29.130 --> 04:32.160
+They're gonna try to gather as much information as possible,
+
+04:32.160 --> 04:34.740
+discover all the weaknesses and vulnerabilities,
+
+04:34.740 --> 04:37.920
+and see if they can exploit them to gain access.
+
+04:37.920 --> 04:39.270
+At the end when they're done,
+
+04:39.270 --> 04:42.150
+they're gonna give you a detailed report of everything
+
+04:42.150 --> 04:44.700
+they found so you can pass it to your developers
+
+04:44.700 --> 04:48.570
+and patch any vulnerabilities they discover.
+
+04:48.570 --> 04:50.400
+The main advantage of this method
+
+04:50.400 --> 04:52.710
+is you could test attack surfaces
+
+04:52.710 --> 04:54.780
+that you cannot test with other methods,
+
+04:54.780 --> 04:58.350
+such as your servers that are running your web application,
+
+04:58.350 --> 05:00.480
+and the weakest link, which is the employees.
+
+05:00.480 --> 05:02.700
+So these hackers, the ethical hackers
+
+05:02.700 --> 05:05.400
+can even use social engineering and chain it
+
+05:05.400 --> 05:08.460
+with other simpler attacks or simpler vulnerabilities
+
+05:08.460 --> 05:11.040
+that they might find on your system to see
+
+05:11.040 --> 05:13.320
+if they can use them to gain access.
+
+05:13.320 --> 05:15.510
+The disadvantages here is that it could
+
+05:15.510 --> 05:19.470
+be a little bit expensive and it's not future proof.
+
+05:19.470 --> 05:22.890
+What I mean is if you get your application tested today
+
+05:22.890 --> 05:25.320
+by really good ethical hackers
+
+05:25.320 --> 05:28.080
+and then make sure you patch every single vulnerability
+
+05:28.080 --> 05:31.590
+they find, this only means that your web application
+
+05:31.590 --> 05:33.330
+is secure today.
+
+05:33.330 --> 05:36.030
+It doesn't guarantee that it'll remain secure
+
+05:36.030 --> 05:38.100
+for the next month or next year
+
+05:38.100 --> 05:40.440
+because every single change you make,
+
+05:40.440 --> 05:44.310
+every feature you push, or every even display bug you fix
+
+05:44.310 --> 05:47.790
+might introduce other bugs or security weaknesses
+
+05:47.790 --> 05:52.110
+that can be then used to hack into your application.
+
+05:52.110 --> 05:53.310
+Not only that, but again,
+
+05:53.310 --> 05:56.880
+if you're updating third party software or plugins, again,
+
+05:56.880 --> 05:59.430
+all of that could introduce vulnerabilities.
+
+05:59.430 --> 06:02.310
+And a pen test will not be able to catch that
+
+06:02.310 --> 06:04.500
+because you're only doing the pen test today,
+
+06:04.500 --> 06:07.710
+and these future changes are not gonna be tested.
+
+06:07.710 --> 06:10.620
+The fourth approach, which can actually address this issue
+
+06:10.620 --> 06:13.470
+is having a bug bounty program.
+
+06:13.470 --> 06:16.590
+A bug bounty program is basically an invitation
+
+06:16.590 --> 06:19.020
+to all ethical hackers around the world
+
+06:19.020 --> 06:22.620
+to test your application and submit their findings,
+
+06:22.620 --> 06:26.760
+and you would only pay for valid bugs or valid reports.
+
+06:26.760 --> 06:28.050
+The main advantages here,
+
+06:28.050 --> 06:30.030
+as you have guessed probably by now,
+
+06:30.030 --> 06:32.190
+is that you're getting your application tested
+
+06:32.190 --> 06:33.990
+by a large number of hackers,
+
+06:33.990 --> 06:37.583
+so the chances of them finding vulnerabilities is higher
+
+06:37.583 --> 06:39.724
+and it's actually future proof
+
+06:39.724 --> 06:44.724
+because as long as you have that bug bounty listing live,
+
+06:44.730 --> 06:48.210
+these hackers will always continue to test your application.
+
+06:48.210 --> 06:50.130
+And you motivate them with bounty,
+
+06:50.130 --> 06:52.650
+so these could be anything from a T-shirt
+
+06:52.650 --> 06:56.040
+to actually monetary awards to make sure
+
+06:56.040 --> 06:57.600
+that they're actually gonna continue
+
+06:57.600 --> 06:59.070
+testing your application.
+
+06:59.070 --> 07:01.560
+So even if you're pushing new changes, new features,
+
+07:01.560 --> 07:03.750
+or updating stuff, it doesn't really matter
+
+07:03.750 --> 07:07.260
+because hackers will continue to test your application,
+
+07:07.260 --> 07:11.190
+hoping to find bugs and get bounties for their findings.
+
+07:11.190 --> 07:14.520
+That's why large companies like Facebook and Google use
+
+07:14.520 --> 07:16.020
+these bug bounty programs,
+
+07:16.020 --> 07:18.180
+even though they follow all of the other approaches,
+
+07:18.180 --> 07:19.013
+like I said.
+
+07:19.013 --> 07:21.570
+They still use this to make sure that their systems
+
+07:21.570 --> 07:23.880
+are always as secure as possible
+
+07:23.880 --> 07:26.910
+and as free of bugs as possible.
+
+07:26.910 --> 07:29.130
+The disadvantages here is, first of all,
+
+07:29.130 --> 07:33.000
+it's hard to guarantee that all attack surfaces are covered.
+
+07:33.000 --> 07:36.810
+And second is a lot of companies don't have the reach
+
+07:36.810 --> 07:38.460
+that Google and Facebook have,
+
+07:38.460 --> 07:41.190
+so they can't really advertise their bug bounties
+
+07:41.190 --> 07:43.200
+as well as the big companies do.
+
+07:43.200 --> 07:45.240
+They can't get a lot of ethical hackers
+
+07:45.240 --> 07:46.860
+to test their website.
+
+07:46.860 --> 07:50.490
+It is challenging for them to make these bug bounty programs
+
+07:50.490 --> 07:53.010
+and validate these submitted reports.
+
+07:53.010 --> 07:56.310
+But this is addressed by the bug bounty platforms
+
+07:56.310 --> 08:00.060
+that we have these days, such as bug-bounty.com,
+
+08:00.060 --> 08:01.560
+and the other platforms.
+
+08:01.560 --> 08:05.043
+Bug-Bounty is actually a sister company of zSecurity.
+
+08:05.880 --> 08:08.700
+So my opinion might be a little bit biased,
+
+08:08.700 --> 08:11.220
+but I'm pretty sure that our prices
+
+08:11.220 --> 08:14.670
+are the most competitive, and we offer the same service.
+
+08:14.670 --> 08:16.860
+So anyway, I'm including everything there.
+
+08:16.860 --> 08:19.620
+You have the choice, you can check out whatever you want.
+
+08:19.620 --> 08:22.020
+and I'm sorry if I actually confused you
+
+08:22.020 --> 08:24.780
+with the four approaches that I just mentioned,
+
+08:24.780 --> 08:26.970
+but in my opinion, ideally,
+
+08:26.970 --> 08:29.820
+you would wanna follow all of these four approaches
+
+08:29.820 --> 08:31.230
+if you can.
+
+08:31.230 --> 08:32.880
+This could be pretty expensive.
+
+08:32.880 --> 08:35.160
+That's why a lot of companies don't do that,
+
+08:35.160 --> 08:38.610
+and they would compromise and only go with three and four.
+
+08:38.610 --> 08:42.213
+So they'll only do a pen test and have a bug bounty program.
+
+08:43.080 --> 08:46.020
+And then other companies sometimes compromise even more
+
+08:46.020 --> 08:47.760
+and pick one of the two.
+
+08:47.760 --> 08:51.180
+Either do a bug bounty program or do a pen test.
+
+08:51.180 --> 08:53.580
+In my opinion, app pen test is not a replacement
+
+08:53.580 --> 08:56.010
+for a bug bounty program and vice versa.
+
+08:56.010 --> 08:58.380
+I would recommend you do the two of them
+
+08:58.380 --> 08:59.490
+because like I said,
+
+08:59.490 --> 09:02.940
+each one of them has its advantages and disadvantages.
+
+09:02.940 --> 09:05.370
+But if you really can't do both,
+
+09:05.370 --> 09:08.610
+then at least do one of them as the bare minimum.
+
+09:08.610 --> 09:11.280
+As a website owner or an app owner,
+
+09:11.280 --> 09:14.730
+you are responsible for the user data that the users
+
+09:14.730 --> 09:16.290
+are trusting you with.
+
+09:16.290 --> 09:19.230
+And therefore you need to do at least the bare minimum
+
+09:19.230 --> 09:22.470
+on trying to make sure that their data is handled safely
+
+09:22.470 --> 09:23.763
+and is secure.

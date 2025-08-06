@@ -1,0 +1,778 @@
+WEBVTT
+
+1
+00:00:02.581 --> 00:00:04.160
+<v Instructor>In this video, we'll see how</v>
+
+2
+00:00:04.160 --> 00:00:07.340
+we can get comprehensive DNS information
+
+3
+00:00:07.340 --> 00:00:10.030
+about the target website.
+
+4
+00:00:10.030 --> 00:00:14.610
+So just to give you a quick refresh on what DNS is,
+
+5
+00:00:14.610 --> 00:00:17.520
+so when you type in facebook.com,
+
+6
+00:00:17.520 --> 00:00:21.650
+a DNS server will convert that name to an IP address.
+
+7
+00:00:21.650 --> 00:00:25.240
+Now, the process is a bit more complicated.
+
+8
+00:00:25.240 --> 00:00:29.030
+So the DNS server contains actually a number of records
+
+9
+00:00:29.030 --> 00:00:34.030
+each pointing to a different domain or to a different IP,
+
+10
+00:00:34.270 --> 00:00:36.310
+sometimes to the same IP.
+
+11
+00:00:36.310 --> 00:00:40.310
+So but in general, you request a domain name,
+
+12
+00:00:40.310 --> 00:00:44.220
+it gets converted to an IP address, and depending on that,
+
+13
+00:00:44.220 --> 00:00:47.020
+these information needs to be stored somewhere.
+
+14
+00:00:47.020 --> 00:00:49.310
+So we're gonna query this DNS server
+
+15
+00:00:49.310 --> 00:00:51.923
+and see what information we can get through it.
+
+16
+00:00:52.810 --> 00:00:56.500
+Now we're gonna use a website called Robtext.com.
+
+17
+00:00:56.500 --> 00:00:58.730
+And I'm just gonna put the target website
+
+18
+00:00:58.730 --> 00:01:01.150
+that I want to get information about.
+
+19
+00:01:01.150 --> 00:01:05.100
+So I'm gonna type isecurity.org.
+
+20
+00:01:05.100 --> 00:01:07.563
+And I'm gonna hit Enter to get a report.
+
+21
+00:01:08.530 --> 00:01:12.010
+Now, as you can see, we will get a big report.
+
+22
+00:01:12.010 --> 00:01:15.330
+So there is a lot of information in here.
+
+23
+00:01:15.330 --> 00:01:18.950
+But you can actually use the buttons in here
+
+24
+00:01:18.950 --> 00:01:22.170
+to navigate to any of the sections below.
+
+25
+00:01:22.170 --> 00:01:24.570
+So if you wanna directly go to the records
+
+26
+00:01:24.570 --> 00:01:27.100
+or to go to the SEO, all you have to do is
+
+27
+00:01:27.100 --> 00:01:30.843
+just click in here and you'll go directly to that section.
+
+28
+00:01:31.940 --> 00:01:33.390
+What we're gonna do right now though,
+
+29
+00:01:33.390 --> 00:01:36.060
+we'll go over all the sections one by one
+
+30
+00:01:36.060 --> 00:01:38.793
+and see what kind of information we got.
+
+31
+00:01:39.920 --> 00:01:42.510
+Now keep in mind, the order of this information
+
+32
+00:01:42.510 --> 00:01:46.243
+might be different, but you should have the same sections.
+
+33
+00:01:47.190 --> 00:01:49.580
+So, and the analysis, you can see
+
+34
+00:01:49.580 --> 00:01:52.730
+we have general information about the target.
+
+35
+00:01:52.730 --> 00:01:55.800
+So you can see that it's telling us that Isecurity
+
+36
+00:01:55.800 --> 00:01:59.220
+has three name servers, five mail servers,
+
+37
+00:01:59.220 --> 00:02:01.540
+and one IP address.
+
+38
+00:02:01.540 --> 00:02:06.140
+We can see the name servers used by Isecurity.
+
+39
+00:02:06.140 --> 00:02:10.500
+And Digital Ocean is the hosting company that Isecurity
+
+40
+00:02:10.500 --> 00:02:13.980
+is using at the time of recording this lecture.
+
+41
+00:02:13.980 --> 00:02:17.890
+So this is very, very useful, because you can go
+
+42
+00:02:17.890 --> 00:02:21.420
+to Digital Ocean right now, you'll see the hosting company,
+
+43
+00:02:21.420 --> 00:02:23.760
+and then you can pretend to be them
+
+44
+00:02:23.760 --> 00:02:27.510
+and communicate with Isecurity, telling them
+
+45
+00:02:27.510 --> 00:02:30.840
+that you're signing them up for a better hosting,
+
+46
+00:02:30.840 --> 00:02:34.260
+you're giving them something because they are a VIP customer
+
+47
+00:02:34.260 --> 00:02:36.190
+and ask them to log in.
+
+48
+00:02:36.190 --> 00:02:39.890
+Obviously, they'll be logging in to a fake login page
+
+49
+00:02:39.890 --> 00:02:43.120
+and that way you'll steal their information.
+
+50
+00:02:43.120 --> 00:02:45.370
+You can tell them that there is a policy change
+
+51
+00:02:45.370 --> 00:02:46.910
+that they have to accept.
+
+52
+00:02:46.910 --> 00:02:48.610
+And again, ask them to log in
+
+53
+00:02:48.610 --> 00:02:50.920
+and steal the information that way.
+
+54
+00:02:50.920 --> 00:02:53.910
+Obviously, you'll do this through a fake login page.
+
+55
+00:02:53.910 --> 00:02:56.340
+And this is mostly social engineering,
+
+56
+00:02:56.340 --> 00:02:58.450
+so it's nothing to do with websites hacking,
+
+57
+00:02:58.450 --> 00:03:01.690
+and I cover all this in my Social Engineering Course.
+
+58
+00:03:01.690 --> 00:03:04.930
+But it's very useful because if you couldn't hack
+
+59
+00:03:04.930 --> 00:03:08.480
+into the websites through the applications installed,
+
+60
+00:03:08.480 --> 00:03:12.043
+then the only way to get in is using social engineering.
+
+61
+00:03:13.120 --> 00:03:16.410
+Now, below this, we can see that the target
+
+62
+00:03:16.410 --> 00:03:18.680
+is using Google mail servers.
+
+63
+00:03:18.680 --> 00:03:20.880
+So they're not handling their own emails,
+
+64
+00:03:20.880 --> 00:03:23.850
+they're using Google to handle their emails.
+
+65
+00:03:23.850 --> 00:03:26.770
+Again, you can communicate with the target pretending
+
+66
+00:03:26.770 --> 00:03:29.880
+to be Google and get them to do something,
+
+67
+00:03:29.880 --> 00:03:34.063
+or to log into a fake page and steal information that way.
+
+68
+00:03:35.240 --> 00:03:38.960
+You can also see the IP address of this website,
+
+69
+00:03:38.960 --> 00:03:42.630
+which can be used to discover other websites installed
+
+70
+00:03:42.630 --> 00:03:46.110
+on the same server, and this is very, very useful
+
+71
+00:03:46.110 --> 00:03:49.450
+because if you couldn't hack into your target website
+
+72
+00:03:49.450 --> 00:03:53.080
+through the applications installed on that website,
+
+73
+00:03:53.080 --> 00:03:54.390
+then you can try to hack
+
+74
+00:03:54.390 --> 00:03:57.960
+into any website installed on the same server.
+
+75
+00:03:57.960 --> 00:03:59.750
+And if you manage to do that,
+
+76
+00:03:59.750 --> 00:04:03.060
+then you You can actually navigate to your targets website,
+
+77
+00:04:03.060 --> 00:04:05.610
+because they're all essentially installed
+
+78
+00:04:05.610 --> 00:04:07.630
+on the same computer.
+
+79
+00:04:07.630 --> 00:04:10.353
+And we'll talk more about that in the next lecture.
+
+80
+00:04:11.540 --> 00:04:13.700
+And below right here we have
+
+81
+00:04:13.700 --> 00:04:17.200
+a number of similar domains to our target.
+
+82
+00:04:17.200 --> 00:04:20.500
+Now, these might be completely irrelevant,
+
+83
+00:04:20.500 --> 00:04:23.640
+but you can have a look and see what you have.
+
+84
+00:04:23.640 --> 00:04:26.800
+Navigating to the Quick Info, again you can see
+
+85
+00:04:26.800 --> 00:04:30.600
+the domain name, you can see the TLD.
+
+86
+00:04:30.600 --> 00:04:33.410
+We have the IP address, the name servers.
+
+87
+00:04:33.410 --> 00:04:35.440
+Again like I said, they're useful
+
+88
+00:04:35.440 --> 00:04:37.780
+because they usually give us information
+
+89
+00:04:37.780 --> 00:04:39.720
+about the domain hosting company
+
+90
+00:04:39.720 --> 00:04:43.270
+or the hosting company hosting the website itself.
+
+91
+00:04:43.270 --> 00:04:44.980
+And we also have the mail servers
+
+92
+00:04:44.980 --> 00:04:47.430
+like we seen before, it's Google Mail.
+
+93
+00:04:47.430 --> 00:04:50.453
+So that all can be really really useful.
+
+94
+00:04:51.540 --> 00:04:56.540
+The reverse section will perform Reverse DNS Lookup.
+
+95
+00:04:56.750 --> 00:04:59.430
+So as I said at the start of the lecture,
+
+96
+00:04:59.430 --> 00:05:04.430
+DNS is used to translate domain names into IP addresses.
+
+97
+00:05:05.400 --> 00:05:08.520
+And a Reverse Lookup, we use the IP address
+
+98
+00:05:08.520 --> 00:05:12.740
+to see which domains link to this IP address.
+
+99
+00:05:12.740 --> 00:05:16.440
+And like I said previously, this can be very, very useful,
+
+100
+00:05:16.440 --> 00:05:20.660
+because we'll be able to discover other websites hosted
+
+101
+00:05:20.660 --> 00:05:22.970
+on the same server, and we can hack into
+
+102
+00:05:22.970 --> 00:05:24.240
+any of these websites
+
+103
+00:05:24.240 --> 00:05:27.280
+and from there gain access to our target.
+
+104
+00:05:27.280 --> 00:05:31.500
+But with the Reverse Lookup, you won't always get
+
+105
+00:05:31.500 --> 00:05:34.470
+all the websites installed on the same server.
+
+106
+00:05:34.470 --> 00:05:36.320
+Therefore, in the next lecture,
+
+107
+00:05:36.320 --> 00:05:39.650
+I will show you a better way of doing that.
+
+108
+00:05:39.650 --> 00:05:42.530
+But if you really wanna see the the results
+
+109
+00:05:42.530 --> 00:05:46.100
+of the Reverse Lookup, you'll have to log in.
+
+110
+00:05:46.100 --> 00:05:49.150
+So I'm actually gonna open a new tab,
+
+111
+00:05:49.150 --> 00:05:51.123
+I'm gonna go to Robtext again.
+
+112
+00:05:52.420 --> 00:05:55.480
+And I'm gonna click on login right here.
+
+113
+00:05:55.480 --> 00:05:58.290
+And the only way to login to Robtext right now
+
+114
+00:05:58.290 --> 00:06:01.453
+is through Google, so gonna click on Google,
+
+115
+00:06:02.520 --> 00:06:04.343
+I'm gonna click my email.
+
+116
+00:06:06.090 --> 00:06:08.440
+And that's it, we're logged in.
+
+117
+00:06:08.440 --> 00:06:10.940
+So I'm gonna close this.
+
+118
+00:06:10.940 --> 00:06:13.563
+And we're gonna refresh in here.
+
+119
+00:06:14.890 --> 00:06:19.890
+And if we scroll down again to the Reverse, right here,
+
+120
+00:06:20.350 --> 00:06:23.450
+we have the results of the Reverse Lookup.
+
+121
+00:06:23.450 --> 00:06:27.380
+And you can either download this as a CSV
+
+122
+00:06:27.380 --> 00:06:29.580
+or view it as HTML.
+
+123
+00:06:29.580 --> 00:06:33.383
+So I'm gonna choose to view it as HTML in a new tab.
+
+124
+00:06:34.820 --> 00:06:37.860
+And right here, as you can see, we only have Zsecurity
+
+125
+00:06:37.860 --> 00:06:40.770
+on its own, because Zsecurity
+
+126
+00:06:40.770 --> 00:06:42.970
+is hosted on its own server.
+
+127
+00:06:42.970 --> 00:06:47.570
+So there are no other websites installed on the same server.
+
+128
+00:06:47.570 --> 00:06:51.530
+But like I said, if there are other websites hosted
+
+129
+00:06:51.530 --> 00:06:54.320
+on the same server, then you'll be able to see them
+
+130
+00:06:54.320 --> 00:06:56.333
+in here in the Reverse Lookup.
+
+131
+00:06:57.470 --> 00:06:59.480
+Now going down, we can see
+
+132
+00:06:59.480 --> 00:07:03.000
+a more detailed breakdown of the DNS records.
+
+133
+00:07:03.000 --> 00:07:06.960
+So you can see here we have information about the A record.
+
+134
+00:07:06.960 --> 00:07:10.330
+And this is the record that's used to translate
+
+135
+00:07:10.330 --> 00:07:13.220
+the domain name into an IP address.
+
+136
+00:07:13.220 --> 00:07:18.220
+So you can see that isecurity.org links to this IP address,
+
+137
+00:07:18.340 --> 00:07:21.640
+which is the IP address of the server hosting
+
+138
+00:07:21.640 --> 00:07:24.713
+or containing the files of the website.
+
+139
+00:07:25.900 --> 00:07:28.790
+Scrolling down, we have more SEO information
+
+140
+00:07:28.790 --> 00:07:31.263
+Search Engine Optimization info,
+
+141
+00:07:32.150 --> 00:07:36.180
+we have the web trust reputation of this website,
+
+142
+00:07:36.180 --> 00:07:38.173
+we have the Alexa ranking.
+
+143
+00:07:39.650 --> 00:07:43.930
+In the share tab, we have the IP of the target website.
+
+144
+00:07:43.930 --> 00:07:45.640
+Again, like I said, we can use this
+
+145
+00:07:45.640 --> 00:07:48.970
+to get websites installed on the same server.
+
+146
+00:07:48.970 --> 00:07:50.950
+We have a graph representation
+
+147
+00:07:50.950 --> 00:07:54.100
+of all the information we gathered.
+
+148
+00:07:54.100 --> 00:07:56.140
+We also have a history section,
+
+149
+00:07:56.140 --> 00:08:00.040
+this is actually very, very useful because you can use this
+
+150
+00:08:00.040 --> 00:08:04.160
+to track all the changes to the DNS info
+
+151
+00:08:04.160 --> 00:08:05.790
+of the target website.
+
+152
+00:08:05.790 --> 00:08:08.880
+So you can see when they started using Google,
+
+153
+00:08:08.880 --> 00:08:11.700
+you can see when they started using Digital Ocean
+
+154
+00:08:11.700 --> 00:08:13.710
+as their hosting provider.
+
+155
+00:08:13.710 --> 00:08:18.110
+So if we scroll down, we might actually be able to see
+
+156
+00:08:18.110 --> 00:08:20.900
+that they were using a different provider.
+
+157
+00:08:20.900 --> 00:08:24.040
+And here you go, we can see that they were using
+
+158
+00:08:24.040 --> 00:08:25.780
+a different hosting company.
+
+159
+00:08:25.780 --> 00:08:29.070
+This one right here, Dimofinf,
+
+160
+00:08:29.070 --> 00:08:31.320
+I hope I'm pronouncing that right.
+
+161
+00:08:31.320 --> 00:08:35.090
+But right now, as we can see, they changed and they switched
+
+162
+00:08:35.090 --> 00:08:38.150
+to a different hosting company, Digital Ocean.
+
+163
+00:08:38.150 --> 00:08:41.180
+So again, you can even contact them pretending
+
+164
+00:08:41.180 --> 00:08:44.010
+to be this company, and tell them
+
+165
+00:08:44.010 --> 00:08:46.700
+that you're gonna sign them up for a better offer
+
+166
+00:08:46.700 --> 00:08:50.750
+or pretend that they violated one of your terms
+
+167
+00:08:50.750 --> 00:08:54.312
+and conditions, and ask them to login to do something.
+
+168
+00:08:54.312 --> 00:08:57.670
+When they login, you can serve them a fake file,
+
+169
+00:08:57.670 --> 00:09:00.910
+a backdoor or again use the login information,
+
+170
+00:09:00.910 --> 00:09:03.010
+get them to login through our fake web page
+
+171
+00:09:03.010 --> 00:09:05.360
+and steal the username and password.
+
+172
+00:09:05.360 --> 00:09:09.390
+So, information is always very, very useful
+
+173
+00:09:09.390 --> 00:09:11.270
+when it comes to hacking,
+
+174
+00:09:11.270 --> 00:09:14.930
+especially if you wanna perform a social engineering attack,
+
+175
+00:09:14.930 --> 00:09:18.790
+which might be your last resort if you could not hack
+
+176
+00:09:18.790 --> 00:09:22.593
+into the website using the applications installed on it.
+
+177
+00:09:24.120 --> 00:09:27.920
+Scrolling down we can see we have the Whois information,
+
+178
+00:09:27.920 --> 00:09:30.640
+we had a full lecture on how to get this
+
+179
+00:09:30.640 --> 00:09:33.190
+and how this can be useful.
+
+180
+00:09:33.190 --> 00:09:37.480
+And finally, we have the DNS block information,
+
+181
+00:09:37.480 --> 00:09:42.430
+which basically is a list of websites known to send spam.
+
+182
+00:09:42.430 --> 00:09:45.560
+So usually email sent from these websites
+
+183
+00:09:45.560 --> 00:09:48.203
+would be blocked or considered as spam.
+
+184
+00:09:49.090 --> 00:09:52.950
+So as you can see a very useful website that can be used
+
+185
+00:09:52.950 --> 00:09:56.610
+to get information about the server used
+
+186
+00:09:56.610 --> 00:10:00.100
+to host the target website and its relationship
+
+187
+00:10:00.100 --> 00:10:02.810
+with other websites, other servers.
+
+188
+00:10:02.810 --> 00:10:05.550
+Which hosting companies are being used.
+
+189
+00:10:05.550 --> 00:10:08.660
+And like I said, all of this can be very, very useful
+
+190
+00:10:08.660 --> 00:10:11.260
+whether you want to target the website itself,
+
+191
+00:10:11.260 --> 00:10:13.170
+whether you wanna target other websites
+
+192
+00:10:13.170 --> 00:10:15.640
+so you can hack into your target website.
+
+193
+00:10:15.640 --> 00:10:19.860
+And even if you want to social engineer one of the admins
+
+194
+00:10:19.860 --> 00:10:22.423
+to gain access to your target website.
+

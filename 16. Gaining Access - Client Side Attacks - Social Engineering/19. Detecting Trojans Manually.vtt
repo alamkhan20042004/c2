@@ -1,0 +1,438 @@
+WEBVTT
+
+1
+00:00:01.870 --> 00:00:05.820
+<v ->So Trojans that we created so far are very cool.</v>
+
+2
+00:00:05.820 --> 00:00:08.343
+They can by pass antivirus programs.
+
+3
+00:00:09.610 --> 00:00:12.140
+They run two pieces of code,
+
+4
+00:00:12.140 --> 00:00:13.860
+the first one runs in the background,
+
+5
+00:00:13.860 --> 00:00:15.780
+which runs our own code,
+
+6
+00:00:15.780 --> 00:00:17.610
+which, that was what we want to do.
+
+7
+00:00:17.610 --> 00:00:20.530
+For example, open a port or connect back to us,
+
+8
+00:00:20.530 --> 00:00:22.100
+and give us a shell,
+
+9
+00:00:22.100 --> 00:00:23.853
+and it runs another piece of code,
+
+10
+00:00:23.853 --> 00:00:25.780
+that the user expects.
+
+11
+00:00:25.780 --> 00:00:27.420
+So it could display an image.
+
+12
+00:00:27.420 --> 00:00:30.963
+It could play an MP3, or display a PDF file.
+
+13
+00:00:32.750 --> 00:00:36.723
+This functionality makes it very difficult, to detect.
+
+14
+00:00:38.100 --> 00:00:41.020
+So the best thing to do, is the first thing
+
+15
+00:00:41.020 --> 00:00:43.360
+Is the check the properties of the file,
+
+16
+00:00:43.360 --> 00:00:46.453
+and make sure that it is what's claiming to be.
+
+17
+00:00:49.800 --> 00:00:52.340
+So we have our git picture here,
+
+18
+00:00:52.340 --> 00:00:54.450
+and we can see that it's JPG.
+
+19
+00:00:54.450 --> 00:00:56.000
+So it looks like a picture,
+
+20
+00:00:56.000 --> 00:00:57.150
+and has an icon,
+
+21
+00:00:57.150 --> 00:00:59.330
+and if I run it I'll a picture,
+
+22
+00:00:59.330 --> 00:01:01.710
+like we've seen in previous videos.
+
+23
+00:01:01.710 --> 00:01:03.840
+Well let's go right click,
+
+24
+00:01:03.840 --> 00:01:05.373
+and go on properties,
+
+25
+00:01:07.410 --> 00:01:08.840
+and when we go to the properties.
+
+26
+00:01:08.840 --> 00:01:11.940
+You'll see that this is an application, it's not a picture.
+
+27
+00:01:11.940 --> 00:01:16.660
+So same goes with PDF, same goes with MP3.
+
+28
+00:01:16.660 --> 00:01:19.080
+It should say MP3 if it was an MP3.
+
+29
+00:01:19.080 --> 00:01:22.450
+If should say PDF if it was PDF,
+
+30
+00:01:22.450 --> 00:01:25.253
+and it should say a JPG if it is a JPG.
+
+31
+00:01:26.776 --> 00:01:27.720
+Well in this case we can see that its saying,
+
+32
+00:01:27.720 --> 00:01:30.053
+and its still a no start it's executable.
+
+33
+00:01:31.410 --> 00:01:33.733
+Going on the details, you'll see that,
+
+34
+00:01:35.085 --> 00:01:35.918
+it is an application.
+
+35
+00:01:35.918 --> 00:01:36.830
+So it's not a picture,
+
+36
+00:01:36.830 --> 00:01:40.100
+if it was a picture it should tell you that it's a picture.
+
+37
+00:01:40.100 --> 00:01:44.160
+So from here will know that we are being fooled by this.
+
+38
+00:01:44.160 --> 00:01:46.590
+Another thing you can play with the file name,
+
+39
+00:01:46.590 --> 00:01:48.350
+and you'll be able to reset it,
+
+40
+00:01:48.350 --> 00:01:50.416
+if you just rename the file to anything else.
+
+41
+00:01:50.416 --> 00:01:53.130
+You'll see that's its an exe file,
+
+42
+00:01:53.130 --> 00:01:54.960
+and its not a JPEG.
+
+43
+00:01:54.960 --> 00:01:57.780
+So if I just do it, change it to test.
+
+44
+00:01:57.780 --> 00:02:00.643
+You'll see that the name has been changed to test.
+
+45
+00:02:02.100 --> 00:02:04.053
+Now lets assume this Trojan,
+
+46
+00:02:05.187 --> 00:02:07.560
+was combined with an executable.
+
+47
+00:02:07.560 --> 00:02:11.900
+So if you run it, it was, you were expecting to get an exe,
+
+48
+00:02:11.900 --> 00:02:14.220
+and you were excepting an application.
+
+49
+00:02:14.220 --> 00:02:16.330
+So lets assume that its combined,
+
+50
+00:02:16.330 --> 00:02:17.886
+with download accelerator plus.
+
+51
+00:02:17.886 --> 00:02:22.560
+Instead if being combined with a picture like so.
+
+52
+00:02:22.560 --> 00:02:25.070
+So the task is gonna be more difficult,
+
+53
+00:02:25.070 --> 00:02:28.210
+because you are expecting an application anyway.
+
+54
+00:02:28.210 --> 00:02:30.023
+So lets try to run this.
+
+55
+00:02:32.400 --> 00:02:36.435
+Now obviously again with the picture and with the PDF,
+
+56
+00:02:36.435 --> 00:02:37.740
+windows will tell you that you are trying to run,
+
+57
+00:02:37.740 --> 00:02:40.560
+an executable, but if you're running,
+
+58
+00:02:40.560 --> 00:02:42.480
+if your excepting an executable,
+
+59
+00:02:42.480 --> 00:02:44.240
+then you gonna run it anyway.
+
+60
+00:02:44.240 --> 00:02:46.150
+Such as the case with that,
+
+61
+00:02:46.150 --> 00:02:48.700
+and this will obviously play the executable
+
+62
+00:02:48.700 --> 00:02:49.920
+that you are looking for,
+
+63
+00:02:49.920 --> 00:02:52.723
+and send a verse session to Kali.
+
+64
+00:02:58.830 --> 00:03:00.470
+So what am going to do is,
+
+65
+00:03:00.470 --> 00:03:03.823
+am gonna go to a tool called resource manager.
+
+66
+00:03:08.370 --> 00:03:11.850
+And from this tool, if you go to the network tab.
+
+67
+00:03:11.850 --> 00:03:14.000
+Am already in the network tab,
+
+68
+00:03:14.000 --> 00:03:17.693
+you'll be able to see all the open ports in your machine.
+
+69
+00:03:19.610 --> 00:03:22.810
+And we can see here we have port 8080,
+
+70
+00:03:22.810 --> 00:03:27.810
+and its connecting to an IP address which is 10.20.14.203.
+
+71
+00:03:29.460 --> 00:03:31.843
+Now obviously 8080 is not very suspicious.
+
+72
+00:03:32.696 --> 00:03:36.390
+So even if it was 180, then it could look not as suspicious,
+
+73
+00:03:36.390 --> 00:03:40.270
+and also its coming from a process called browser,
+
+74
+00:03:40.270 --> 00:03:42.243
+which again is not very suspicious.
+
+75
+00:03:44.180 --> 00:03:46.770
+The suspicious part is the remote address.
+
+76
+00:03:46.770 --> 00:03:50.720
+So it's accessing an address of 10.20.14.203,
+
+77
+00:03:50.720 --> 00:03:52.950
+that we jut don't know even what it is.
+
+78
+00:03:52.950 --> 00:03:56.270
+If it was a website then putting this into the browser,
+
+79
+00:03:56.270 --> 00:03:58.940
+should take you to a website,
+
+80
+00:03:58.940 --> 00:04:01.330
+or to a server of that website.
+
+81
+00:04:01.330 --> 00:04:04.810
+And in most cases if this was a hacker computer,
+
+82
+00:04:04.810 --> 00:04:07.210
+it will not take you to a website or anything,
+
+83
+00:04:07.210 --> 00:04:10.473
+and then you will know that this person is an attacker.
+
+84
+00:04:12.650 --> 00:04:16.020
+To verify this you can use tools called,
+
+85
+00:04:16.020 --> 00:04:18.320
+Reverse DNS Lookup.
+
+86
+00:04:18.320 --> 00:04:21.510
+What that does is basically give it an IP,
+
+87
+00:04:21.510 --> 00:04:25.740
+and it should tell you what website this IP belongs to.
+
+88
+00:04:25.740 --> 00:04:28.910
+Or which domain this IP, belongs to.
+
+89
+00:04:28.910 --> 00:04:30.690
+So lets have an example on Facebook.
+
+90
+00:04:30.690 --> 00:04:33.910
+So, lets say in your resource manager you have seen an IP,
+
+91
+00:04:33.910 --> 00:04:35.900
+and your suspicious about it.
+
+92
+00:04:35.900 --> 00:04:39.210
+So am actually gonna get you a proper IP address,
+
+93
+00:04:39.210 --> 00:04:40.083
+for Facebook.
+
+94
+00:04:48.080 --> 00:04:50.550
+So lets say for example you've see this IP.
+
+95
+00:04:50.550 --> 00:04:53.840
+There's a connection on port 80, going to this IP.
+
+96
+00:04:53.840 --> 00:04:57.207
+So if you copy this, and go on google (typing),
+
+97
+00:04:59.910 --> 00:05:01.973
+and such for Reverse DNS.
+
+98
+00:05:08.350 --> 00:05:10.360
+So am gonna put the IP in here.
+
+99
+00:05:10.360 --> 00:05:12.870
+The IP that you see in your resources,
+
+100
+00:05:12.870 --> 00:05:13.780
+and you look it up.
+
+101
+00:05:13.780 --> 00:05:15.570
+If it's for a proper website,
+
+102
+00:05:15.570 --> 00:05:17.550
+then there is nothing to be concerned about.
+
+103
+00:05:17.550 --> 00:05:19.160
+If it looks suspicious,
+
+104
+00:05:19.160 --> 00:05:22.620
+then you'll know that this is going to a suspicious person.
+
+105
+00:05:22.620 --> 00:05:24.220
+Now if you've seen something like this,
+
+106
+00:05:24.220 --> 00:05:25.250
+and its going to Facebook,
+
+107
+00:05:25.250 --> 00:05:26.800
+and your browsing in Facebook.
+
+108
+00:05:26.800 --> 00:05:28.710
+Then is now mold your using Facebook.
+
+109
+00:05:28.710 --> 00:05:31.403
+So there's a connection between you and Facebook.
+

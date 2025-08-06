@@ -1,0 +1,262 @@
+WEBVTT
+
+1
+00:00:01.200 --> 00:00:05.200
+<v Instructor>Another way to discover malicious files</v>
+
+2
+00:00:05.200 --> 00:00:08.090
+is to use a sandbox.
+
+3
+00:00:08.090 --> 00:00:11.110
+A sandbox is, basically, a place
+
+4
+00:00:11.110 --> 00:00:14.530
+where your file will be executed and analyzed.
+
+5
+00:00:14.530 --> 00:00:17.730
+They will check if any ports will be opened,
+
+6
+00:00:17.730 --> 00:00:20.240
+if it's gonna modify registry entries,
+
+7
+00:00:20.240 --> 00:00:22.630
+if it's gonna do any suspicious (mumbles).
+
+8
+00:00:22.630 --> 00:00:24.600
+It's not an antivirus program.
+
+9
+00:00:24.600 --> 00:00:28.830
+Your Trojan might pass antivirus programs like we did.
+
+10
+00:00:28.830 --> 00:00:31.320
+Our Trojan passes all antivirus programs.
+
+11
+00:00:31.320 --> 00:00:35.510
+But the sandbox applications or the sandbox environments
+
+12
+00:00:35.510 --> 00:00:39.070
+will run this into a place, into a controlled environment,
+
+13
+00:00:39.070 --> 00:00:42.580
+and try to see if it does anything suspicious
+
+14
+00:00:42.580 --> 00:00:44.253
+and give you a report of that.
+
+15
+00:00:45.330 --> 00:00:47.793
+You can Google, again, sandbox online.
+
+16
+00:00:49.230 --> 00:00:53.163
+An example of it is a website called hybrid-analysis.
+
+17
+00:00:55.250 --> 00:00:57.550
+Using the website is very simple.
+
+18
+00:00:57.550 --> 00:01:00.043
+All you have to do is just go to the URL,
+
+19
+00:01:05.950 --> 00:01:08.603
+and select your file, and upload it.
+
+20
+00:01:11.100 --> 00:01:13.130
+Now, I've done this already,
+
+21
+00:01:13.130 --> 00:01:14.540
+so I'm just gonna show you the report
+
+22
+00:01:14.540 --> 00:01:17.281
+because analyzing the file and doing the report
+
+23
+00:01:17.281 --> 00:01:19.590
+might take some time.
+
+24
+00:01:19.590 --> 00:01:20.790
+Once you get the report,
+
+25
+00:01:21.810 --> 00:01:23.623
+you'll see some basic information.
+
+26
+00:01:24.460 --> 00:01:25.730
+You'll see that there was,
+
+27
+00:01:25.730 --> 00:01:27.920
+malicious indicators have been found.
+
+28
+00:01:27.920 --> 00:01:30.480
+Now, it's hiding it from you, and you have to
+
+29
+00:01:31.350 --> 00:01:34.110
+use the full version and pay for it to see them,
+
+30
+00:01:34.110 --> 00:01:36.050
+but you don't really need to see them.
+
+31
+00:01:36.050 --> 00:01:37.540
+If you read the whole report,
+
+32
+00:01:37.540 --> 00:01:40.650
+you'll be able to know that this file is malicious
+
+33
+00:01:40.650 --> 00:01:43.560
+and it's gonna do something bad on your computer.
+
+34
+00:01:43.560 --> 00:01:45.150
+First of all, you can see that the file
+
+35
+00:01:45.150 --> 00:01:46.670
+suppresses error boxes.
+
+36
+00:01:46.670 --> 00:01:48.403
+It doesn't display error boxes.
+
+37
+00:01:49.510 --> 00:01:51.283
+It also modifies registry.
+
+38
+00:01:53.460 --> 00:01:56.573
+You can see the registry parameters that it's modifying.
+
+39
+00:01:58.010 --> 00:02:01.650
+You can see that it's playing with the internet settings,
+
+40
+00:02:01.650 --> 00:02:02.900
+and with the connections.
+
+41
+00:02:05.050 --> 00:02:09.000
+You can also see that it's using Windows Socket service,
+
+42
+00:02:09.000 --> 00:02:10.943
+so it's trying to create connections.
+
+43
+00:02:12.870 --> 00:02:14.500
+You can also see that it's playing
+
+44
+00:02:14.500 --> 00:02:16.363
+with the address of the process.
+
+45
+00:02:18.620 --> 00:02:19.810
+Scrolling down,
+
+46
+00:02:19.810 --> 00:02:22.660
+you'll see one of the most important indicators.
+
+47
+00:02:22.660 --> 00:02:25.110
+Now, obviously, there's more information in here.
+
+48
+00:02:28.760 --> 00:02:31.120
+Right here on the network place,
+
+49
+00:02:31.120 --> 00:02:36.093
+you'll see that it tries to connect to this IP on port 8080.
+
+50
+00:02:37.220 --> 00:02:38.810
+Now, again, you can go on this IP
+
+51
+00:02:38.810 --> 00:02:40.470
+and do a reverse DNS lookup,
+
+52
+00:02:40.470 --> 00:02:43.870
+and see that this IP is not related to any website.
+
+53
+00:02:43.870 --> 00:02:48.510
+Also, this, when you upload the payload to this place,
+
+54
+00:02:48.510 --> 00:02:51.250
+it's never gonna be executed on your computer,
+
+55
+00:02:51.250 --> 00:02:53.890
+it's gonna be executed on their server
+
+56
+00:02:54.800 --> 00:02:56.330
+in a sandbox environment.
+
+57
+00:02:56.330 --> 00:02:58.520
+Now, obviously, the method I showed you,
+
+58
+00:02:58.520 --> 00:03:00.590
+you should always do it in a virtual box
+
+59
+00:03:00.590 --> 00:03:03.560
+when you are executing it here on your Windows.
+
+60
+00:03:03.560 --> 00:03:05.150
+Always do it in a virtual machine,
+
+61
+00:03:05.150 --> 00:03:07.540
+don't do it on your main machine.
+
+62
+00:03:07.540 --> 00:03:09.050
+Or, you can use this method
+
+63
+00:03:09.050 --> 00:03:11.610
+where you upload it into a sandbox environment.
+
+64
+00:03:11.610 --> 00:03:13.670
+It'll analyzed for you,
+
+65
+00:03:13.670 --> 00:03:15.320
+and then you can read the report.
+

@@ -1,0 +1,1026 @@
+WEBVTT
+
+1
+00:00:00.140 --> 00:00:01.450
+<v Instructor>In the previous lecture,</v>
+
+2
+00:00:01.450 --> 00:00:04.309
+we've seen how to use an SMTP server
+
+3
+00:00:04.309 --> 00:00:08.220
+to spoof emails and make them appear like they're sent
+
+4
+00:00:08.220 --> 00:00:11.820
+from any other email address we want.
+
+5
+00:00:11.820 --> 00:00:14.130
+I also mentioned in the previous lecture
+
+6
+00:00:14.130 --> 00:00:17.040
+that there is another way of doing this
+
+7
+00:00:17.040 --> 00:00:20.170
+and that is using a web hosting.
+
+8
+00:00:20.170 --> 00:00:22.480
+Web hosting is simply a service
+
+9
+00:00:22.480 --> 00:00:25.600
+that allows us to cost files on the internet.
+
+10
+00:00:25.600 --> 00:00:28.540
+Therefore, we can use it to host our own website,
+
+11
+00:00:28.540 --> 00:00:30.350
+we can use it to share files
+
+12
+00:00:30.350 --> 00:00:33.080
+or we can even use the server resources
+
+13
+00:00:33.080 --> 00:00:36.910
+to send emails, as I'm gonna show you in this lecture.
+
+14
+00:00:36.910 --> 00:00:38.930
+So as you can see, learning how to set up
+
+15
+00:00:38.930 --> 00:00:40.970
+and use a web hosting can be useful
+
+16
+00:00:40.970 --> 00:00:42.080
+in many scenarios
+
+17
+00:00:42.080 --> 00:00:44.170
+and you can actually use it to do much more
+
+18
+00:00:44.170 --> 00:00:46.370
+than what I'm gonna show you here.
+
+19
+00:00:46.370 --> 00:00:47.820
+Now, if you look on Google,
+
+20
+00:00:47.820 --> 00:00:51.430
+you'll find a lot of free web hosting providers.
+
+21
+00:00:51.430 --> 00:00:54.100
+Unfortunately though, none of them allow you
+
+22
+00:00:54.100 --> 00:00:55.750
+to send emails.
+
+23
+00:00:55.750 --> 00:00:57.500
+That's not really a big problem
+
+24
+00:00:57.500 --> 00:00:59.830
+because even paid web hosting plans
+
+25
+00:00:59.830 --> 00:01:01.230
+are very, very cheap.
+
+26
+00:01:01.230 --> 00:01:03.081
+You can look online for the cheapest
+
+27
+00:01:03.081 --> 00:01:05.350
+and you can use any provider you want
+
+28
+00:01:05.350 --> 00:01:07.280
+because the steps that I'm gonna show you
+
+29
+00:01:07.280 --> 00:01:09.440
+will work with any provider.
+
+30
+00:01:09.440 --> 00:01:12.040
+But right here, I have a web hosting provider
+
+31
+00:01:12.040 --> 00:01:13.290
+called DreamHost.
+
+32
+00:01:13.290 --> 00:01:15.640
+They are pretty cheap and they work well.
+
+33
+00:01:15.640 --> 00:01:18.783
+So if we click on Get Started in here,
+
+34
+00:01:19.620 --> 00:01:24.620
+you'll see the cheapest plan is $2.95 per month.
+
+35
+00:01:24.900 --> 00:01:26.500
+So we're gonna click on Sign Up.
+
+36
+00:01:27.510 --> 00:01:29.210
+I'm gonna set this to monthly
+
+37
+00:01:29.210 --> 00:01:31.700
+and you'll notice the price will actually increase slightly,
+
+38
+00:01:31.700 --> 00:01:33.300
+so now it's $5 per month
+
+39
+00:01:33.300 --> 00:01:36.200
+instead of 2.95 if you paid for a year.
+
+40
+00:01:36.200 --> 00:01:37.397
+But that's fine.
+
+41
+00:01:37.397 --> 00:01:41.000
+And I'm gonna say chose a domain later.
+
+42
+00:01:41.000 --> 00:01:43.160
+You'll only really need to use a domain
+
+43
+00:01:43.160 --> 00:01:45.240
+if you're hosting your own website.
+
+44
+00:01:45.240 --> 00:01:47.030
+The domain is what you see here on top
+
+45
+00:01:47.030 --> 00:01:49.620
+when it says, for example, dreamhost.com
+
+46
+00:01:49.620 --> 00:01:52.590
+or zsecurity.com but in our case,
+
+47
+00:01:52.590 --> 00:01:53.423
+we don't need that,
+
+48
+00:01:53.423 --> 00:01:55.803
+so we're just gonna say choose a domain later.
+
+49
+00:01:56.870 --> 00:01:59.160
+And we're gonna select our payment method.
+
+50
+00:01:59.160 --> 00:02:00.723
+I'm gonna pay with PayPal.
+
+51
+00:02:02.040 --> 00:02:04.970
+Next, you have to put the billing address.
+
+52
+00:02:04.970 --> 00:02:05.803
+Now, you don't don't have
+
+53
+00:02:05.803 --> 00:02:07.470
+to put correct information in here.
+
+54
+00:02:07.470 --> 00:02:09.420
+You can put whatever you want.
+
+55
+00:02:09.420 --> 00:02:11.950
+So I'm just gonna fill this randomly.
+
+56
+00:02:11.950 --> 00:02:13.690
+Next, we have the account setup.
+
+57
+00:02:13.690 --> 00:02:15.800
+Make sure you put a valid email in here
+
+58
+00:02:15.800 --> 00:02:18.210
+because they will send you a confirmation.
+
+59
+00:02:18.210 --> 00:02:21.820
+So I'm gonna use my own email
+
+60
+00:02:21.820 --> 00:02:26.060
+and put a first name, last name, phone number.
+
+61
+00:02:26.060 --> 00:02:28.210
+Again, it doesn't have to be real.
+
+62
+00:02:28.210 --> 00:02:31.970
+We're gonna uncheck this to not receive marketing.
+
+63
+00:02:31.970 --> 00:02:33.600
+We don't want WordPress installed,
+
+64
+00:02:33.600 --> 00:02:35.280
+so we're unchecking this.
+
+65
+00:02:35.280 --> 00:02:38.170
+We don't want protection, so we're unchecking this.
+
+66
+00:02:38.170 --> 00:02:41.740
+And we don't want the email service that they provide,
+
+67
+00:02:41.740 --> 00:02:43.630
+so we're unchecking this
+
+68
+00:02:43.630 --> 00:02:45.940
+because we're actually gonna rely on PHP
+
+69
+00:02:45.940 --> 00:02:49.760
+to send the email using the mail function in PHP.
+
+70
+00:02:49.760 --> 00:02:51.370
+So we're basically unchecking everything.
+
+71
+00:02:51.370 --> 00:02:54.080
+We're going for the most basic plan they have
+
+72
+00:02:54.080 --> 00:02:56.513
+and we're just gonna click on Submit Order.
+
+73
+00:02:58.260 --> 00:03:00.270
+Now, the sign up might be slightly different
+
+74
+00:03:00.270 --> 00:03:02.040
+if you're using a different providers
+
+75
+00:03:02.040 --> 00:03:03.650
+but the steps are very simple
+
+76
+00:03:03.650 --> 00:03:05.890
+and it's more or less the same.
+
+77
+00:03:05.890 --> 00:03:07.773
+It's asking us to set a password now.
+
+78
+00:03:09.500 --> 00:03:12.293
+And we're gonna continue to our control panel.
+
+79
+00:03:14.200 --> 00:03:16.940
+And perfect, now we have a web hosting plan
+
+80
+00:03:16.940 --> 00:03:19.180
+that we can use to host our own websites,
+
+81
+00:03:19.180 --> 00:03:20.800
+host our own files if you wanted
+
+82
+00:03:20.800 --> 00:03:22.370
+to deliver back doors and such
+
+83
+00:03:22.370 --> 00:03:23.720
+to your targets
+
+84
+00:03:23.720 --> 00:03:25.960
+or you can use it to send fake emails,
+
+85
+00:03:25.960 --> 00:03:27.280
+as I'm gonna show you.
+
+86
+00:03:27.280 --> 00:03:29.380
+Now, again, using this dashboard
+
+87
+00:03:29.380 --> 00:03:30.750
+might be slightly different
+
+88
+00:03:30.750 --> 00:03:33.370
+depending on the provider that you have
+
+89
+00:03:33.370 --> 00:03:36.340
+but you'll notice that the steps are pretty much the same.
+
+90
+00:03:36.340 --> 00:03:38.450
+You wanna first access your management page
+
+91
+00:03:38.450 --> 00:03:39.290
+for the website.
+
+92
+00:03:39.290 --> 00:03:40.230
+So you can see in here,
+
+93
+00:03:40.230 --> 00:03:42.830
+it's giving us this button called Manage My Website.
+
+94
+00:03:44.420 --> 00:03:46.500
+We can see this is our website right now
+
+95
+00:03:46.500 --> 00:03:48.170
+but it's saying it unavailable
+
+96
+00:03:48.170 --> 00:03:49.720
+'cause it's still being set up.
+
+97
+00:03:49.720 --> 00:03:51.520
+So we're gonna give it its time to set up
+
+98
+00:03:51.520 --> 00:03:53.823
+and we'll resume the video once it's ready.
+
+99
+00:03:54.740 --> 00:03:56.730
+Okay, so now that the website is ready
+
+100
+00:03:56.730 --> 00:03:59.150
+and we can see a preview of it here,
+
+101
+00:03:59.150 --> 00:04:02.380
+we simply click on it to actually access it.
+
+102
+00:04:02.380 --> 00:04:03.480
+As you can see right now,
+
+103
+00:04:03.480 --> 00:04:05.204
+this is the URL for our website
+
+104
+00:04:05.204 --> 00:04:07.640
+and you can see it's a simple website
+
+105
+00:04:07.640 --> 00:04:09.560
+that has nothing that tells you you should go
+
+106
+00:04:09.560 --> 00:04:12.890
+to the admin to add stuff to this website.
+
+107
+00:04:12.890 --> 00:04:14.870
+So back to the management page.
+
+108
+00:04:14.870 --> 00:04:17.250
+We're gonna click on Manage.
+
+109
+00:04:17.250 --> 00:04:19.610
+And depending on which provider you have,
+
+110
+00:04:19.610 --> 00:04:21.840
+you wanna look for the File Manager.
+
+111
+00:04:21.840 --> 00:04:23.870
+So in my case, you can see in here,
+
+112
+00:04:23.870 --> 00:04:25.370
+it's saying Manage Files
+
+113
+00:04:25.370 --> 00:04:27.890
+and if we click on the Manage in here,
+
+114
+00:04:27.890 --> 00:04:30.400
+we're gonna get our File Manager.
+
+115
+00:04:30.400 --> 00:04:32.870
+From here, you wanna navigate to a directory
+
+116
+00:04:32.870 --> 00:04:35.500
+that is called public.html
+
+117
+00:04:35.500 --> 00:04:37.468
+or a directory that has the name
+
+118
+00:04:37.468 --> 00:04:40.400
+of your website as we have in here.
+
+119
+00:04:40.400 --> 00:04:42.850
+So this is actually the name that I signed up with.
+
+120
+00:04:42.850 --> 00:04:46.280
+It's gibberish but that's what I actually set it to.
+
+121
+00:04:46.280 --> 00:04:48.310
+So we're just gonna click on it.
+
+122
+00:04:48.310 --> 00:04:51.300
+This is the directory where you should upload your files.
+
+123
+00:04:51.300 --> 00:04:52.670
+So if you're hosting a website,
+
+124
+00:04:52.670 --> 00:04:54.970
+you should upload the website files here.
+
+125
+00:04:54.970 --> 00:04:56.300
+Or if you're sharing files,
+
+126
+00:04:56.300 --> 00:04:58.650
+then you should upload them in here as well
+
+127
+00:04:58.650 --> 00:05:01.310
+or in our case, we wanna send fake emails,
+
+128
+00:05:01.310 --> 00:05:04.100
+so we're gonna upload the PHP file
+
+129
+00:05:04.100 --> 00:05:07.690
+that we're gonna use to send the emails to this location.
+
+130
+00:05:07.690 --> 00:05:10.890
+Now, the file is in the resources of this lecture.
+
+131
+00:05:10.890 --> 00:05:12.010
+So download it.
+
+132
+00:05:12.010 --> 00:05:14.550
+I have it already downloaded in here.
+
+133
+00:05:14.550 --> 00:05:15.907
+And as you can see in the file name,
+
+134
+00:05:15.907 --> 00:05:19.763
+you're gonna have to rename this file to send.php
+
+135
+00:05:21.930 --> 00:05:24.149
+because I can't upload PHP files,
+
+136
+00:05:24.149 --> 00:05:27.620
+that's why I uploaded it in TXT format.
+
+137
+00:05:27.620 --> 00:05:29.850
+So we're gonna go up again
+
+138
+00:05:29.850 --> 00:05:32.280
+and you're gonna need to find the Upload button.
+
+139
+00:05:32.280 --> 00:05:34.150
+In my case, it's in here.
+
+140
+00:05:34.150 --> 00:05:35.930
+I'm gonna click on it.
+
+141
+00:05:35.930 --> 00:05:39.130
+Upload File and select the file that I wanna upload,
+
+142
+00:05:39.130 --> 00:05:42.283
+which is in my Downloads and it's this file right here.
+
+143
+00:05:43.120 --> 00:05:44.370
+I'm gonna double click it
+
+144
+00:05:46.500 --> 00:05:48.677
+and we have the file right here, send.php.
+
+145
+00:05:49.800 --> 00:05:51.130
+So all we have to do now
+
+146
+00:05:51.130 --> 00:05:53.160
+is go to the website
+
+147
+00:05:53.160 --> 00:05:55.393
+and I have it opened in this tab in here.
+
+148
+00:05:56.730 --> 00:05:58.900
+And we're gonna put a forward slash
+
+149
+00:05:58.900 --> 00:06:00.600
+after the website name.
+
+150
+00:06:00.600 --> 00:06:03.253
+And type the file name, which is send.php.
+
+151
+00:06:05.300 --> 00:06:07.510
+So using this is very simple.
+
+152
+00:06:07.510 --> 00:06:09.710
+All you have to do is set the email
+
+153
+00:06:09.710 --> 00:06:13.090
+that you want to send this email to
+
+154
+00:06:13.090 --> 00:06:14.700
+and just to switch it up,
+
+155
+00:06:14.700 --> 00:06:16.810
+I'm gonna send this to my other email,
+
+156
+00:06:16.810 --> 00:06:19.663
+which is zaid@zsecurity.org.
+
+157
+00:06:21.020 --> 00:06:23.540
+Next, we're gonna set the from email,
+
+158
+00:06:23.540 --> 00:06:26.480
+this is the email that this email will appear
+
+159
+00:06:26.480 --> 00:06:28.120
+like it's coming from.
+
+160
+00:06:28.120 --> 00:06:30.730
+So again, just to change things around,
+
+161
+00:06:30.730 --> 00:06:33.100
+we're gonna set the from email this time
+
+162
+00:06:33.100 --> 00:06:36.700
+to adrian@zsecurity.org.
+
+163
+00:06:36.700 --> 00:06:39.130
+Now again, when you're setting the from email,
+
+164
+00:06:39.130 --> 00:06:41.150
+make sure that you set it to an email
+
+165
+00:06:41.150 --> 00:06:42.840
+that actually exists
+
+166
+00:06:42.840 --> 00:06:46.080
+and make sure that your target actually receives emails
+
+167
+00:06:46.080 --> 00:06:48.470
+from this email and communicates with them.
+
+168
+00:06:48.470 --> 00:06:50.500
+This will ensure that the email will land
+
+169
+00:06:50.500 --> 00:06:54.150
+in the inbox and it will also increase the chances
+
+170
+00:06:54.150 --> 00:06:58.130
+of your target of opening the email and interacting with it.
+
+171
+00:06:58.130 --> 00:07:00.350
+Adrian works with me in the same company.
+
+172
+00:07:00.350 --> 00:07:02.920
+We frequently exchange emails,
+
+173
+00:07:02.920 --> 00:07:06.033
+therefore, this is a really good from email to spoof.
+
+174
+00:07:06.880 --> 00:07:08.940
+The next field is the name field.
+
+175
+00:07:08.940 --> 00:07:10.640
+This is similar to the from header
+
+176
+00:07:10.640 --> 00:07:13.770
+that we set manually in the previous lecture.
+
+177
+00:07:13.770 --> 00:07:15.210
+So let me go to my inbox
+
+178
+00:07:15.210 --> 00:07:18.190
+to show you where this name shows up.
+
+179
+00:07:18.190 --> 00:07:20.020
+Right here, I have an actual email
+
+180
+00:07:20.020 --> 00:07:21.620
+that it got from Adrian.
+
+181
+00:07:21.620 --> 00:07:24.810
+And this part right here is the name.
+
+182
+00:07:24.810 --> 00:07:26.910
+So whatever you set in here
+
+183
+00:07:26.910 --> 00:07:29.540
+will be displayed in that part.
+
+184
+00:07:29.540 --> 00:07:31.040
+If you don't set that up,
+
+185
+00:07:31.040 --> 00:07:33.530
+it will automatically be set to the email
+
+186
+00:07:33.530 --> 00:07:35.540
+and it will appear like this one,
+
+187
+00:07:35.540 --> 00:07:38.060
+which is not identical to the real one
+
+188
+00:07:38.060 --> 00:07:39.463
+that I can get from him.
+
+189
+00:07:40.560 --> 00:07:43.003
+So we're gonna set this to Adrian's name.
+
+190
+00:07:44.870 --> 00:07:46.400
+We're gonna set the subject
+
+191
+00:07:46.400 --> 00:07:49.176
+and let's just set the subject of this to Test
+
+192
+00:07:49.176 --> 00:07:51.490
+and we're just gonna set the body
+
+193
+00:07:51.490 --> 00:07:56.490
+to this is another email spoofing test.
+
+194
+00:07:57.520 --> 00:08:00.210
+Now, I don't really need to send a back door in this.
+
+195
+00:08:00.210 --> 00:08:01.740
+The whole point of this lecture
+
+196
+00:08:01.740 --> 00:08:05.463
+is to show you another method of spoofing emails.
+
+197
+00:08:06.680 --> 00:08:08.470
+So now that we're done with everything,
+
+198
+00:08:08.470 --> 00:08:11.780
+I'm gonna click on Submit to send the email
+
+199
+00:08:11.780 --> 00:08:14.670
+and as you can see, it's saying email sent.
+
+200
+00:08:14.670 --> 00:08:17.490
+So that means the email got sent and delivered.
+
+201
+00:08:17.490 --> 00:08:18.940
+So let's go to the inbox.
+
+202
+00:08:18.940 --> 00:08:22.010
+Let's see if it looks identical to the real one
+
+203
+00:08:22.010 --> 00:08:24.250
+and let's see if it actually get delivered
+
+204
+00:08:24.250 --> 00:08:26.480
+into our inbox.
+
+205
+00:08:26.480 --> 00:08:29.400
+So right here, I have my inbox
+
+206
+00:08:29.400 --> 00:08:30.233
+and as you can see,
+
+207
+00:08:30.233 --> 00:08:33.430
+here, the bottom one is an actual email
+
+208
+00:08:33.430 --> 00:08:34.710
+that I got from Adrian.
+
+209
+00:08:34.710 --> 00:08:36.860
+This is a real email from Adrian.
+
+210
+00:08:36.860 --> 00:08:38.760
+You can see the name here correct.
+
+211
+00:08:38.760 --> 00:08:40.330
+Similar to the name here.
+
+212
+00:08:40.330 --> 00:08:42.530
+If I stay hovering on the real email,
+
+213
+00:08:42.530 --> 00:08:45.808
+as you can see, I'll get a card that shows his name,
+
+214
+00:08:45.808 --> 00:08:48.680
+his email and his phone number
+
+215
+00:08:48.680 --> 00:08:50.910
+and if I hover over the spoofed one,
+
+216
+00:08:50.910 --> 00:08:52.730
+again, I get the exact same card
+
+217
+00:08:52.730 --> 00:08:54.860
+because it's pulling this from my contacts.
+
+218
+00:08:54.860 --> 00:08:57.164
+So it's automatically populating this.
+
+219
+00:08:57.164 --> 00:08:59.680
+If I go on the real email right here,
+
+220
+00:08:59.680 --> 00:09:02.340
+again, you can see this is a real email by him.
+
+221
+00:09:02.340 --> 00:09:04.350
+You see the name, you see the profile
+
+222
+00:09:04.350 --> 00:09:07.383
+and you see the from is from Adrian Bude.
+
+223
+00:09:08.570 --> 00:09:10.483
+Now, let's go to the spoofed one.
+
+224
+00:09:11.490 --> 00:09:13.120
+Again, you have the picture,
+
+225
+00:09:13.120 --> 00:09:15.760
+you have the name and if we look in here,
+
+226
+00:09:15.760 --> 00:09:17.410
+you have the correct email,
+
+227
+00:09:17.410 --> 00:09:19.870
+adrianbude@zsecurity.org.
+
+228
+00:09:19.870 --> 00:09:23.070
+The only part that might look a little bit suspicious
+
+229
+00:09:23.070 --> 00:09:25.453
+is the fact that it's saying via this.
+
+230
+00:09:26.550 --> 00:09:29.290
+But a lot of people are not gonna pay attention to this
+
+231
+00:09:29.290 --> 00:09:32.840
+and this is only displayed in Gmail.
+
+232
+00:09:32.840 --> 00:09:34.980
+So we tested with Live.
+
+233
+00:09:34.980 --> 00:09:36.960
+This doesn't even show up on it
+
+234
+00:09:36.960 --> 00:09:38.240
+and even with Gmail,
+
+235
+00:09:38.240 --> 00:09:40.260
+we have the correct profile picture,
+
+236
+00:09:40.260 --> 00:09:41.860
+we have the correct name,
+
+237
+00:09:41.860 --> 00:09:44.560
+we have the correct email if you look in here
+
+238
+00:09:44.560 --> 00:09:48.110
+and we even have the correct phone number.
+
+239
+00:09:48.110 --> 00:09:49.850
+So this is just another method
+
+240
+00:09:49.850 --> 00:09:51.740
+to show you how to spoof emails
+
+241
+00:09:51.740 --> 00:09:53.620
+in case the previous method didn't work
+
+242
+00:09:53.620 --> 00:09:56.550
+or if you just didn't like it, you can try this one.
+
+243
+00:09:56.550 --> 00:10:00.510
+Again, like I said, you can use any web hosting provider.
+
+244
+00:10:00.510 --> 00:10:03.060
+You do not have to use this one that I used.
+
+245
+00:10:03.060 --> 00:10:05.520
+You can try the free ones, you can try the paid ones
+
+246
+00:10:05.520 --> 00:10:07.500
+and like I said, you will get better results
+
+247
+00:10:07.500 --> 00:10:08.700
+with the paid ones.
+
+248
+00:10:08.700 --> 00:10:10.910
+The steps are pretty much the same.
+
+249
+00:10:10.910 --> 00:10:13.400
+The only difference might be the sign up process
+
+250
+00:10:13.400 --> 00:10:15.580
+and the process of uploading the file
+
+251
+00:10:15.580 --> 00:10:16.910
+to the website.
+
+252
+00:10:16.910 --> 00:10:18.200
+But the idea is the same.
+
+253
+00:10:18.200 --> 00:10:20.240
+You sign up with a web hosting provider,
+
+254
+00:10:20.240 --> 00:10:22.360
+you upload the send.php file,
+
+255
+00:10:22.360 --> 00:10:24.330
+you browse the .php file
+
+256
+00:10:24.330 --> 00:10:27.653
+from your web browser and you use it to send the email.
+

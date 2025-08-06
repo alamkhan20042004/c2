@@ -1,0 +1,454 @@
+WEBVTT
+
+00:00.000 --> 00:02.340
+Instructor: Now as shown in the previous lecture,
+
+00:02.340 --> 00:05.400
+setting the from email might not be enough
+
+00:05.400 --> 00:09.600
+to make our fake emails look identical to real emails.
+
+00:09.600 --> 00:11.070
+Therefore, in this lecture,
+
+00:11.070 --> 00:13.980
+I'm gonna teach you how to set the sender name
+
+00:13.980 --> 00:17.040
+so that our fake emails look identical
+
+00:17.040 --> 00:20.340
+to real emails sent by real people.
+
+00:20.340 --> 00:24.120
+To do that, we're gonna have to use advanced options.
+
+00:24.120 --> 00:26.280
+So coming back to the terminal window,
+
+00:26.280 --> 00:27.900
+if you look in here,
+
+00:27.900 --> 00:30.300
+you can see we can use the o argument
+
+00:30.300 --> 00:33.090
+to specify advanced options.
+
+00:33.090 --> 00:35.580
+And the advanced option that we want to use
+
+00:35.580 --> 00:38.193
+is a message header right here.
+
+00:39.030 --> 00:40.387
+So, I'm gonna copy this.
+
+00:40.387 --> 00:44.010
+And in our terminal I'm gonna do -o
+
+00:44.010 --> 00:46.410
+to specify an advanced option.
+
+00:46.410 --> 00:48.300
+And the advanced option that I wanna set
+
+00:48.300 --> 00:50.130
+is a message header.
+
+00:50.130 --> 00:54.960
+And this message header is going to be the from header.
+
+00:54.960 --> 00:57.120
+And I wanna set this to the name
+
+00:57.120 --> 00:59.520
+that I wanted to appear in here.
+
+00:59.520 --> 01:02.523
+So in my case, I want it to say Mohammad Askar.
+
+01:03.510 --> 01:05.580
+Then, we're gonna put the from email
+
+01:05.580 --> 01:08.100
+inside the greater and smaller signs.
+
+01:08.100 --> 01:10.410
+So again, the from email, in my case,
+
+01:10.410 --> 01:13.593
+is m.askar@isecurity.org.
+
+01:14.790 --> 01:16.260
+And that's it. We're done.
+
+01:16.260 --> 01:18.840
+Now before hit in enter and send in this message,
+
+01:18.840 --> 01:20.190
+I'm gonna clear the screen
+
+01:20.190 --> 01:22.080
+and I just wanna walk you through the command
+
+01:22.080 --> 01:25.350
+just to make sure that you understand what we're doing.
+
+01:25.350 --> 01:28.740
+So first of all, we're using a program called send email.
+
+01:28.740 --> 01:30.960
+This is the email client that we're using
+
+01:30.960 --> 01:34.620
+in order to first authenticate with our email server
+
+01:34.620 --> 01:36.123
+and then send the email.
+
+01:36.960 --> 01:40.620
+Then, the command is split into two stages.
+
+01:40.620 --> 01:43.320
+The first stage is where we authenticate
+
+01:43.320 --> 01:44.970
+with the email server.
+
+01:44.970 --> 01:47.220
+Like I said, this is similar to what you do
+
+01:47.220 --> 01:48.390
+when you go to Gmail.
+
+01:48.390 --> 01:50.070
+First, you have to log in,
+
+01:50.070 --> 01:51.780
+and this is what we're doing here.
+
+01:51.780 --> 01:55.290
+We're using the -xu argument to specify the email.
+
+01:55.290 --> 01:59.640
+We're using the -xp argument to specify the password
+
+01:59.640 --> 02:03.780
+and -s to specify the server.
+
+02:03.780 --> 02:04.770
+So if I go up,
+
+02:04.770 --> 02:07.230
+we got all of this information from the server
+
+02:07.230 --> 02:10.203
+that we signed up for, so we got it from here.
+
+02:11.130 --> 02:13.530
+Now, once we log in and authenticate,
+
+02:13.530 --> 02:16.410
+the next stage is to actually send the email
+
+02:16.410 --> 02:18.450
+to compose the message.
+
+02:18.450 --> 02:23.070
+So, we're using the from argument to specify the from email.
+
+02:23.070 --> 02:25.680
+We're using the -t argument to specify
+
+02:25.680 --> 02:28.680
+the email we want to send the email to.
+
+02:28.680 --> 02:32.670
+We're using -u to specify the title,
+
+02:32.670 --> 02:35.640
+-: m to specify the message body.
+
+02:35.640 --> 02:38.460
+And finally, we used an advanced option
+
+02:38.460 --> 02:40.200
+to set the message header,
+
+02:40.200 --> 02:43.560
+and we set the message header to whatever we want to appear
+
+02:43.560 --> 02:45.510
+beside the email title
+
+02:45.510 --> 02:48.033
+when the email is delivered in the inbox.
+
+02:49.140 --> 02:50.970
+So, we're ready to send this.
+
+02:50.970 --> 02:52.203
+I'm gonna hit Enter.
+
+02:54.120 --> 02:55.620
+And perfect. As you can see,
+
+02:55.620 --> 02:58.590
+it's saying email is sent successfully,
+
+02:58.590 --> 03:00.600
+and I'm actually already listening
+
+03:00.600 --> 03:05.430
+for incoming connections in here in my multi handler.
+
+03:05.430 --> 03:07.200
+So let's go to the target.
+
+03:07.200 --> 03:09.600
+And as you can see, we have a new email.
+
+03:09.600 --> 03:11.340
+It's coming from Mohammad Askar.
+
+03:11.340 --> 03:15.303
+So exactly like a legitimate email coming from this person.
+
+03:16.140 --> 03:18.300
+We can see the subject like we said it,
+
+03:18.300 --> 03:19.653
+and we can see the body.
+
+03:20.850 --> 03:23.400
+Now if we go inside, again,
+
+03:23.400 --> 03:25.620
+we have a thumbnail of this person.
+
+03:25.620 --> 03:28.380
+It's showing his name, it's showing his email,
+
+03:28.380 --> 03:29.910
+it's showing his picture.
+
+03:29.910 --> 03:31.200
+So it looks legit.
+
+03:31.200 --> 03:35.910
+It looks like a proper message sent from this person.
+
+03:35.910 --> 03:37.830
+Now this person is a friend of mine,
+
+03:37.830 --> 03:40.020
+and we tailored the message
+
+03:40.020 --> 03:43.590
+so that it appears as if it's coming from a friend.
+
+03:43.590 --> 03:45.900
+If I click on the link,
+
+03:45.900 --> 03:49.350
+you'll see the file will automatically start downloading.
+
+03:49.350 --> 03:51.090
+Dropbox is not asking us
+
+03:51.090 --> 03:53.790
+if we actually want to download this,
+
+03:53.790 --> 03:56.013
+so I'm gonna click Okay to download it.
+
+03:56.910 --> 03:59.580
+It's gonna go in my downloads.
+
+03:59.580 --> 04:02.250
+So if we open the downloads,
+
+04:02.250 --> 04:04.803
+right click and uncompress this,
+
+04:06.570 --> 04:09.210
+we'll have the GTR with the image
+
+04:09.210 --> 04:12.270
+with the proper extension like we've seen before.
+
+04:12.270 --> 04:13.773
+And if we double click it,
+
+04:14.640 --> 04:16.410
+we'll see the picture of the car
+
+04:16.410 --> 04:18.480
+that my friend is trying to buy.
+
+04:18.480 --> 04:21.210
+So everything looks legit so far.
+
+04:21.210 --> 04:24.150
+But if we go back to the CALI machine,
+
+04:24.150 --> 04:27.450
+you'll see that we got a connection from the target
+
+04:27.450 --> 04:30.903
+and we basically gained full access to their computer.
+
+04:32.160 --> 04:33.180
+So if we do there,
+
+04:33.180 --> 04:35.310
+you'll see all the directories
+
+04:35.310 --> 04:38.430
+and basically we can run any system command.
+
+04:38.430 --> 04:40.260
+Now, it is very important to note
+
+04:40.260 --> 04:44.100
+that this will only work if the domain that you are spoofing
+
+04:44.100 --> 04:45.900
+or setting the sender to
+
+04:45.900 --> 04:49.560
+does not implement proper email authentication.
+
+04:49.560 --> 04:50.820
+With that being said,
+
+04:50.820 --> 04:52.620
+many statistics suggest
+
+04:52.620 --> 04:57.000
+that over 80% of organizations around the world
+
+04:57.000 --> 05:00.540
+do not implement proper email authentication,
+
+05:00.540 --> 05:02.190
+and therefore you'd be able
+
+05:02.190 --> 05:04.560
+to impersonate these organizations
+
+05:04.560 --> 05:07.110
+and send emails and make them appear
+
+05:07.110 --> 05:09.840
+as if they're sent from these organizations.
+
+05:09.840 --> 05:12.060
+Now to check if a domain can be spoofed,
+
+05:12.060 --> 05:15.600
+you can easily go to this website right here,
+
+05:15.600 --> 05:18.240
+and all you have to do is put the domain
+
+05:18.240 --> 05:21.720
+that you want to spoof or impersonate in here.
+
+05:21.720 --> 05:26.010
+So for example, if we put zsecurity.org,
+
+05:26.010 --> 05:28.230
+which is our company domain,
+
+05:28.230 --> 05:30.930
+you'll see that we have no DMARC records.
+
+05:30.930 --> 05:33.810
+It's telling us that nothing is detected,
+
+05:33.810 --> 05:36.750
+and therefore we can actually send emails
+
+05:36.750 --> 05:38.130
+and make them appear
+
+05:38.130 --> 05:41.970
+like they're sent from any email at zsecurity.org.
+
+05:41.970 --> 05:45.210
+And we did that on purpose to show you in this lecture.
+
+05:45.210 --> 05:46.830
+So this is very, very dangerous.
+
+05:46.830 --> 05:49.260
+And if you own or manage a domain
+
+05:49.260 --> 05:51.600
+that is not implementing this properly,
+
+05:51.600 --> 05:53.220
+then you should really fix this
+
+05:53.220 --> 05:56.310
+because this means that hackers can spoof emails
+
+05:56.310 --> 05:59.610
+and make them seem as if they're sent from your domain
+
+05:59.610 --> 06:01.293
+or your organization.
+
+06:02.550 --> 06:04.500
+Now the main thing that you wanna keep in mind
+
+06:04.500 --> 06:06.030
+when it comes to this method
+
+06:06.030 --> 06:08.400
+is that this method is generic.
+
+06:08.400 --> 06:12.240
+So it works against Windows, Linux, OSX, Android,
+
+06:12.240 --> 06:13.740
+doesn't really matter.
+
+06:13.740 --> 06:15.960
+The only thing that you wanna make sure is
+
+06:15.960 --> 06:18.690
+the file that you're sending to the target
+
+06:18.690 --> 06:21.630
+should work on their target operating system.
+
+06:21.630 --> 06:24.210
+And I actually cover generating backdoors
+
+06:24.210 --> 06:25.740
+and credential harvesters
+
+06:25.740 --> 06:29.190
+and all this cool stuff for all operating systems
+
+06:29.190 --> 06:31.500
+in my Social Engineering Course.
+
+06:31.500 --> 06:33.450
+So if you're interested in that,
+
+06:33.450 --> 06:35.100
+then check out the bonus lecture,
+
+06:35.100 --> 06:36.750
+the last lecture of this course,
+
+06:36.750 --> 06:39.930
+because it includes links to all of my other courses,
+
+06:39.930 --> 06:42.543
+including the Social Engineering Course.

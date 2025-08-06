@@ -1,0 +1,451 @@
+WEBVTT
+
+00:00.270 --> 00:02.880
+Instructor: If we look at the backdoor or the Trojan
+
+00:02.880 --> 00:07.200
+that we generated so far, we can see that it's very cool.
+
+00:07.200 --> 00:10.860
+First of all, it has an icon that represents a file
+
+00:10.860 --> 00:14.040
+that the target person is interested in.
+
+00:14.040 --> 00:17.310
+When it's executed, it shows a normal file that,
+
+00:17.310 --> 00:20.010
+again, the target person is interested in.
+
+00:20.010 --> 00:22.350
+So it shows an image or a PDF,
+
+00:22.350 --> 00:25.050
+or anything that we want really.
+
+00:25.050 --> 00:28.440
+And at the same time, it's gonna execute our evil code
+
+00:28.440 --> 00:30.690
+in the background, which will allow us to hack
+
+00:30.690 --> 00:33.693
+the target computer or do whatever that we want.
+
+00:34.590 --> 00:37.230
+The only problem with this file is,
+
+00:37.230 --> 00:39.540
+if you look here at the end of the file,
+
+00:39.540 --> 00:42.660
+you can see that it's .exe.
+
+00:42.660 --> 00:46.260
+Now, in most cases, you probably won't see the .exe
+
+00:46.260 --> 00:49.380
+because Windows would be configured to hide it.
+
+00:49.380 --> 00:52.860
+But if it's not hiding it, then it's obvious that this file
+
+00:52.860 --> 00:56.673
+is an executable because it ends with a .exe.
+
+00:57.720 --> 01:01.230
+So what I wanna show you today is how to spoof this
+
+01:01.230 --> 01:04.980
+and change this to something that corresponds to the file.
+
+01:04.980 --> 01:08.340
+So if we're trying to make our backdoor look like a PDF,
+
+01:08.340 --> 01:10.920
+then you can make this look like a .pdf.
+
+01:10.920 --> 01:13.980
+If we're trying to make the file look like an image,
+
+01:13.980 --> 01:18.270
+then you wanna make this look like a .jpg or a .png,
+
+01:18.270 --> 01:20.940
+or an extension that represents the image.
+
+01:20.940 --> 01:23.430
+So in our case, we're trying to make it look like an image.
+
+01:23.430 --> 01:27.690
+So I'm gonna try to make this end with a .jpg.
+
+01:27.690 --> 01:29.220
+To do that, we're gonna use
+
+01:29.220 --> 01:32.040
+a right to left override character.
+
+01:32.040 --> 01:34.020
+And before I show you how to do that,
+
+01:34.020 --> 01:37.890
+I'm just gonna rename this and just literally copy the name.
+
+01:37.890 --> 01:41.283
+I'm just gonna go and rename and copy everything here,
+
+01:42.330 --> 01:45.540
+and I'm just gonna paste it in my text editor
+
+01:45.540 --> 01:47.610
+so that when I'm modifying things,
+
+01:47.610 --> 01:49.323
+it's clear to you what I'm doing.
+
+01:51.240 --> 01:54.120
+Okay, now the first thing that I'm gonna do
+
+01:54.120 --> 01:57.960
+is I'm just gonna type the new file name that I wanna use.
+
+01:57.960 --> 02:01.170
+And for the new file name, I'm not gonna use gtr-image,
+
+02:01.170 --> 02:04.380
+I'm just gonna use gtr, okay?
+
+02:04.380 --> 02:07.353
+And this is obviously gonna have to be .exe.
+
+02:09.450 --> 02:12.120
+Now, instead of this exe,
+
+02:12.120 --> 02:15.810
+I actually want to have a .jpg,
+
+02:15.810 --> 02:18.300
+but that's not possible because if I do that,
+
+02:18.300 --> 02:21.240
+the file is not gonna be an executable.
+
+02:21.240 --> 02:23.820
+So to do this, I'm gonna try to get the text
+
+02:23.820 --> 02:26.100
+to be read from right to left,
+
+02:26.100 --> 02:29.430
+using a right to left override character.
+
+02:29.430 --> 02:33.390
+So because the text is gonna be read from right to left,
+
+02:33.390 --> 02:37.170
+we're gonna type this extension after the file name,
+
+02:37.170 --> 02:40.140
+but we're gonna spell it from right to left.
+
+02:40.140 --> 02:44.310
+So we're gonna spell it as G-P-J in here,
+
+02:44.310 --> 02:45.517
+So we're gonna put gpj.
+
+02:48.480 --> 02:52.590
+Again, this is just the extension that we want to use,
+
+02:52.590 --> 02:55.380
+but we're spelling it from right to left.
+
+02:55.380 --> 02:58.803
+So we're spelling it G-P-J instead of J-P-G.
+
+02:59.850 --> 03:02.490
+Now, what I wanna do is I wanna put
+
+03:02.490 --> 03:05.130
+a right to left character in here.
+
+03:05.130 --> 03:07.920
+So basically, when I put that character in here,
+
+03:07.920 --> 03:11.490
+the text, anything that comes in after that character
+
+03:11.490 --> 03:13.440
+will be read from right to left.
+
+03:13.440 --> 03:16.109
+So all this is gonna be flipped,
+
+03:16.109 --> 03:18.959
+and basically the file name is going to be called gtrexe.
+
+03:20.790 --> 03:22.920
+And this is gonna be right from right to left,
+
+03:22.920 --> 03:24.093
+so it's gonna be .jpg.
+
+03:27.480 --> 03:30.080
+So let me do it, and you'll see what I mean by that.
+
+03:31.500 --> 03:35.460
+So to get that character, you wanna go here on the search
+
+03:35.460 --> 03:38.403
+and you just wanna search for right to left override.
+
+03:39.300 --> 03:41.490
+And you can see, we have it in here.
+
+03:41.490 --> 03:45.000
+And if you click on it, you'll just see a button
+
+03:45.000 --> 03:47.790
+that will allow you to copy that character.
+
+03:47.790 --> 03:49.920
+So I'm just gonna click on copy,
+
+03:49.920 --> 03:52.803
+and that will basically just copy the character for me.
+
+03:54.270 --> 03:56.250
+Now, I'm gonna come in here.
+
+03:56.250 --> 03:58.830
+And, again, once I paste it in here,
+
+03:58.830 --> 04:01.740
+anything that comes after that character
+
+04:01.740 --> 04:03.660
+will be read from right to left.
+
+04:03.660 --> 04:06.030
+So we're gonna start in here,
+
+04:06.030 --> 04:08.463
+and it's gonna be read as exe.jpg.
+
+04:11.010 --> 04:14.133
+I'm gonna put the cursor here and I'm gonna paste,
+
+04:15.900 --> 04:17.010
+and as you can see,
+
+04:17.010 --> 04:21.307
+now the file name is called gtrexe.jpg.
+
+04:23.460 --> 04:25.560
+Now, again, I'm gonna remove the character
+
+04:26.970 --> 04:28.230
+back to normal.
+
+04:28.230 --> 04:29.403
+If I paste it,
+
+04:30.330 --> 04:32.730
+everything is being read from right to left,
+
+04:32.730 --> 04:37.563
+and the file name is gonna be called gtrexe.jpg.
+
+04:38.670 --> 04:41.460
+Now, when you're using a file name like this,
+
+04:41.460 --> 04:44.100
+in my case it looks fine because I'm already using
+
+04:44.100 --> 04:46.710
+a name of a car, which is called GTR.
+
+04:46.710 --> 04:49.470
+And if you're sending it to a person, they might think
+
+04:49.470 --> 04:52.563
+the exe is just a special edition of this car.
+
+04:53.400 --> 04:56.190
+If you're using this as a book or as something else,
+
+04:56.190 --> 04:59.910
+you wanna think of a name that ends with ex.
+
+04:59.910 --> 05:02.010
+So for example, there's a lot of names.
+
+05:02.010 --> 05:06.960
+So you can think of reflex, hex, sex, and so on.
+
+05:06.960 --> 05:09.120
+Anything that ends up with an E-X
+
+05:09.120 --> 05:11.163
+will be a good name to use in here.
+
+05:12.120 --> 05:15.303
+So I have my name now, I'm just gonna copy this,
+
+05:16.560 --> 05:18.753
+and then I'm gonna rename this.
+
+05:23.970 --> 05:25.920
+And that's it.
+
+05:25.920 --> 05:29.673
+And as you can see, now my file is called gtrexe.jpg.
+
+05:31.200 --> 05:33.720
+Now, you can send this file the way it is to the target,
+
+05:33.720 --> 05:35.730
+but I don't wanna send it like this
+
+05:35.730 --> 05:38.400
+because some recent browsers are removing
+
+05:38.400 --> 05:41.610
+the right to left override when downloading the file.
+
+05:41.610 --> 05:45.090
+So what I'm gonna do is I'm gonna add this to an archive.
+
+05:45.090 --> 05:48.483
+So I'm gonna right click it and compress,
+
+05:49.830 --> 05:53.283
+and we'll just add this to an archive called gtrjpg.
+
+05:54.930 --> 05:57.540
+And we have our archive here.
+
+05:57.540 --> 06:00.090
+This way, when the file is downloaded,
+
+06:00.090 --> 06:03.183
+the browser will not replace the right to left override.
+
+06:04.170 --> 06:06.903
+So we're all done now, I'm gonna copy this,
+
+06:08.310 --> 06:10.053
+paste it in my evil files.
+
+06:12.660 --> 06:13.680
+And then we're gonna go
+
+06:13.680 --> 06:16.290
+and download it from the Windows machine.
+
+06:16.290 --> 06:18.150
+Now, I'm actually already listening
+
+06:18.150 --> 06:20.130
+for incoming connections here.
+
+06:20.130 --> 06:21.870
+I've showed you how to do this before,
+
+06:21.870 --> 06:25.170
+so if you don't remember, please go back to that lecture.
+
+06:25.170 --> 06:27.360
+I'm gonna go to the Windows machine,
+
+06:27.360 --> 06:29.343
+I'm gonna go on my Firefox.
+
+06:30.960 --> 06:32.970
+And we're gonna download the file, which is at
+
+06:32.970 --> 06:37.710
+http 10.20.14.213,
+
+06:37.710 --> 06:42.333
+and the file name is gtrexe.zip.
+
+06:45.120 --> 06:46.263
+I'm gonna save this.
+
+06:48.180 --> 06:51.480
+And in here, in our downloads, we see the archive.
+
+06:51.480 --> 06:53.973
+Now, we're just gonna uncompress it here.
+
+06:57.210 --> 07:00.270
+And as you can see now, if you compare this file
+
+07:00.270 --> 07:04.680
+to this one, you'll see that this one has an exe format,
+
+07:04.680 --> 07:07.620
+this one has a .jpg format.
+
+07:07.620 --> 07:11.433
+It has an image icon, and if we double click it,
+
+07:12.300 --> 07:15.120
+it will actually show us an image as you can see.
+
+07:15.120 --> 07:18.000
+But at the same time, it's gonna execute my backdoor
+
+07:18.000 --> 07:19.200
+in the background.
+
+07:19.200 --> 07:21.600
+So if I go to the Kali machine,
+
+07:21.600 --> 07:25.170
+you'll see that I get a session from that computer.
+
+07:25.170 --> 07:27.933
+And just to confirm this, I'm gonna do sysinfo.
+
+07:29.130 --> 07:32.100
+And as you can see now, I'm inside that computer
+
+07:32.100 --> 07:34.263
+and I have full control over it.
+
+07:35.160 --> 07:38.730
+We managed to do this using a file that looks and functions
+
+07:38.730 --> 07:41.070
+exactly like an image.
+
+07:41.070 --> 07:44.430
+And just like I said before, this method can be used
+
+07:44.430 --> 07:47.940
+to make the file look like any other file type,
+
+07:47.940 --> 07:50.070
+so you don't have to make it look like an image.
+
+07:50.070 --> 07:52.980
+You can use this method to make it look like a PDF,
+
+07:52.980 --> 07:56.610
+a song, a video, or anything that you want at all.
+
+07:56.610 --> 07:59.190
+You can use the download and execute payload
+
+07:59.190 --> 08:01.740
+to combine the backdoor with any file,
+
+08:01.740 --> 08:05.130
+and then use this method to change the file extension
+
+08:05.130 --> 08:06.963
+to any file extension you want.

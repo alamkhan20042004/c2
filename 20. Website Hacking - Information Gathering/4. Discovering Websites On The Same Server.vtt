@@ -1,0 +1,310 @@
+WEBVTT
+
+1
+00:00:00.830 --> 00:00:01.760
+<v Instructor>In this lecture</v>
+
+2
+00:00:01.760 --> 00:00:04.600
+I'd like to highlight a very important note
+
+3
+00:00:04.600 --> 00:00:07.313
+when it comes to website penetration testing.
+
+4
+00:00:08.220 --> 00:00:11.900
+Websites are installed on web servers on normal computers,
+
+5
+00:00:11.900 --> 00:00:13.350
+like we said before.
+
+6
+00:00:13.350 --> 00:00:16.010
+These normal computers have IP addresses,
+
+7
+00:00:16.010 --> 00:00:19.343
+and using the IP address we can access our target website.
+
+8
+00:00:20.530 --> 00:00:24.210
+Now, in many scenarios your target website,
+
+9
+00:00:24.210 --> 00:00:25.970
+or your target server
+
+10
+00:00:25.970 --> 00:00:28.410
+will contain a large number of websites,
+
+11
+00:00:28.410 --> 00:00:31.190
+so it'll have the website that you're looking for
+
+12
+00:00:31.190 --> 00:00:32.300
+that you're targeting,
+
+13
+00:00:32.300 --> 00:00:36.060
+but it'll also contain other websites on the same server,
+
+14
+00:00:36.060 --> 00:00:38.510
+so on the same file system.
+
+15
+00:00:38.510 --> 00:00:41.170
+What this means is, if you, for example,
+
+16
+00:00:41.170 --> 00:00:44.850
+could not find any vulnerabilities in your target website,
+
+17
+00:00:44.850 --> 00:00:47.570
+you can try to hack into any other website
+
+18
+00:00:47.570 --> 00:00:49.893
+that is installed in the same server.
+
+19
+00:00:50.870 --> 00:00:52.150
+If you could do that,
+
+20
+00:00:52.150 --> 00:00:54.910
+then you'll be able to gain access to the server.
+
+21
+00:00:54.910 --> 00:00:57.270
+Gaining access to the server basically means
+
+22
+00:00:57.270 --> 00:00:59.390
+you have access to all the other websites
+
+23
+00:00:59.390 --> 00:01:01.590
+because the server is just a computer
+
+24
+00:01:01.590 --> 00:01:03.520
+and you can literally just navigate
+
+25
+00:01:03.520 --> 00:01:05.260
+to the website that you want to hack
+
+26
+00:01:05.260 --> 00:01:07.063
+and gain access to that website.
+
+27
+00:01:08.730 --> 00:01:11.300
+So, if you're trying to hack into a website
+
+28
+00:01:11.300 --> 00:01:12.760
+and you couldn't find any exploits,
+
+29
+00:01:12.760 --> 00:01:16.470
+then the next step would be trying to hack any other website
+
+30
+00:01:16.470 --> 00:01:19.030
+that exists on the same server.
+
+31
+00:01:19.030 --> 00:01:22.200
+So, what I mean by exist on the same server
+
+32
+00:01:22.200 --> 00:01:25.350
+is they have the same IP address.
+
+33
+00:01:25.350 --> 00:01:28.170
+So let me show you here an example.
+
+34
+00:01:28.170 --> 00:01:32.320
+I'm gonna be showing an example of zaid.com, so my blog
+
+35
+00:01:32.320 --> 00:01:36.060
+because there is a lot of websites on the same server,
+
+36
+00:01:36.060 --> 00:01:38.720
+and if we look here on robtex.com,
+
+37
+00:01:38.720 --> 00:01:39.940
+and I came down here
+
+38
+00:01:39.940 --> 00:01:42.890
+to names pointing to the same IP address,
+
+39
+00:01:42.890 --> 00:01:46.120
+you can see all of these websites exist
+
+40
+00:01:46.120 --> 00:01:50.550
+on the same server as zaid.com.
+
+41
+00:01:50.550 --> 00:01:53.920
+So, if you could manage to hack into any of these websites,
+
+42
+00:01:53.920 --> 00:01:58.170
+you'll be able to navigate from and off that website
+
+43
+00:01:58.170 --> 00:01:59.860
+and then into zaid.com,
+
+44
+00:01:59.860 --> 00:02:02.023
+and then gain full access to my website.
+
+45
+00:02:03.410 --> 00:02:04.520
+So let me just show you here.
+
+46
+00:02:04.520 --> 00:02:06.530
+If I copy any of these domain names,
+
+47
+00:02:06.530 --> 00:02:09.240
+for example, we have this one reba.me,
+
+48
+00:02:09.240 --> 00:02:11.573
+and I'm just gonna go onto my terminal.
+
+49
+00:02:15.440 --> 00:02:17.950
+Now, I've already, if I do a ping
+
+50
+00:02:22.021 --> 00:02:23.933
+zaid.com,
+
+51
+00:02:24.920 --> 00:02:28.560
+you'll see that this is my IP address of my website,
+
+52
+00:02:28.560 --> 00:02:32.330
+and if I do a ping on one of the websites that exists,
+
+53
+00:02:32.330 --> 00:02:34.670
+for our use reba.me.
+
+54
+00:02:34.670 --> 00:02:37.123
+So if I go ping reba.me,
+
+55
+00:02:39.680 --> 00:02:43.550
+you'll see that both websites have the same IP address.
+
+56
+00:02:43.550 --> 00:02:46.010
+This means that both websites are installed
+
+57
+00:02:46.010 --> 00:02:47.210
+on the same computer,
+
+58
+00:02:47.210 --> 00:02:48.990
+and if we could hack into one of them,
+
+59
+00:02:48.990 --> 00:02:50.890
+we can literally just navigate
+
+60
+00:02:50.890 --> 00:02:52.560
+from that website into the other,
+
+61
+00:02:52.560 --> 00:02:55.740
+from our Meterpreter shell, or from our PHP shell,
+
+62
+00:02:55.740 --> 00:02:57.853
+or any type of shell that we're using.
+
+63
+00:02:59.400 --> 00:03:01.070
+Another way of finding websites
+
+64
+00:03:01.070 --> 00:03:03.410
+on the same domain is using Bing,
+
+65
+00:03:03.410 --> 00:03:04.560
+and it's a really simple way.
+
+66
+00:03:04.560 --> 00:03:06.343
+So if you just go on Bing,
+
+67
+00:03:09.970 --> 00:03:12.290
+and I'm just gonna put IP,
+
+68
+00:03:12.290 --> 00:03:15.830
+and then I'll put the IP of my target website.
+
+69
+00:03:15.830 --> 00:03:19.610
+Again, you'll see all the other websites that exist
+
+70
+00:03:19.610 --> 00:03:22.380
+on the same server as your target website,
+
+71
+00:03:22.380 --> 00:03:25.800
+so you can literally hack into any of these websites,
+
+72
+00:03:25.800 --> 00:03:29.870
+and from there hack into my website and gain access to it.
+
+73
+00:03:29.870 --> 00:03:32.300
+This is very important because in many cases
+
+74
+00:03:32.300 --> 00:03:34.510
+your target could be very well secured,
+
+75
+00:03:34.510 --> 00:03:36.610
+but the server itself was not secure,
+
+76
+00:03:36.610 --> 00:03:38.920
+so you can manage to hack one of the other websites
+
+77
+00:03:38.920 --> 00:03:42.003
+and then navigate through the server to your target.
+

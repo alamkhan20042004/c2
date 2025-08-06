@@ -1,0 +1,518 @@
+WEBVTT
+
+1
+00:00:01.850 --> 00:00:02.683
+<v Instructor>Today we're going</v>
+
+2
+00:00:02.683 --> 00:00:04.900
+to learn how to get information
+
+3
+00:00:04.900 --> 00:00:08.023
+about the technologies used by the target website.
+
+4
+00:00:09.150 --> 00:00:12.330
+So we're going to use a website called Netcraft
+
+5
+00:00:12.330 --> 00:00:14.470
+and I'm gonna put my target here and as you can see,
+
+6
+00:00:14.470 --> 00:00:17.160
+I already put it there, isecurity.org.
+
+7
+00:00:17.160 --> 00:00:20.620
+So, I'm just gonna hit enter and again,
+
+8
+00:00:20.620 --> 00:00:22.860
+first of all you'll see some basic information,
+
+9
+00:00:22.860 --> 00:00:25.520
+such as the website title,
+
+10
+00:00:25.520 --> 00:00:27.590
+the description, the key words
+
+11
+00:00:27.590 --> 00:00:29.823
+and when the website was created.
+
+12
+00:00:31.090 --> 00:00:33.960
+Scrolling down, you'll see the website itself,
+
+13
+00:00:33.960 --> 00:00:36.100
+the domain name, the IP address,
+
+14
+00:00:36.100 --> 00:00:38.650
+just like we've seen in the previous video,
+
+15
+00:00:38.650 --> 00:00:40.333
+the domain registerer,
+
+16
+00:00:40.333 --> 00:00:41.950
+so the company who registered the domain
+
+17
+00:00:41.950 --> 00:00:43.320
+for us, for iSecurity
+
+18
+00:00:44.310 --> 00:00:47.800
+and you'll also see information about the organization.
+
+19
+00:00:47.800 --> 00:00:50.180
+An here, you can't see it for this example
+
+20
+00:00:50.180 --> 00:00:53.210
+because iSecurity is using privacy protection,
+
+21
+00:00:53.210 --> 00:00:54.950
+but usually you'll be able to see it
+
+22
+00:00:54.950 --> 00:00:56.940
+and see more information.
+
+23
+00:00:56.940 --> 00:01:00.610
+We can also see that it's hosted in Netherlands.
+
+24
+00:01:00.610 --> 00:01:01.950
+We can see the name server,
+
+25
+00:01:01.950 --> 00:01:03.633
+which is dimofinf.net.
+
+26
+00:01:05.270 --> 00:01:07.490
+And again, if you just got to dimofinf.net,
+
+27
+00:01:07.490 --> 00:01:11.810
+you'll discover that this is a website for web hosting,
+
+28
+00:01:11.810 --> 00:01:14.320
+so we know this is a web hosting company.
+
+29
+00:01:14.320 --> 00:01:16.040
+In worst case scenarios,
+
+30
+00:01:16.040 --> 00:01:19.470
+we can use this or try to hack into Dimofinf itself
+
+31
+00:01:19.470 --> 00:01:21.313
+to gain access to iSecurity.
+
+32
+00:01:23.750 --> 00:01:27.270
+Scrolling down, you'll see history of the hosting companies
+
+33
+00:01:27.270 --> 00:01:29.040
+that iSecurity used
+
+34
+00:01:29.040 --> 00:01:32.470
+and we can see that the latest one is this one.
+
+35
+00:01:32.470 --> 00:01:35.240
+And it's running on Linux with Apache.
+
+36
+00:01:35.240 --> 00:01:38.890
+Same server that we see in the previous video, 2.3.31
+
+37
+00:01:38.890 --> 00:01:41.760
+with Unix mod_ssl and all the other items.
+
+38
+00:01:41.760 --> 00:01:45.000
+Again, this is very important to find vulnerabilities
+
+39
+00:01:45.000 --> 00:01:47.793
+and exploits on our target computer.
+
+40
+00:01:49.680 --> 00:01:50.810
+In the Security section,
+
+41
+00:01:50.810 --> 00:01:52.630
+you'll see if the website has any spam
+
+42
+00:01:52.630 --> 00:01:55.280
+and you can see that it doesn't really have any spam.
+
+43
+00:01:56.210 --> 00:01:58.690
+Scrolling down on the Web Trackers,
+
+44
+00:01:58.690 --> 00:02:02.150
+it'll show you the third party resources
+
+45
+00:02:02.150 --> 00:02:05.150
+or applications used on our target.
+
+46
+00:02:05.150 --> 00:02:08.242
+So we can see that our target uses Google Analytics,
+
+47
+00:02:08.242 --> 00:02:11.370
+Googlecdn, and other Google services.
+
+48
+00:02:11.370 --> 00:02:14.954
+So this could also help us to find or gain access
+
+49
+00:02:14.954 --> 00:02:16.593
+to the target computer.
+
+50
+00:02:18.100 --> 00:02:20.700
+The technologies is one of the most important tabs,
+
+51
+00:02:20.700 --> 00:02:22.620
+or sections, in here
+
+52
+00:02:22.620 --> 00:02:24.043
+'cause it shows us the technologies used
+
+53
+00:02:24.043 --> 00:02:25.580
+on the target website.
+
+54
+00:02:25.580 --> 00:02:27.610
+So we can see it's using Apache web server,
+
+55
+00:02:27.610 --> 00:02:28.723
+we already know that.
+
+56
+00:02:30.240 --> 00:02:33.643
+On Server-Side, we can see that the website uses PHP,
+
+57
+00:02:34.610 --> 00:02:37.800
+so this means the website can run,
+
+58
+00:02:37.800 --> 00:02:40.420
+can understand and run PHP code.
+
+59
+00:02:40.420 --> 00:02:42.500
+This is very important because in the future,
+
+60
+00:02:42.500 --> 00:02:46.670
+if we manage to run any kind of code on our target,
+
+61
+00:02:46.670 --> 00:02:49.580
+then we know this code should be sent as PHP code.
+
+62
+00:02:49.580 --> 00:02:52.000
+So if we're creating payloads in Metasploit
+
+63
+00:02:52.000 --> 00:02:53.720
+or even Veil-Evasion,
+
+64
+00:02:53.720 --> 00:02:56.280
+we should create them in PHP format
+
+65
+00:02:56.280 --> 00:02:59.160
+and the target website will be able to run them
+
+66
+00:02:59.160 --> 00:03:01.297
+because it can support PHP.
+
+67
+00:03:03.580 --> 00:03:04.700
+On the Client-Side,
+
+68
+00:03:04.700 --> 00:03:07.480
+we can see that the website supports JavaScript
+
+69
+00:03:07.480 --> 00:03:10.610
+so if run JavaScript or if you manage
+
+70
+00:03:10.610 --> 00:03:13.230
+to run JavaScript code on the website,
+
+71
+00:03:13.230 --> 00:03:15.740
+it's not going to be executed on the website.
+
+72
+00:03:15.740 --> 00:03:19.290
+It'll be executed on the users who see the website
+
+73
+00:03:19.290 --> 00:03:21.490
+because JavaScript is a client-side language
+
+74
+00:03:22.765 --> 00:03:26.220
+and PHP is a server-side.
+
+75
+00:03:26.220 --> 00:03:28.770
+So if we manage to run PHP code,
+
+76
+00:03:28.770 --> 00:03:31.690
+it'll be executed on the server itself.
+
+77
+00:03:31.690 --> 00:03:33.830
+If you manage to run JavaScript,
+
+78
+00:03:33.830 --> 00:03:36.180
+it's gonna be executed on the users
+
+79
+00:03:36.180 --> 00:03:38.203
+or the people who visit the website.
+
+80
+00:03:41.160 --> 00:03:42.390
+Same here with jQuery,
+
+81
+00:03:42.390 --> 00:03:44.703
+this is just a framework for JavaScript.
+
+82
+00:03:46.310 --> 00:03:49.960
+Scrolling down, we can see that the website uses WordPress.
+
+83
+00:03:49.960 --> 00:03:51.070
+This is very important.
+
+84
+00:03:51.070 --> 00:03:56.070
+So Netcraft will also show you any web applications
+
+85
+00:03:56.330 --> 00:03:57.980
+being used on the website.
+
+86
+00:03:57.980 --> 00:03:59.970
+So WordPress is just a web application,
+
+87
+00:03:59.970 --> 00:04:02.430
+so you can see other examples in your case.
+
+88
+00:04:02.430 --> 00:04:05.520
+And it's a open-source web application
+
+89
+00:04:05.520 --> 00:04:08.110
+that a lot of other websites might have.
+
+90
+00:04:08.110 --> 00:04:12.170
+The good thing about this is you can go and find exploits
+
+91
+00:04:12.170 --> 00:04:15.350
+or vulnerabilities within this web application.
+
+92
+00:04:15.350 --> 00:04:18.090
+If you are lucky enough to find an existing one,
+
+93
+00:04:18.090 --> 00:04:21.963
+then you can go ahead and exploit it on the target website.
+
+94
+00:04:23.090 --> 00:04:25.780
+So for example, we have WordPress in our example
+
+95
+00:04:25.780 --> 00:04:27.630
+and I'm gonna go to Exploit Database.
+
+96
+00:04:32.150 --> 00:04:34.283
+And if we go on the search here,
+
+97
+00:04:35.990 --> 00:04:38.380
+so I'm just gonna type in WordPress here.
+
+98
+00:04:38.380 --> 00:04:40.243
+And I'm gonna say I'm not a robot.
+
+99
+00:04:41.840 --> 00:04:43.223
+Then we're going to search.
+
+100
+00:04:46.470 --> 00:04:47.500
+And as you can see,
+
+101
+00:04:47.500 --> 00:04:51.960
+we managed to find a lot of exploits related to WordPress.
+
+102
+00:04:51.960 --> 00:04:55.450
+Now these are related to different versions of WordPress
+
+103
+00:04:55.450 --> 00:04:57.700
+so you need to make sure that you have the same version
+
+104
+00:04:57.700 --> 00:04:58.950
+on your target.
+
+105
+00:04:58.950 --> 00:05:00.700
+And we'll have examples to see how
+
+106
+00:05:00.700 --> 00:05:03.240
+to use exploits like these,
+
+107
+00:05:03.240 --> 00:05:07.063
+but it just shows you how powerful information gathering is.
+
+108
+00:05:09.340 --> 00:05:12.620
+Again going down, you can see that the website uses cPanel.
+
+109
+00:05:12.620 --> 00:05:14.750
+This is another web application.
+
+110
+00:05:14.750 --> 00:05:16.400
+It's a hosting control panel.
+
+111
+00:05:16.400 --> 00:05:18.560
+Again, you can go on Exploit Database
+
+112
+00:05:18.560 --> 00:05:20.560
+and see if you can find any vulnerabilities
+
+113
+00:05:20.560 --> 00:05:22.283
+or exploits related to it.
+
+114
+00:05:23.550 --> 00:05:25.470
+And you can also find other information
+
+115
+00:05:25.470 --> 00:05:29.390
+such as that the website uses HTML5, uses CSS,
+
+116
+00:05:29.390 --> 00:05:31.110
+and all that kind of stuff.
+
+117
+00:05:31.110 --> 00:05:33.560
+So Netcraft is really useful.
+
+118
+00:05:33.560 --> 00:05:36.210
+From it we managed to know that the website runs PHP,
+
+119
+00:05:37.045 --> 00:05:37.878
+it runs JavaScript,
+
+120
+00:05:37.878 --> 00:05:39.100
+it uses WordPress,
+
+121
+00:05:39.100 --> 00:05:41.700
+so we can use WordPress to hack into the website,
+
+122
+00:05:41.700 --> 00:05:43.050
+and cPanel.
+
+123
+00:05:43.050 --> 00:05:46.140
+And we can also, if we go up,
+
+124
+00:05:46.140 --> 00:05:48.230
+we also manage to know the web hosting,
+
+125
+00:05:48.230 --> 00:05:50.520
+or even we found out in the previous video,
+
+126
+00:05:50.520 --> 00:05:55.220
+that Dimofinf is the web hosting company of this website,
+
+127
+00:05:55.220 --> 00:05:57.220
+so in worst case scenarios,
+
+128
+00:05:57.220 --> 00:05:59.660
+we can try to hack into that web hosting
+
+129
+00:05:59.660 --> 00:06:02.193
+and gain access to our target website.
+

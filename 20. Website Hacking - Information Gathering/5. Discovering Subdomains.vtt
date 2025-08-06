@@ -1,0 +1,490 @@
+WEBVTT
+
+00:00.720 --> 00:02.160
+Instructor: So far, we've been gathering
+
+00:02.160 --> 00:05.160
+very useful information about the target,
+
+00:05.160 --> 00:06.871
+and we've seen that the target is always
+
+00:06.871 --> 00:11.760
+in the form of target.com, such as google.com.
+
+00:11.760 --> 00:14.820
+This name right here, such as google.com,
+
+00:14.820 --> 00:16.920
+is known as a domain.
+
+00:16.920 --> 00:18.840
+So this is the domain name.
+
+00:18.840 --> 00:20.640
+This is what we put in the address bar
+
+00:20.640 --> 00:22.293
+to access the target website.
+
+00:23.220 --> 00:26.519
+A lot of websites also have subdomains.
+
+00:26.519 --> 00:29.160
+Subdomains are the names that you see
+
+00:29.160 --> 00:32.400
+before the domain name, like this.
+
+00:32.400 --> 00:36.420
+So in this example we have subdomain.target.com,
+
+00:36.420 --> 00:41.130
+and a real life example would be mail.google.com.
+
+00:41.130 --> 00:44.248
+So in this case, the subdomain is Subdomain,
+
+00:44.248 --> 00:48.840
+and obviously in the Google example, the subdomain is mail.
+
+00:48.840 --> 00:52.170
+And then the domain name is google.com.
+
+00:52.170 --> 00:54.360
+So we know if we go to google.com,
+
+00:54.360 --> 00:56.100
+we're gonna get the famous search engine
+
+00:56.100 --> 00:59.010
+that allows us to search for things on the internet.
+
+00:59.010 --> 01:02.070
+But if we go to mail.google.com,
+
+01:02.070 --> 01:05.430
+we're gonna get a completely different web application
+
+01:05.430 --> 01:08.610
+that can be used to send and receive emails.
+
+01:08.610 --> 01:10.410
+Therefore, it's as if we're getting
+
+01:10.410 --> 01:12.450
+completely different websites,
+
+01:12.450 --> 01:15.570
+but we're still targeting the same domain name,
+
+01:15.570 --> 01:17.850
+which is google.com.
+
+01:17.850 --> 01:21.810
+Therefore, if your target is google.com or target.com,
+
+01:21.810 --> 01:23.850
+it is very important to discover
+
+01:23.850 --> 01:25.890
+all of the subdomains on it,
+
+01:25.890 --> 01:27.930
+because these subdomains can give us
+
+01:27.930 --> 01:29.670
+a lot of other information.
+
+01:29.670 --> 01:31.740
+We can discover sensitive data,
+
+01:31.740 --> 01:34.050
+we can discover management pages
+
+01:34.050 --> 01:37.290
+like the pages that the admin or members of the website use
+
+01:37.290 --> 01:39.330
+to access certain functionality.
+
+01:39.330 --> 01:42.390
+We can access completely different web applications,
+
+01:42.390 --> 01:45.990
+we can even access beta version of the web application
+
+01:45.990 --> 01:48.120
+or parts of the web application
+
+01:48.120 --> 01:50.490
+that is still under development.
+
+01:50.490 --> 01:52.380
+These parts that are under development
+
+01:52.380 --> 01:55.230
+or the beta versions are really good for hackers
+
+01:55.230 --> 01:57.960
+because there is a high chance of finding bugs
+
+01:57.960 --> 02:00.000
+because these parts of the web application
+
+02:00.000 --> 02:01.770
+haven't been tested really well
+
+02:01.770 --> 02:03.750
+or have experimental features,
+
+02:03.750 --> 02:06.870
+and therefore there's a high chance of them containing bugs.
+
+02:06.870 --> 02:09.540
+Therefore, there's a higher chance of finding weaknesses
+
+02:09.540 --> 02:12.960
+and exploiting them to gain access to the subdomain,
+
+02:12.960 --> 02:15.750
+and then hopefully from there, get access to the server,
+
+02:15.750 --> 02:18.120
+or somehow escalate our privileges
+
+02:18.120 --> 02:20.280
+to fully control the target website
+
+02:20.280 --> 02:21.903
+or the target web server.
+
+02:22.770 --> 02:25.200
+Now, discovering subdomains is really, really easy,
+
+02:25.200 --> 02:26.760
+and there is a lot of tools out there
+
+02:26.760 --> 02:28.680
+that can be used to do that.
+
+02:28.680 --> 02:31.560
+The tool that I'm gonna use is called knockpy.
+
+02:31.560 --> 02:34.410
+It's already pre-installed in the custom Kali.
+
+02:34.410 --> 02:36.480
+If you're not using the custom Kali, you'll have
+
+02:36.480 --> 02:37.980
+to manually install it.
+
+02:37.980 --> 02:41.190
+I will include its link in the resources, and as usual,
+
+02:41.190 --> 02:43.980
+before we use the tool, if we just type its name,
+
+02:43.980 --> 02:48.660
+which is knockpy, followed by --help,
+
+02:48.660 --> 02:51.840
+we're gonna get a very nice help menu to show us how
+
+02:51.840 --> 02:55.290
+to use the tool and all of the other options.
+
+02:55.290 --> 02:58.230
+Obviously, the first option that we need to specify is going
+
+02:58.230 --> 03:02.070
+to be d DOMAIN after the -d or the --domain.
+
+03:02.070 --> 03:05.730
+This is the domain that we want to discover subdomains on.
+
+03:05.730 --> 03:09.180
+You have a few other useful options that are not mandatory,
+
+03:09.180 --> 03:10.530
+and the main two options
+
+03:10.530 --> 03:14.070
+that you might consider using are the --recon
+
+03:14.070 --> 03:16.320
+and the --bruteforce.
+
+03:16.320 --> 03:18.960
+So the --recon tells no knockpy
+
+03:18.960 --> 03:21.420
+to discover subdomains passively
+
+03:21.420 --> 03:25.800
+using the publicly available DNS records and databases.
+
+03:25.800 --> 03:29.280
+As a result, it won't be making any direct requests
+
+03:29.280 --> 03:32.130
+to the target domain, and it will be fast.
+
+03:32.130 --> 03:34.050
+However, there is a small chance
+
+03:34.050 --> 03:38.460
+that it might not get you all of the potential subdomains.
+
+03:38.460 --> 03:39.720
+The other option that you have
+
+03:39.720 --> 03:42.600
+right here is the bruteforce option.
+
+03:42.600 --> 03:46.080
+And as the name suggests, it's going to use a word list.
+
+03:46.080 --> 03:48.240
+So you're gonna have to specify a file
+
+03:48.240 --> 03:51.480
+that contains a large number of potential names
+
+03:51.480 --> 03:52.950
+that could be subdomains,
+
+03:52.950 --> 03:55.710
+and then the program is going to go through these names
+
+03:55.710 --> 03:59.400
+one by one and make a request to the target domain.
+
+03:59.400 --> 04:01.230
+If it gets a positive response,
+
+04:01.230 --> 04:03.600
+it means that this subdomain exists,
+
+04:03.600 --> 04:06.090
+otherwise it's gonna move on to the next one.
+
+04:06.090 --> 04:08.430
+Therefore, this technique might take much longer
+
+04:08.430 --> 04:10.920
+because that depends on the size of the wordlist
+
+04:10.920 --> 04:13.710
+or the list of subdomains that you want to try.
+
+04:13.710 --> 04:16.680
+And it's going to be making direct requests
+
+04:16.680 --> 04:20.250
+to the target domain, so it's not passive compared
+
+04:20.250 --> 04:22.560
+to the first method, which is the recon.
+
+04:22.560 --> 04:24.480
+Now, the recon is actually really, really good
+
+04:24.480 --> 04:27.330
+and usually gets you all of the subdomains.
+
+04:27.330 --> 04:30.270
+That's why this is the method that we're going to use.
+
+04:30.270 --> 04:33.120
+So first of all, I'm gonna clear my screen
+
+04:33.120 --> 04:36.240
+and I'm gonna type the name of the program, knockpy,
+
+04:36.240 --> 04:38.130
+and then I'm gonna do --domain
+
+04:38.130 --> 04:40.620
+to specify the target domain that I want
+
+04:40.620 --> 04:42.420
+to discover subdomains on.
+
+04:42.420 --> 04:45.480
+And we're just gonna go with google.com.
+
+04:45.480 --> 04:48.780
+And finally, we're gonna do --recon to say
+
+04:48.780 --> 04:51.990
+that we want knockpy to use the passive method
+
+04:51.990 --> 04:55.860
+to discover all of the subdomains on the specified domain,
+
+04:55.860 --> 04:58.050
+which is google.com.
+
+04:58.050 --> 04:59.910
+So the command is very, very simple.
+
+04:59.910 --> 05:02.520
+We're first of all specifying the name of the tool
+
+05:02.520 --> 05:03.960
+that we want to use.
+
+05:03.960 --> 05:05.940
+We're giving it the domain that we want
+
+05:05.940 --> 05:09.030
+to discover subdomains on using the --domain,
+
+05:09.030 --> 05:10.350
+followed by the domain.
+
+05:10.350 --> 05:12.630
+And then we're specifying the technique
+
+05:12.630 --> 05:15.210
+that we want this tool to use in order
+
+05:15.210 --> 05:17.043
+to discover subdomains for us.
+
+05:17.940 --> 05:20.370
+We're gonna hit Enter and we're gonna give it some time
+
+05:20.370 --> 05:23.760
+to go ahead, search all of the publicly available databases
+
+05:23.760 --> 05:25.020
+and DNS records,
+
+05:25.020 --> 05:27.390
+and give us all of the subdomains
+
+05:27.390 --> 05:29.913
+that it can discover on google.com.
+
+05:30.870 --> 05:33.270
+And perfect, after less than a minute,
+
+05:33.270 --> 05:37.590
+as you can see, I got 555 subdomains
+
+05:37.590 --> 05:40.620
+to be precise for the website that I specified,
+
+05:40.620 --> 05:42.420
+which is google.com,
+
+05:42.420 --> 05:45.390
+and we can scroll up in here, as you can see,
+
+05:45.390 --> 05:46.500
+and for each one of them,
+
+05:46.500 --> 05:48.540
+you can even get more information
+
+05:48.540 --> 05:50.880
+about the responses that they returned.
+
+05:50.880 --> 05:54.480
+But nevertheless, all of these are real subdomains
+
+05:54.480 --> 05:57.780
+that exist on the domain that I specified,
+
+05:57.780 --> 05:59.880
+which is google.com.
+
+05:59.880 --> 06:02.280
+Now, obviously, we got a really big list in this example
+
+06:02.280 --> 06:05.910
+because Google is such a huge provider of so many services,
+
+06:05.910 --> 06:07.170
+but if you go through them,
+
+06:07.170 --> 06:09.990
+you're still gonna find the popular domains
+
+06:09.990 --> 06:12.780
+that you're familiar with, like Plus.google,
+
+06:12.780 --> 06:13.950
+and Play.google,
+
+06:13.950 --> 06:18.390
+and if we scroll up, you're gonna find Gsuite, MAIL, Maps,
+
+06:18.390 --> 06:20.040
+and the list goes on.
+
+06:20.040 --> 06:23.160
+So now, if you are actually targeting google.com,
+
+06:23.160 --> 06:26.820
+you have increased the attack surface by so much
+
+06:26.820 --> 06:30.300
+because you can actually go to each one of these subdomains
+
+06:30.300 --> 06:32.460
+and see if it's running any applications.
+
+06:32.460 --> 06:35.490
+If it does, then you should go ahead and discover bugs
+
+06:35.490 --> 06:38.250
+and vulnerability similar to what we're gonna show you
+
+06:38.250 --> 06:41.220
+in the next lectures in all of these applications.
+
+06:41.220 --> 06:43.560
+And in some cases, you might even be able
+
+06:43.560 --> 06:47.010
+to discover sensitive information that is not supposed
+
+06:47.010 --> 06:48.780
+to be shared to the public.
+
+06:48.780 --> 06:52.350
+You might even discover beta versions of applications.
+
+06:52.350 --> 06:55.260
+So these are applications that are still under testing,
+
+06:55.260 --> 06:58.140
+and because these applications are still being tested,
+
+06:58.140 --> 07:00.480
+they are more likely to be vulnerable.
+
+07:00.480 --> 07:02.460
+And last but not least, in many cases,
+
+07:02.460 --> 07:05.910
+you'll also discover admin pages or members pages
+
+07:05.910 --> 07:08.790
+or employee pages that you'll be able to log in
+
+07:08.790 --> 07:10.800
+to private infrastructures
+
+07:10.800 --> 07:13.830
+or applications once you manage to get usernames
+
+07:13.830 --> 07:17.040
+and passwords or exploit the system further later on
+
+07:17.040 --> 07:18.603
+as we go through the course.

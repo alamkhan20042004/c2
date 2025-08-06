@@ -1,0 +1,302 @@
+WEBVTT
+
+1
+00:00:03.100 --> 00:00:06.690
+<v Speaker>Okay, so let's see how we can gain full control</v>
+
+2
+00:00:06.690 --> 00:00:11.000
+and get a Meterpreter session from the target computer.
+
+3
+00:00:11.000 --> 00:00:13.570
+So, again we're gonna go on the commands
+
+4
+00:00:13.570 --> 00:00:15.430
+and we're gonna go on the social engineering.
+
+5
+00:00:15.430 --> 00:00:17.300
+Now, there's actually a number of ways
+
+6
+00:00:17.300 --> 00:00:21.420
+that you can use in here to get a reverse trail.
+
+7
+00:00:21.420 --> 00:00:23.630
+It all depends on how you wanna make
+
+8
+00:00:23.630 --> 00:00:25.950
+your social engineering attack.
+
+9
+00:00:25.950 --> 00:00:28.900
+What we're going to use, we're gonna use a notification bar,
+
+10
+00:00:28.900 --> 00:00:32.050
+a fake notification bar, and we're choosing Firefox
+
+11
+00:00:32.050 --> 00:00:34.750
+because our target is runs on Firefox
+
+12
+00:00:34.750 --> 00:00:36.083
+or are using Firefox.
+
+13
+00:00:37.550 --> 00:00:40.450
+So, what this will do, it will basically tell the user,
+
+14
+00:00:40.450 --> 00:00:43.360
+it'll display a notification bar telling the user that
+
+15
+00:00:43.360 --> 00:00:45.130
+there is a new update or there's a plugin
+
+16
+00:00:45.130 --> 00:00:46.690
+that you need to install.
+
+17
+00:00:46.690 --> 00:00:48.340
+Once they install the plugin,
+
+18
+00:00:48.340 --> 00:00:50.240
+then they'll actually install a backdoor
+
+19
+00:00:50.240 --> 00:00:52.900
+and you'll gain full access to their computer.
+
+20
+00:00:52.900 --> 00:00:55.210
+So, the way we're gonna do this is we're gonna use the same
+
+21
+00:00:55.210 --> 00:00:57.970
+backdoor that we always created and we've been using.
+
+22
+00:00:57.970 --> 00:01:02.220
+Now, I actually have it stored in my web server.
+
+23
+00:01:02.220 --> 00:01:04.123
+So, I have it stored in var,
+
+24
+00:01:06.290 --> 00:01:11.180
+www.html and I have it called update.exe
+
+25
+00:01:11.180 --> 00:01:12.057
+but it's the same backdoor,
+
+26
+00:01:12.057 --> 00:01:15.613
+the same reverse http Meterpreter that we used before.
+
+27
+00:01:17.810 --> 00:01:20.680
+So, I'm gonna give the full address to it here.
+
+28
+00:01:20.680 --> 00:01:22.030
+So, it's stored in
+
+29
+00:01:24.940 --> 00:01:29.110
+10.20.14.207,
+
+30
+00:01:29.110 --> 00:01:31.290
+that's my actual IP,
+
+31
+00:01:31.290 --> 00:01:34.210
+and the name of the file is update.exe
+
+32
+00:01:36.660 --> 00:01:39.330
+and then the notification, the notification
+
+33
+00:01:39.330 --> 00:01:41.250
+is just saying there is an additional plugin
+
+34
+00:01:41.250 --> 00:01:44.240
+that needs to be installed to display
+
+35
+00:01:44.240 --> 00:01:45.740
+some elements on this page.
+
+36
+00:01:45.740 --> 00:01:48.380
+Now, you can change this and just say,
+
+37
+00:01:48.380 --> 00:01:50.283
+critical update for Firefox,
+
+38
+00:01:52.440 --> 00:01:53.643
+click here to install.
+
+39
+00:01:57.310 --> 00:01:58.630
+So, I'm gonna hit execute
+
+40
+00:02:01.830 --> 00:02:03.470
+and if we go on to target,
+
+41
+00:02:03.470 --> 00:02:04.980
+you can see that they're getting a message
+
+42
+00:02:04.980 --> 00:02:07.350
+telling them that there is a new update for Firefox
+
+43
+00:02:07.350 --> 00:02:09.910
+and click here to download and install.
+
+44
+00:02:09.910 --> 00:02:11.170
+So, the target person will be like,
+
+45
+00:02:11.170 --> 00:02:12.630
+oh yeah I need to install this.
+
+46
+00:02:12.630 --> 00:02:13.650
+So, they download it
+
+47
+00:02:14.970 --> 00:02:16.922
+and now basically they have a backdoor
+
+48
+00:02:16.922 --> 00:02:18.880
+downloaded on their machine.
+
+49
+00:02:18.880 --> 00:02:21.980
+Once they try to run this backdoor to install the update,
+
+50
+00:02:21.980 --> 00:02:24.260
+they think it's an update, but they'll actually run
+
+51
+00:02:24.260 --> 00:02:27.750
+a backdoor which will give us full access to their computer.
+
+52
+00:02:27.750 --> 00:02:30.120
+Before I run the backdoor, I need to listen on the port,
+
+53
+00:02:30.120 --> 00:02:31.800
+exactly like we did it before,
+
+54
+00:02:31.800 --> 00:02:33.870
+so I'm just gonna do show options here to show you,
+
+55
+00:02:33.870 --> 00:02:35.730
+I'm not gonna go through all the steps.
+
+56
+00:02:35.730 --> 00:02:38.430
+It's using Metasploit multi handler,
+
+57
+00:02:38.430 --> 00:02:42.000
+saying why we did it in the video of listening for ports.
+
+58
+00:02:42.000 --> 00:02:45.270
+So, we're using Meterpreter reverse http,
+
+59
+00:02:45.270 --> 00:02:47.730
+I have my IP and the port,
+
+60
+00:02:47.730 --> 00:02:49.313
+so I'm just gonna do exploit,
+
+61
+00:02:51.290 --> 00:02:53.610
+and I'm listening for the connections now.
+
+62
+00:02:53.610 --> 00:02:56.283
+Now, let's run the update that we just downloaded.
+
+63
+00:03:06.370 --> 00:03:07.730
+And if we go on the target,
+
+64
+00:03:07.730 --> 00:03:10.070
+you can see that we got full control over it
+
+65
+00:03:10.070 --> 00:03:11.713
+using a Meterpreter session.
+
+66
+00:03:15.590 --> 00:03:17.670
+Now, again
+
+67
+00:03:17.670 --> 00:03:20.020
+this is just an example of one way
+
+68
+00:03:20.020 --> 00:03:22.540
+of getting in full control over the target computer.
+
+69
+00:03:22.540 --> 00:03:24.220
+There's a number of ways that you can do
+
+70
+00:03:24.220 --> 00:03:26.140
+using beef and there is a number
+
+71
+00:03:26.140 --> 00:03:28.930
+of social engineering attacks that you can do
+
+72
+00:03:28.930 --> 00:03:32.100
+to gain full access on the target computer.
+
+73
+00:03:32.100 --> 00:03:35.620
+So, again I highly recommend you go over the plugins
+
+74
+00:03:35.620 --> 00:03:37.480
+and experiment with them and see
+
+75
+00:03:37.480 --> 00:03:39.180
+what attacks you can come up with.
+

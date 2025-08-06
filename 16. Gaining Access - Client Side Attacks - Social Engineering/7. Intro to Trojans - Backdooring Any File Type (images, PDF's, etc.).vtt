@@ -1,0 +1,422 @@
+WEBVTT
+
+1
+00:00:01.091 --> 00:00:02.470
+<v Instructor>In this lecture I'd like to show you</v>
+
+2
+00:00:02.470 --> 00:00:06.020
+how to combine the backdoor that we created before
+
+3
+00:00:06.020 --> 00:00:07.820
+with any other file type,
+
+4
+00:00:07.820 --> 00:00:09.420
+so that, when executed,
+
+5
+00:00:09.420 --> 00:00:11.033
+it'll display an image,
+
+6
+00:00:11.033 --> 00:00:12.100
+a PDF,
+
+7
+00:00:12.100 --> 00:00:12.933
+a song,
+
+8
+00:00:12.933 --> 00:00:16.540
+or something that the target person is interested in.
+
+9
+00:00:16.540 --> 00:00:19.610
+This way, you'll be able to social-engineer them
+
+10
+00:00:19.610 --> 00:00:21.160
+to run your backdoor
+
+11
+00:00:21.160 --> 00:00:23.750
+and they'll see something that they trust,
+
+12
+00:00:23.750 --> 00:00:24.960
+but at the same time,
+
+13
+00:00:24.960 --> 00:00:28.170
+your backdoor will run in the background.
+
+14
+00:00:28.170 --> 00:00:31.640
+We're gonna do this using a "download and execute script"
+
+15
+00:00:31.640 --> 00:00:33.880
+which will basically download the backdoor,
+
+16
+00:00:33.880 --> 00:00:36.700
+download the file that the person expects,
+
+17
+00:00:36.700 --> 00:00:38.740
+run the file that the person expects
+
+18
+00:00:38.740 --> 00:00:41.083
+and run the backdoor in the background.
+
+19
+00:00:42.310 --> 00:00:45.180
+I'm gonna include the download and execute script
+
+20
+00:00:45.180 --> 00:00:46.610
+in the resources,
+
+21
+00:00:46.610 --> 00:00:49.260
+but I already have it downloaded here.
+
+22
+00:00:49.260 --> 00:00:51.590
+So, you can literally just double-click this
+
+23
+00:00:51.590 --> 00:00:54.623
+and you'll see the code used inside the script.
+
+24
+00:00:55.500 --> 00:00:57.100
+I programmed this in a way,
+
+25
+00:00:57.100 --> 00:00:59.670
+so that you can use it to download and execute
+
+26
+00:00:59.670 --> 00:01:02.270
+anything and any number of files.
+
+27
+00:01:02.270 --> 00:01:03.520
+So, all you have to do,
+
+28
+00:01:03.520 --> 00:01:07.690
+is literally put the links or the URLs for the files in here
+
+29
+00:01:07.690 --> 00:01:09.330
+and separate them by a comma.
+
+30
+00:01:09.330 --> 00:01:13.690
+So, you can out URL-comma, URL-comma and keep going.
+
+31
+00:01:13.690 --> 00:01:15.620
+So, you can use this to download and execute
+
+32
+00:01:15.620 --> 00:01:17.880
+two executable, three executable,
+
+33
+00:01:17.880 --> 00:01:19.823
+or any number of files you want.
+
+34
+00:01:21.180 --> 00:01:23.310
+So, I'm gonna delete everything here
+
+35
+00:01:24.910 --> 00:01:26.950
+and I'm gonna put the file
+
+36
+00:01:26.950 --> 00:01:29.460
+that I want the target person to see.
+
+37
+00:01:29.460 --> 00:01:32.070
+Now, this file needs to be available online
+
+38
+00:01:32.070 --> 00:01:34.220
+and uploaded on a direct link
+
+39
+00:01:34.220 --> 00:01:37.520
+so it can be downloaded form that link.
+
+40
+00:01:37.520 --> 00:01:39.670
+For this example, I'm gonna use an image,
+
+41
+00:01:39.670 --> 00:01:41.660
+but you can use any other file type.
+
+42
+00:01:41.660 --> 00:01:43.480
+You can get them to open a PDF
+
+43
+00:01:43.480 --> 00:01:45.990
+or anything else that you want.
+
+44
+00:01:45.990 --> 00:01:47.830
+So, I'm just gonna go on my browser
+
+45
+00:01:48.960 --> 00:01:50.810
+and I'm gonna go on Google Images
+
+46
+00:01:50.810 --> 00:01:52.060
+and just look for an image.
+
+47
+00:01:52.060 --> 00:01:53.510
+And I'm gonna look for a car.
+
+48
+00:01:57.210 --> 00:01:58.770
+I'm gonna take the car image
+
+49
+00:02:00.140 --> 00:02:03.380
+and I'm gonna click on "view image" here.
+
+50
+00:02:03.380 --> 00:02:07.480
+And notice when I do that, we get the image itself
+
+51
+00:02:07.480 --> 00:02:09.490
+through a direct URL right here.
+
+52
+00:02:09.490 --> 00:02:12.640
+So, you can see the end of the URL is dot GPG
+
+53
+00:02:12.640 --> 00:02:14.610
+and when we access the image,
+
+54
+00:02:14.610 --> 00:02:18.710
+you'll see that there is no ads around it, nothing, no HTML.
+
+55
+00:02:18.710 --> 00:02:21.510
+All you see is just the file itself.
+
+56
+00:02:21.510 --> 00:02:24.390
+So, the files included in that script,
+
+57
+00:02:24.390 --> 00:02:26.683
+all have to have a direct URL.
+
+58
+00:02:27.860 --> 00:02:29.360
+So, I'm gonna copy all of this
+
+59
+00:02:30.950 --> 00:02:35.113
+and I'm gonna paste it in here as the first URL.
+
+60
+00:02:37.540 --> 00:02:38.930
+Now, this is done.
+
+61
+00:02:38.930 --> 00:02:42.740
+The next file that I wanted to be downloaded and executed
+
+62
+00:02:42.740 --> 00:02:44.500
+is gonna be my backdoor.
+
+63
+00:02:44.500 --> 00:02:46.010
+So, I'm gonna put a comma
+
+64
+00:02:46.010 --> 00:02:49.360
+and then I'm gonna put a direct URL for my backdoor.
+
+65
+00:02:49.360 --> 00:02:53.210
+And as we've seen before, that's toward at HTTP,
+
+66
+00:02:53.210 --> 00:02:54.256
+10, 20,
+
+67
+00:02:54.256 --> 00:02:55.690
+14 to 13,
+
+68
+00:02:55.690 --> 00:02:59.957
+evil files, rev HTTP, S-A-T-A-T dot EXE.
+
+69
+00:03:05.230 --> 00:03:07.460
+Now, just to go over this point again.
+
+70
+00:03:07.460 --> 00:03:09.060
+If I copy this URL
+
+71
+00:03:10.040 --> 00:03:13.070
+and paste it in my browser,
+
+72
+00:03:13.070 --> 00:03:16.230
+you'll see that I can download this,
+
+73
+00:03:16.230 --> 00:03:19.080
+I can access the backdoor and download it,
+
+74
+00:03:19.080 --> 00:03:20.810
+without seeing any HTML,
+
+75
+00:03:20.810 --> 00:03:23.420
+without seeing any timer or download-page.
+
+76
+00:03:23.420 --> 00:03:25.910
+Literally, if I paste that URL in there,
+
+77
+00:03:25.910 --> 00:03:28.660
+I can access the file and download it directly.
+
+78
+00:03:28.660 --> 00:03:31.190
+You can see that there's no pages loaded, nothing.
+
+79
+00:03:31.190 --> 00:03:33.890
+If I put the URL, I can download the file.
+
+80
+00:03:33.890 --> 00:03:35.310
+This is very, very important.
+
+81
+00:03:35.310 --> 00:03:38.010
+The script will not work if you don't use direct URLs.
+
+82
+00:03:40.010 --> 00:03:41.320
+So, as you can see,
+
+83
+00:03:41.320 --> 00:03:42.650
+the script is very simple.
+
+84
+00:03:42.650 --> 00:03:46.780
+All we had to do is, put he URL for the first file
+
+85
+00:03:46.780 --> 00:03:48.320
+and then we put a comma,
+
+86
+00:03:48.320 --> 00:03:50.710
+which is very, very important, again.
+
+87
+00:03:50.710 --> 00:03:53.300
+So, you have to separate the URLs by a comma.
+
+88
+00:03:53.300 --> 00:03:56.490
+And then we put the URL for the second file.
+
+89
+00:03:56.490 --> 00:03:58.660
+And like I said, if you want to download more files,
+
+90
+00:03:58.660 --> 00:04:01.530
+if you wanna download more backdoor or more evil-files,
+
+91
+00:04:01.530 --> 00:04:03.740
+all you have to do is just put another comma
+
+92
+00:04:03.740 --> 00:04:05.620
+and put the next URL.
+
+93
+00:04:05.620 --> 00:04:07.090
+Now, this is not a programming course,
+
+94
+00:04:07.090 --> 00:04:09.750
+so I'm not gonna explain how I program the script,
+
+95
+00:04:09.750 --> 00:04:10.920
+it's very simple.
+
+96
+00:04:10.920 --> 00:04:12.970
+Basically, all it's gonna do is,
+
+97
+00:04:12.970 --> 00:04:15.460
+it's gonna download these files
+
+98
+00:04:15.460 --> 00:04:17.060
+and then execute them.
+
+99
+00:04:17.060 --> 00:04:19.183
+And I have the download function in here.
+
+100
+00:04:20.730 --> 00:04:22.060
+Now, everything is ready for me.
+
+101
+00:04:22.060 --> 00:04:24.423
+I'm gonna save this and close it.
+
+102
+00:04:26.590 --> 00:04:29.480
+I'm just gonna go back to my downloads to see the script.
+
+103
+00:04:29.480 --> 00:04:31.290
+And now, all we have to do,
+
+104
+00:04:31.290 --> 00:04:34.990
+is compile the script to an "executable".
+
+105
+00:04:34.990 --> 00:04:37.913
+And I'm gonna show you how to do that in the next lecture.
+

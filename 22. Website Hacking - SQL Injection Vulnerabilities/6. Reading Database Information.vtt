@@ -1,0 +1,430 @@
+WEBVTT
+
+1
+00:00:01.730 --> 00:00:05.110
+<v Instructor>Okay, so now let's try and determine</v>
+
+2
+00:00:05.110 --> 00:00:08.290
+how many columns are being selected into this page.
+
+3
+00:00:08.290 --> 00:00:11.640
+So how much information are being selected
+
+4
+00:00:11.640 --> 00:00:13.920
+and displayed on this page.
+
+5
+00:00:13.920 --> 00:00:17.210
+So to do that, we're going to use the order by command.
+
+6
+00:00:17.210 --> 00:00:18.740
+So we did order by one
+
+7
+00:00:18.740 --> 00:00:20.410
+and that returned something
+
+8
+00:00:20.410 --> 00:00:24.380
+that was acceptable and order by 100,000 gave us an error.
+
+9
+00:00:24.380 --> 00:00:26.623
+So let's try and do order by 10.
+
+10
+00:00:28.120 --> 00:00:29.870
+And we still get an error.
+
+11
+00:00:29.870 --> 00:00:32.413
+So I'm gonna do an order by five.
+
+12
+00:00:33.500 --> 00:00:34.890
+And that works.
+
+13
+00:00:34.890 --> 00:00:39.790
+So let's try to do an order by six and that gives an error.
+
+14
+00:00:39.790 --> 00:00:43.639
+So by doing this, we know that there is five columns
+
+15
+00:00:43.639 --> 00:00:47.440
+or are being selected from a certain table
+
+16
+00:00:47.440 --> 00:00:48.923
+and it's the accounts table.
+
+17
+00:00:50.810 --> 00:00:52.683
+And displayed on this page.
+
+18
+00:00:53.620 --> 00:00:57.360
+So let's try and build our own select statement
+
+19
+00:00:57.360 --> 00:01:00.403
+and get it to be executed on the target computer.
+
+20
+00:01:01.740 --> 00:01:03.110
+So let's come here
+
+21
+00:01:03.110 --> 00:01:04.330
+and try to build it there.
+
+22
+00:01:04.330 --> 00:01:07.360
+So at the moment, the statement is select star
+
+23
+00:01:07.360 --> 00:01:12.360
+from accounts where username is equal to zaid
+
+24
+00:01:12.740 --> 00:01:14.730
+and we're doing an order by one.
+
+25
+00:01:14.730 --> 00:01:17.270
+So let's see if we can fix that
+
+26
+00:01:17.270 --> 00:01:19.733
+and get it to select something that we like.
+
+27
+00:01:21.560 --> 00:01:23.670
+So the normal way to select stuff
+
+28
+00:01:23.670 --> 00:01:25.323
+is using this format.
+
+29
+00:01:26.620 --> 00:01:29.740
+But because we're trying to do multiple selects
+
+30
+00:01:29.740 --> 00:01:31.920
+and we're trying to do it from the URL,
+
+31
+00:01:31.920 --> 00:01:35.100
+we're gonna have to use a union first
+
+32
+00:01:35.100 --> 00:01:36.943
+and then we're gonna say select.
+
+33
+00:01:38.610 --> 00:01:40.320
+Then we need to imagine
+
+34
+00:01:40.320 --> 00:01:42.230
+what's happening on this application.
+
+35
+00:01:42.230 --> 00:01:43.920
+So in this web application,
+
+36
+00:01:43.920 --> 00:01:47.130
+we know that there are five records being selected.
+
+37
+00:01:47.130 --> 00:01:50.150
+So there are five columns that are being selected.
+
+38
+00:01:50.150 --> 00:01:54.620
+So we're doing one, two, three, four, five
+
+39
+00:01:54.620 --> 00:01:57.560
+and we got that from the order by command.
+
+40
+00:01:57.560 --> 00:02:00.383
+So let's run this and see what happens.
+
+41
+00:02:12.030 --> 00:02:13.973
+And I spelled union wrong.
+
+42
+00:02:25.020 --> 00:02:27.860
+And as you can see now, the selection was right
+
+43
+00:02:27.860 --> 00:02:29.270
+and we got the first selection,
+
+44
+00:02:29.270 --> 00:02:33.030
+so the first selection that this line does
+
+45
+00:02:33.030 --> 00:02:37.250
+has been done and then it did the union.
+
+46
+00:02:37.250 --> 00:02:41.160
+So it combined that selection with another selection
+
+47
+00:02:41.160 --> 00:02:42.510
+and it showed us something else.
+
+48
+00:02:42.510 --> 00:02:43.610
+And as you can see here,
+
+49
+00:02:43.610 --> 00:02:46.100
+we're only seeing two, three and four.
+
+50
+00:02:46.100 --> 00:02:49.280
+And what that means is whatever value you put a number two
+
+51
+00:02:49.280 --> 00:02:50.980
+or three or four,
+
+52
+00:02:50.980 --> 00:02:52.530
+whatever you want to select,
+
+53
+00:02:52.530 --> 00:02:53.800
+if you put it in there,
+
+54
+00:02:53.800 --> 00:02:56.350
+it's going to be displayed in this page
+
+55
+00:02:56.350 --> 00:02:58.720
+in this particular location.
+
+56
+00:02:58.720 --> 00:03:01.150
+And you can see that here you have results for two.
+
+57
+00:03:01.150 --> 00:03:05.123
+So whatever you put in two will also be shown in here.
+
+58
+00:03:07.800 --> 00:03:10.530
+So let's try to see our database.
+
+59
+00:03:10.530 --> 00:03:11.590
+So instead of number two,
+
+60
+00:03:11.590 --> 00:03:13.343
+I'm gonna say database.
+
+61
+00:03:15.180 --> 00:03:16.720
+And instead of number three,
+
+62
+00:03:16.720 --> 00:03:18.153
+I'm gonna say username.
+
+63
+00:03:20.320 --> 00:03:21.153
+Or user.
+
+64
+00:03:22.000 --> 00:03:23.520
+And instead of number four,
+
+65
+00:03:23.520 --> 00:03:24.763
+I'm gonna do version.
+
+66
+00:03:25.600 --> 00:03:28.950
+And this will select the current database,
+
+67
+00:03:28.950 --> 00:03:32.160
+the current user privileges that we have
+
+68
+00:03:32.160 --> 00:03:35.040
+and the version of the database.
+
+69
+00:03:35.040 --> 00:03:36.890
+So let's see if this gets executed
+
+70
+00:03:36.890 --> 00:03:38.340
+and then we'll talk about it.
+
+71
+00:03:44.830 --> 00:03:45.790
+Okay, cool.
+
+72
+00:03:45.790 --> 00:03:49.150
+So the username is showing up as owasp10
+
+73
+00:03:49.150 --> 00:03:50.960
+and that was number two,
+
+74
+00:03:50.960 --> 00:03:55.360
+so that is the database that we're looking for.
+
+75
+00:03:55.360 --> 00:03:57.940
+So the database is owasp10.
+
+76
+00:03:57.940 --> 00:04:01.870
+The current user that we're logged in as is root@localhost,
+
+77
+00:04:01.870 --> 00:04:03.720
+so we're the root user.
+
+78
+00:04:03.720 --> 00:04:05.290
+And in the signature,
+
+79
+00:04:05.290 --> 00:04:07.760
+so these stuff actually don't mean anything.
+
+80
+00:04:07.760 --> 00:04:09.110
+We're only concerned about this
+
+81
+00:04:09.110 --> 00:04:10.640
+and what we injected
+
+82
+00:04:10.640 --> 00:04:11.920
+and we injected the version
+
+83
+00:04:11.920 --> 00:04:16.920
+and we can see this is the version of MySQL, so it's 5.0.51.
+
+84
+00:04:17.030 --> 00:04:19.760
+So at the moment, we know that our database
+
+85
+00:04:19.760 --> 00:04:22.330
+that we're connected to is owasp10.
+
+86
+00:04:22.330 --> 00:04:25.820
+Usually in most real-life scenarios,
+
+87
+00:04:25.820 --> 00:04:28.680
+each database is assigned to a certain user.
+
+88
+00:04:28.680 --> 00:04:30.390
+So usually you're only able
+
+89
+00:04:30.390 --> 00:04:33.570
+to select stuff, tables, column, data
+
+90
+00:04:33.570 --> 00:04:36.433
+that is located in this current database.
+
+91
+00:04:37.480 --> 00:04:39.610
+At the moment, we're logged in as root.
+
+92
+00:04:39.610 --> 00:04:43.830
+So this web application has been connected to the database
+
+93
+00:04:43.830 --> 00:04:45.820
+as root, so therefore,
+
+94
+00:04:45.820 --> 00:04:48.010
+we can actually access other databases
+
+95
+00:04:48.010 --> 00:04:50.690
+but this doesn't really happen in real-life scenarios.
+
+96
+00:04:50.690 --> 00:04:55.690
+Usually, each user has their own database.
+
+97
+00:04:55.800 --> 00:04:59.360
+So when they connect a web application to a database,
+
+98
+00:04:59.360 --> 00:05:01.430
+they connect it to one database
+
+99
+00:05:01.430 --> 00:05:04.310
+and therefore, you won't be able to access other database.
+
+100
+00:05:04.310 --> 00:05:05.490
+So we're gonna consider that.
+
+101
+00:05:05.490 --> 00:05:08.860
+We're gonna assume that we only have access
+
+102
+00:05:08.860 --> 00:05:12.720
+to owasp10, which is our current database
+
+103
+00:05:12.720 --> 00:05:14.053
+for this current website.
+
+104
+00:05:15.010 --> 00:05:17.773
+And that the username is root@localhost.
+
+105
+00:05:19.889 --> 00:05:20.722
+In the next videos,
+
+106
+00:05:20.722 --> 00:05:23.030
+we'll see how we can further exploit this
+
+107
+00:05:23.030 --> 00:05:26.143
+and do more powerful select statements.
+

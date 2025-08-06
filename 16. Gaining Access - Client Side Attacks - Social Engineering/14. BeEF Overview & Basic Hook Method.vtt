@@ -1,0 +1,886 @@
+WEBVTT
+
+1
+00:00:01.080 --> 00:00:03.340
+<v Tutor>In this lecture I'd like to introduce you</v>
+
+2
+00:00:03.340 --> 00:00:07.020
+to a really cool framework called BeEF.
+
+3
+00:00:07.020 --> 00:00:11.010
+BeEF is short for the Browser Exploitation Framework.
+
+4
+00:00:11.010 --> 00:00:15.640
+It allows us to run a number of attacks on hooked browsers
+
+5
+00:00:15.640 --> 00:00:19.360
+that would allow us to further exploit the target system
+
+6
+00:00:19.360 --> 00:00:22.198
+to steal passwords or even gain full access
+
+7
+00:00:22.198 --> 00:00:24.993
+or full control over this system.
+
+8
+00:00:25.990 --> 00:00:27.030
+So, right here,
+
+9
+00:00:27.030 --> 00:00:31.360
+I'm at my Kali machine and we can go ahead and start with,
+
+10
+00:00:31.360 --> 00:00:35.980
+and to do that I'm gonna click on all my applications.
+
+11
+00:00:35.980 --> 00:00:37.393
+I'm gonna type BeEF,
+
+12
+00:00:38.690 --> 00:00:43.170
+and I'm gonna click on the first icon in here, beef start.
+
+13
+00:00:43.170 --> 00:00:45.160
+You can use the beef stop to stop it,
+
+14
+00:00:45.160 --> 00:00:47.760
+but right now we just want to start the framework.
+
+15
+00:00:47.760 --> 00:00:49.593
+So we're gonna click on the start.
+
+16
+00:00:50.670 --> 00:00:54.150
+Now, because this is the first time we're on the framework,
+
+17
+00:00:54.150 --> 00:00:58.260
+it's asking us to set a password for the default user.
+
+18
+00:00:58.260 --> 00:01:01.440
+So go ahead and pick any password you want.
+
+19
+00:01:01.440 --> 00:01:03.800
+And note when you type the password,
+
+20
+00:01:03.800 --> 00:01:06.360
+you will not see the characters on screen.
+
+21
+00:01:06.360 --> 00:01:10.110
+This is a security feature, so that the people around you
+
+22
+00:01:10.110 --> 00:01:11.760
+will not see your password.
+
+23
+00:01:11.760 --> 00:01:14.250
+So right now I actually typed my password,
+
+24
+00:01:14.250 --> 00:01:16.560
+but you can't see anything on screen.
+
+25
+00:01:16.560 --> 00:01:17.893
+I'm just gonna hit Enter,
+
+26
+00:01:18.800 --> 00:01:20.492
+and then it'll automatically start
+
+27
+00:01:20.492 --> 00:01:22.950
+the BeEF Framework for me.
+
+28
+00:01:22.950 --> 00:01:25.560
+And it'll automatically start Firefox
+
+29
+00:01:25.560 --> 00:01:28.280
+and go to the web interface
+
+30
+00:01:28.280 --> 00:01:30.690
+that we can use to access BeEF
+
+31
+00:01:30.690 --> 00:01:32.643
+and control the hooked browsers.
+
+32
+00:01:33.710 --> 00:01:34.543
+As you can see,
+
+33
+00:01:34.543 --> 00:01:35.950
+the first thing that it'll ask us,
+
+34
+00:01:35.950 --> 00:01:40.570
+is a username and a password to login to this web interface.
+
+35
+00:01:40.570 --> 00:01:44.390
+The default user is BeEF, B-E-E-F,
+
+36
+00:01:44.390 --> 00:01:46.140
+and the password is the password
+
+37
+00:01:46.140 --> 00:01:48.663
+that we just set in terminal.
+
+38
+00:01:49.753 --> 00:01:52.540
+I'm gonna hit Enter to login.
+
+39
+00:01:52.540 --> 00:01:57.540
+And as you can see, we have the main user interface of BeEF.
+
+40
+00:01:58.960 --> 00:02:01.110
+The main thing you can see here on the left
+
+41
+00:02:01.110 --> 00:02:04.100
+is the Online and the Offline Browsers.
+
+42
+00:02:04.100 --> 00:02:05.530
+In the Online Browsers,
+
+43
+00:02:05.530 --> 00:02:08.610
+you'll see the browsers that are hooked to BeEF right now
+
+44
+00:02:08.610 --> 00:02:10.130
+that you can control.
+
+45
+00:02:10.130 --> 00:02:11.900
+And in the Offline Browsers,
+
+46
+00:02:11.900 --> 00:02:14.034
+you'll see the browsers that you previously
+
+47
+00:02:14.034 --> 00:02:16.030
+were able to control.
+
+48
+00:02:16.030 --> 00:02:19.463
+So browsers that you previously hooked to BeEF.
+
+49
+00:02:20.590 --> 00:02:23.430
+Now, in order to hook a browser to BeEF
+
+50
+00:02:23.430 --> 00:02:27.150
+and be able to control it and run commands on it,
+
+51
+00:02:27.150 --> 00:02:28.930
+you have to get that browser
+
+52
+00:02:28.930 --> 00:02:32.820
+to execute a specific JavaScript code.
+
+53
+00:02:32.820 --> 00:02:35.330
+So if we go back to the terminal window here
+
+54
+00:02:35.330 --> 00:02:38.563
+that started before us and just scroll up,
+
+55
+00:02:39.480 --> 00:02:42.330
+you'll see that it's given us the JavaScript code
+
+56
+00:02:42.330 --> 00:02:45.663
+that we need to use to hook browsers to beef.
+
+57
+00:02:46.800 --> 00:02:49.490
+As soon as this piece of code gets executed
+
+58
+00:02:49.490 --> 00:02:50.790
+on a web browser,
+
+59
+00:02:50.790 --> 00:02:53.800
+you will see that web browser here in the Online Browsers,
+
+60
+00:02:53.800 --> 00:02:57.950
+and you'll be able to execute a lot of really cool commands
+
+61
+00:02:57.950 --> 00:03:00.242
+that'll allow you to show fake login pages,
+
+62
+00:03:00.242 --> 00:03:02.293
+It's allow you to show fake updates
+
+63
+00:03:02.293 --> 00:03:06.940
+and even gain full control over the target system.
+
+64
+00:03:06.940 --> 00:03:09.830
+Now because BeEF uses JavaScript,
+
+65
+00:03:09.830 --> 00:03:13.810
+it'll work on any web browser that supports JavaScript
+
+66
+00:03:13.810 --> 00:03:18.100
+regardless of what device this web browser is running on.
+
+67
+00:03:18.100 --> 00:03:21.280
+So it'll basically work on all modern browsers.
+
+68
+00:03:21.280 --> 00:03:25.331
+So it'll work against phones, tablets, smart TVs,
+
+69
+00:03:25.331 --> 00:03:28.180
+all operating systems used on PCs,
+
+70
+00:03:28.180 --> 00:03:32.070
+such as Linux, Windows, or SX and so on.
+
+71
+00:03:32.070 --> 00:03:34.434
+Literally any browser that can run JavaScript
+
+72
+00:03:34.434 --> 00:03:36.650
+will be able to run this code.
+
+73
+00:03:36.650 --> 00:03:39.920
+And therefore we'll be able to hook that browser to BeEF
+
+74
+00:03:39.920 --> 00:03:42.570
+and do all of the cool things that you will learn
+
+75
+00:03:42.570 --> 00:03:43.673
+in the next lectures.
+
+76
+00:03:44.750 --> 00:03:47.989
+So right now, it really depends on you and your imagination
+
+77
+00:03:47.989 --> 00:03:51.030
+on how you're going to get this piece of code
+
+78
+00:03:51.030 --> 00:03:53.500
+to run on our web browser.
+
+79
+00:03:53.500 --> 00:03:55.730
+If you're able to become the man in the middle,
+
+80
+00:03:55.730 --> 00:04:00.350
+you can do DNS spoofing and redirect requests to a page
+
+81
+00:04:00.350 --> 00:04:02.960
+that contains this whole code.
+
+82
+00:04:02.960 --> 00:04:06.466
+Or, you can inject this JavaScript in any webpage
+
+83
+00:04:06.466 --> 00:04:09.310
+that the target loads using the JavaScript
+
+84
+00:04:09.310 --> 00:04:11.250
+injection methods that we learned
+
+85
+00:04:11.250 --> 00:04:13.113
+once you become demand in the middle.
+
+86
+00:04:13.970 --> 00:04:17.186
+You can also exploit an XSS vulnerability
+
+87
+00:04:17.186 --> 00:04:20.084
+and inject this code in a vulnerable webpage.
+
+88
+00:04:20.084 --> 00:04:21.663
+And you will learn how to do that
+
+89
+00:04:21.663 --> 00:04:24.020
+in the website hacking section,
+
+90
+00:04:24.020 --> 00:04:26.530
+or you can use social engineering
+
+91
+00:04:26.530 --> 00:04:29.902
+and social engineer a target into loading a webpage
+
+92
+00:04:29.902 --> 00:04:32.800
+that contains our whole code.
+
+93
+00:04:32.800 --> 00:04:37.160
+So all you'll need to do is think of a way to get a target,
+
+94
+00:04:37.160 --> 00:04:41.033
+to load a page that contains the hook JavaScript code.
+
+95
+00:04:41.930 --> 00:04:42.870
+Now, in this lecture,
+
+96
+00:04:42.870 --> 00:04:45.600
+I'm gonna show you a very basic hook method
+
+97
+00:04:45.600 --> 00:04:48.138
+that is really good for us to make sure that our system
+
+98
+00:04:48.138 --> 00:04:50.600
+is working as expected.
+
+99
+00:04:50.600 --> 00:04:54.230
+And this very page can also be used with method number one
+
+100
+00:04:54.230 --> 00:04:55.940
+and method number four.
+
+101
+00:04:55.940 --> 00:04:57.740
+Because we're gonna have an HTML page
+
+102
+00:04:57.740 --> 00:04:59.550
+that contains the whole code.
+
+103
+00:04:59.550 --> 00:05:03.270
+Therefore, you can either DNS spoof targets to this page
+
+104
+00:05:03.270 --> 00:05:05.460
+or social engineer them to this page
+
+105
+00:05:05.460 --> 00:05:06.970
+and once they load this page,
+
+106
+00:05:06.970 --> 00:05:09.760
+the hook code will be executed on their browser
+
+107
+00:05:09.760 --> 00:05:11.800
+and therefore they will be hooked to BeEF
+
+108
+00:05:11.800 --> 00:05:14.310
+and we'll be able to run all of the commands
+
+109
+00:05:14.310 --> 00:05:16.580
+that BeEF allow us to run.
+
+110
+00:05:16.580 --> 00:05:18.450
+So, let's go back to BeEF.
+
+111
+00:05:18.450 --> 00:05:19.283
+And like I said,
+
+112
+00:05:19.283 --> 00:05:22.850
+this is the code that we want our target browsers to load
+
+113
+00:05:22.850 --> 00:05:24.150
+or execute.
+
+114
+00:05:24.150 --> 00:05:27.092
+So I'm gonna copy it and I'm gonna go
+
+115
+00:05:27.092 --> 00:05:30.080
+and open my File Manager.
+
+116
+00:05:30.080 --> 00:05:32.150
+And I wanna go to my web root.
+
+117
+00:05:32.150 --> 00:05:35.260
+So you can either press Ctrl + L from your keyboard
+
+118
+00:05:35.260 --> 00:05:37.720
+or click in here at the path bar
+
+119
+00:05:37.720 --> 00:05:40.340
+and just press the forward slash.
+
+120
+00:05:40.340 --> 00:05:42.510
+This will open a path text box,
+
+121
+00:05:42.510 --> 00:05:45.260
+where you can type the path that you want to go to.
+
+122
+00:05:45.260 --> 00:05:50.163
+And I wanna go to /var/www/html.
+
+123
+00:05:51.200 --> 00:05:52.630
+Now, as we learned before,
+
+124
+00:05:52.630 --> 00:05:54.850
+this is the location where the files
+
+125
+00:05:54.850 --> 00:05:56.960
+for your web server are stored,
+
+126
+00:05:56.960 --> 00:06:00.820
+and the index.html is the file that gets loaded
+
+127
+00:06:00.820 --> 00:06:05.820
+by default when someone loads your IP in their web browser.
+
+128
+00:06:06.040 --> 00:06:09.290
+So I'm gonna right click the index.html
+
+129
+00:06:09.290 --> 00:06:13.033
+and I'm gonna choose to open it with a text editor.
+
+130
+00:06:16.720 --> 00:06:19.550
+And I'm simply gonna remove all of this
+
+131
+00:06:19.550 --> 00:06:22.240
+and paste the hook code in here.
+
+132
+00:06:22.240 --> 00:06:24.460
+There's one thing that I wanna modify,
+
+133
+00:06:24.460 --> 00:06:26.550
+is the IP in here.
+
+134
+00:06:26.550 --> 00:06:31.076
+I'm gonna replace this IP with the IP of my Kali machine.
+
+135
+00:06:31.076 --> 00:06:32.340
+As we learned before,
+
+136
+00:06:32.340 --> 00:06:35.020
+you can get the IP using F config command.
+
+137
+00:06:35.020 --> 00:06:36.400
+So I'm not gonna do it right now,
+
+138
+00:06:36.400 --> 00:06:38.300
+you should already know this by now.
+
+139
+00:06:38.300 --> 00:06:43.087
+So I know my IP is 10.20.14.207.
+
+140
+00:06:44.290 --> 00:06:46.320
+And that's it, we're ready to go.
+
+141
+00:06:46.320 --> 00:06:50.070
+So if anybody now loads my IP address,
+
+142
+00:06:50.070 --> 00:06:52.270
+which is 10.20.14.207,
+
+143
+00:06:52.270 --> 00:06:54.480
+I will have a web server working on it,
+
+144
+00:06:54.480 --> 00:06:57.770
+which will load the index.html by default.
+
+145
+00:06:57.770 --> 00:07:01.720
+And when this file is loaded, it'll load the BeEF hook code
+
+146
+00:07:01.720 --> 00:07:03.910
+and it'll hook that browser to BeEF,
+
+147
+00:07:03.910 --> 00:07:08.114
+which will allow me to run a number of really cool commands.
+
+148
+00:07:08.114 --> 00:07:09.950
+Now, before loading this page,
+
+149
+00:07:09.950 --> 00:07:12.010
+we need to start our web server.
+
+150
+00:07:12.010 --> 00:07:15.680
+And as we learned before, we can do this by doing,
+
+151
+00:07:15.680 --> 00:07:19.353
+service apache2 start.
+
+152
+00:07:20.190 --> 00:07:22.940
+And now, my Apache web server is running.
+
+153
+00:07:22.940 --> 00:07:26.140
+And if I go to my windows machine in here
+
+154
+00:07:26.140 --> 00:07:30.340
+and simply just go to the address of my web server,
+
+155
+00:07:30.340 --> 00:07:33.967
+which is 10.20.14.207.
+
+156
+00:07:36.950 --> 00:07:39.290
+Now, as you can see, we'll get a blank page.
+
+157
+00:07:39.290 --> 00:07:43.250
+That's fine because our page contains nothing but the code,
+
+158
+00:07:43.250 --> 00:07:45.271
+you could actually have a proper HTML page
+
+159
+00:07:45.271 --> 00:07:48.730
+and just put the whole code at the end or at the start.
+
+160
+00:07:48.730 --> 00:07:51.780
+But this will do for testing for now.
+
+161
+00:07:51.780 --> 00:07:56.780
+And if we go back here and go to the BeEF interface,
+
+162
+00:07:57.970 --> 00:07:59.820
+if we look at the online browsers,
+
+163
+00:07:59.820 --> 00:08:02.750
+you'll see we have the IP address of my target,
+
+164
+00:08:02.750 --> 00:08:05.080
+which is 10.20.14.206.
+
+165
+00:08:05.080 --> 00:08:08.810
+This is the IP address of the windows machine.
+
+166
+00:08:08.810 --> 00:08:11.900
+And right now, if I click on it,
+
+167
+00:08:11.900 --> 00:08:15.080
+you'll see I'll have a number of tabs in here
+
+168
+00:08:15.080 --> 00:08:18.100
+which will allow us to do various things.
+
+169
+00:08:18.100 --> 00:08:20.060
+In the home and the details,
+
+170
+00:08:20.060 --> 00:08:21.322
+you'll see we have information
+
+171
+00:08:21.322 --> 00:08:24.330
+about the browser of the target.
+
+172
+00:08:24.330 --> 00:08:25.163
+For example,
+
+173
+00:08:25.163 --> 00:08:28.790
+you can see that it doesn't have a VLC plugin installed,
+
+174
+00:08:28.790 --> 00:08:30.730
+it supports web socket.
+
+175
+00:08:30.730 --> 00:08:33.480
+If you scroll down, you can see the user agent,
+
+176
+00:08:33.480 --> 00:08:37.390
+which is Mozilla/5.0, it's running on windows NT,
+
+177
+00:08:37.390 --> 00:08:39.810
+64 bit architecture.
+
+178
+00:08:39.810 --> 00:08:42.620
+Again, if you keep going down,
+
+179
+00:08:42.620 --> 00:08:47.030
+you can see the cookies, you can see the host name,
+
+180
+00:08:47.030 --> 00:08:50.652
+you can see the screen size and a lot of other information
+
+181
+00:08:50.652 --> 00:08:54.573
+that can be useful when it comes to exploiting a target.
+
+182
+00:08:55.630 --> 00:08:57.530
+At the Logs tab in here,
+
+183
+00:08:57.530 --> 00:09:00.029
+you'll see logs of all the events that happened
+
+184
+00:09:00.029 --> 00:09:01.310
+in the browser.
+
+185
+00:09:01.310 --> 00:09:02.910
+And if you execute commands,
+
+186
+00:09:02.910 --> 00:09:05.513
+you'll see logs in here for these commands.
+
+187
+00:09:07.030 --> 00:09:09.860
+The Commands tub is the one that we're gonna be using
+
+188
+00:09:09.860 --> 00:09:12.420
+the most in the next lectures.
+
+189
+00:09:12.420 --> 00:09:15.410
+This will allow you to run various commands on the target.
+
+190
+00:09:15.410 --> 00:09:19.000
+Like I said, you can run information gathering commands,
+
+191
+00:09:19.000 --> 00:09:22.120
+you can run commands to inject other JavaScript codes,
+
+192
+00:09:22.120 --> 00:09:26.120
+you can run commands to steal passwords using fake log-ins,
+
+193
+00:09:26.120 --> 00:09:29.770
+you can run fake updates and get your target to download
+
+194
+00:09:29.770 --> 00:09:32.100
+the backdoor and hack their computer.
+
+195
+00:09:32.100 --> 00:09:34.850
+There are a lot of really cool things that you can do,
+
+196
+00:09:34.850 --> 00:09:37.890
+and I will walk you through some of the best ones
+
+197
+00:09:37.890 --> 00:09:39.113
+in the next lectures.
+
+198
+00:09:40.550 --> 00:09:43.190
+In the proxy tab you can configure
+
+199
+00:09:43.190 --> 00:09:47.270
+and use a hooked browser as a proxy.
+
+200
+00:09:47.270 --> 00:09:50.790
+The XSSRays will show you if the hook page
+
+201
+00:09:50.790 --> 00:09:54.190
+contains any XSS vulnerabilities.
+
+202
+00:09:54.190 --> 00:09:55.650
+And the Network tab
+
+203
+00:09:55.650 --> 00:09:58.920
+will give you an overview of the current network.
+
+204
+00:09:58.920 --> 00:10:00.410
+So right now you can see,
+
+205
+00:10:00.410 --> 00:10:02.460
+we have the target running windows.
+
+206
+00:10:02.460 --> 00:10:06.500
+We have his browser, which is hooked to BeEF to us.
+
+207
+00:10:06.500 --> 00:10:09.270
+And then from here, we'll be able to, like I said,
+
+208
+00:10:09.270 --> 00:10:11.760
+launch a number of really cool commands
+
+209
+00:10:11.760 --> 00:10:14.120
+that can be used to do so many things
+
+210
+00:10:14.120 --> 00:10:16.693
+and further exploit the target system.
+
+211
+00:10:17.820 --> 00:10:19.210
+Once done with using BeEF,
+
+212
+00:10:19.210 --> 00:10:22.220
+you can click on Logout to logout
+
+213
+00:10:22.220 --> 00:10:26.400
+and then go to your all applications,
+
+214
+00:10:26.400 --> 00:10:30.670
+look for BeEF and click on beef stop
+
+215
+00:10:30.670 --> 00:10:33.563
+to stop the service from running in the background.
+
+216
+00:10:34.750 --> 00:10:36.080
+So that's it for this lecture.
+
+217
+00:10:36.080 --> 00:10:40.360
+I just wanted to give you a quick overview on BeEF.
+
+218
+00:10:40.360 --> 00:10:41.690
+And in the next lectures,
+
+219
+00:10:41.690 --> 00:10:44.500
+we'll see how we can use it to steal credentials,
+
+220
+00:10:44.500 --> 00:10:46.780
+get screenshots, gather information,
+
+221
+00:10:46.780 --> 00:10:50.513
+and even gain full control over hooked browsers.
+

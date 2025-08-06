@@ -1,0 +1,386 @@
+WEBVTT
+
+1
+00:00:01.290 --> 00:00:02.480
+<v Instructor>As you've seen so far,</v>
+
+2
+00:00:02.480 --> 00:00:05.410
+SQL injections are very dangerous.
+
+3
+00:00:05.410 --> 00:00:08.820
+Also, they're very easy to (mumbles) and very easy to find.
+
+4
+00:00:08.820 --> 00:00:12.720
+You'll find them everywhere in some really famous websites.
+
+5
+00:00:12.720 --> 00:00:17.500
+People try to prevent these vulnerabilities using filters.
+
+6
+00:00:17.500 --> 00:00:20.580
+Filters can make it look like there is no exploits,
+
+7
+00:00:20.580 --> 00:00:23.910
+but if you actually try harder by using encodings,
+
+8
+00:00:23.910 --> 00:00:26.880
+different types of encoding, or using a proxy,
+
+9
+00:00:26.880 --> 00:00:29.793
+then you'll be able to bypass most of these filters.
+
+10
+00:00:30.640 --> 00:00:32.780
+Some programmers use a blacklist.
+
+11
+00:00:32.780 --> 00:00:35.480
+For example, they prevent the use of union,
+
+12
+00:00:35.480 --> 00:00:38.160
+they prevent the use of insert and stuff like that.
+
+13
+00:00:38.160 --> 00:00:41.100
+Again, it's not 100% secure.
+
+14
+00:00:41.100 --> 00:00:42.810
+It can be bypassed.
+
+15
+00:00:42.810 --> 00:00:43.860
+Using a whitelist?
+
+16
+00:00:43.860 --> 00:00:46.253
+Exactly the same issues as the blacklist.
+
+17
+00:00:47.130 --> 00:00:50.880
+The best way to do it is to program your web application
+
+18
+00:00:50.880 --> 00:00:55.880
+in a way that it does not allow code to be injected into it
+
+19
+00:00:55.910 --> 00:00:57.093
+and then executed.
+
+20
+00:00:58.540 --> 00:01:02.730
+The best way to do that is to use parameterized statement
+
+21
+00:01:02.730 --> 00:01:06.350
+where the data and the code is separated.
+
+22
+00:01:06.350 --> 00:01:08.030
+The best way to show you what I mean by that
+
+23
+00:01:08.030 --> 00:01:09.523
+is using an example.
+
+24
+00:01:11.660 --> 00:01:14.460
+I'm keeping the least amount of programming in this example.
+
+25
+00:01:14.460 --> 00:01:16.600
+I don't want it to be a programming example.
+
+26
+00:01:16.600 --> 00:01:19.060
+There's actually mistakes in the programming in there,
+
+27
+00:01:19.060 --> 00:01:20.970
+but I'm trying to give you the concept
+
+28
+00:01:20.970 --> 00:01:22.673
+more than how to program it.
+
+29
+00:01:24.180 --> 00:01:26.860
+The vulnerable code that we were looking at used to do this.
+
+30
+00:01:26.860 --> 00:01:31.100
+It used to do select * from accounts where username is equal
+
+31
+00:01:31.100 --> 00:01:33.283
+to whatever we put in textbox1.
+
+32
+00:01:34.300 --> 00:01:36.363
+Then we used to put in textbox1,
+
+33
+00:01:37.477 --> 00:01:38.627
+let's just put it here,
+
+34
+00:01:44.540 --> 00:01:47.130
+we used to say admin,
+
+35
+00:01:47.130 --> 00:01:48.593
+and then close the quote.
+
+36
+00:01:50.680 --> 00:01:55.680
+Then we're able to do a union select,
+
+37
+00:01:56.100 --> 00:01:58.010
+and execute something else.
+
+38
+00:01:58.010 --> 00:02:01.540
+Then once we're done, we used to add the comment
+
+39
+00:02:01.540 --> 00:02:04.680
+which, basically, ignores everything that comes in after it.
+
+40
+00:02:04.680 --> 00:02:06.123
+So, when you copy this,
+
+41
+00:02:08.390 --> 00:02:09.793
+and you paste it in here,
+
+42
+00:02:12.320 --> 00:02:13.570
+you'll see what's happen.
+
+43
+00:02:15.050 --> 00:02:16.710
+Now, let's just get rid of this
+
+44
+00:02:17.850 --> 00:02:20.209
+because this is just making the colors not nice.
+
+45
+00:02:20.209 --> 00:02:22.813
+(mumbles), actually, gonna just put a comment on this.
+
+46
+00:02:25.290 --> 00:02:27.630
+It's gonna do a select * from accounts
+
+47
+00:02:27.630 --> 00:02:29.710
+where username is equal to admin,
+
+48
+00:02:29.710 --> 00:02:33.330
+union select and execute whatever we want to do.
+
+49
+00:02:33.330 --> 00:02:36.120
+This is very bad and it's very hard to protect against.
+
+50
+00:02:36.120 --> 00:02:38.090
+As I said, using filters and stuff,
+
+51
+00:02:38.090 --> 00:02:42.130
+we'll only hide the problem, we'll not fix it.
+
+52
+00:02:42.130 --> 00:02:43.500
+The best way to do this
+
+53
+00:02:43.500 --> 00:02:46.940
+is using the parameterized statements just like so.
+
+54
+00:02:46.940 --> 00:02:48.970
+This is the safe way to do it.
+
+55
+00:02:48.970 --> 00:02:51.290
+First of all, you prepare your statement.
+
+56
+00:02:51.290 --> 00:02:53.210
+Most languages like PHP and all of them,
+
+57
+00:02:53.210 --> 00:02:55.760
+they, actually, have a function like that.
+
+58
+00:02:55.760 --> 00:02:59.260
+You can prepare select * from accounts
+
+59
+00:02:59.260 --> 00:03:02.033
+where username is equal to question mark.
+
+60
+00:03:03.807 --> 00:03:06.760
+Then you send the values.
+
+61
+00:03:06.760 --> 00:03:08.650
+So, PHP now knows.
+
+62
+00:03:08.650 --> 00:03:11.590
+The SQL statement is select * from accounts
+
+63
+00:03:11.590 --> 00:03:14.376
+where username is equal to something.
+
+64
+00:03:14.376 --> 00:03:17.490
+Then it's gonna take the value of textbox1.
+
+65
+00:03:17.490 --> 00:03:20.050
+So, even if we come in and we use our
+
+66
+00:03:20.050 --> 00:03:22.283
+very sneaky statement right here,
+
+67
+00:03:24.330 --> 00:03:26.013
+and paste it in there,
+
+68
+00:03:27.210 --> 00:03:30.780
+the web application will know that the value for this
+
+69
+00:03:30.780 --> 00:03:33.324
+is admin union select.
+
+70
+00:03:33.324 --> 00:03:34.960
+It'll, actually, try to go
+
+71
+00:03:34.960 --> 00:03:38.060
+and select * from accounts where the username,
+
+72
+00:03:38.060 --> 00:03:40.780
+and then it, actually, it'll add its own quotes
+
+73
+00:03:40.780 --> 00:03:45.070
+and try to find a username with the following username.
+
+74
+00:03:45.070 --> 00:03:48.103
+This whole thing will be executed like so.
+
+75
+00:03:54.790 --> 00:03:56.550
+So, it'll be select * from accounts
+
+76
+00:03:56.550 --> 00:03:59.980
+where username is equal to admin union select,
+
+77
+00:03:59.980 --> 00:04:01.263
+this hashtag.
+
+78
+00:04:02.920 --> 00:04:07.920
+Whatever you put in your text box will be sent as a value.
+
+79
+00:04:08.800 --> 00:04:11.020
+The web application will know that this is a value,
+
+80
+00:04:11.020 --> 00:04:14.090
+it's not a code, and it'll never execute it.
+
+81
+00:04:14.090 --> 00:04:17.863
+Therefore, this will protect you against SQL injections.
+
+82
+00:04:18.730 --> 00:04:22.040
+You can use the filters as second line of defense,
+
+83
+00:04:22.040 --> 00:04:24.740
+and I also advice that you use
+
+84
+00:04:24.740 --> 00:04:27.453
+the least privileges possible.
+
+85
+00:04:28.504 --> 00:04:31.500
+For each database, use one user
+
+86
+00:04:31.500 --> 00:04:33.810
+with the least amount of privileges they want.
+
+87
+00:04:33.810 --> 00:04:36.940
+Don't allow the users to do anything that they want.
+
+88
+00:04:36.940 --> 00:04:40.460
+If it's a simple website that only does selection,
+
+89
+00:04:40.460 --> 00:04:42.360
+then only allow the user to select.
+
+90
+00:04:42.360 --> 00:04:44.330
+If it only needs to select and insert,
+
+91
+00:04:44.330 --> 00:04:46.520
+then only allow them to select and insert.
+
+92
+00:04:46.520 --> 00:04:48.140
+This is a rule you should keep with everything,
+
+93
+00:04:48.140 --> 00:04:49.280
+even with Linux systems.
+
+94
+00:04:49.280 --> 00:04:53.310
+Make sure the permissions are always as least as possible.
+
+95
+00:04:53.310 --> 00:04:56.100
+Each user don't have any extra permissions
+
+96
+00:04:56.100 --> 00:04:57.150
+that they don't need.
+

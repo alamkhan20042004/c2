@@ -1,0 +1,614 @@
+WEBVTT
+
+1
+00:00:00.320 --> 00:00:01.230
+<v Tutor>Now in this lecture,</v>
+
+2
+00:00:01.230 --> 00:00:03.610
+I'd like to give you an overview of a tool
+
+3
+00:00:03.610 --> 00:00:06.540
+that we're gonna be using often in this course.
+
+4
+00:00:06.540 --> 00:00:09.240
+This tool is great for information gathering
+
+5
+00:00:09.240 --> 00:00:12.620
+and allows you to gather information just about anything.
+
+6
+00:00:12.620 --> 00:00:14.520
+You can gather information about people,
+
+7
+00:00:14.520 --> 00:00:17.990
+you can gather information about websites, computers,
+
+8
+00:00:17.990 --> 00:00:21.020
+companies, phone, numbers, everything,
+
+9
+00:00:21.020 --> 00:00:23.090
+really everything you can think of.
+
+10
+00:00:23.090 --> 00:00:24.700
+You can add to this tool
+
+11
+00:00:24.700 --> 00:00:28.833
+and try to extract information related to that entity,
+
+12
+00:00:30.130 --> 00:00:32.010
+The tool is called Maltego
+
+13
+00:00:32.010 --> 00:00:33.740
+and it's gonna become your best friend
+
+14
+00:00:33.740 --> 00:00:36.410
+when it comes to information gathering.
+
+15
+00:00:36.410 --> 00:00:37.243
+Now, like I said,
+
+16
+00:00:37.243 --> 00:00:40.270
+the tool can be used to gather information about anything,
+
+17
+00:00:40.270 --> 00:00:42.210
+but using the tool is the same.
+
+18
+00:00:42.210 --> 00:00:45.280
+So it doesn't matter if your target is a website,
+
+19
+00:00:45.280 --> 00:00:48.650
+if it's a person, if it's a phone number, if it's a company,
+
+20
+00:00:48.650 --> 00:00:49.900
+it doesn't really matter.
+
+21
+00:00:49.900 --> 00:00:52.370
+Using the tool is exactly the same
+
+22
+00:00:52.370 --> 00:00:54.571
+but only the information that you'll be getting
+
+23
+00:00:54.571 --> 00:00:56.380
+is gonna be different.
+
+24
+00:00:56.380 --> 00:00:57.213
+So in this lecture,
+
+25
+00:00:57.213 --> 00:00:59.530
+we're gonna have a quick overview over this tool,
+
+26
+00:00:59.530 --> 00:01:01.240
+and then we're gonna be using it more
+
+27
+00:01:01.240 --> 00:01:03.320
+in the next lectures.
+
+28
+00:01:03.320 --> 00:01:05.370
+So, first of all, to run the tool,
+
+29
+00:01:05.370 --> 00:01:07.903
+just go to the more applications right here,
+
+30
+00:01:08.780 --> 00:01:10.573
+and then just type in, Maltego.
+
+31
+00:01:12.700 --> 00:01:15.090
+And you can see that the tool comes up in here
+
+32
+00:01:15.090 --> 00:01:16.943
+and it's called maltegoce.
+
+33
+00:01:18.440 --> 00:01:19.740
+The first time you're on the tool,
+
+34
+00:01:19.740 --> 00:01:23.320
+you'll be asked to login with a username and a password.
+
+35
+00:01:23.320 --> 00:01:24.380
+If you don't have one,
+
+36
+00:01:24.380 --> 00:01:27.410
+you'll have to register through the wizard that you'll see.
+
+37
+00:01:27.410 --> 00:01:30.570
+So just create a new username a new password
+
+38
+00:01:30.570 --> 00:01:33.820
+and then they'll send you an activation link to your email,
+
+39
+00:01:33.820 --> 00:01:34.950
+activate your account,
+
+40
+00:01:34.950 --> 00:01:37.503
+and then you'll be able to login and use the tool.
+
+41
+00:01:38.430 --> 00:01:39.263
+Now, as you can see,
+
+42
+00:01:39.263 --> 00:01:41.410
+I've already logged in and it's offering me
+
+43
+00:01:41.410 --> 00:01:43.910
+to use one of the already made templates
+
+44
+00:01:43.910 --> 00:01:46.350
+for gathering information.
+
+45
+00:01:46.350 --> 00:01:47.760
+I'm not gonna use any of that,
+
+46
+00:01:47.760 --> 00:01:50.880
+so I'm just gonna click on the Cancel right here.
+
+47
+00:01:50.880 --> 00:01:52.700
+In here you can see that we have the homepage
+
+48
+00:01:52.700 --> 00:01:54.950
+for the tool.
+
+49
+00:01:54.950 --> 00:01:58.710
+And from here, you can add more transformers to the tool.
+
+50
+00:01:58.710 --> 00:02:01.360
+Basically transformers are plugins
+
+51
+00:02:01.360 --> 00:02:05.520
+that allow you to gather information about specific things.
+
+52
+00:02:05.520 --> 00:02:09.420
+So you can literally just click on Install on any of these,
+
+53
+00:02:09.420 --> 00:02:13.190
+and it'll add basically more transformers
+
+54
+00:02:13.190 --> 00:02:16.790
+or more things that you can do with Maltego.
+
+55
+00:02:16.790 --> 00:02:20.250
+A lot of these extra transformers will ask you to login
+
+56
+00:02:20.250 --> 00:02:24.350
+with the username and a password or use a certain API.
+
+57
+00:02:24.350 --> 00:02:27.150
+For now, we're just gonna use the built-in transformers.
+
+58
+00:02:27.150 --> 00:02:32.150
+And I'm just gonna go on right here to create a new graph.
+
+59
+00:02:35.860 --> 00:02:39.770
+And this is the main workplace of Maltego.
+
+60
+00:02:39.770 --> 00:02:42.140
+So in the middle, we have our graph.
+
+61
+00:02:42.140 --> 00:02:45.100
+So here is where you're gonna be seeing your entities,
+
+62
+00:02:45.100 --> 00:02:48.490
+where you're gonna be seeing the information.
+
+63
+00:02:48.490 --> 00:02:51.680
+In here you'll have an overview of the graph,
+
+64
+00:02:51.680 --> 00:02:54.920
+and in here you'll have details about each entity
+
+65
+00:02:54.920 --> 00:02:56.390
+in the graph.
+
+66
+00:02:56.390 --> 00:02:58.100
+And in here at the bottom right
+
+67
+00:02:58.100 --> 00:03:00.075
+you'll be able change the properties
+
+68
+00:03:00.075 --> 00:03:02.610
+for each of these entities.
+
+69
+00:03:02.610 --> 00:03:04.534
+All of this is empty now on all of this is vague
+
+70
+00:03:04.534 --> 00:03:07.790
+I know for you, but once we start using the tool,
+
+71
+00:03:07.790 --> 00:03:09.893
+it'll start making sense straight away.
+
+72
+00:03:11.150 --> 00:03:14.840
+On the left, we have our entities.
+
+73
+00:03:14.840 --> 00:03:17.150
+They're organized in categories right here,
+
+74
+00:03:17.150 --> 00:03:20.580
+depending on the type of these entities.
+
+75
+00:03:20.580 --> 00:03:23.960
+So for example, if we click on the Infrastructure,
+
+76
+00:03:23.960 --> 00:03:27.100
+it'll allow you to add a domain name,
+
+77
+00:03:27.100 --> 00:03:30.240
+you can add MX records, you can add URLs,
+
+78
+00:03:30.240 --> 00:03:32.210
+or you can add a website.
+
+79
+00:03:32.210 --> 00:03:36.190
+So you can literally just drag and drop
+
+80
+00:03:36.190 --> 00:03:37.563
+the entity that you want.
+
+81
+00:03:39.167 --> 00:03:41.460
+And now we have our website in the graph.
+
+82
+00:03:41.460 --> 00:03:42.430
+And from here,
+
+83
+00:03:42.430 --> 00:03:45.853
+we can start gathering information about this website.
+
+84
+00:03:46.990 --> 00:03:50.100
+There's a lot of different types of entities,
+
+85
+00:03:50.100 --> 00:03:54.540
+so you can add a device from here.
+
+86
+00:03:54.540 --> 00:03:58.650
+You can, for example, if we go to Personal,
+
+87
+00:03:58.650 --> 00:04:00.960
+you'll see that you can actually just add the person.
+
+88
+00:04:00.960 --> 00:04:02.860
+So literally you can just add the person,
+
+89
+00:04:02.860 --> 00:04:05.080
+give their first name, their second name,
+
+90
+00:04:05.080 --> 00:04:06.060
+and then you'll be able
+
+91
+00:04:06.060 --> 00:04:08.653
+to gather information about this person.
+
+92
+00:04:09.509 --> 00:04:11.270
+You can also add a phone number,
+
+93
+00:04:11.270 --> 00:04:12.590
+again, put the phone number
+
+94
+00:04:12.590 --> 00:04:15.540
+and start gathering information about it.
+
+95
+00:04:15.540 --> 00:04:19.100
+And one of the really cool categories right here
+
+96
+00:04:19.100 --> 00:04:21.070
+is the social links,
+
+97
+00:04:21.070 --> 00:04:24.000
+which will allow you to add Facebook entities.
+
+98
+00:04:24.000 --> 00:04:28.770
+It'll allow you add GitHub, Foursquare, LinkedIn, Instagram,
+
+99
+00:04:28.770 --> 00:04:31.000
+and other social networks.
+
+100
+00:04:31.000 --> 00:04:32.670
+And with that, once you add them,
+
+101
+00:04:32.670 --> 00:04:36.470
+you'll be able to gather information about these entities.
+
+102
+00:04:36.470 --> 00:04:39.800
+And obviously this information will really help you
+
+103
+00:04:39.800 --> 00:04:42.760
+when it comes to trying to exploit that person
+
+104
+00:04:42.760 --> 00:04:44.803
+and hack into their system.
+
+105
+00:04:45.840 --> 00:04:47.550
+Now, once you add the entity in here,
+
+106
+00:04:47.550 --> 00:04:49.610
+if we click on the website, for example,
+
+107
+00:04:49.610 --> 00:04:53.950
+I'm just gonna go on the Property View.
+
+108
+00:04:53.950 --> 00:04:55.410
+And you'll see that in here,
+
+109
+00:04:55.410 --> 00:04:59.880
+I can modify the properties for this website.
+
+110
+00:04:59.880 --> 00:05:01.590
+So for example,
+
+111
+00:05:01.590 --> 00:05:03.520
+the first thing that we need to change
+
+112
+00:05:03.520 --> 00:05:06.780
+is put the name of our target website in here.
+
+113
+00:05:06.780 --> 00:05:08.130
+And once we do that,
+
+114
+00:05:08.130 --> 00:05:12.620
+we can right click and select what type of information
+
+115
+00:05:12.620 --> 00:05:13.723
+we want to gather.
+
+116
+00:05:16.510 --> 00:05:19.230
+Now I'm not gonna run any transformers in this video.
+
+117
+00:05:19.230 --> 00:05:20.890
+We're gonna do it in next videos.
+
+118
+00:05:20.890 --> 00:05:24.220
+For now, I'm just showing you a quick overview of the tool,
+
+119
+00:05:24.220 --> 00:05:27.220
+how to add identities, how to run transformers.
+
+120
+00:05:27.220 --> 00:05:29.673
+And what do we mean by all of these things.
+
+121
+00:05:30.607 --> 00:05:33.000
+I know a lot of this is still a bit vague,
+
+122
+00:05:33.000 --> 00:05:36.070
+but we're gonna be using this tool a lot in the course,
+
+123
+00:05:36.070 --> 00:05:38.640
+and it's gonna become very easy for you.
+
+124
+00:05:38.640 --> 00:05:39.910
+And as I said,
+
+125
+00:05:39.910 --> 00:05:42.380
+you're gonna be able to use it to gather information
+
+126
+00:05:42.380 --> 00:05:43.530
+about anything.
+
+127
+00:05:43.530 --> 00:05:45.960
+And it's really gonna help you enhance
+
+128
+00:05:45.960 --> 00:05:48.270
+your social engineering skills.
+
+129
+00:05:48.270 --> 00:05:50.030
+Please note that right now
+
+130
+00:05:50.030 --> 00:05:53.510
+you are using the free version of Maltego.
+
+131
+00:05:53.510 --> 00:05:54.930
+The free version is great
+
+132
+00:05:54.930 --> 00:05:57.460
+at gathering all sorts of information,
+
+133
+00:05:57.460 --> 00:06:00.809
+but it doesn't allow you to use search engines
+
+134
+00:06:00.809 --> 00:06:03.180
+and a few other features.
+
+135
+00:06:03.180 --> 00:06:04.920
+That's why in the next lectures,
+
+136
+00:06:04.920 --> 00:06:07.600
+I'm gonna be using the paid version.
+
+137
+00:06:07.600 --> 00:06:09.860
+You can actually request a free trial
+
+138
+00:06:09.860 --> 00:06:12.780
+from the link in the resources of this lecture.
+
+139
+00:06:12.780 --> 00:06:15.200
+Just explain to them that you are a student
+
+140
+00:06:15.200 --> 00:06:17.900
+and they'll happily give you trial access,
+
+141
+00:06:17.900 --> 00:06:20.107
+which you can use to do everything
+
+142
+00:06:20.107 --> 00:06:23.278
+that I'm gonna show you in the next lectures.
+
+143
+00:06:23.278 --> 00:06:26.006
+I know there are a lot of other free
+
+144
+00:06:26.006 --> 00:06:28.200
+information gathering tools,
+
+145
+00:06:28.200 --> 00:06:29.510
+but in my opinion,
+
+146
+00:06:29.510 --> 00:06:32.370
+they do not even come close to Maltego.
+
+147
+00:06:32.370 --> 00:06:35.137
+Maltego is the best at information gathering.
+
+148
+00:06:35.137 --> 00:06:39.740
+And that's why I use it and I teach my students to use it.
+
+149
+00:06:39.740 --> 00:06:42.850
+Think of it this way, if you're learning how to design,
+
+150
+00:06:42.850 --> 00:06:45.810
+would you rather learn how to do it using paint,
+
+151
+00:06:45.810 --> 00:06:46.870
+which is free,
+
+152
+00:06:46.870 --> 00:06:49.880
+or would you want to use the best design software
+
+153
+00:06:49.880 --> 00:06:51.263
+such as Photoshop.
+

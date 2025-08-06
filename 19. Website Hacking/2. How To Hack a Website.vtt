@@ -1,0 +1,358 @@
+WEBVTT
+
+1
+00:00:00.500 --> 00:00:02.790
+<v ->How would you attack a website?</v>
+
+2
+00:00:02.790 --> 00:00:05.790
+You can use the methods that we've learned so far
+
+3
+00:00:05.790 --> 00:00:07.730
+into attacking a website because we said
+
+4
+00:00:07.730 --> 00:00:10.140
+a website is installed on a computer
+
+5
+00:00:10.140 --> 00:00:13.460
+so you can try to attack it and try to hack it
+
+6
+00:00:13.460 --> 00:00:16.010
+just like another computer, so you can try
+
+7
+00:00:16.010 --> 00:00:16.843
+to use the server side attacks,
+
+8
+00:00:16.843 --> 00:00:18.900
+to use the server side attacks,
+
+9
+00:00:18.900 --> 00:00:22.170
+try to see the web server installed the operating system
+
+10
+00:00:22.170 --> 00:00:24.950
+all the other applications and see if you can use
+
+11
+00:00:24.950 --> 00:00:26.980
+if any of them has any vulnerabilities,
+
+12
+00:00:26.980 --> 00:00:28.500
+and if you can use any of them
+
+13
+00:00:28.500 --> 00:00:31.000
+to gain access to the computer.
+
+14
+00:00:31.000 --> 00:00:32.980
+Another way to that is to use
+
+15
+00:00:32.980 --> 00:00:35.580
+the server side attacks and the client side attacks
+
+16
+00:00:35.580 --> 00:00:38.130
+because websites are managed by humans
+
+17
+00:00:38.130 --> 00:00:40.953
+so there must be humans managing these websites and
+
+18
+00:00:42.388 --> 00:00:45.470
+mandmaintaining them, so if you managed to hack any of
+
+19
+00:00:45.470 --> 00:00:48.070
+the administrators of this website,
+
+20
+00:00:48.070 --> 00:00:49.870
+then you probably be able to get
+
+21
+00:00:49.870 --> 00:00:51.410
+their username and a password
+
+22
+00:00:51.410 --> 00:00:54.650
+and then from there, log in to their admin panel
+
+23
+00:00:54.650 --> 00:00:56.750
+or to SSH, to any services
+
+24
+00:00:56.750 --> 00:00:59.240
+that they use to manage their website.
+
+25
+00:00:59.240 --> 00:01:03.030
+If both of these ways fail, then what you can do is
+
+26
+00:01:03.030 --> 00:01:05.560
+you can try to test the web application 'cause
+
+27
+00:01:05.560 --> 00:01:09.510
+as I said, the web application is just an application
+
+28
+00:01:09.510 --> 00:01:11.430
+installed on that website.
+
+29
+00:01:11.430 --> 00:01:14.140
+So your target might actually not be the web application
+
+30
+00:01:14.140 --> 00:01:18.077
+maybe your target was just a person using that website,
+
+31
+00:01:18.077 --> 00:01:19.850
+but you will never be able to get,
+
+32
+00:01:19.850 --> 00:01:22.210
+gain access to that person's computer.
+
+33
+00:01:22.210 --> 00:01:24.800
+So what you do is, you go to his website
+
+34
+00:01:24.800 --> 00:01:26.050
+hack into his website,
+
+35
+00:01:26.050 --> 00:01:29.160
+and from there go to your person.
+
+36
+00:01:29.160 --> 00:01:31.240
+So, all of these things that we're talking about
+
+37
+00:01:31.240 --> 00:01:33.600
+they're all interconnected then you can use one of them
+
+38
+00:01:33.600 --> 00:01:35.570
+to privilege and then
+
+39
+00:01:35.570 --> 00:01:39.913
+make your way to another place or to another computer.
+
+40
+00:01:41.370 --> 00:01:42.770
+So, in this section
+
+41
+00:01:42.770 --> 00:01:44.520
+we're not gonna be talking about the server
+
+42
+00:01:44.520 --> 00:01:45.600
+and the client side attacks
+
+43
+00:01:45.600 --> 00:01:47.220
+because you've already learned that.
+
+44
+00:01:47.220 --> 00:01:50.800
+What we're gonna be talking about is the
+
+45
+00:01:50.800 --> 00:01:53.923
+testing the security of the website application itself.
+
+46
+00:01:54.830 --> 00:01:57.930
+So my target is gonna be this Metasploitable machine.
+
+47
+00:01:57.930 --> 00:01:59.920
+And if we do one ifconfig on it
+
+48
+00:01:59.920 --> 00:02:03.810
+you'll see it's IP is 10.20.14.204
+
+49
+00:02:03.810 --> 00:02:06.750
+and all the websites files are stored
+
+50
+00:02:06.750 --> 00:02:10.210
+in a directory called: var/www
+
+51
+00:02:10.210 --> 00:02:13.500
+and you can see that we have my our php.info
+
+52
+00:02:13.500 --> 00:02:14.948
+and we have mutillidae, dvwa and phpMyAdmin
+
+53
+00:02:14.948 --> 00:02:19.480
+and we have mutillidae, dvwa and phpMyAdmin
+
+54
+00:02:19.480 --> 00:02:22.370
+so if we go to the Kali machine or to any machine
+
+55
+00:02:22.370 --> 00:02:23.990
+and try to go
+
+56
+00:02:23.990 --> 00:02:26.140
+any machine on the same network, obviously,
+
+57
+00:02:28.120 --> 00:02:30.550
+and try to go to,
+
+58
+00:02:30.550 --> 00:02:31.700
+let's open the browser,
+
+59
+00:02:33.800 --> 00:02:35.150
+and if we go to
+
+60
+00:02:36.112 --> 00:02:37.113
+10.20.14.204
+
+61
+00:02:37.113 --> 00:02:37.946
+10.20.14.204
+
+62
+00:02:37.946 --> 00:02:38.779
+10.20.14.204
+
+63
+00:02:38.779 --> 00:02:40.300
+10.20.14.204
+
+64
+00:02:40.300 --> 00:02:42.450
+you'll see we have a website here
+
+65
+00:02:42.450 --> 00:02:44.090
+made for Metasploitable.
+
+66
+00:02:44.090 --> 00:02:46.040
+So as you can see, a website is just
+
+67
+00:02:46.040 --> 00:02:48.650
+an application installed on the web browser.
+
+68
+00:02:48.650 --> 00:02:50.780
+And, you can see that you can access
+
+69
+00:02:50.780 --> 00:02:52.860
+any of these websites right here
+
+70
+00:02:52.860 --> 00:02:55.083
+and use it and test it's security.
+
+71
+00:02:56.500 --> 00:03:00.802
+Another thing is the DVWA uses a username and a password
+
+72
+00:03:00.802 --> 00:03:01.635
+to log in, and the username is: admin
+
+73
+00:03:01.635 --> 00:03:04.920
+to log in, and the username is: admin
+
+74
+00:03:04.920 --> 00:03:06.540
+and the password is: password
+
+75
+00:03:07.740 --> 00:03:11.110
+and once you put that, then you can log in.
+
+76
+00:03:11.110 --> 00:03:13.660
+You can also modify the security settings
+
+77
+00:03:13.660 --> 00:03:17.300
+so if you go on the DVWA Security
+
+78
+00:03:17.300 --> 00:03:19.060
+I'm gonna be setting it to low,
+
+79
+00:03:19.060 --> 00:03:21.310
+and I'm always gonna be using as low
+
+80
+00:03:21.310 --> 00:03:24.200
+in the upcoming sections because we're only
+
+81
+00:03:24.200 --> 00:03:26.560
+this is just an introductory course, so
+
+82
+00:03:26.560 --> 00:03:28.250
+we're only gonna be talking about
+
+83
+00:03:28.250 --> 00:03:29.083
+the basic ways of discovering
+
+84
+00:03:29.083 --> 00:03:31.250
+the basic ways of discovering
+
+85
+00:03:31.250 --> 00:03:34.040
+a web application vulnerabilities.
+
+86
+00:03:34.040 --> 00:03:38.390
+And the same with the mutillidae web application.
+
+87
+00:03:38.390 --> 00:03:39.893
+So if we go to it here,
+
+88
+00:03:42.410 --> 00:03:45.713
+make sure that your security is set to low,
+
+89
+00:03:46.770 --> 00:03:50.703
+so my security is set to zero right here.
+

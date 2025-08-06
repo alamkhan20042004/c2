@@ -1,0 +1,278 @@
+WEBVTT
+
+1
+00:00:02.500 --> 00:00:05.720
+<v Instructor>Remote file inclusion is a special case</v>
+
+2
+00:00:05.720 --> 00:00:07.943
+of file inclusion vulnerabilities.
+
+3
+00:00:09.450 --> 00:00:11.980
+We've seen in the previous video how we were able
+
+4
+00:00:11.980 --> 00:00:14.860
+to include any file in the server
+
+5
+00:00:14.860 --> 00:00:16.720
+and have access to it through
+
+6
+00:00:16.720 --> 00:00:19.780
+local file inclusion vulnerabilities.
+
+7
+00:00:19.780 --> 00:00:22.920
+In today's video, if the server is configured
+
+8
+00:00:22.920 --> 00:00:25.330
+to allow a certain function called
+
+9
+00:00:25.330 --> 00:00:28.870
+allow_URL and allow_url_fopen,
+
+10
+00:00:28.870 --> 00:00:31.400
+then we will be able to include
+
+11
+00:00:31.400 --> 00:00:35.770
+any file from any computer into the targets website.
+
+12
+00:00:35.770 --> 00:00:38.270
+So will literally be able to inject
+
+13
+00:00:38.270 --> 00:00:41.700
+any PHP file into the target computer.
+
+14
+00:00:41.700 --> 00:00:45.240
+What this would lead to, is basically it will we can run
+
+15
+00:00:45.240 --> 00:00:47.240
+Payloads we can run reverse shells,
+
+16
+00:00:47.240 --> 00:00:49.620
+and we can run even system commands
+
+17
+00:00:49.620 --> 00:00:52.480
+and get access to the target
+
+18
+00:00:52.480 --> 00:00:55.390
+or full control to the target server.
+
+19
+00:00:55.390 --> 00:00:57.890
+So first of all, let's just go here
+
+20
+00:00:57.890 --> 00:01:02.110
+and we'll be using the same file Inclusion vulnerability
+
+21
+00:01:02.110 --> 00:01:03.830
+that we were using in the previous video.
+
+22
+00:01:03.830 --> 00:01:06.143
+So it's in the page parameter right here.
+
+23
+00:01:07.240 --> 00:01:10.420
+The only difference is you need to enable the function
+
+24
+00:01:10.420 --> 00:01:13.990
+that makes this that converts the local file
+
+25
+00:01:13.990 --> 00:01:16.920
+inclusion to our remote file inclusion.
+
+26
+00:01:16.920 --> 00:01:20.540
+So hence the name local, allows you to access local files
+
+27
+00:01:20.540 --> 00:01:24.690
+remote will allow you to access and inject remote files.
+
+28
+00:01:24.690 --> 00:01:27.650
+So to enable that, I'm gonna go to
+
+29
+00:01:27.650 --> 00:01:29.440
+my metasploitable machine, I'm just gonna show
+
+30
+00:01:29.440 --> 00:01:31.000
+you how to enable it so you can test
+
+31
+00:01:31.000 --> 00:01:33.440
+this vulnerability yourself.
+
+32
+00:01:33.440 --> 00:01:36.960
+So we're coming here to our Metasploitable
+
+33
+00:01:36.960 --> 00:01:39.521
+and I'm gonna go into the PHP settings.
+
+34
+00:01:39.521 --> 00:01:42.500
+So the PHP settings are stored in a file.
+
+35
+00:01:42.500 --> 00:01:44.600
+And to access that we're gonna use Nano,
+
+36
+00:01:44.600 --> 00:01:46.280
+which is a text editor.
+
+37
+00:01:46.280 --> 00:01:48.430
+And then I'm going to put the file location
+
+38
+00:01:49.618 --> 00:01:51.268
+which is an etc/php/5/tgi/php.ini
+
+39
+00:01:57.420 --> 00:02:00.200
+So that's the location where the PHP
+
+40
+00:02:00.200 --> 00:02:02.050
+configuration is stored.
+
+41
+00:02:02.050 --> 00:02:04.773
+I'm gonna open it using a file editor called Nano.
+
+42
+00:02:06.100 --> 00:02:08.160
+And I'm just gonna exit this I'm gonna
+
+43
+00:02:08.160 --> 00:02:10.863
+open it as pseudo as the root.
+
+44
+00:02:12.110 --> 00:02:15.040
+Actually in Kali, we never needed to use pseudo,
+
+45
+00:02:15.040 --> 00:02:17.340
+because we log in as root.
+
+46
+00:02:17.340 --> 00:02:20.300
+But with Metasploitable, you need to use pseudo
+
+47
+00:02:20.300 --> 00:02:22.460
+when you want to do root actions.
+
+48
+00:02:22.460 --> 00:02:24.810
+So you say pseudo, and then you put the command
+
+49
+00:02:24.810 --> 00:02:25.860
+that you want to run.
+
+50
+00:02:27.220 --> 00:02:32.220
+Okay, so these are the configurations for the PHP
+
+51
+00:02:34.700 --> 00:02:37.240
+that's installed on the web server on the target.
+
+52
+00:02:37.240 --> 00:02:40.557
+And we're looking for a function called allow_url_fopen,
+
+53
+00:02:42.320 --> 00:02:46.140
+so I'm gonna type in Control+W at the same time,
+
+54
+00:02:46.140 --> 00:02:49.300
+and that'll allow me to search and I'm going to search for
+
+55
+00:02:51.787 --> 00:02:53.900
+allow_url_
+
+56
+00:02:56.150 --> 00:02:57.690
+And we can see here that I have
+
+57
+00:02:57.690 --> 00:03:00.500
+allow_url_fopen is on,
+
+58
+00:03:00.500 --> 00:03:03.930
+And allow_url_include is on as well.
+
+59
+00:03:03.930 --> 00:03:06.410
+So these two functions, if they're enabled,
+
+60
+00:03:06.410 --> 00:03:09.150
+then the local file inclusion vulnerability
+
+61
+00:03:09.150 --> 00:03:12.593
+that we have can be used as a remote file inclusion.
+
+62
+00:03:14.110 --> 00:03:16.990
+So to exit this, Control+X and it's going to ask you
+
+63
+00:03:16.990 --> 00:03:20.070
+if you want to save just type in UY+Enter.
+
+64
+00:03:20.070 --> 00:03:21.550
+For me, I didn't change anything,
+
+65
+00:03:21.550 --> 00:03:23.110
+so I didn't need to do that.
+
+66
+00:03:23.110 --> 00:03:25.790
+Once you do that, you need to restart your web server.
+
+67
+00:03:25.790 --> 00:03:30.790
+So you're going to do etc/init.d/apache2 restart
+
+68
+00:03:37.060 --> 00:03:39.463
+And you need to do this as pseudo actually.
+
+69
+00:03:42.029 --> 00:03:45.193
+And this is done now. So everything should be ready for you.
+

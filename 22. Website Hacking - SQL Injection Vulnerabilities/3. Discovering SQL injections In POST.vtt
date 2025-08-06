@@ -1,0 +1,762 @@
+WEBVTT
+
+1
+00:00:01.920 --> 00:00:05.120
+<v Instructor>Now to try and discover SQL injections,</v>
+
+2
+00:00:05.120 --> 00:00:07.330
+you need to browse through your target
+
+3
+00:00:07.330 --> 00:00:09.430
+and try to break each page.
+
+4
+00:00:09.430 --> 00:00:11.750
+So whenever you see a text box
+
+5
+00:00:11.750 --> 00:00:14.120
+or a parameter on this form for example,
+
+6
+00:00:14.120 --> 00:00:17.780
+page.php then somethings equal to something,
+
+7
+00:00:17.780 --> 00:00:19.260
+try to inject stuff here.
+
+8
+00:00:19.260 --> 00:00:21.300
+So try to use a single quote,
+
+9
+00:00:21.300 --> 00:00:24.710
+try to use an and, or the order by statement,
+
+10
+00:00:24.710 --> 00:00:27.500
+to break the page and make it look different.
+
+11
+00:00:27.500 --> 00:00:29.563
+So, I'm gonna show you here an example.
+
+12
+00:00:31.010 --> 00:00:35.493
+And I'm gonna go in to the login page first, right here.
+
+13
+00:00:37.320 --> 00:00:38.860
+And its asking me to log in now.
+
+14
+00:00:38.860 --> 00:00:40.730
+But I actually registered with my own name.
+
+15
+00:00:40.730 --> 00:00:42.840
+So you can just go in here and register.
+
+16
+00:00:42.840 --> 00:00:44.370
+I have a username called Zaid
+
+17
+00:00:44.370 --> 00:00:47.190
+and a password with one two three four five six.
+
+18
+00:00:47.190 --> 00:00:48.210
+So first, let's just...
+
+19
+00:00:48.210 --> 00:00:50.340
+I'm gonna log in just to show you, so.
+
+20
+00:00:50.340 --> 00:00:51.530
+My username is Zaid
+
+21
+00:00:51.530 --> 00:00:54.740
+and my password is one two three four five six.
+
+22
+00:00:54.740 --> 00:00:56.270
+And now I'm logged in as Zaid
+
+23
+00:00:56.270 --> 00:00:57.830
+and my signature was aa.
+
+24
+00:00:57.830 --> 00:01:00.433
+Its just nothing really, just like as a test.
+
+25
+00:01:01.990 --> 00:01:03.240
+So I'm gonna log out
+
+26
+00:01:04.150 --> 00:01:05.903
+and we're back at the login page.
+
+27
+00:01:07.550 --> 00:01:09.290
+Right here, we have the page
+
+28
+00:01:09.290 --> 00:01:10.760
+so you can try to inject in that.
+
+29
+00:01:10.760 --> 00:01:13.020
+But we will get into that later, so.
+
+30
+00:01:13.020 --> 00:01:13.853
+At the moment,
+
+31
+00:01:13.853 --> 00:01:16.750
+we're having an example of injecting into text boxes.
+
+32
+00:01:16.750 --> 00:01:18.890
+So you can try to inject into the name
+
+33
+00:01:18.890 --> 00:01:20.243
+and into the password.
+
+34
+00:01:21.200 --> 00:01:23.990
+So I'm gonna put my name as Zaid
+
+35
+00:01:23.990 --> 00:01:26.070
+and I'm gonna put a single quote.
+
+36
+00:01:26.070 --> 00:01:29.013
+So I'm putting this sign into my password.
+
+37
+00:01:30.230 --> 00:01:32.783
+So let's see if we can break it.
+
+38
+00:01:34.660 --> 00:01:36.310
+And as you can see now,
+
+39
+00:01:36.310 --> 00:01:38.290
+there's an error being displayed to us.
+
+40
+00:01:38.290 --> 00:01:40.360
+And it doesn't look like a normal error,
+
+41
+00:01:40.360 --> 00:01:42.550
+it looks like it's a database error.
+
+42
+00:01:42.550 --> 00:01:44.590
+And usually you will be very lucky
+
+43
+00:01:44.590 --> 00:01:45.690
+if you get an error like this.
+
+44
+00:01:45.690 --> 00:01:48.890
+Now usually the error won't be as informative as this.
+
+45
+00:01:48.890 --> 00:01:50.740
+Sometimes you'll just see that the page
+
+46
+00:01:50.740 --> 00:01:52.880
+is not acting as it's expected,
+
+47
+00:01:52.880 --> 00:01:54.230
+as you expect it.
+
+48
+00:01:54.230 --> 00:01:56.570
+Sometimes it'll just be a page
+
+49
+00:01:56.570 --> 00:01:59.340
+that does not look as it should.
+
+50
+00:01:59.340 --> 00:02:00.780
+For example, if it's a news page,
+
+51
+00:02:00.780 --> 00:02:03.030
+maybe it'll have the article missing
+
+52
+00:02:03.030 --> 00:02:05.680
+or if it's a blog, it'll have one of the posts missing
+
+53
+00:02:05.680 --> 00:02:07.250
+or different kind of posts.
+
+54
+00:02:07.250 --> 00:02:10.140
+So you need to keep an eye on what's changing.
+
+55
+00:02:10.140 --> 00:02:13.220
+In this example, we're actually getting a really nice error.
+
+56
+00:02:13.220 --> 00:02:14.950
+Its telling us which file it has,
+
+57
+00:02:14.950 --> 00:02:18.300
+and its telling us that there's an error in the statement.
+
+58
+00:02:18.300 --> 00:02:21.403
+And the error near the quotation mark that we added.
+
+59
+00:02:23.120 --> 00:02:25.700
+And it also tells us the statement that's being executed.
+
+60
+00:02:25.700 --> 00:02:27.440
+This is really good for learning.
+
+61
+00:02:27.440 --> 00:02:29.310
+Cause now we can see what's the statement,
+
+62
+00:02:29.310 --> 00:02:31.240
+that the system is trying to run.
+
+63
+00:02:31.240 --> 00:02:33.300
+And the systems trying to do a select *.
+
+64
+00:02:33.300 --> 00:02:36.890
+So it's trying to select everything from accounts,
+
+65
+00:02:36.890 --> 00:02:39.360
+where the username is equal to Zaid
+
+66
+00:02:39.360 --> 00:02:42.930
+and the password is equal to a single quote.
+
+67
+00:02:42.930 --> 00:02:44.760
+And note that the system
+
+68
+00:02:44.760 --> 00:02:46.320
+the web application is already
+
+69
+00:02:46.320 --> 00:02:47.870
+adding quotes around the name.
+
+70
+00:02:47.870 --> 00:02:51.230
+So when I said Zaid, it added Zaid between two quotes.
+
+71
+00:02:51.230 --> 00:02:52.600
+And it added the single quote
+
+72
+00:02:52.600 --> 00:02:55.210
+that I added between another two quotes.
+
+73
+00:02:55.210 --> 00:02:57.510
+So that's why we have three quotes right here.
+
+74
+00:02:58.350 --> 00:03:00.000
+So from this we can,
+
+75
+00:03:00.000 --> 00:03:03.300
+its like 70% of the target website,
+
+76
+00:03:03.300 --> 00:03:04.690
+has an SQL injection.
+
+77
+00:03:04.690 --> 00:03:05.620
+We're still not sure
+
+78
+00:03:05.620 --> 00:03:07.960
+if it can execute what we want it to do.
+
+79
+00:03:07.960 --> 00:03:09.940
+So can I actually inject code
+
+80
+00:03:09.940 --> 00:03:11.990
+and get It to be executed?
+
+81
+00:03:11.990 --> 00:03:13.120
+Let's see if we can do that.
+
+82
+00:03:13.120 --> 00:03:15.453
+So username is gonna be Zaid again.
+
+83
+00:03:17.280 --> 00:03:19.270
+And what I'm gonna do with the password,
+
+84
+00:03:19.270 --> 00:03:22.500
+I'm going to put my password.
+
+85
+00:03:22.500 --> 00:03:25.430
+So I'm gonna put one two three four five six
+
+86
+00:03:26.580 --> 00:03:28.400
+and then I'm closing it.
+
+87
+00:03:28.400 --> 00:03:30.890
+So I'll tell you why I'm closing it,
+
+88
+00:03:30.890 --> 00:03:34.042
+because the current statement through the system
+
+89
+00:03:34.042 --> 00:03:35.937
+is select * from,
+
+90
+00:03:42.900 --> 00:03:46.023
+to Zaid and,
+
+91
+00:03:49.240 --> 00:03:51.050
+is equal to.
+
+92
+00:03:51.050 --> 00:03:53.533
+And its gonna open a single quote by itself.
+
+93
+00:03:56.250 --> 00:03:59.240
+So lets call this S password.
+
+94
+00:03:59.240 --> 00:04:02.150
+So we're treating this a variable.
+
+95
+00:04:02.150 --> 00:04:04.670
+And it takes in whatever I put in here,
+
+96
+00:04:04.670 --> 00:04:06.800
+whatever I'm gonna put in this box.
+
+97
+00:04:06.800 --> 00:04:09.860
+And its gonna insert it instead of the S password,
+
+98
+00:04:09.860 --> 00:04:11.023
+which is a variable.
+
+99
+00:04:12.040 --> 00:04:13.820
+So I'm just giving you an idea,
+
+100
+00:04:13.820 --> 00:04:16.570
+so you need to be able to imagine this happening.
+
+101
+00:04:16.570 --> 00:04:19.770
+So its taking whatever I put in there,
+
+102
+00:04:19.770 --> 00:04:22.120
+and its gonna put it between two single quotes.
+
+103
+00:04:22.120 --> 00:04:24.660
+And its gonna be inserted in there,
+
+104
+00:04:24.660 --> 00:04:26.450
+and executed on the system.
+
+105
+00:04:26.450 --> 00:04:27.500
+So what I'm doing is,
+
+106
+00:04:27.500 --> 00:04:29.880
+I'm gonna put one two three four five six
+
+107
+00:04:29.880 --> 00:04:32.130
+and I'm gonna add the quote myself.
+
+108
+00:04:32.130 --> 00:04:34.430
+So what I'm gonna do right now,
+
+109
+00:04:34.430 --> 00:04:35.860
+the code is gonna be like this.
+
+110
+00:04:35.860 --> 00:04:38.220
+So its gonna select this,
+
+111
+00:04:38.220 --> 00:04:39.880
+and password is equal to that.
+
+112
+00:04:39.880 --> 00:04:42.950
+And I have two quotes right now, okay.
+
+113
+00:04:42.950 --> 00:04:44.800
+And then what I'm going to do is,
+
+114
+00:04:44.800 --> 00:04:46.007
+I'm gonna say and,
+
+115
+00:04:49.950 --> 00:04:53.010
+one is equal to one.
+
+116
+00:04:53.010 --> 00:04:54.630
+So one is equal to one.
+
+117
+00:04:54.630 --> 00:04:55.890
+And I'm just trying to see
+
+118
+00:04:55.890 --> 00:04:58.460
+if its going to execute what I want it to do.
+
+119
+00:04:58.460 --> 00:05:00.840
+So my statement right now is,
+
+120
+00:05:00.840 --> 00:05:03.150
+its gonna be Select * from accounts,
+
+121
+00:05:03.150 --> 00:05:05.110
+where username is equal to Zaid
+
+122
+00:05:05.110 --> 00:05:07.970
+and password is equal to one two three four five six.
+
+123
+00:05:07.970 --> 00:05:10.653
+And note, I'm gonna be inserting this myself,
+
+124
+00:05:11.860 --> 00:05:14.060
+and ones equal to one.
+
+125
+00:05:14.060 --> 00:05:16.490
+One problem that the system is gonna complain about,
+
+126
+00:05:16.490 --> 00:05:18.270
+is that we have an extra quote here,
+
+127
+00:05:18.270 --> 00:05:22.120
+because I'm gonna be inserting this myself in the text box.
+
+128
+00:05:22.120 --> 00:05:23.920
+So it's gonna be complaining about this,
+
+129
+00:05:23.920 --> 00:05:26.490
+it's gonna say this is an open code
+
+130
+00:05:26.490 --> 00:05:28.930
+and never be has been closed.
+
+131
+00:05:28.930 --> 00:05:31.380
+So what I'm gonna do is I'm gonna add the comment.
+
+132
+00:05:31.380 --> 00:05:32.880
+And when you add a comment,
+
+133
+00:05:32.880 --> 00:05:35.320
+basically everything that comes in after the comment
+
+134
+00:05:35.320 --> 00:05:36.623
+will not be executed.
+
+135
+00:05:37.540 --> 00:05:39.550
+I'm gonna use the hash as the comment.
+
+136
+00:05:39.550 --> 00:05:42.070
+So anything that comes in after the hash
+
+137
+00:05:42.070 --> 00:05:44.150
+the system is gonna ignore.
+
+138
+00:05:44.150 --> 00:05:46.980
+So I'm gonna inject now is gonna be this,
+
+139
+00:05:46.980 --> 00:05:50.123
+and one's equal to one and this,
+
+140
+00:05:51.000 --> 00:05:53.153
+so as I said, usually what you have here,
+
+141
+00:05:55.500 --> 00:05:57.553
+you have slashed your password,
+
+142
+00:05:58.460 --> 00:06:00.470
+or depending on what the program are called it,
+
+143
+00:06:00.470 --> 00:06:02.150
+for just imagining this.
+
+144
+00:06:02.150 --> 00:06:04.920
+And I'm gonna be inserting this inside.
+
+145
+00:06:04.920 --> 00:06:07.703
+So when you do that, and you insert it inside,
+
+146
+00:06:08.770 --> 00:06:10.180
+this is what the code is gonna look like.
+
+147
+00:06:10.180 --> 00:06:11.900
+So it's gonna look like the right username,
+
+148
+00:06:11.900 --> 00:06:12.733
+the right password,
+
+149
+00:06:12.733 --> 00:06:15.070
+and one is equal to one, which is true.
+
+150
+00:06:15.070 --> 00:06:16.100
+And then it's not gonna,
+
+151
+00:06:16.100 --> 00:06:19.370
+it's gonna ignore this quote right here.
+
+152
+00:06:19.370 --> 00:06:20.660
+So if we paste this,
+
+153
+00:06:20.660 --> 00:06:22.640
+we should be able to login.
+
+154
+00:06:22.640 --> 00:06:24.173
+It should allow me to login.
+
+155
+00:06:25.470 --> 00:06:29.210
+And perfect we were able to login and username is Zaid.
+
+156
+00:06:29.210 --> 00:06:30.880
+So far, we haven't done anything.
+
+157
+00:06:30.880 --> 00:06:34.490
+But this kind of shows us that is it running our code?
+
+158
+00:06:34.490 --> 00:06:35.960
+Let's try a different thing.
+
+159
+00:06:35.960 --> 00:06:40.640
+Now, let's try to add a false statement.
+
+160
+00:06:40.640 --> 00:06:42.930
+So we did we did one equal one,
+
+161
+00:06:42.930 --> 00:06:46.020
+and that was correct and it executed when we wanted.
+
+162
+00:06:46.020 --> 00:06:48.240
+Let's try one equals two.
+
+163
+00:06:48.240 --> 00:06:49.470
+And this is false.
+
+164
+00:06:49.470 --> 00:06:51.250
+So I have the right password.
+
+165
+00:06:51.250 --> 00:06:52.750
+And I have the right username,
+
+166
+00:06:53.790 --> 00:06:55.330
+and one is equal to two.
+
+167
+00:06:55.330 --> 00:06:57.370
+And this should be wrong 'cause it's false
+
+168
+00:06:57.370 --> 00:06:58.930
+one is not equal to two
+
+169
+00:06:58.930 --> 00:07:01.643
+and I'm using an and so everything has to be true.
+
+170
+00:07:03.180 --> 00:07:04.600
+So it should give me an error
+
+171
+00:07:04.600 --> 00:07:07.150
+even though I'm gonna put the right username,
+
+172
+00:07:07.150 --> 00:07:08.580
+and I'm gonna put the right password.
+
+173
+00:07:08.580 --> 00:07:10.900
+So I'm putting one two three four five six
+
+174
+00:07:10.900 --> 00:07:12.700
+and one's equal to two.
+
+175
+00:07:12.700 --> 00:07:14.863
+So it's gonna be like, oh, this is wrong.
+
+176
+00:07:15.860 --> 00:07:18.410
+And as you can see it's given me an authentication error,
+
+177
+00:07:18.410 --> 00:07:19.900
+bad username or password,
+
+178
+00:07:19.900 --> 00:07:22.600
+even though I'm given the right password
+
+179
+00:07:22.600 --> 00:07:24.290
+and the right username.
+
+180
+00:07:24.290 --> 00:07:27.820
+So this confirms that this website is actually injecting
+
+181
+00:07:27.820 --> 00:07:30.320
+anything we want in the password.
+
+182
+00:07:30.320 --> 00:07:34.470
+So we can use the password field to inject SQL code.
+
+183
+00:07:34.470 --> 00:07:36.830
+And it's always gonna be on this form.
+
+184
+00:07:36.830 --> 00:07:38.800
+So we're gonna put a password
+
+185
+00:07:38.800 --> 00:07:41.630
+and you're going to put your code here,
+
+186
+00:07:41.630 --> 00:07:44.683
+so I'm just gonna put it in capital code here.
+
+187
+00:07:45.540 --> 00:07:48.720
+Because we're gonna put a password, close the quote,
+
+188
+00:07:48.720 --> 00:07:51.010
+and then put the code that we want to execute
+
+189
+00:07:51.010 --> 00:07:52.370
+on the system right here,
+
+190
+00:07:52.370 --> 00:07:55.713
+and it's going to be executed on the target system.
+

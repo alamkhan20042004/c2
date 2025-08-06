@@ -1,0 +1,232 @@
+WEBVTT
+
+00:00.500 --> 00:01.010
+Okay.
+
+00:01.010 --> 00:02.090
+So now let's go ahead.
+
+00:02.090 --> 00:04.040
+Let's create a back door.
+
+00:04.040 --> 00:10.760
+And the only difference is we're going to set the IP to the public IP instead of the local IP.
+
+00:10.760 --> 00:14.210
+So we're going to create a back door exactly the same way that we used to create it.
+
+00:14.210 --> 00:16.520
+When we're hacking devices in the same network.
+
+00:16.520 --> 00:21.320
+And I'm going to do this a bit quickly because we've done it and there's nothing new with this.
+
+00:21.920 --> 00:27.020
+So as mentioned previously, the tool that we're going to be using is called MSF venom.
+
+00:27.110 --> 00:31.310
+We're using the dash dash payload argument to specify the payload.
+
+00:31.310 --> 00:34.550
+So it's the exact same payload that we used in our previous video.
+
+00:34.550 --> 00:37.040
+So it runs on windows platforms.
+
+00:37.040 --> 00:45.140
+The type of payload is a Meterpreter payload and it uses reverse connection over the Https protocol.
+
+00:45.560 --> 00:48.890
+Then we're setting the basic options of this payload.
+
+00:48.890 --> 00:52.010
+We can see that the El port is set to 8080 by default.
+
+00:52.010 --> 00:53.720
+And I'm going to keep that the same.
+
+00:53.720 --> 00:56.600
+The only thing that I'm going to change is the El host.
+
+00:56.600 --> 01:01.740
+And in the previous videos when we were receiving connections on our own computer.
+
+01:01.740 --> 01:08.310
+We used to set it to the local IP, because that's the IP that the devices use inside the network.
+
+01:08.310 --> 01:14.430
+But whenever you want to do things on the outside, we want to use the real IP because these internal
+
+01:14.430 --> 01:18.690
+IPS are not visible to computers outside the network.
+
+01:18.690 --> 01:20.910
+So I'm going to use the IP that I see on Google.
+
+01:20.910 --> 01:27.210
+So when I type in what's my IP, I get this IP and I'm going to use that as the host in my back door.
+
+01:27.210 --> 01:30.900
+So I'm just going to copy this and I'm going to set it here.
+
+01:31.500 --> 01:33.000
+We're using the public IP.
+
+01:33.000 --> 01:36.750
+So this is the most important step in this I'm going to hit enter.
+
+01:37.260 --> 01:40.140
+And that has generated my payload for me.
+
+01:40.140 --> 01:41.790
+So that's all done.
+
+01:42.060 --> 01:46.140
+Now all we have to do is just listen for incoming connections.
+
+01:46.140 --> 01:48.840
+To do that we're actually going to use Metasploit.
+
+01:48.840 --> 01:54.330
+So first of all we need to launch the console by doing MSF console as you know.
+
+01:55.020 --> 02:03.940
+And when it starts we're going to use a module that is called exploit multi handler, we can simply
+
+02:03.940 --> 02:08.320
+do show options to see all of the options that we can set for it.
+
+02:08.320 --> 02:15.430
+So we're going to do set followed by the option name that we want to modify which is the payload.
+
+02:15.430 --> 02:21.340
+So in the back door we used windows meterpreter reverse https.
+
+02:22.960 --> 02:31.060
+If we do show options again you'll see that we'll actually get to see different options because the
+
+02:31.060 --> 02:32.710
+payload is different.
+
+02:32.710 --> 02:38.560
+So you can see that the options here are again very similar to the options that we set when we created
+
+02:38.560 --> 02:39.400
+the backdoor.
+
+02:39.400 --> 02:45.130
+So the main two options that we need to modify are the host and the El port.
+
+02:45.130 --> 02:50.050
+And the El host is the IP of the computer that will receive the connection.
+
+02:50.050 --> 02:55.120
+I'm actually going to listen on my local IP, so I'm not going to listen on the external.
+
+02:55.120 --> 02:58.480
+I'm going to listen on the local because I can't listen on the external.
+
+02:58.480 --> 03:02.860
+I'm actually in the network and I only have control over my current computer.
+
+03:02.860 --> 03:06.490
+So what I'm going to do now is I'm in here in the Kali machine.
+
+03:06.490 --> 03:08.440
+I'm going to listen on port 8080.
+
+03:08.620 --> 03:13.690
+And in the external device, the backdoor will try to connect to the backdoor.
+
+03:13.690 --> 03:16.570
+So the step after that will be set up.
+
+03:16.600 --> 03:22.090
+IP forwarding to tell the router to forward port 8080 to the Kali machine.
+
+03:22.420 --> 03:28.660
+So to get our current IP, we saw that when we ran the backdoor we can do ifconfig.
+
+03:28.660 --> 03:32.170
+And we can see my IP is right here.
+
+03:32.170 --> 03:33.910
+So I'm going to copy it.
+
+03:33.910 --> 03:39.760
+So you do set followed by the option name which is El host followed by the value.
+
+03:39.760 --> 03:42.490
+And I'm going to paste my value which is my IP.
+
+03:43.180 --> 03:44.920
+Next we're going to set the port.
+
+03:44.920 --> 03:47.470
+So we're going to do set El port.
+
+03:47.470 --> 03:51.070
+And the port that we used in the backdoor was 880.
+
+03:51.820 --> 03:57.970
+Now that we set everything we can do show options one more time to make sure that the options were set
+
+03:58.000 --> 03:59.950
+correctly and perfect.
+
+03:59.950 --> 04:03.130
+As you can see, we can see that the El host is set to my IP.
+
+04:03.130 --> 04:05.420
+And same goes for the El port.
+
+04:05.480 --> 04:09.320
+So now that we're happy with everything we can do exploit.
+
+04:11.330 --> 04:17.600
+As you can see here, it's listening on my private IP and it's listening on port 8080.
+
+04:17.630 --> 04:19.910
+So now we did the two main steps.
+
+04:19.910 --> 04:21.200
+We created a backdoor.
+
+04:21.200 --> 04:26.180
+And the backdoor will give us connections back based on the real IP address.
+
+04:26.180 --> 04:29.510
+And we're listening on our local machine.
+
+04:29.510 --> 04:32.150
+We're listening on port 8080 in the Kali machine.
+
+04:32.150 --> 04:36.770
+So when the target person runs the backdoor on the internet, the backdoor will try to connect to this
+
+04:36.800 --> 04:38.780
+IP on port 8080.
+
+04:38.810 --> 04:43.280
+The only problem now is the gateway which is the router right here.
+
+04:43.430 --> 04:45.770
+It doesn't have port 8080 open.
+
+04:45.770 --> 04:47.480
+So it's going to receive the connection.
+
+04:47.480 --> 04:49.340
+It's not going to know what to do with it.
+
+04:49.340 --> 04:54.410
+So we actually need to configure the router to tell it whenever you get something whenever you get a
+
+04:54.410 --> 04:59.120
+connection on port 8080, I want you to redirect it to my Kali machine.
+
+04:59.750 --> 05:01.580
+And we can do that in two ways.
+
+05:01.580 --> 05:04.730
+And we're going to talk about them in the next lecture.

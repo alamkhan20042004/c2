@@ -1,0 +1,458 @@
+WEBVTT
+
+1
+00:00:00.800 --> 00:00:03.200
+<v Instructor>In this lecture, and the next few lectures,</v>
+
+2
+00:00:03.200 --> 00:00:05.509
+we're going to be talking about a popular type
+
+3
+00:00:05.509 --> 00:00:09.451
+of vulnerabilities, called SQL Injections.
+
+4
+00:00:09.451 --> 00:00:12.960
+Before we start talking about how this occurs
+
+5
+00:00:12.960 --> 00:00:16.709
+and how to exploit it, let's first learn what SQL is.
+
+6
+00:00:16.709 --> 00:00:20.400
+Now, if you're giving a pen test on a certain website,
+
+7
+00:00:20.400 --> 00:00:24.900
+chances are this website is a little bit bigger
+
+8
+00:00:24.900 --> 00:00:29.470
+than smaller websites, so it's probably using a database.
+
+9
+00:00:29.470 --> 00:00:31.819
+Most websites, other than very simple websites,
+
+10
+00:00:31.819 --> 00:00:36.790
+use databases, the databases are used to store data,
+
+11
+00:00:36.790 --> 00:00:40.310
+so they're store user names, passwords, news articles,
+
+12
+00:00:40.310 --> 00:00:42.230
+blog posts, pictures.
+
+13
+00:00:42.230 --> 00:00:45.150
+Anything that happens on the website, literally,
+
+14
+00:00:45.150 --> 00:00:48.920
+is stored on a database and the web application queries
+
+15
+00:00:48.920 --> 00:00:52.080
+the database and then displays the data to you
+
+16
+00:00:52.080 --> 00:00:53.690
+or to the users, on screen.
+
+17
+00:00:53.690 --> 00:00:56.640
+When the users do something, it will either update, delete,
+
+18
+00:00:56.640 --> 00:01:00.253
+or modify the data that exists in the database.
+
+19
+00:01:01.780 --> 00:01:04.070
+This interaction, between the web application
+
+20
+00:01:04.070 --> 00:01:09.070
+and the database, happens using a language called SQL.
+
+21
+00:01:09.340 --> 00:01:12.180
+So, let me show you what I mean by database,
+
+22
+00:01:12.180 --> 00:01:13.580
+this is just an example,
+
+23
+00:01:13.580 --> 00:01:14.710
+I'm not hacking anything,
+
+24
+00:01:14.710 --> 00:01:17.547
+I'm literally just going to log in to the database
+
+25
+00:01:17.547 --> 00:01:20.896
+that is installed on our Metasploitable machine,
+
+26
+00:01:20.896 --> 00:01:24.260
+and then we're just gonna see what's been installed on it.
+
+27
+00:01:24.260 --> 00:01:27.860
+So, I'm not doing any hacking, there's nothing here,
+
+28
+00:01:27.860 --> 00:01:31.140
+there nothing fancy, just logging into my SQL.
+
+29
+00:01:31.140 --> 00:01:33.180
+And then I'm putting the user name is root
+
+30
+00:01:33.180 --> 00:01:36.790
+and the Metasploitable doesn't use a password for the root,
+
+31
+00:01:36.790 --> 00:01:40.990
+which is really bad, but obviously it's a vulnerable system.
+
+32
+00:01:40.990 --> 00:01:43.930
+So, I'm just gonna log in and I'm not hacking anything,
+
+33
+00:01:43.930 --> 00:01:45.550
+I'm not doing any SQL injections,
+
+34
+00:01:45.550 --> 00:01:47.992
+this is just the terminal for MySQL,
+
+35
+00:01:47.992 --> 00:01:51.302
+which the web application would use to interact
+
+36
+00:01:51.302 --> 00:01:52.840
+with the database.
+
+37
+00:01:52.840 --> 00:01:54.980
+So, I'm just trying to show you what I mean by databases
+
+38
+00:01:54.980 --> 00:01:56.863
+and what's saved in there.
+
+39
+00:01:57.980 --> 00:02:00.060
+So, the first thing I'm going to do is,
+
+40
+00:02:00.060 --> 00:02:03.903
+I'm just going to type in show databases.
+
+41
+00:02:06.060 --> 00:02:08.590
+And that'll show us the databases that exist
+
+42
+00:02:08.590 --> 00:02:12.080
+on our target server and you can see that we have
+
+43
+00:02:12.080 --> 00:02:15.051
+the information schema, this is a default database
+
+44
+00:02:15.051 --> 00:02:17.450
+that holds default information,
+
+45
+00:02:17.450 --> 00:02:20.130
+information about all the other databases.
+
+46
+00:02:20.130 --> 00:02:22.810
+So this one gets installed by default,
+
+47
+00:02:22.810 --> 00:02:23.960
+when you install MySQL.
+
+48
+00:02:24.840 --> 00:02:27.672
+The rest have been installed for each web application.
+
+49
+00:02:27.672 --> 00:02:31.720
+So, we can see, we have one for tikiwiki,
+
+50
+00:02:31.720 --> 00:02:36.720
+we have one for owas10, and that's for this one Mutilllidae.
+
+51
+00:02:43.940 --> 00:02:46.920
+We also have one called mysql,
+
+52
+00:02:46.920 --> 00:02:49.040
+we have one called metasploit,
+
+53
+00:02:49.040 --> 00:02:52.222
+and one for dvwa, which is the one that we've been using,
+
+54
+00:02:52.222 --> 00:02:53.980
+the web application.
+
+55
+00:02:53.980 --> 00:02:55.672
+So, you can see, for each web application
+
+56
+00:02:55.672 --> 00:02:58.510
+we actually have a database
+
+57
+00:02:58.510 --> 00:03:01.440
+and this database holds the information that is used
+
+58
+00:03:01.440 --> 00:03:03.750
+by that web application.
+
+59
+00:03:03.750 --> 00:03:05.230
+Let me show you what's in there,
+
+60
+00:03:05.230 --> 00:03:09.253
+so I'm gonna use the owas10 database.
+
+61
+00:03:12.210 --> 00:03:16.500
+So this is the one that is, again, this is the one
+
+62
+00:03:16.500 --> 00:03:19.200
+for Mutilldae, for this web application.
+
+63
+00:03:19.200 --> 00:03:22.030
+And we can see the table, so each database has a table,
+
+64
+00:03:22.030 --> 00:03:25.060
+tables, and in the tables there is information.
+
+65
+00:03:25.060 --> 00:03:28.740
+So, I'm gonna say, "show tables" to see the tables
+
+66
+00:03:28.740 --> 00:03:29.573
+that we have.
+
+67
+00:03:31.310 --> 00:03:33.330
+And you can see, we have a table for accounts,
+
+68
+00:03:33.330 --> 00:03:37.160
+so you can assume that this table has information about
+
+69
+00:03:37.160 --> 00:03:40.940
+the usernames, passwords, and information about the users.
+
+70
+00:03:40.940 --> 00:03:45.260
+We have a table for blogs, so probably has the blog inputs,
+
+71
+00:03:45.260 --> 00:03:47.543
+the posts, and the comments in there.
+
+72
+00:03:48.430 --> 00:03:50.690
+You can see captured data, credit cards,
+
+73
+00:03:50.690 --> 00:03:52.610
+so there's a table that contains credit cards.
+
+74
+00:03:52.610 --> 00:03:54.810
+Now, this is huge for shopping websites,
+
+75
+00:03:54.810 --> 00:03:57.160
+they actually would have credit cards table
+
+76
+00:03:57.160 --> 00:03:58.874
+and the information for the credit cards
+
+77
+00:03:58.874 --> 00:04:00.500
+would be stored there.
+
+78
+00:04:00.500 --> 00:04:03.337
+Basically, the database will store everything,
+
+79
+00:04:03.337 --> 00:04:06.630
+all the data that is used on the website.
+
+80
+00:04:06.630 --> 00:04:10.090
+'Cause they don't get stored on files, it's not efficient.
+
+81
+00:04:10.090 --> 00:04:13.724
+So, let's have a look on the accounts and if I just say,
+
+82
+00:04:13.724 --> 00:04:18.126
+"select" so this is exactly how the web application
+
+83
+00:04:18.126 --> 00:04:21.530
+would be retrieving information from the database,
+
+84
+00:04:21.530 --> 00:04:24.380
+it will selecting stuff, updating, or deleting.
+
+85
+00:04:24.380 --> 00:04:26.810
+So, I'm doing a select statement here, again,
+
+86
+00:04:26.810 --> 00:04:28.480
+this is not hacking, I'm not doing anything,
+
+87
+00:04:28.480 --> 00:04:29.737
+just selecting stuff.
+
+88
+00:04:29.737 --> 00:04:32.524
+And I'm gonna select star, which means everything,
+
+89
+00:04:32.524 --> 00:04:34.783
+from accounts.
+
+90
+00:04:41.360 --> 00:04:46.130
+Apostrophe, and as we can see, we have the account id,
+
+91
+00:04:46.130 --> 00:04:47.806
+the username, the password,
+
+92
+00:04:47.806 --> 00:04:50.065
+and then the signature for the person,
+
+93
+00:04:50.065 --> 00:04:52.470
+and if that person is an admin.
+
+94
+00:04:52.470 --> 00:04:54.420
+Now these columns depend on the table,
+
+95
+00:04:54.420 --> 00:04:56.645
+so it's actually the person who designs the database,
+
+96
+00:04:56.645 --> 00:05:00.590
+designs the tables, the columns, as well, and then the data
+
+97
+00:05:00.590 --> 00:05:03.140
+gets inserted by the web application.
+
+98
+00:05:03.140 --> 00:05:05.155
+So, you can see that we have a user called admin
+
+99
+00:05:05.155 --> 00:05:07.585
+and their password is adminpass.
+
+100
+00:05:07.585 --> 00:05:09.930
+We can see we have a user called adrian
+
+101
+00:05:09.930 --> 00:05:12.030
+and their password is somepassword.
+
+102
+00:05:12.030 --> 00:05:16.610
+So, this is just to show you what databases look like,
+
+103
+00:05:16.610 --> 00:05:18.937
+and just to get a feel on it, because, in the future videos,
+
+104
+00:05:18.937 --> 00:05:21.617
+we're gonna try to exploit these databases
+
+105
+00:05:21.617 --> 00:05:24.100
+and have access similar to this.
+
+106
+00:05:24.100 --> 00:05:26.080
+So this, I just logged in with a username
+
+107
+00:05:26.080 --> 00:05:27.290
+and a password now,
+
+108
+00:05:27.290 --> 00:05:29.890
+usually you wouldn't have access like this,
+
+109
+00:05:29.890 --> 00:05:32.566
+only the web admin would have that access.
+
+110
+00:05:32.566 --> 00:05:37.425
+In the future videos, we're gonna try to run some attacks
+
+111
+00:05:37.425 --> 00:05:40.083
+in order to gain access similar to this,
+
+112
+00:05:40.083 --> 00:05:42.633
+so that we'll have full control over the database,
+
+113
+00:05:42.633 --> 00:05:45.286
+so that we can read stuff and see if we can write
+
+114
+00:05:45.286 --> 00:05:47.163
+or modify things.
+

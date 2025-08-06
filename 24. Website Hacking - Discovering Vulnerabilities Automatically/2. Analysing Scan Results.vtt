@@ -1,0 +1,314 @@
+WEBVTT
+
+1
+00:00:01.410 --> 00:00:03.210
+<v ->So the scan is over now.</v>
+
+2
+00:00:03.210 --> 00:00:06.410
+And you can see on the left here we have our website.
+
+3
+00:00:06.410 --> 00:00:09.780
+Clicking on it will show you some results of the spider
+
+4
+00:00:09.780 --> 00:00:12.113
+when it was looking for the files.
+
+5
+00:00:13.310 --> 00:00:16.580
+The very interesting part is the alerts here.
+
+6
+00:00:16.580 --> 00:00:19.040
+Right here you can see all the vulnerabilities
+
+7
+00:00:19.040 --> 00:00:20.453
+that have been discovered.
+
+8
+00:00:22.160 --> 00:00:25.470
+On the left here you can see that we have seven red flags.
+
+9
+00:00:25.470 --> 00:00:27.693
+So these are the high priority alerts.
+
+10
+00:00:28.710 --> 00:00:33.100
+We have three orange flags, and five yellow flags,
+
+11
+00:00:33.100 --> 00:00:34.930
+and zero blue.
+
+12
+00:00:34.930 --> 00:00:39.213
+So these are organized in the order of their severity.
+
+13
+00:00:41.690 --> 00:00:44.430
+Clicking on any of these categories will expand it
+
+14
+00:00:44.430 --> 00:00:48.120
+and show the threats that have been found related
+
+15
+00:00:48.120 --> 00:00:49.520
+to that thread.
+
+16
+00:00:49.520 --> 00:00:52.720
+For example, clicking on the path reversal
+
+17
+00:00:55.010 --> 00:00:58.120
+you'll see all the URLs that can be exploited
+
+18
+00:00:58.120 --> 00:01:01.050
+to read files from the server.
+
+19
+00:01:01.050 --> 00:01:02.770
+Clicking on any of these,
+
+20
+00:01:02.770 --> 00:01:06.040
+you'll see the HTTP request that was sent.
+
+21
+00:01:06.040 --> 00:01:08.520
+In order to discover this,
+
+22
+00:01:08.520 --> 00:01:12.280
+you'll see the response that why the tool thinks
+
+23
+00:01:12.280 --> 00:01:13.400
+that this is vulnerable.
+
+24
+00:01:13.400 --> 00:01:14.820
+And we can see that in the response,
+
+25
+00:01:14.820 --> 00:01:17.320
+the tool was able to get the contents
+
+26
+00:01:17.320 --> 00:01:19.133
+of ETC password.
+
+27
+00:01:20.280 --> 00:01:23.130
+Right here you can see the URL that the tool used
+
+28
+00:01:23.130 --> 00:01:25.193
+to exploit this vulnerability.
+
+29
+00:01:26.780 --> 00:01:29.120
+And in here, you can see a description
+
+30
+00:01:29.120 --> 00:01:31.510
+of what the current vulnerability is,
+
+31
+00:01:31.510 --> 00:01:33.233
+and how it has been exploited.
+
+32
+00:01:37.288 --> 00:01:38.880
+And here you can see the risk of it.
+
+33
+00:01:38.880 --> 00:01:40.700
+So this is very high
+
+34
+00:01:40.700 --> 00:01:42.900
+you can see the confidence so how confident
+
+35
+00:01:42.900 --> 00:01:44.930
+the tool about the existence
+
+36
+00:01:44.930 --> 00:01:48.720
+of this vulnerability, you can see that it's been injected
+
+37
+00:01:48.720 --> 00:01:53.720
+into a page and the attack is trying to get ETC password.
+
+38
+00:01:55.110 --> 00:01:59.400
+So let's try and right click on this and open it in browser
+
+39
+00:02:01.480 --> 00:02:04.050
+and as you can see now it exploited it for us,
+
+40
+00:02:04.050 --> 00:02:07.650
+and it showed us the output for this vulnerability,
+
+41
+00:02:07.650 --> 00:02:10.630
+and we can read the contents of ETC password.
+
+42
+00:02:10.630 --> 00:02:12.950
+And you can see that the exploit is being exploited
+
+43
+00:02:12.950 --> 00:02:14.563
+in this URL right here.
+
+44
+00:02:16.110 --> 00:02:17.960
+Let's have a look on another example.
+
+45
+00:02:21.580 --> 00:02:23.960
+For example, a cross site scripting
+
+46
+00:02:23.960 --> 00:02:28.490
+and again, the tool also checks for post and get parameters.
+
+47
+00:02:28.490 --> 00:02:30.240
+So sometimes when the parameter,
+
+48
+00:02:30.240 --> 00:02:33.060
+when the injection is sent into text boxes,
+
+49
+00:02:33.060 --> 00:02:34.820
+or even sent without text boxes,
+
+50
+00:02:34.820 --> 00:02:36.700
+if it's sent in a post parameter,
+
+51
+00:02:36.700 --> 00:02:38.490
+you won't see it in the URL.
+
+52
+00:02:38.490 --> 00:02:41.430
+So it actually checks for post and get
+
+53
+00:02:41.430 --> 00:02:43.960
+and you can see here it found a vulnerability
+
+54
+00:02:43.960 --> 00:02:46.400
+in a POST request and the register page
+
+55
+00:02:48.260 --> 00:02:51.250
+and it also found one in a get page.
+
+56
+00:02:51.250 --> 00:02:53.820
+Again, right click and open in browser
+
+57
+00:02:55.330 --> 00:02:56.510
+will execute for us
+
+58
+00:02:56.510 --> 00:02:59.180
+and we can see the code has been executed.
+
+59
+00:02:59.180 --> 00:03:01.970
+Again, we can have The URL of the execution right here,
+
+60
+00:03:01.970 --> 00:03:04.990
+if you want to use it with beef or any other tools,
+
+61
+00:03:04.990 --> 00:03:08.770
+and we can see it in here as well the URL that's being used
+
+62
+00:03:08.770 --> 00:03:10.453
+to exploit this vulnerability.
+
+63
+00:03:11.770 --> 00:03:14.823
+Let's just have one more example of an SQL injection.
+
+64
+00:03:18.490 --> 00:03:21.770
+Again, click on it, it will show you why it believes
+
+65
+00:03:21.770 --> 00:03:24.083
+that there is an SQL injection here.
+
+66
+00:03:28.570 --> 00:03:31.130
+It will show you the URL and it will show you
+
+67
+00:03:31.130 --> 00:03:32.400
+the attack that it used.
+
+68
+00:03:32.400 --> 00:03:34.463
+It used and one equals one
+
+69
+00:03:38.020 --> 00:03:40.550
+and it's in the parameter password.
+
+70
+00:03:40.550 --> 00:03:44.250
+And if you remember we actually did exploit this parameter.
+
+71
+00:03:44.250 --> 00:03:48.250
+Open in this in the browser will show us that the injection
+
+72
+00:03:48.250 --> 00:03:52.103
+has been is working and it's username
+
+73
+00:03:52.103 --> 00:03:53.403
+and a password called zap.
+
+74
+00:03:56.510 --> 00:04:01.190
+So the tool is very simple, very powerful and very useful.
+
+75
+00:04:01.190 --> 00:04:03.100
+You can play around with it you can play around
+
+76
+00:04:03.100 --> 00:04:05.870
+with the proxy and with the options
+
+77
+00:04:05.870 --> 00:04:09.070
+and see how you can enhance the results
+
+78
+00:04:09.070 --> 00:04:11.143
+and achieve even better results.
+

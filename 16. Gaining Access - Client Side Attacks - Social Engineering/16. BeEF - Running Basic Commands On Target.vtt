@@ -1,0 +1,346 @@
+WEBVTT
+
+1
+00:00:01.221 --> 00:00:03.972
+[Instructor] So now that we have our browser or taget hooked
+
+2
+00:00:03.972 --> 00:00:06.680
+we can go on to commands and start
+
+3
+00:00:06.680 --> 00:00:09.760
+executing commands on that target.
+
+4
+00:00:09.760 --> 00:00:13.030
+You can use search to filter, looking for certain command
+
+5
+00:00:13.030 --> 00:00:14.750
+if you know what your looking for.
+
+6
+00:00:14.750 --> 00:00:17.750
+Or you can use the categories and look for commands
+
+7
+00:00:17.750 --> 00:00:21.380
+suitable to what you want to do on the targeted computer.
+
+8
+00:00:21.380 --> 00:00:23.910
+Some of this information gathering commands,
+
+9
+00:00:23.910 --> 00:00:25.800
+some of them are social engineering,
+
+10
+00:00:25.800 --> 00:00:27.920
+some of them will even give you full control
+
+11
+00:00:27.920 --> 00:00:29.740
+over the target computer.
+
+12
+00:00:29.740 --> 00:00:32.040
+There's a lot of commands. So once we able to go
+
+13
+00:00:32.040 --> 00:00:34.740
+over all of them. But I'll be showing you some of the
+
+14
+00:00:34.740 --> 00:00:38.180
+most important commands and examples of simple once as well.
+
+15
+00:00:38.180 --> 00:00:41.933
+So you know how to experiment and run the other commands.
+
+16
+00:00:42.890 --> 00:00:45.840
+So were starting if you go into browser you'll see commands
+
+17
+00:00:45.840 --> 00:00:48.488
+related to stuff that you can do inside the browser.
+
+18
+00:00:48.488 --> 00:00:51.570
+So you can see things that will allow you to for example
+
+19
+00:00:51.570 --> 00:00:54.199
+get a screen shot and you'll be able to try and gain
+
+20
+00:00:54.199 --> 00:00:57.530
+and turn on the web cam and see if it works.
+
+21
+00:00:57.530 --> 00:01:01.103
+And basically open the webcam on the target.
+
+22
+00:01:01.103 --> 00:01:05.390
+You can gather information, uhm if you go here
+
+23
+00:01:05.390 --> 00:01:08.265
+on the exploits, you'll see a number of exploits
+
+24
+00:01:08.265 --> 00:01:11.440
+that you can run, again depending on what's running
+
+25
+00:01:11.440 --> 00:01:14.073
+on the target computer, you can run them.
+
+26
+00:01:14.980 --> 00:01:17.010
+All you have to do is just click on the module
+
+27
+00:01:17.010 --> 00:01:20.090
+that you want to run and click on the execute.
+
+28
+00:01:20.090 --> 00:01:23.660
+Sometimes some modules need to set some options to be set up
+
+29
+00:01:23.660 --> 00:01:26.240
+and we'll have examples of that as well.
+
+30
+00:01:26.240 --> 00:01:28.090
+In the social engineering again there are some
+
+31
+00:01:28.090 --> 00:01:30.550
+really cool stuff that you can do and you can
+
+32
+00:01:30.550 --> 00:01:34.130
+show fake updates, fake notification bars
+
+33
+00:01:34.130 --> 00:01:35.223
+and stuff like that.
+
+34
+00:01:36.440 --> 00:01:39.210
+So lets have an example of a very simple command.
+
+35
+00:01:39.210 --> 00:01:42.238
+So again were gonna do just an alert to show an alert box
+
+36
+00:01:42.238 --> 00:01:44.210
+(clicking).
+
+37
+00:01:44.210 --> 00:01:47.000
+So I'm just using the search to filter
+
+38
+00:01:47.000 --> 00:01:50.900
+and you can see here this will just create an alert dialog
+
+39
+00:01:50.900 --> 00:01:53.030
+and its going to say "beef alert dialog".
+
+40
+00:01:53.030 --> 00:01:55.210
+You can modify this and type anything you want.
+
+41
+00:01:55.210 --> 00:01:57.160
+For exampple, I'm gonna type in "test".
+
+42
+00:01:58.770 --> 00:02:01.251
+And then when you hit "execute".
+
+43
+00:02:01.251 --> 00:02:04.399
+Go on to target, and you'll see that the target
+
+44
+00:02:04.399 --> 00:02:06.690
+got a message saying "test".
+
+45
+00:02:06.690 --> 00:02:09.563
+So this has been injected into the target browser.
+
+46
+00:02:11.540 --> 00:02:13.210
+And other cool thing that you can do
+
+47
+00:02:13.210 --> 00:02:14.863
+is the roll java script.
+
+48
+00:02:17.690 --> 00:02:18.740
+And this will allow you
+
+49
+00:02:18.740 --> 00:02:21.380
+to execute any java script you want.
+
+50
+00:02:21.380 --> 00:02:23.510
+So again you can look for google for a useful
+
+51
+00:02:23.510 --> 00:02:25.640
+java script code for example a key-logger
+
+52
+00:02:25.640 --> 00:02:28.500
+or whatever you want to do. Or you can write your own
+
+53
+00:02:28.500 --> 00:02:30.312
+if you know java script. And basically whatever
+
+54
+00:02:30.312 --> 00:02:33.790
+you write here will be executed on the target.
+
+55
+00:02:33.790 --> 00:02:35.450
+Again were only seeing an alert,
+
+56
+00:02:35.450 --> 00:02:38.720
+and this will only going say "beef roll java script"
+
+57
+00:02:38.720 --> 00:02:39.643
+I'm gonna execute,
+
+58
+00:02:42.720 --> 00:02:43.710
+and here we go again
+
+59
+00:02:43.710 --> 00:02:46.547
+we got a dialog saying "beef roll java script".
+
+60
+00:02:49.410 --> 00:02:52.700
+Lets see if we can get a screen shot of a target computer.
+
+61
+00:02:52.700 --> 00:02:55.850
+And were going to use a plug-in called "spy".
+
+62
+00:02:55.850 --> 00:02:58.233
+Spyder eye I think, yeah. Spyder eye.
+
+63
+00:02:59.950 --> 00:03:02.653
+So again, click on in, hit "execute"
+
+64
+00:03:04.306 --> 00:03:07.273
+then were gonna click on the command here.
+
+65
+00:03:09.120 --> 00:03:10.870
+Looks like this time didn't work properly.
+
+66
+00:03:10.870 --> 00:03:12.113
+Lets just do it again.
+
+67
+00:03:22.780 --> 00:03:24.380
+And here we go, as you can see
+
+68
+00:03:24.380 --> 00:03:27.380
+we got a screen shot of what the target person is looking up
+
+69
+00:03:29.390 --> 00:03:32.050
+another really good plug-in is a plug-in
+
+70
+00:03:32.050 --> 00:03:33.823
+its a redirect plug-in.
+
+71
+00:03:36.160 --> 00:03:38.350
+And it will basically allow you to
+
+72
+00:03:38.350 --> 00:03:41.410
+redirect the browser to any webpage you want.
+
+73
+00:03:41.410 --> 00:03:43.520
+This could be very useful because you can use it
+
+74
+00:03:43.520 --> 00:03:45.860
+to redirect the target person and tell them
+
+75
+00:03:45.860 --> 00:03:48.110
+that they need to download that update
+
+76
+00:03:48.110 --> 00:03:51.020
+and instead of giving them an update, give them a backdoor.
+
+77
+00:03:51.020 --> 00:03:53.540
+You can redirect them to a fake login page for example.
+
+78
+00:03:53.540 --> 00:03:56.453
+For Facebook, you can really anything you want with this.
+
+79
+00:03:56.453 --> 00:03:59.300
+So, you can set the website that you want the target
+
+80
+00:03:59.300 --> 00:04:02.247
+to be redirected to and were gonna redirect them to
+
+81
+00:04:02.247 --> 00:04:05.653
+"beef project" in this example. and once you hit execute.
+
+82
+00:04:08.600 --> 00:04:11.500
+As you can see here, they're redirected to "beef project".
+
+83
+00:04:12.880 --> 00:04:16.750
+These are some of the basic modules that you can use.
+
+84
+00:04:16.750 --> 00:04:18.350
+Again you can experiment with these.
+
+85
+00:04:18.350 --> 00:04:21.660
+Go over them and see what would be useful
+
+86
+00:04:21.660 --> 00:04:23.483
+in your particular situation.
+

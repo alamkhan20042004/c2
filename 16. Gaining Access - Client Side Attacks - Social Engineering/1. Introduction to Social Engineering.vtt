@@ -1,0 +1,266 @@
+WEBVTT
+
+1
+00:00:01.350 --> 00:00:04.190
+<v ->So far we have seen really good methods in</v>
+
+2
+00:00:04.190 --> 00:00:05.730
+client side attacks.
+
+3
+00:00:05.730 --> 00:00:07.490
+These, these methods were really good,
+
+4
+00:00:07.490 --> 00:00:10.460
+because they didn't, we didn't really ask
+
+5
+00:00:10.460 --> 00:00:11.840
+the client to do anything.
+
+6
+00:00:11.840 --> 00:00:14.790
+We were, we would gain access to the target computer
+
+7
+00:00:14.790 --> 00:00:17.000
+if the client update their system
+
+8
+00:00:17.000 --> 00:00:18.740
+or if they download something,
+
+9
+00:00:18.740 --> 00:00:20.940
+then we will backdoor it on the fly.
+
+10
+00:00:20.940 --> 00:00:22.330
+So these methods are really good
+
+11
+00:00:22.330 --> 00:00:24.600
+because we don't really need to interact with,
+
+12
+00:00:24.600 --> 00:00:26.960
+like with, the person does need to do something.
+
+13
+00:00:26.960 --> 00:00:29.290
+So the user has to actually do an action
+
+14
+00:00:29.290 --> 00:00:32.033
+but we don't need to ask them to do something.
+
+15
+00:00:32.970 --> 00:00:34.570
+The only problem with these methods is
+
+16
+00:00:34.570 --> 00:00:36.210
+that we need to be the man in the middle.
+
+17
+00:00:36.210 --> 00:00:38.653
+So we either need to do ARP poisoning
+
+18
+00:00:38.653 --> 00:00:42.080
+or we need start our own fake access point
+
+19
+00:00:42.080 --> 00:00:44.653
+or do something to become the man in the middle.
+
+20
+00:00:46.110 --> 00:00:48.260
+In the next videos we are going to talk about
+
+21
+00:00:48.260 --> 00:00:50.670
+a method or methods that you can use
+
+22
+00:00:50.670 --> 00:00:52.410
+if you aren't the man in the middle.
+
+23
+00:00:52.410 --> 00:00:55.100
+If the person maybe exists in a remote place
+
+24
+00:00:55.100 --> 00:00:57.620
+that you, like it's not possible for you to become
+
+25
+00:00:57.620 --> 00:00:58.664
+the man in the middle.
+
+26
+00:00:58.664 --> 00:01:02.240
+So we are going to be talking about social engineering.
+
+27
+00:01:02.240 --> 00:01:04.560
+And social engineering is really big and there are
+
+28
+00:01:04.560 --> 00:01:05.890
+so many attacks that you can do
+
+29
+00:01:05.890 --> 00:01:08.470
+because it all depends, sometimes you don't even need
+
+30
+00:01:08.470 --> 00:01:12.800
+any technical information to that kind of attacks.
+
+31
+00:01:12.800 --> 00:01:15.720
+So it all depends on your target and how you are
+
+32
+00:01:15.720 --> 00:01:18.520
+going to build a strategy to attack that target
+
+33
+00:01:18.520 --> 00:01:20.407
+and maybe get some passwords
+
+34
+00:01:20.407 --> 00:01:24.403
+or gain access to certain computer system.
+
+35
+00:01:25.350 --> 00:01:28.120
+So what we are going to do is, usually with information
+
+36
+00:01:28.120 --> 00:01:31.770
+gathering, the most important step is gathering information.
+
+37
+00:01:31.770 --> 00:01:34.600
+You need to gather as much information as you can
+
+38
+00:01:34.600 --> 00:01:37.600
+about your target, about what websites they use,
+
+39
+00:01:37.600 --> 00:01:39.407
+who is their friends,
+
+40
+00:01:39.407 --> 00:01:42.450
+anything, any piece of information can
+
+41
+00:01:42.450 --> 00:01:44.540
+become really really useful to you when
+
+42
+00:01:44.540 --> 00:01:46.470
+it comes to social engineering.
+
+43
+00:01:46.470 --> 00:01:48.750
+So we are going to look at how to gather information
+
+44
+00:01:48.750 --> 00:01:50.693
+about a specific person first.
+
+45
+00:01:51.610 --> 00:01:53.470
+So here all we have, all we a going to have
+
+46
+00:01:53.470 --> 00:01:55.530
+is just a name or a Facebook account
+
+47
+00:01:55.530 --> 00:01:57.980
+and we will see what information we can gather
+
+48
+00:01:57.980 --> 00:01:59.193
+based on that name.
+
+49
+00:02:00.240 --> 00:02:01.760
+After that we are going to move
+
+50
+00:02:01.760 --> 00:02:03.790
+and we are going to start building a strategy
+
+51
+00:02:03.790 --> 00:02:05.920
+and we will see how we can use all the information
+
+52
+00:02:05.920 --> 00:02:08.450
+that we gathered to build a strategy
+
+53
+00:02:08.450 --> 00:02:11.508
+in order to build an attack and gain access
+
+54
+00:02:11.508 --> 00:02:14.280
+to the target computer system
+
+55
+00:02:14.280 --> 00:02:16.410
+and at the end we are actually going to use
+
+56
+00:02:16.410 --> 00:02:19.150
+some technical stuff to create our backdoor.
+
+57
+00:02:19.150 --> 00:02:21.490
+We are going to make a back door that is acceptable
+
+58
+00:02:21.490 --> 00:02:23.990
+by the target user, that they will probably use.
+
+59
+00:02:23.990 --> 00:02:26.970
+And we will also see how we can pretend
+
+60
+00:02:26.970 --> 00:02:29.990
+to be one of their friends and get the target person
+
+61
+00:02:29.990 --> 00:02:31.540
+to run the back door
+
+62
+00:02:31.540 --> 00:02:33.470
+so we are actually going to be asking them
+
+63
+00:02:33.470 --> 00:02:36.140
+to run a specific file and serve the methods
+
+64
+00:02:36.140 --> 00:02:39.090
+we have seen so far, where the user goes and voluntarily
+
+65
+00:02:39.090 --> 00:02:40.890
+goes and updates their system
+
+66
+00:02:40.890 --> 00:02:42.993
+or downloads a certain executable.
+

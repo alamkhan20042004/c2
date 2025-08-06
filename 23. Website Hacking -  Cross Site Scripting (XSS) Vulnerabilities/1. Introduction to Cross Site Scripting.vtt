@@ -1,0 +1,278 @@
+WEBVTT
+
+1
+00:00:02.935 --> 00:00:04.820
+<v ->In this lecture and the next few lectures,</v>
+
+2
+00:00:04.820 --> 00:00:09.460
+we're going to talk about a vulnerability called XSS.
+
+3
+00:00:09.460 --> 00:00:12.083
+XSS is short for Cross Site Scripting.
+
+4
+00:00:13.220 --> 00:00:15.980
+This type of vulnerability allows an attacker
+
+5
+00:00:15.980 --> 00:00:19.023
+to inject JavaScript into a page.
+
+6
+00:00:20.060 --> 00:00:22.630
+So JavaScript is a programming language.
+
+7
+00:00:22.630 --> 00:00:24.880
+And using this vulnerability
+
+8
+00:00:24.880 --> 00:00:27.620
+an attacker would be able to execute code,
+
+9
+00:00:27.620 --> 00:00:29.000
+written in JavaScript,
+
+10
+00:00:29.000 --> 00:00:30.430
+into a certain page
+
+11
+00:00:30.430 --> 00:00:31.463
+into a website.
+
+12
+00:00:33.180 --> 00:00:35.710
+JavaScript is a client-side language,
+
+13
+00:00:35.710 --> 00:00:38.780
+so when the code is executed,
+
+14
+00:00:38.780 --> 00:00:41.670
+it will be executed on the client, on the user,
+
+15
+00:00:41.670 --> 00:00:44.670
+on the person who was browsing the web page.
+
+16
+00:00:44.670 --> 00:00:46.630
+It's not gonna be executed on the server,
+
+17
+00:00:46.630 --> 00:00:48.650
+so even if your code results
+
+18
+00:00:48.650 --> 00:00:51.070
+into giving you a reverse shell,
+
+19
+00:00:51.070 --> 00:00:53.160
+the shell will be coming from the user
+
+20
+00:00:53.160 --> 00:00:54.450
+who is browsing the page,
+
+21
+00:00:54.450 --> 00:00:57.200
+and it's not gonna be coming from the website.
+
+22
+00:00:57.200 --> 00:01:00.870
+So any code you write in JavaScript will be exploited
+
+23
+00:01:00.870 --> 00:01:03.130
+or will run on the target user,
+
+24
+00:01:03.130 --> 00:01:04.860
+on the people who see the pages
+
+25
+00:01:04.860 --> 00:01:07.600
+and it's not on the web server.
+
+26
+00:01:07.600 --> 00:01:11.200
+So the web server is only gonna be used as means
+
+27
+00:01:11.200 --> 00:01:14.563
+of executing the code or delivering the code.
+
+28
+00:01:16.320 --> 00:01:19.620
+There's three main types of XSS vulnerabilities,
+
+29
+00:01:19.620 --> 00:01:21.450
+Persistent or Stored,
+
+30
+00:01:21.450 --> 00:01:22.460
+Reflected
+
+31
+00:01:22.460 --> 00:01:23.633
+and DOM based.
+
+32
+00:01:26.680 --> 00:01:30.240
+The stored XSS gets stored into the database,
+
+33
+00:01:30.240 --> 00:01:33.630
+so the code that you inject will be stored into the database
+
+34
+00:01:33.630 --> 00:01:34.840
+or into the page,
+
+35
+00:01:34.840 --> 00:01:38.210
+so that every time, any person views that page
+
+36
+00:01:38.210 --> 00:01:39.963
+your code will be executed.
+
+37
+00:01:41.400 --> 00:01:43.430
+The Reflected one,
+
+38
+00:01:43.430 --> 00:01:45.500
+the code will only be executed
+
+39
+00:01:45.500 --> 00:01:48.900
+when the target user runs a specific URL
+
+40
+00:01:48.900 --> 00:01:51.030
+crafted or written by you.
+
+41
+00:01:51.030 --> 00:01:53.650
+So you'll be manipulating some sort of URL
+
+42
+00:01:53.650 --> 00:01:55.300
+and send it to a target
+
+43
+00:01:55.300 --> 00:01:56.840
+and when they run that target,
+
+44
+00:01:56.840 --> 00:01:59.943
+when they run that URL, the code will be executed.
+
+45
+00:02:02.370 --> 00:02:06.760
+The DOM based results from JavaScript code written
+
+46
+00:02:06.760 --> 00:02:07.890
+on the client.
+
+47
+00:02:07.890 --> 00:02:10.270
+So the code will actually be interpreted
+
+48
+00:02:10.270 --> 00:02:12.320
+and run on the client side
+
+49
+00:02:12.320 --> 00:02:16.120
+without having any communication with the web server.
+
+50
+00:02:16.120 --> 00:02:17.660
+These could be very dangerous
+
+51
+00:02:17.660 --> 00:02:21.520
+because sometimes web servers apply some sort of security
+
+52
+00:02:21.520 --> 00:02:24.250
+and filtration to check for XSS.
+
+53
+00:02:24.250 --> 00:02:27.700
+But with DOM based the code never gets sent
+
+54
+00:02:27.700 --> 00:02:28.790
+to the web server.
+
+55
+00:02:28.790 --> 00:02:32.810
+So the code will be interpreted and run on the web browser
+
+56
+00:02:32.810 --> 00:02:36.610
+without even interacting with the web server.
+
+57
+00:02:36.610 --> 00:02:39.500
+And these will be present into websites
+
+58
+00:02:39.500 --> 00:02:41.850
+that update their content without refresh.
+
+59
+00:02:41.850 --> 00:02:44.840
+So we've all used websites where you put your username,
+
+60
+00:02:44.840 --> 00:02:45.673
+for example,
+
+61
+00:02:45.673 --> 00:02:46.660
+and it loads in straightaway
+
+62
+00:02:46.660 --> 00:02:49.610
+without having to check with the web server, or you do,
+
+63
+00:02:49.610 --> 00:02:51.500
+you put some sort of a string
+
+64
+00:02:51.500 --> 00:02:54.600
+and it does a search without communicating with a web server
+
+65
+00:02:54.600 --> 00:02:57.390
+or does something without communicating with the web server.
+
+66
+00:02:57.390 --> 00:03:00.030
+So if you're able to inject into that,
+
+67
+00:03:00.030 --> 00:03:02.870
+then this injection will not be validated,
+
+68
+00:03:02.870 --> 00:03:05.500
+so it'll be executed straightaway
+
+69
+00:03:05.500 --> 00:03:07.263
+and bypass all validations.
+

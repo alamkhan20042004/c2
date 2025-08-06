@@ -1,0 +1,506 @@
+WEBVTT
+
+1
+00:00:02.570 --> 00:00:04.640
+<v ->Okay, now let's have another example</v>
+
+2
+00:00:04.640 --> 00:00:07.050
+on who can people to BeEF when
+
+3
+00:00:07.050 --> 00:00:08.940
+they exist outside our network.
+
+4
+00:00:08.940 --> 00:00:10.030
+So again, we're going to have the
+
+5
+00:00:10.030 --> 00:00:11.890
+example, I guess, the same Windows
+
+6
+00:00:11.890 --> 00:00:13.210
+machine, that's in a completely
+
+7
+00:00:13.210 --> 00:00:14.800
+different network, and we'll see
+
+8
+00:00:14.800 --> 00:00:17.470
+how we can hook that machine to BeEF.
+
+9
+00:00:17.470 --> 00:00:19.520
+So, first of all I'm going to start BeEF.
+
+10
+00:00:20.530 --> 00:00:25.003
+Just one click right here and that will start BeEF for me.
+
+11
+00:00:27.730 --> 00:00:28.890
+And I'm going to login.
+
+12
+00:00:28.890 --> 00:00:31.363
+Username is BeEF and password is BeEF as well.
+
+13
+00:00:33.180 --> 00:00:34.250
+And we're logged in.
+
+14
+00:00:34.250 --> 00:00:36.250
+Now, we're going to use the same
+
+15
+00:00:36.250 --> 00:00:38.060
+basic hook method that we did before.
+
+16
+00:00:38.060 --> 00:00:40.710
+So, in that method we need to get
+
+17
+00:00:40.710 --> 00:00:44.450
+the script code right here, which is this.
+
+18
+00:00:44.450 --> 00:00:46.670
+I'm going to copy that and we did
+
+19
+00:00:46.670 --> 00:00:47.880
+this before so again I'm going
+
+20
+00:00:47.880 --> 00:00:49.660
+to do it a little bit quickly.
+
+21
+00:00:49.660 --> 00:00:52.290
+And we place that in our Apache web server.
+
+22
+00:00:52.290 --> 00:00:55.043
+So place it in an HTML page and
+
+23
+00:00:55.043 --> 00:01:00.043
+that was in always our Apache web home directory is
+
+24
+00:01:00.134 --> 00:01:03.250
+/var/www/html/
+
+25
+00:01:06.480 --> 00:01:09.000
+and I'm going to open my index file.
+
+26
+00:01:09.000 --> 00:01:11.100
+I'm going to open it with the text editor.
+
+27
+00:01:13.650 --> 00:01:15.120
+And I'm going to paste this code
+
+28
+00:01:15.120 --> 00:01:17.023
+right here that I got from BeEF.
+
+29
+00:01:19.290 --> 00:01:20.610
+And the only thing that you want
+
+30
+00:01:20.610 --> 00:01:22.730
+to change -- all this is okay -- the
+
+31
+00:01:22.730 --> 00:01:23.970
+only thing that you want to change --
+
+32
+00:01:23.970 --> 00:01:25.820
+as I said before -- anywhere that
+
+33
+00:01:25.820 --> 00:01:27.940
+we used to use our normal IP we're
+
+34
+00:01:27.940 --> 00:01:30.600
+going to use our external IP.
+
+35
+00:01:30.600 --> 00:01:32.600
+So that people when they try to
+
+36
+00:01:32.600 --> 00:01:36.540
+connect they'll actually be able to find our computer.
+
+37
+00:01:36.540 --> 00:01:40.060
+Because if we use internal IP they won't be able to see it.
+
+38
+00:01:40.060 --> 00:01:41.060
+So again, I'm going to use the
+
+39
+00:01:41.060 --> 00:01:42.980
+IP that we see on Google when
+
+40
+00:01:42.980 --> 00:01:44.587
+we type in "what's my IP?"
+
+41
+00:01:54.250 --> 00:01:55.083
+And that's it.
+
+42
+00:01:55.083 --> 00:01:56.920
+I'm good to go so I'm going to save this.
+
+43
+00:01:58.190 --> 00:02:02.210
+Quit it and now I need to enable port 3000.
+
+44
+00:02:02.210 --> 00:02:03.880
+Which is the port that BeEF works on.
+
+45
+00:02:03.880 --> 00:02:07.890
+As you can see, we can see that it uses port 3000 here.
+
+46
+00:02:07.890 --> 00:02:10.400
+So I need to tell the router again,
+
+47
+00:02:10.400 --> 00:02:12.380
+in the IP forwarding settings,
+
+48
+00:02:12.380 --> 00:02:15.390
+I need to tell it to forward any
+
+49
+00:02:15.390 --> 00:02:17.620
+request that you get on port 3000
+
+50
+00:02:18.820 --> 00:02:22.803
+to my [Cali?] machine which is at 192168011.
+
+51
+00:02:27.490 --> 00:02:32.370
+I'm going to save that and that's it.
+
+52
+00:02:32.370 --> 00:02:33.203
+That's saved.
+
+53
+00:02:34.229 --> 00:02:36.529
+Now, we're going to go to the Windows machine.
+
+54
+00:02:38.440 --> 00:02:41.173
+We're going to go to our website.
+
+55
+00:02:42.240 --> 00:02:44.680
+Which is my--basically my IP, my
+
+56
+00:02:44.680 --> 00:02:46.860
+external IP and we're going to go.
+
+57
+00:02:46.860 --> 00:02:48.939
+It's going to run index [through?]
+
+58
+00:02:48.939 --> 00:02:51.230
+HTML automatically because the file is called index.
+
+59
+00:02:51.230 --> 00:02:52.670
+So all we have to do is just put
+
+60
+00:02:52.670 --> 00:02:55.940
+the IP of the network that [Cali's?] connected to.
+
+61
+00:02:55.940 --> 00:03:00.050
+So, what we need to use is this IP address right here.
+
+62
+00:03:00.050 --> 00:03:05.050
+Which is 89100145189 and we should
+
+63
+00:03:05.630 --> 00:03:09.420
+be hooked to BeEF as soon as we browse through that IP.
+
+64
+00:03:09.420 --> 00:03:11.043
+So, let's see what happens.
+
+65
+00:03:18.840 --> 00:03:23.720
+Okay, now let's go to BeEF and
+
+66
+00:03:23.720 --> 00:03:25.320
+as you can see we got a Window's
+
+67
+00:03:25.320 --> 00:03:27.960
+machine hooked and it's using
+
+68
+00:03:27.960 --> 00:03:30.300
+Firefox 50 and now we can run
+
+69
+00:03:30.300 --> 00:03:33.810
+all the commands that BeEF allows us to run.
+
+70
+00:03:33.810 --> 00:03:36.743
+So, let's just throw on alert and see if it works.
+
+71
+00:03:41.400 --> 00:03:43.080
+And it just says, "BeEF Alert Dialog."
+
+72
+00:03:43.080 --> 00:03:44.280
+I'm just going to execute it just
+
+73
+00:03:44.280 --> 00:03:47.200
+to make sure that everything is working properly.
+
+74
+00:03:47.200 --> 00:03:48.940
+And, as you can see we managed
+
+75
+00:03:48.940 --> 00:03:51.410
+to hook, and -- a machine that
+
+76
+00:03:51.410 --> 00:03:53.530
+exists in a completely different network.
+
+77
+00:03:53.530 --> 00:03:54.363
+And again, to confirm that I'm
+
+78
+00:03:54.363 --> 00:03:57.790
+going to go on Google and I'm going
+
+79
+00:03:57.790 --> 00:03:59.157
+to look for "what's my IP?"
+
+80
+00:04:01.930 --> 00:04:04.060
+And as you can see the IP is completely
+
+81
+00:04:04.060 --> 00:04:06.693
+different to the IP that's in this machine.
+
+82
+00:04:07.750 --> 00:04:10.180
+So, again, all we have to do is
+
+83
+00:04:10.180 --> 00:04:12.530
+use the external IP address whenever
+
+84
+00:04:12.530 --> 00:04:14.410
+you're sending it outside the network.
+
+85
+00:04:14.410 --> 00:04:15.780
+Use the IP that you see when you
+
+86
+00:04:15.780 --> 00:04:18.060
+type in "What's my IP address?"
+
+87
+00:04:18.060 --> 00:04:19.060
+When you're listening on your
+
+88
+00:04:19.060 --> 00:04:21.180
+own machine use the local IP and
+
+89
+00:04:21.180 --> 00:04:23.060
+make sure you configure the router
+
+90
+00:04:23.060 --> 00:04:25.010
+to redirect the port that you're
+
+91
+00:04:25.010 --> 00:04:27.230
+listening on to the [Cali?] machine.
+
+92
+00:04:27.230 --> 00:04:29.210
+To the IP address -- to the private
+
+93
+00:04:29.210 --> 00:04:31.023
+IP address of the [Cali?] machine.
+
+94
+00:04:32.760 --> 00:04:35.960
+An alternative to using IP forwarding
+
+95
+00:04:35.960 --> 00:04:38.860
+you can set the [Cali?] machine as a DMZ host.
+
+96
+00:04:38.860 --> 00:04:41.220
+Now, not all routers support DMZ.
+
+97
+00:04:41.220 --> 00:04:43.460
+That's why I didn't show it from the start.
+
+98
+00:04:43.460 --> 00:04:45.850
+But if it supports it you can use it.
+
+99
+00:04:45.850 --> 00:04:48.510
+And what [DMs] does is it's basically
+
+100
+00:04:48.510 --> 00:04:51.803
+IP forwarding but it forwards all ports.
+
+101
+00:04:53.500 --> 00:04:55.410
+So, if you put the IP address
+
+102
+00:04:55.410 --> 00:04:56.880
+here, of the [Cali?] machine in
+
+103
+00:04:56.880 --> 00:04:58.570
+here, what the router's going
+
+104
+00:04:58.570 --> 00:05:00.450
+to do anytime it gets a request
+
+105
+00:05:00.450 --> 00:05:02.516
+for any port -- any port at all --
+
+106
+00:05:02.516 --> 00:05:04.630
+it'll forward that request to
+
+107
+00:05:04.630 --> 00:05:07.425
+the [Cali?] machine regardless of what port it is.
+
+108
+00:05:07.425 --> 00:05:09.235
+So with port forwarding, you actually
+
+109
+00:05:09.235 --> 00:05:11.950
+select which ports you want to forward to [Cali?].
+
+110
+00:05:11.950 --> 00:05:14.250
+With DMZ it will forward all the
+
+111
+00:05:14.250 --> 00:05:16.453
+ports to the IP that you put in here.
+
+112
+00:05:19.710 --> 00:05:21.310
+Now again, both of these methods
+
+113
+00:05:22.153 --> 00:05:24.820
+can be used to allow devices on
+
+114
+00:05:24.820 --> 00:05:26.660
+different networks to access your
+
+115
+00:05:26.660 --> 00:05:28.890
+computer so you can receive connections,
+
+116
+00:05:28.890 --> 00:05:30.440
+you can allow them to access a
+
+117
+00:05:30.440 --> 00:05:31.850
+website -- if you are hosting
+
+118
+00:05:31.850 --> 00:05:33.610
+a website on your web server --
+
+119
+00:05:33.610 --> 00:05:34.930
+you can allow them to access fake
+
+120
+00:05:34.930 --> 00:05:36.160
+websites, you can allow them to
+
+121
+00:05:36.160 --> 00:05:38.920
+access BeEF, the hook, anything.
+
+122
+00:05:38.920 --> 00:05:40.000
+Anything where you are listening
+
+123
+00:05:40.000 --> 00:05:42.010
+on a port you can use this method
+
+124
+00:05:42.010 --> 00:05:43.840
+to allow people to access it if
+
+125
+00:05:43.840 --> 00:05:46.020
+the people exist on a completely
+
+126
+00:05:46.020 --> 00:05:48.063
+different network than your own network.
+

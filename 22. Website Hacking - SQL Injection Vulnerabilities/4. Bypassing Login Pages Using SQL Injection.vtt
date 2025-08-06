@@ -1,0 +1,442 @@
+WEBVTT
+
+1
+00:00:02.350 --> 00:00:04.280
+<v Instructor>Okay, so now we know that we can put</v>
+
+2
+00:00:04.280 --> 00:00:06.530
+any code we want, in here,
+
+3
+00:00:06.530 --> 00:00:10.080
+and it's going to be executed on the system.
+
+4
+00:00:10.080 --> 00:00:12.290
+So, let's have another look now on the statement.
+
+5
+00:00:12.290 --> 00:00:15.450
+So the statement says, select * from accounts,
+
+6
+00:00:15.450 --> 00:00:18.820
+where user name is equal to the username that we put here,
+
+7
+00:00:18.820 --> 00:00:22.240
+and password is equal to the password that we put there.
+
+8
+00:00:22.240 --> 00:00:26.130
+Let's see if we can use that, to log in without using
+
+9
+00:00:26.130 --> 00:00:28.530
+a password, without even knowing the password.
+
+10
+00:00:28.530 --> 00:00:30.160
+And I'm gonna be doing that with the admin.
+
+11
+00:00:30.160 --> 00:00:33.483
+So, the admin, the username is going to be admin.
+
+12
+00:00:36.460 --> 00:00:39.080
+And I don't know what the password is for the admin.
+
+13
+00:00:39.080 --> 00:00:41.730
+So what I'm going to do, I'm just gonna put anything,
+
+14
+00:00:43.520 --> 00:00:47.050
+so nothing really, any random password,
+
+15
+00:00:47.050 --> 00:00:50.350
+And, in the code, well I should run here.
+
+16
+00:00:50.350 --> 00:00:53.340
+So were doing, and 1 = 1 and, or stuff,
+
+17
+00:00:53.340 --> 00:00:55.770
+So, what I'm gonna do is, I'm gonna do or,
+
+18
+00:00:55.770 --> 00:00:57.270
+instead of and.
+
+19
+00:00:57.270 --> 00:00:59.193
+And I'm gonna say 1 = 1.
+
+20
+00:01:00.350 --> 00:01:03.320
+So, what our code is going to be, once I run this,
+
+21
+00:01:03.320 --> 00:01:04.500
+once I inject this,
+
+22
+00:01:04.500 --> 00:01:07.730
+this is going to go in here,
+
+23
+00:01:07.730 --> 00:01:08.980
+like we are doing before.
+
+24
+00:01:08.980 --> 00:01:12.380
+So, our code is going to look like this,
+
+25
+00:01:12.380 --> 00:01:13.680
+so it's going to be.
+
+26
+00:01:13.680 --> 00:01:15.110
+Select * from accounts,
+
+27
+00:01:15.110 --> 00:01:16.960
+where our username is equal to admin.
+
+28
+00:01:18.170 --> 00:01:19.820
+And password is equal to AAA.
+
+29
+00:01:19.820 --> 00:01:20.863
+Now this is wrong.
+
+30
+00:01:21.870 --> 00:01:23.980
+Or, 1 = 1,
+
+31
+00:01:23.980 --> 00:01:25.240
+which is right.
+
+32
+00:01:25.240 --> 00:01:28.410
+So, any time you have an or, if the or condition is
+
+33
+00:01:28.410 --> 00:01:29.550
+right, everything is right.
+
+34
+00:01:29.550 --> 00:01:31.440
+That's the way or statement works.
+
+35
+00:01:31.440 --> 00:01:33.370
+So, select * from accounts.
+
+36
+00:01:33.370 --> 00:01:34.930
+We're user is equal to admin, okay,
+
+37
+00:01:34.930 --> 00:01:36.580
+username is equal to admin.
+
+38
+00:01:36.580 --> 00:01:39.500
+And password is equal to AAA, that's wrong.
+
+39
+00:01:39.500 --> 00:01:41.860
+Or 1 = 1, okay, I'll accept that.
+
+40
+00:01:41.860 --> 00:01:43.780
+And then, it's actually gonna execute it,
+
+41
+00:01:43.780 --> 00:01:47.320
+and let us log into the admin without even knowing
+
+42
+00:01:47.320 --> 00:01:49.100
+the password for the admin.
+
+43
+00:01:49.100 --> 00:01:50.773
+So let's try to inject this now.
+
+44
+00:01:56.350 --> 00:01:59.600
+And as you can see, I was able to log in, as admin,
+
+45
+00:01:59.600 --> 00:02:01.993
+and monkey is the signature for the admin.
+
+46
+00:02:03.070 --> 00:02:06.870
+Now, bypass and log in's can be done in so many ways,
+
+47
+00:02:06.870 --> 00:02:09.400
+depending on the code that's written on the page.
+
+48
+00:02:09.400 --> 00:02:11.230
+And depending on the way you wanna do it,
+
+49
+00:02:11.230 --> 00:02:12.730
+and how you're imagining the code.
+
+50
+00:02:12.730 --> 00:02:15.490
+And a lot of the cases, when you put the single quote here,
+
+51
+00:02:15.490 --> 00:02:17.070
+you won't see this message.
+
+52
+00:02:17.070 --> 00:02:18.200
+Sometimes you do see it,
+
+53
+00:02:18.200 --> 00:02:20.150
+which makes your job so much easier.
+
+54
+00:02:20.150 --> 00:02:22.270
+If you don't, then you kinda need to guess
+
+55
+00:02:22.270 --> 00:02:23.780
+what it looks like.
+
+56
+00:02:23.780 --> 00:02:26.260
+So I'm gonna show you other example of bypassing.
+
+57
+00:02:26.260 --> 00:02:28.363
+Instead of injecting the code like this,
+
+58
+00:02:29.210 --> 00:02:32.090
+the admin parameter is actually injectable as well,
+
+59
+00:02:32.090 --> 00:02:34.300
+as you've seen when I put this single quote,
+
+60
+00:02:34.300 --> 00:02:37.410
+the admin parameter is injectable, exactly the same way
+
+61
+00:02:37.410 --> 00:02:38.580
+as the password.
+
+62
+00:02:38.580 --> 00:02:42.260
+So we can inject code in the username as well.
+
+63
+00:02:42.260 --> 00:02:44.997
+And what I going to do now, so let's have a look on this,
+
+64
+00:02:44.997 --> 00:02:47.670
+and I'm just gonna reset it to the way it would usually
+
+65
+00:02:47.670 --> 00:02:48.503
+look like.
+
+66
+00:02:48.503 --> 00:02:53.000
+So, we'd have and the username and the password,
+
+67
+00:02:53.000 --> 00:02:55.590
+out of the fields that you whatever you put in here,
+
+68
+00:02:55.590 --> 00:02:59.530
+are gonna be substituted and the username and the password.
+
+69
+00:02:59.530 --> 00:03:02.660
+So, let's try to inject something in the username,
+
+70
+00:03:02.660 --> 00:03:05.490
+and what I'm going to say is, I'm gonna say,
+
+71
+00:03:05.490 --> 00:03:07.830
+username is equal to admin,
+
+72
+00:03:07.830 --> 00:03:10.380
+and then I'm gonna close the quote myself,
+
+73
+00:03:10.380 --> 00:03:12.490
+and then I'm gonna add a comment.
+
+74
+00:03:12.490 --> 00:03:15.400
+So, my statement, when I run the statement,
+
+75
+00:03:15.400 --> 00:03:17.410
+it's going to look like this, and I'm actually just gonna
+
+76
+00:03:17.410 --> 00:03:18.780
+copy it here.
+
+77
+00:03:18.780 --> 00:03:22.210
+And, when I inject one, when I put this code in here,
+
+78
+00:03:22.210 --> 00:03:23.083
+in my name.
+
+79
+00:03:24.490 --> 00:03:26.343
+It's going to inject that in there,
+
+80
+00:03:27.570 --> 00:03:29.260
+so this is what the code is gonna look like.
+
+81
+00:03:29.260 --> 00:03:31.570
+It's gonna select start from accounts,
+
+82
+00:03:31.570 --> 00:03:34.200
+where username is equal to admin.
+
+83
+00:03:34.200 --> 00:03:37.303
+I closed the quote myself here, using this right there.
+
+84
+00:03:38.440 --> 00:03:41.300
+And, then I'm adding a comment, so basically,
+
+85
+00:03:41.300 --> 00:03:43.870
+all of this is not even gonna be executed,
+
+86
+00:03:43.870 --> 00:03:46.400
+so the code is gonna be this,
+
+87
+00:03:46.400 --> 00:03:48.282
+it's gonna be select * from accounts,
+
+88
+00:03:48.282 --> 00:03:50.020
+where username is equal to admin.
+
+89
+00:03:50.020 --> 00:03:52.170
+And it's gonna let me log in without entering even
+
+90
+00:03:52.170 --> 00:03:53.883
+anything in the password,
+
+91
+00:03:54.750 --> 00:03:56.083
+So, let's do this.
+
+92
+00:03:57.040 --> 00:04:00.170
+I'm gonna put my username as admin,
+
+93
+00:04:00.170 --> 00:04:02.560
+and I close the quote and add a comment.
+
+94
+00:04:02.560 --> 00:04:04.520
+And then you can put any password you want to.
+
+95
+00:04:04.520 --> 00:04:06.520
+I'm just gonna put #1,
+
+96
+00:04:06.520 --> 00:04:07.633
+then I'm gonna log in.
+
+97
+00:04:08.790 --> 00:04:12.033
+And as you can see, I managed to log in as admin.
+
+98
+00:04:13.710 --> 00:04:16.010
+So again, in this is black box testing,
+
+99
+00:04:16.010 --> 00:04:18.220
+so you don't really see the code.
+
+100
+00:04:18.220 --> 00:04:20.500
+In many cases you wanna be playing around with it,
+
+101
+00:04:20.500 --> 00:04:22.410
+and see how it works with you.
+
+102
+00:04:22.410 --> 00:04:25.660
+But, the main thing is you wanna test if the
+
+103
+00:04:25.660 --> 00:04:28.770
+SQL injection exists, and you'd use that using the method
+
+104
+00:04:28.770 --> 00:04:30.570
+we showed you in the previous video.
+
+105
+00:04:30.570 --> 00:04:33.300
+So try a single quote, try the and statement,
+
+106
+00:04:33.300 --> 00:04:36.550
+try true and statements, so 1 = 1,
+
+107
+00:04:36.550 --> 00:04:39.537
+and then a false and statement, so 1 = 0,
+
+108
+00:04:39.537 --> 00:04:43.920
+or 2 = 0, and if they work as expected,
+
+109
+00:04:43.920 --> 00:04:46.260
+then you're target has an SQL injection,
+
+110
+00:04:46.260 --> 00:04:48.310
+and you can start playing around with it.
+

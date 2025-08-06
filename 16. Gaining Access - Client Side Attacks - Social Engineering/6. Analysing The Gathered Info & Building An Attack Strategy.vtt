@@ -1,0 +1,718 @@
+WEBVTT
+
+1
+00:00:01.370 --> 00:00:03.880
+<v Instructor>Okay, now let's see how we can build up</v>
+
+2
+00:00:03.880 --> 00:00:06.410
+an attack strategy against our target,
+
+3
+00:00:06.410 --> 00:00:10.050
+which is Zaid, a person named Zaid.
+
+4
+00:00:10.050 --> 00:00:11.080
+Before I do any of that,
+
+5
+00:00:11.080 --> 00:00:13.260
+I just wanna just do this in front of you,
+
+6
+00:00:13.260 --> 00:00:16.790
+just organize my workspace, so that we can think
+
+7
+00:00:16.790 --> 00:00:19.570
+of it properly and come up with ideas.
+
+8
+00:00:19.570 --> 00:00:22.840
+So I'm gonna delete all of these websites because
+
+9
+00:00:22.840 --> 00:00:27.000
+they didn't really contain any useful information.
+
+10
+00:00:27.000 --> 00:00:28.800
+So I'm just gonna keep, the only one
+
+11
+00:00:28.800 --> 00:00:31.350
+that had useful information was Udemy
+
+12
+00:00:31.350 --> 00:00:33.550
+and that's the only one that I'm gonna keep.
+
+13
+00:00:39.764 --> 00:00:42.097
+And I'm gonna move this here
+
+14
+00:00:43.540 --> 00:00:46.710
+and I'm gonna put Zaid here on the top.
+
+15
+00:00:46.710 --> 00:00:48.210
+And I'm just gonna click
+
+16
+00:00:48.210 --> 00:00:52.340
+and drag from here to the email address,
+
+17
+00:00:52.340 --> 00:00:54.630
+so that we'll know that this,
+
+18
+00:00:54.630 --> 00:00:58.223
+that Zaid, is associated with the email address.
+
+19
+00:00:59.720 --> 00:01:01.210
+And I'm just gonna click okay
+
+20
+00:01:02.170 --> 00:01:06.010
+and you can see now Zaid is associated with this email,
+
+21
+00:01:06.010 --> 00:01:07.793
+which led us to isecurity.
+
+22
+00:01:09.510 --> 00:01:12.000
+And then, we're actually gonna just add
+
+23
+00:01:12.000 --> 00:01:17.000
+another arrow from Zaid to my Twitter account,
+
+24
+00:01:18.480 --> 00:01:21.030
+and again, so that just we know that this Twitter account
+
+25
+00:01:21.030 --> 00:01:23.900
+is associated with this person.
+
+26
+00:01:23.900 --> 00:01:26.790
+And we have an entity here of Udemy.
+
+27
+00:01:26.790 --> 00:01:31.790
+We also know that Muhammad Askar right here has this email,
+
+28
+00:01:33.200 --> 00:01:36.570
+so it has m.askar@isecurity.org.
+
+29
+00:01:36.570 --> 00:01:39.470
+So we know that this person,
+
+30
+00:01:39.470 --> 00:01:43.930
+this email is associated with this person.
+
+31
+00:01:43.930 --> 00:01:47.180
+And the email is @isecurity.org,
+
+32
+00:01:47.180 --> 00:01:50.400
+then this person is probably or most definitely
+
+33
+00:01:50.400 --> 00:01:53.583
+is associated with isecurity.org as well.
+
+34
+00:01:54.650 --> 00:01:56.260
+And if you actually do a Google search,
+
+35
+00:01:56.260 --> 00:01:58.810
+you'll see that this guy is the admin of isecurity.
+
+36
+00:01:59.650 --> 00:02:02.770
+So again, we're just gonna put an arrow from here to here
+
+37
+00:02:05.720 --> 00:02:08.020
+and I'm gonna do the same with Mustafa
+
+38
+00:02:08.020 --> 00:02:10.643
+because you can see we have his email there.
+
+39
+00:02:15.560 --> 00:02:19.483
+And we'll also associate isecurity with this person.
+
+40
+00:02:23.310 --> 00:02:28.113
+And I'll just move him here and move this guy there.
+
+41
+00:02:33.291 --> 00:02:35.670
+And then, over here, I know I made a mess out of this,
+
+42
+00:02:35.670 --> 00:02:38.973
+but it's much easier when it looks clean.
+
+43
+00:02:42.750 --> 00:02:45.023
+Okay, this is much better.
+
+44
+00:02:47.270 --> 00:02:48.993
+Now, let's zoom in a little bit.
+
+45
+00:02:50.230 --> 00:02:54.210
+Okay, perfect, so our target is Zaid
+
+46
+00:02:54.210 --> 00:02:58.330
+and we know Zaid uses Udemy and teaches courses there.
+
+47
+00:02:58.330 --> 00:03:01.030
+We're also able to see Zaid's blog,
+
+48
+00:03:01.030 --> 00:03:03.570
+we're able to see his YouTube, LinkedIn,
+
+49
+00:03:03.570 --> 00:03:05.730
+and all that stuff already.
+
+50
+00:03:05.730 --> 00:03:08.050
+Now, that on it's own can make me think
+
+51
+00:03:08.050 --> 00:03:10.070
+of so many ways to attack Zaid.
+
+52
+00:03:10.070 --> 00:03:13.610
+We can, looking at how active he is on Udemy,
+
+53
+00:03:13.610 --> 00:03:15.950
+we can just pretend to be a person from Udemy,
+
+54
+00:03:15.950 --> 00:03:20.950
+so we can pretend to be someone from the admins of Udemy
+
+55
+00:03:21.220 --> 00:03:24.180
+and send him a program, for example,
+
+56
+00:03:24.180 --> 00:03:26.660
+and tell him this is our new beta program
+
+57
+00:03:26.660 --> 00:03:29.900
+that we're only giving to special instructors.
+
+58
+00:03:29.900 --> 00:03:31.640
+This way, Zaid will feel privileged
+
+59
+00:03:31.640 --> 00:03:32.850
+because he's getting something
+
+60
+00:03:32.850 --> 00:03:35.100
+that other instructors are not getting
+
+61
+00:03:35.100 --> 00:03:37.290
+and he'll run that file.
+
+62
+00:03:37.290 --> 00:03:40.500
+And once he runs that file, that file is gonna be a Trojan,
+
+63
+00:03:40.500 --> 00:03:43.530
+so that file can be a backdoor or a keylogger
+
+64
+00:03:43.530 --> 00:03:46.630
+or program that will steal his passwords or allow us
+
+65
+00:03:46.630 --> 00:03:49.620
+to do anything we want on the target computer.
+
+66
+00:03:49.620 --> 00:03:51.840
+Now, again, like I've said in this section,
+
+67
+00:03:51.840 --> 00:03:54.040
+we're not gonna be talking about the technical stuff.
+
+68
+00:03:54.040 --> 00:03:56.190
+We'll talk about that in future lectures
+
+69
+00:03:56.190 --> 00:03:57.870
+and you'll know how to do this,
+
+70
+00:03:57.870 --> 00:03:59.990
+so when I say we'll send him a file that looks like
+
+71
+00:03:59.990 --> 00:04:02.520
+a normal file, we'll actually be able to do that.
+
+72
+00:04:02.520 --> 00:04:05.050
+And this normal file, it'll be a normal program,
+
+73
+00:04:05.050 --> 00:04:08.023
+but at the background, it'll do what we want it to do.
+
+74
+00:04:09.400 --> 00:04:12.310
+We can also pretend to be from YouTube,
+
+75
+00:04:12.310 --> 00:04:16.160
+from the blog, from WordPress, from Udemy again,
+
+76
+00:04:16.160 --> 00:04:18.580
+and ask him to reset their password.
+
+77
+00:04:18.580 --> 00:04:22.180
+And give them a link that has a login page
+
+78
+00:04:22.180 --> 00:04:26.030
+exactly the same as the login page of Udemy or YouTube,
+
+79
+00:04:26.030 --> 00:04:27.750
+And once they put on their password,
+
+80
+00:04:27.750 --> 00:04:29.630
+we'll actually get that password.
+
+81
+00:04:29.630 --> 00:04:31.660
+So the possibilities are endless there
+
+82
+00:04:31.660 --> 00:04:35.433
+and we'll talk about ideas on how to all of that later on.
+
+83
+00:04:36.500 --> 00:04:39.170
+Looking at the connections that we can see here
+
+84
+00:04:39.170 --> 00:04:41.790
+with isecurity, we can see that this person
+
+85
+00:04:41.790 --> 00:04:43.800
+has a lot of connections with this company
+
+86
+00:04:43.800 --> 00:04:45.150
+or with this website.
+
+87
+00:04:45.150 --> 00:04:48.660
+We can see that he has an email at isecurity.org.
+
+88
+00:04:48.660 --> 00:04:51.350
+So again, this email is really useful because
+
+89
+00:04:51.350 --> 00:04:54.180
+this is how we're gonna be communicating with Zaid.
+
+90
+00:04:54.180 --> 00:04:56.520
+You can also communicate with him through Udemy,
+
+91
+00:04:56.520 --> 00:04:58.460
+obviously, as sent as messages,
+
+92
+00:04:58.460 --> 00:05:01.000
+but I'm pretty sure that his friends
+
+93
+00:05:01.000 --> 00:05:02.370
+and yes, my friends don't really
+
+94
+00:05:02.370 --> 00:05:04.083
+communicate with me over Udemy.
+
+95
+00:05:05.350 --> 00:05:08.020
+So if you want to target Zaid using his email,
+
+96
+00:05:08.020 --> 00:05:09.730
+that's another way to do it.
+
+97
+00:05:09.730 --> 00:05:11.940
+And we have his friends, so we have
+
+98
+00:05:11.940 --> 00:05:13.950
+one of his friends right here, Mohammad.
+
+99
+00:05:13.950 --> 00:05:15.920
+And you can see there's so many connections
+
+100
+00:05:15.920 --> 00:05:17.210
+between him and Zaid.
+
+101
+00:05:17.210 --> 00:05:18.950
+They're both friends on Twitter,
+
+102
+00:05:18.950 --> 00:05:21.440
+they're both active on isecurity,
+
+103
+00:05:21.440 --> 00:05:25.520
+and they both have @isecurity.org email,
+
+104
+00:05:25.520 --> 00:05:28.480
+so this makes you think they're not only work colleagues,
+
+105
+00:05:28.480 --> 00:05:30.760
+they're probably friends as well.
+
+106
+00:05:30.760 --> 00:05:34.020
+And exploiting this friendship, you can send stuff
+
+107
+00:05:34.020 --> 00:05:36.500
+to Zaid asking him about anything really.
+
+108
+00:05:36.500 --> 00:05:39.010
+You can show him pictures of a car
+
+109
+00:05:39.010 --> 00:05:40.790
+that you want to buy, for example.
+
+110
+00:05:40.790 --> 00:05:43.880
+You can send him PDFs because you know that both
+
+111
+00:05:43.880 --> 00:05:46.770
+of these guys are interested about computer security.
+
+112
+00:05:46.770 --> 00:05:48.990
+They're running a security website.
+
+113
+00:05:48.990 --> 00:05:50.857
+And you can just send him a PDF saying,
+
+114
+00:05:50.857 --> 00:05:52.980
+"Oh ,look at my new ebook."
+
+115
+00:05:52.980 --> 00:05:56.930
+And when they open the PDF, again, it'll run a file that
+
+116
+00:05:56.930 --> 00:05:59.170
+you want it to run on the system, that'll give you,
+
+117
+00:05:59.170 --> 00:06:01.970
+gain access on Zaid's system.
+
+118
+00:06:01.970 --> 00:06:03.810
+Now, again, when you send an email,
+
+119
+00:06:03.810 --> 00:06:07.000
+you'll be able to send an email that looks exactly
+
+120
+00:06:07.000 --> 00:06:09.173
+as if it's coming from Mohammad.
+
+121
+00:06:10.020 --> 00:06:12.400
+You can do the same to Mustafa,
+
+122
+00:06:12.400 --> 00:06:16.040
+so you can send stuff to Zaid.
+
+123
+00:06:16.040 --> 00:06:18.220
+You can send him stuff that they're interested in.
+
+124
+00:06:18.220 --> 00:06:20.160
+You can send him just pictures.
+
+125
+00:06:20.160 --> 00:06:24.120
+You can send him links to ask him to login and do something.
+
+126
+00:06:24.120 --> 00:06:26.420
+The possibilities, again, are endless
+
+127
+00:06:26.420 --> 00:06:29.000
+when it comes to social engineering.
+
+128
+00:06:29.000 --> 00:06:31.820
+Not only that, but let's say you tried everything
+
+129
+00:06:31.820 --> 00:06:34.600
+and you couldn't hack into Zaid's system.
+
+130
+00:06:34.600 --> 00:06:36.610
+You tried to pretend to be all of these people.
+
+131
+00:06:36.610 --> 00:06:39.290
+You tried all the ideas that you can think of
+
+132
+00:06:39.290 --> 00:06:41.620
+and you couldn't reach Zaid's system.
+
+133
+00:06:41.620 --> 00:06:42.980
+This is not the end of the world.
+
+134
+00:06:42.980 --> 00:06:45.250
+What you could do is you can actually
+
+135
+00:06:45.250 --> 00:06:47.500
+try to hack into one of his friends,
+
+136
+00:06:47.500 --> 00:06:50.460
+so you can try to hack into Mohammad's computer.
+
+137
+00:06:50.460 --> 00:06:53.140
+You can try to hack Mustafa's computer.
+
+138
+00:06:53.140 --> 00:06:55.550
+From there, try to get into their Facebook
+
+139
+00:06:55.550 --> 00:06:58.200
+and then, communicate with Zaid over Facebook
+
+140
+00:06:58.200 --> 00:07:00.670
+from their Facebook account because you can't really
+
+141
+00:07:00.670 --> 00:07:03.090
+send a message that looks like it's coming
+
+142
+00:07:03.090 --> 00:07:04.240
+from Mohammad on Facebook.
+
+143
+00:07:04.240 --> 00:07:06.000
+We can only do that with emails,
+
+144
+00:07:06.000 --> 00:07:09.940
+but again, you can hack into these guys Facebook's accounts
+
+145
+00:07:09.940 --> 00:07:12.890
+and then, try to hack into Zaid.
+
+146
+00:07:12.890 --> 00:07:16.640
+Why not hack into their accounts, hack into isecurity?
+
+147
+00:07:16.640 --> 00:07:18.270
+Because you know that these people are admins.
+
+148
+00:07:18.270 --> 00:07:20.430
+They have @isecurity emails.
+
+149
+00:07:20.430 --> 00:07:22.560
+And even if you research their names,
+
+150
+00:07:22.560 --> 00:07:24.490
+you'll see that they're admins.
+
+151
+00:07:24.490 --> 00:07:28.150
+Why not hack into their computers, hack into isecurity?
+
+152
+00:07:28.150 --> 00:07:30.380
+And Zaid definitely browses isecurity,
+
+153
+00:07:30.380 --> 00:07:34.370
+so embed a backdoor in there or change one of the files
+
+154
+00:07:34.370 --> 00:07:37.410
+that's hosted into isecurity into a backdoor,
+
+155
+00:07:37.410 --> 00:07:39.950
+and then, once Zaid downloads it or uses it,
+
+156
+00:07:39.950 --> 00:07:42.363
+you'll be able to hack into his computer.
+
+157
+00:07:44.460 --> 00:07:46.670
+Now, again, don't get overwhelmed about
+
+158
+00:07:46.670 --> 00:07:49.110
+all the information I'm saying at the moment.
+
+159
+00:07:49.110 --> 00:07:51.380
+We will take this step by step
+
+160
+00:07:51.380 --> 00:07:53.900
+and you'll learn how to send these fake emails,
+
+161
+00:07:53.900 --> 00:07:55.580
+how to create these back doors,
+
+162
+00:07:55.580 --> 00:07:57.180
+how to create these keyloggers,
+
+163
+00:07:57.180 --> 00:08:00.880
+and all that cool stuff in the next sections of this course.
+
+164
+00:08:00.880 --> 00:08:04.300
+For now, I just wanted to show you how powerful Maltego is
+
+165
+00:08:04.300 --> 00:08:06.510
+and how you can use it to gather information
+
+166
+00:08:06.510 --> 00:08:07.850
+about anything, really.
+
+167
+00:08:07.850 --> 00:08:09.330
+We started with just a name.
+
+168
+00:08:09.330 --> 00:08:11.530
+Literally, we started with Zaid Sabih
+
+169
+00:08:11.530 --> 00:08:14.480
+and we were able to gather information about his websites,
+
+170
+00:08:14.480 --> 00:08:18.150
+his blog, his YouTube, his friends, his emails, anything.
+
+171
+00:08:18.150 --> 00:08:20.370
+We literally profiled the whole person.
+
+172
+00:08:20.370 --> 00:08:23.100
+And again, this person is a techy person,
+
+173
+00:08:23.100 --> 00:08:26.420
+a person who is interested into information technology,
+
+174
+00:08:26.420 --> 00:08:28.480
+so he's very careful with what to share,
+
+175
+00:08:28.480 --> 00:08:31.440
+but we were still able to gather enough information
+
+176
+00:08:31.440 --> 00:08:33.610
+to build up an attack strategy.
+
+177
+00:08:33.610 --> 00:08:36.190
+If you do this against a normal person,
+
+178
+00:08:36.190 --> 00:08:38.513
+you'll be surprised about the amount of information
+
+179
+00:08:38.513 --> 00:08:40.823
+that you'll be able to gather about them.
+

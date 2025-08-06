@@ -1,0 +1,475 @@
+WEBVTT
+
+00:00.450 --> 00:03.000
+Lecturer: So now that we signed up with the service,
+
+00:03.000 --> 00:04.380
+in this lecture I'm gonna show you
+
+00:04.380 --> 00:08.430
+how to use the SMTP servers offered by this service
+
+00:08.430 --> 00:11.370
+in order to send fake emails.
+
+00:11.370 --> 00:12.450
+So first of all,
+
+00:12.450 --> 00:14.940
+we're gonna go on the transactional in here,
+
+00:14.940 --> 00:18.030
+and you'll see that we have all of the information
+
+00:18.030 --> 00:22.080
+that we need to authenticate with the SMTP servers offered
+
+00:22.080 --> 00:25.713
+by this website in order to send the fake emails.
+
+00:26.670 --> 00:29.280
+So right now we just need to use a program
+
+00:29.280 --> 00:30.900
+in order to authenticate
+
+00:30.900 --> 00:33.270
+and then send the fake emails.
+
+00:33.270 --> 00:38.100
+So in Kali, we're gonna use a program called send email.
+
+00:38.100 --> 00:41.100
+And because this is the first time we're using this program,
+
+00:41.100 --> 00:44.130
+it's always a good idea to run the program
+
+00:44.130 --> 00:46.290
+with the dash-dash help argument
+
+00:46.290 --> 00:47.520
+to see how to use it
+
+00:47.520 --> 00:49.503
+and all of the available options.
+
+00:50.400 --> 00:51.810
+So scrolling up,
+
+00:51.810 --> 00:55.080
+you can see the main usage is send email,
+
+00:55.080 --> 00:56.940
+we're using the dash F argument,
+
+00:56.940 --> 00:59.040
+and then you set the options.
+
+00:59.040 --> 01:00.510
+Now, before doing this,
+
+01:00.510 --> 01:03.810
+the first thing I wanna do is set the username
+
+01:03.810 --> 01:07.350
+and the password using the dash XU
+
+01:07.350 --> 01:10.020
+and the dash XP arguments.
+
+01:10.020 --> 01:14.620
+So our command is going to be sendemail -xu
+
+01:16.140 --> 01:17.550
+to give the username.
+
+01:17.550 --> 01:19.140
+And if we go up,
+
+01:19.140 --> 01:20.880
+we have the username here,
+
+01:20.880 --> 01:25.380
+which is jhnwck70@gmail.com in my case.
+
+01:25.380 --> 01:27.933
+So I'm gonna copy it and paste it here.
+
+01:28.830 --> 01:30.600
+Next we need to set the password,
+
+01:30.600 --> 01:33.810
+we're gonna use the dash XP to do that.
+
+01:33.810 --> 01:35.280
+And again, if we scroll up,
+
+01:35.280 --> 01:37.380
+we have the password here,
+
+01:37.380 --> 01:39.933
+so copy and paste it there.
+
+01:40.860 --> 01:43.380
+Next we'll need to specify the server.
+
+01:43.380 --> 01:46.050
+So we're gonna use the dash S option.
+
+01:46.050 --> 01:48.750
+And as you can see, you first give it the server,
+
+01:48.750 --> 01:50.970
+colon, followed by the port.
+
+01:50.970 --> 01:52.593
+An example is this.
+
+01:53.580 --> 01:56.040
+So if we go up, you can see
+
+01:56.040 --> 01:58.920
+that our server is this one right here.
+
+01:58.920 --> 02:01.260
+So again, control C to copy it.
+
+02:01.260 --> 02:05.010
+And our port is going to be 587.
+
+02:05.010 --> 02:07.560
+So going down, we're gonna do dash S
+
+02:07.560 --> 02:09.120
+to specify the server,
+
+02:09.120 --> 02:11.820
+we're gonna give it the server that we just copied.
+
+02:11.820 --> 02:14.940
+And I'm gonna type colon followed by the port.
+
+02:14.940 --> 02:18.420
+And as we've seen before, the port is 587.
+
+02:18.420 --> 02:21.183
+So I'm gonna type 587.
+
+02:23.040 --> 02:26.220
+So far we haven't composed the email yet.
+
+02:26.220 --> 02:28.890
+All we're doing is we're authenticating
+
+02:28.890 --> 02:30.600
+with the email server.
+
+02:30.600 --> 02:33.480
+So this step is very similar to what you do
+
+02:33.480 --> 02:35.430
+when you go to gmail.com.
+
+02:35.430 --> 02:38.190
+For example, the first thing that you get asked for
+
+02:38.190 --> 02:40.230
+is your username and a password.
+
+02:40.230 --> 02:43.830
+And only once you log in you can start sending emails.
+
+02:43.830 --> 02:45.300
+So this is what we're doing right here.
+
+02:45.300 --> 02:49.380
+We first log it in with our username, password, and server.
+
+02:49.380 --> 02:50.610
+And now that we're logged in,
+
+02:50.610 --> 02:51.570
+we can go ahead
+
+02:51.570 --> 02:54.270
+and start composing our email.
+
+02:54.270 --> 02:55.620
+Now the cool thing about this,
+
+02:55.620 --> 02:58.290
+this is not an ordinary email client.
+
+02:58.290 --> 03:00.570
+We can actually set the from email,
+
+03:00.570 --> 03:02.160
+and when the email is delivered,
+
+03:02.160 --> 03:04.230
+it's gonna appear as if it's sent
+
+03:04.230 --> 03:07.650
+from the from email that we pick in here.
+
+03:07.650 --> 03:10.410
+Now, from our information gathering stage,
+
+03:10.410 --> 03:15.410
+we discovered that our target's email is zaid@isecurity.org.
+
+03:15.480 --> 03:18.030
+And we discovered that this target, Zaid,
+
+03:18.030 --> 03:21.990
+is linked to another person named Mohammad Askar.
+
+03:21.990 --> 03:26.073
+And his email is m.askar@isecurity.org.
+
+03:27.120 --> 03:28.950
+So when picking this from email,
+
+03:28.950 --> 03:31.680
+you wanna make sure that you pick an existing email,
+
+03:31.680 --> 03:33.150
+something that exists,
+
+03:33.150 --> 03:35.550
+and you wanna make sure that you pick an email
+
+03:35.550 --> 03:38.940
+that your target usually receives emails from.
+
+03:38.940 --> 03:40.200
+This will increase the chances
+
+03:40.200 --> 03:42.240
+of your target opening the email,
+
+03:42.240 --> 03:43.620
+and it'll also ensure
+
+03:43.620 --> 03:46.080
+that the email will be delivered in the inbox
+
+03:46.080 --> 03:47.283
+and not in the spam.
+
+03:48.330 --> 03:53.317
+So I'm gonna set my from email to m.askar@isecurity.org.
+
+03:54.600 --> 03:57.030
+Next, we're gonna use the dash T option
+
+03:57.030 --> 03:58.650
+to specify the email
+
+03:58.650 --> 04:01.830
+that we want to send this email to.
+
+04:01.830 --> 04:04.470
+And from our information gathering stage,
+
+04:04.470 --> 04:09.470
+we know that the email of our target is zaid@isecurity.org.
+
+04:09.810 --> 04:12.330
+Next, we're gonna use the dash U argument
+
+04:12.330 --> 04:15.570
+to specify the title of the email.
+
+04:15.570 --> 04:19.080
+So I'm just gonna say, "Check out this car".
+
+04:19.080 --> 04:21.690
+And then we're gonna use the dash M option
+
+04:21.690 --> 04:24.510
+to specify the message body.
+
+04:24.510 --> 04:26.670
+Now, when specifying the title
+
+04:26.670 --> 04:27.900
+and the message body,
+
+04:27.900 --> 04:29.520
+you wanna keep in mind
+
+04:29.520 --> 04:31.800
+the person you're pretending to be,
+
+04:31.800 --> 04:33.120
+the target person
+
+04:33.120 --> 04:35.820
+and the relationship between the two.
+
+04:35.820 --> 04:37.980
+If you're pretending to be a boss
+
+04:37.980 --> 04:40.470
+or a colleague, then you might want
+
+04:40.470 --> 04:42.420
+to keep these more formal,
+
+04:42.420 --> 04:45.030
+but in my case, I'm pretending to be a friend,
+
+04:45.030 --> 04:48.030
+so I'm gonna keep my title and the message casual
+
+04:48.030 --> 04:49.177
+and I'm just gonna say,
+
+04:49.177 --> 04:51.120
+"Hey man, check out this car.
+
+04:51.120 --> 04:53.430
+I'm thinking of buying it."
+
+04:53.430 --> 04:55.230
+And then we wanna give him a link
+
+04:55.230 --> 04:56.970
+to download the Trojan
+
+04:56.970 --> 05:01.110
+that shows a picture of a car that we created before.
+
+05:01.110 --> 05:04.860
+So you can upload your Trojan to any file sharing service.
+
+05:04.860 --> 05:08.100
+I chose to upload it to Dropbox
+
+05:08.100 --> 05:10.080
+and I've already logged into my
+
+05:10.080 --> 05:11.910
+Dropbox account in here.
+
+05:11.910 --> 05:14.400
+If you don't know how to upload stuff to Dropbox,
+
+05:14.400 --> 05:16.560
+you simply click on the upload in here,
+
+05:16.560 --> 05:17.730
+you select the file,
+
+05:17.730 --> 05:21.120
+and then the file will be uploaded in here.
+
+05:21.120 --> 05:22.860
+So I'm not gonna show you how to do that.
+
+05:22.860 --> 05:26.460
+It's very simple and there's no point of wasting time on it.
+
+05:26.460 --> 05:29.010
+I already have the Trojan that shows a picture
+
+05:29.010 --> 05:30.870
+of the image right here.
+
+05:30.870 --> 05:33.090
+So I'm just gonna click on share
+
+05:33.090 --> 05:34.590
+to get the link for it,
+
+05:34.590 --> 05:36.573
+and I'm gonna click on copy link.
+
+05:38.160 --> 05:40.140
+Now let me show you this trick.
+
+05:40.140 --> 05:41.773
+If I just go in a new tab
+
+05:41.773 --> 05:44.880
+and paste my download link,
+
+05:44.880 --> 05:46.200
+you'll see that the file
+
+05:46.200 --> 05:48.720
+will not be automatically downloaded.
+
+05:48.720 --> 05:50.520
+I'll first go to Dropbox
+
+05:50.520 --> 05:51.353
+and then the user
+
+05:51.353 --> 05:54.540
+will have to click on download to download it.
+
+05:54.540 --> 05:57.150
+But if we modify the URL
+
+05:57.150 --> 06:01.020
+and just put a one in here instead of the zero,
+
+06:01.020 --> 06:03.090
+and if I hit enter,
+
+06:03.090 --> 06:05.490
+you'll see it'll automatically
+
+06:05.490 --> 06:08.400
+download the file for the user.
+
+06:08.400 --> 06:10.860
+And this is exactly what I want.
+
+06:10.860 --> 06:13.200
+Therefore I'm just gonna go down now
+
+06:13.200 --> 06:15.663
+and paste the file in here.
+
+06:16.980 --> 06:17.813
+And that's it.
+
+06:17.813 --> 06:19.020
+Now, if we hit enter,
+
+06:19.020 --> 06:22.350
+this message will be sent and delivered to the target,
+
+06:22.350 --> 06:27.350
+but it's gonna say m.askar@isecurity.org in here,
+
+06:28.110 --> 06:29.820
+while actual messages
+
+06:29.820 --> 06:31.470
+that come from this person
+
+06:31.470 --> 06:33.480
+display the person's name.
+
+06:33.480 --> 06:34.740
+As you can see in here,
+
+06:34.740 --> 06:37.380
+they will actually say Mohammad Askar,
+
+06:37.380 --> 06:39.120
+but don't worry about this.
+
+06:39.120 --> 06:41.190
+In the next lecture I'm gonna teach you
+
+06:41.190 --> 06:44.340
+how to use advanced options to do that
+
+06:44.340 --> 06:47.823
+and set the sender name to anything that you want.

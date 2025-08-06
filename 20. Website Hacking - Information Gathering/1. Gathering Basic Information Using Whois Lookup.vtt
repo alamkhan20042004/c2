@@ -1,0 +1,466 @@
+WEBVTT
+
+1
+00:00:01.630 --> 00:00:03.750
+<v Instructor>As usual, the first thing that we do</v>
+
+2
+00:00:03.750 --> 00:00:05.860
+before we start trying to exploit
+
+3
+00:00:05.860 --> 00:00:07.870
+or find any vulnerabilities,
+
+4
+00:00:07.870 --> 00:00:09.250
+we do information gathering,
+
+5
+00:00:09.250 --> 00:00:11.890
+so we try to gather as much information as possible
+
+6
+00:00:11.890 --> 00:00:13.238
+about the target.
+
+7
+00:00:13.238 --> 00:00:15.760
+Web applications are no different,
+
+8
+00:00:15.760 --> 00:00:17.109
+so we're going to start
+
+9
+00:00:17.109 --> 00:00:20.730
+by trying to get as much information as we can
+
+10
+00:00:20.730 --> 00:00:22.858
+about the target IP address,
+
+11
+00:00:22.858 --> 00:00:26.850
+the domain name info, the technologies used on the websites,
+
+12
+00:00:26.850 --> 00:00:28.810
+so what programming languages used,
+
+13
+00:00:28.810 --> 00:00:30.989
+what kind of server is installed on it,
+
+14
+00:00:30.989 --> 00:00:34.012
+what kind of database is being used.
+
+15
+00:00:34.012 --> 00:00:36.830
+We're going to gather information about the company,
+
+16
+00:00:36.830 --> 00:00:40.290
+the DNS records and we'll also see if we can find
+
+17
+00:00:40.290 --> 00:00:42.710
+any files that are not being listed
+
+18
+00:00:42.710 --> 00:00:46.803
+or any sub domains that are not visible to other people.
+
+19
+00:00:48.070 --> 00:00:50.560
+Now you can use any of the information gathering tools
+
+20
+00:00:50.560 --> 00:00:51.673
+that we used before.
+
+21
+00:00:52.720 --> 00:00:55.320
+For example, you can use Maltego
+
+22
+00:00:55.320 --> 00:00:58.560
+and just insert an entity, as a website.
+
+23
+00:00:58.560 --> 00:01:02.110
+And then start running actions to our transformers
+
+24
+00:01:02.110 --> 00:01:04.490
+just like we seen in the Maltego video.
+
+25
+00:01:04.490 --> 00:01:05.730
+I'm not gonna be explaining that
+
+26
+00:01:05.730 --> 00:01:07.270
+because it is exactly the same
+
+27
+00:01:07.270 --> 00:01:09.140
+as we did it with a normal person,
+
+28
+00:01:09.140 --> 00:01:10.950
+so I'm gonna be skipping through that.
+
+29
+00:01:10.950 --> 00:01:13.870
+You can also use Zenmap like we did before
+
+30
+00:01:13.870 --> 00:01:17.700
+or even Nexpose and test the infrastructure of the website
+
+31
+00:01:17.700 --> 00:01:20.730
+and see what information you can gather from that.
+
+32
+00:01:20.730 --> 00:01:23.240
+Again, I won't be going over that because we seen it.
+
+33
+00:01:23.240 --> 00:01:26.060
+There's no difference between a website or normal computer
+
+34
+00:01:26.060 --> 00:01:28.800
+as I said a website just another computer.
+
+35
+00:01:28.800 --> 00:01:29.905
+So what I'm gonna be focusing on
+
+36
+00:01:29.905 --> 00:01:33.200
+is technologies that you only see in websites
+
+37
+00:01:33.200 --> 00:01:38.200
+such as domain names, DNS records and stuff like that,
+
+38
+00:01:38.210 --> 00:01:41.470
+that you won't be able to use or we haven't seen before
+
+39
+00:01:41.470 --> 00:01:42.633
+in the previous videos.
+
+40
+00:01:43.850 --> 00:01:47.380
+So, the first thing that we're going to have a look on,
+
+41
+00:01:47.380 --> 00:01:48.763
+is Whois Lookup.
+
+42
+00:01:49.820 --> 00:01:52.405
+Whois Lookup is a protocol that's used
+
+43
+00:01:52.405 --> 00:01:55.920
+to find owners of internet resources.
+
+44
+00:01:55.920 --> 00:02:00.720
+For example, server, an IP address or domain.
+
+45
+00:02:00.720 --> 00:02:02.930
+So we're actually not hacking or doing anything,
+
+46
+00:02:02.930 --> 00:02:06.110
+we're literally just retrieving info from a database
+
+47
+00:02:06.110 --> 00:02:08.620
+that contains information about owners of stuff
+
+48
+00:02:08.620 --> 00:02:09.483
+on the internet.
+
+49
+00:02:10.350 --> 00:02:15.350
+So for example, when you sign up for a domain name,
+
+50
+00:02:15.660 --> 00:02:18.030
+if you wanted to register a domain name for yourself,
+
+51
+00:02:18.030 --> 00:02:20.390
+for example z.com, when I do that
+
+52
+00:02:20.390 --> 00:02:22.850
+I have to supply information about myself,
+
+53
+00:02:22.850 --> 00:02:26.860
+my address and then the name will be stored in my own name
+
+54
+00:02:26.860 --> 00:02:30.290
+and people can see that z owns this domain name.
+
+55
+00:02:30.290 --> 00:02:32.430
+So this is all we're going to do.
+
+56
+00:02:32.430 --> 00:02:34.820
+If you google Whois Lookup you'll see a lot of websites
+
+57
+00:02:34.820 --> 00:02:36.330
+providing the service,
+
+58
+00:02:36.330 --> 00:02:39.890
+so I'm using whois.domaintools.com,
+
+59
+00:02:39.890 --> 00:02:43.010
+and I'm just gonna put my target domain name,
+
+60
+00:02:43.010 --> 00:02:46.103
+and I'm just gonna use isecurity.org.
+
+61
+00:02:51.510 --> 00:02:52.990
+So as you can see very simple,
+
+62
+00:02:52.990 --> 00:02:56.083
+and we get a lot of information about our target website.
+
+63
+00:02:57.320 --> 00:02:59.090
+You'll see the email that you can use
+
+64
+00:02:59.090 --> 00:03:02.630
+to contact the domain name info,
+
+65
+00:03:02.630 --> 00:03:05.750
+usually you'll be able to see the address of the company
+
+66
+00:03:05.750 --> 00:03:08.780
+that has registered this domain name,
+
+67
+00:03:08.780 --> 00:03:11.510
+but we can see that this company is using privacy
+
+68
+00:03:11.510 --> 00:03:14.700
+on their domain so you can't really see the address,
+
+69
+00:03:14.700 --> 00:03:17.100
+but they're not using privacy,
+
+70
+00:03:17.100 --> 00:03:19.100
+you'll be able to see their address
+
+71
+00:03:19.100 --> 00:03:22.380
+and more information about the actual company.
+
+72
+00:03:22.380 --> 00:03:24.713
+You can see when the domain name was created,
+
+73
+00:03:25.770 --> 00:03:29.440
+you can see the IP address of isecurity.org,
+
+74
+00:03:29.440 --> 00:03:31.940
+so if you pinged this, you should get this IP address
+
+75
+00:03:31.940 --> 00:03:32.840
+and I'll show you.
+
+76
+00:03:35.400 --> 00:03:39.357
+If I do ping isecurity.org,
+
+77
+00:03:42.200 --> 00:03:44.410
+you'll see it's the same domain name here,
+
+78
+00:03:44.410 --> 00:03:45.943
+same IP address here sorry.
+
+79
+00:03:47.740 --> 00:03:51.280
+You can see the IP location, we can see the status
+
+80
+00:03:51.280 --> 00:03:52.763
+obviously it's active.
+
+81
+00:03:54.030 --> 00:03:55.720
+You can also access the history
+
+82
+00:03:55.720 --> 00:03:57.463
+but you need to register for that.
+
+83
+00:03:59.060 --> 00:04:01.480
+And obviously we can see the title here
+
+84
+00:04:01.480 --> 00:04:03.340
+and something that's very useful here,
+
+85
+00:04:03.340 --> 00:04:05.670
+we can see that it's using apache web server,
+
+86
+00:04:05.670 --> 00:04:09.220
+so this is a software that can be used as a web server,
+
+87
+00:04:09.220 --> 00:04:12.670
+and we can see that Isecurity uses this web server
+
+88
+00:04:12.670 --> 00:04:15.740
+and it's of version 2.2.31,
+
+89
+00:04:15.740 --> 00:04:18.274
+so again we can use this to find exploits,
+
+90
+00:04:18.274 --> 00:04:21.530
+we can see that it's using Unix,
+
+91
+00:04:21.530 --> 00:04:24.320
+the operating system of the website of the server
+
+92
+00:04:24.320 --> 00:04:26.900
+and it's using the following add-ons as well,
+
+93
+00:04:26.900 --> 00:04:30.120
+it's using mod ssl and open ssl.
+
+94
+00:04:30.120 --> 00:04:32.750
+Now right here, you can find more information
+
+95
+00:04:32.750 --> 00:04:35.560
+about the company who registered this domain,
+
+96
+00:04:35.560 --> 00:04:38.260
+so again Isecurity is using privacy
+
+97
+00:04:38.260 --> 00:04:40.640
+so you won't be able to see the address,
+
+98
+00:04:40.640 --> 00:04:43.330
+you can see that it's saying that the target person
+
+99
+00:04:43.330 --> 00:04:45.663
+is using a privacy protection.
+
+100
+00:04:47.150 --> 00:04:50.270
+But usually you'll be able to see phone numbers
+
+101
+00:04:50.270 --> 00:04:52.193
+and addresses of that company.
+
+102
+00:04:53.680 --> 00:04:55.960
+So as you can see very simple stuff
+
+103
+00:04:55.960 --> 00:04:58.590
+but it's very helpful in the long run
+
+104
+00:04:58.590 --> 00:05:00.696
+just to know what your target, what's their IP,
+
+105
+00:05:00.696 --> 00:05:02.870
+what services are they using,
+
+106
+00:05:02.870 --> 00:05:04.450
+we can also here actually I didn't show
+
+107
+00:05:04.450 --> 00:05:08.490
+you can see the name servers that are being used
+
+108
+00:05:08.490 --> 00:05:10.620
+and you can see that they are provided
+
+109
+00:05:10.620 --> 00:05:13.280
+by a company called dimnof.net.
+
+110
+00:05:13.280 --> 00:05:14.460
+Now if you go on dimnof,
+
+111
+00:05:14.460 --> 00:05:16.593
+you'll see that this is a hosting company.
+
+112
+00:05:20.760 --> 00:05:22.510
+So if we go on the english version,
+
+113
+00:05:23.510 --> 00:05:25.410
+that you'll see that this is a hosting company
+
+114
+00:05:25.410 --> 00:05:28.470
+and again you can even use this hosting company
+
+115
+00:05:28.470 --> 00:05:30.708
+and try to social engineer your way maybe
+
+116
+00:05:30.708 --> 00:05:34.163
+into hacking into your target, into Isecurity.
+

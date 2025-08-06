@@ -1,0 +1,586 @@
+WEBVTT
+
+1
+00:00:02.830 --> 00:00:03.810
+<v Instructor>So far, we learned</v>
+
+2
+00:00:03.810 --> 00:00:06.140
+how to find any subdomains
+
+3
+00:00:06.140 --> 00:00:08.690
+that exists within our target website
+
+4
+00:00:08.690 --> 00:00:10.950
+and that have not been listed.
+
+5
+00:00:10.950 --> 00:00:12.410
+In today's lecture, we're gonna see
+
+6
+00:00:12.410 --> 00:00:15.170
+how we can find files and directories
+
+7
+00:00:15.170 --> 00:00:17.550
+that are stored on our target computer
+
+8
+00:00:17.550 --> 00:00:19.200
+or our target website.
+
+9
+00:00:19.200 --> 00:00:20.870
+Again, this could be useful
+
+10
+00:00:20.870 --> 00:00:23.540
+because these files could contain passwords.
+
+11
+00:00:23.540 --> 00:00:25.765
+They could contain config information,
+
+12
+00:00:25.765 --> 00:00:28.100
+or they could contain information
+
+13
+00:00:28.100 --> 00:00:30.010
+about these actual server,
+
+14
+00:00:30.010 --> 00:00:32.873
+which will help us further exploit our target.
+
+15
+00:00:34.400 --> 00:00:36.480
+Let me just first show you what I mean
+
+16
+00:00:36.480 --> 00:00:39.480
+by files and directories, just to show you the structure
+
+17
+00:00:39.480 --> 00:00:41.460
+of directories on a web server.
+
+18
+00:00:41.460 --> 00:00:43.970
+So here I have my Metasploitable machine.
+
+19
+00:00:43.970 --> 00:00:47.000
+And as we know, usually the web server stuff
+
+20
+00:00:47.000 --> 00:00:49.593
+is stored in var/www.
+
+21
+00:00:51.260 --> 00:00:54.540
+And if I do an ls, you'll see, or I'll do an ls -la
+
+22
+00:00:54.540 --> 00:00:56.933
+just so that it's nicer.
+
+23
+00:00:58.260 --> 00:01:02.110
+You'll see that we have a number of files and directories.
+
+24
+00:01:02.110 --> 00:01:04.400
+And we can see that we have a directory
+
+25
+00:01:04.400 --> 00:01:07.162
+there called called mutillidae.
+
+26
+00:01:07.162 --> 00:01:09.930
+Mutillidae is a web application
+
+27
+00:01:09.930 --> 00:01:11.440
+that is designed to be hacked,
+
+28
+00:01:11.440 --> 00:01:12.940
+just like metasploitable,
+
+29
+00:01:12.940 --> 00:01:16.920
+it is designed so that it has a number of exploits,
+
+30
+00:01:16.920 --> 00:01:19.750
+so that we can learn how to hack based on it.
+
+31
+00:01:19.750 --> 00:01:21.210
+So we can see that that's installed
+
+32
+00:01:21.210 --> 00:01:23.700
+in a directory called mutillidae.
+
+33
+00:01:23.700 --> 00:01:25.770
+Now, if I go here to my IP address
+
+34
+00:01:25.770 --> 00:01:29.460
+now, this is the IP address of the metasploitable machine.
+
+35
+00:01:29.460 --> 00:01:31.083
+So if I do an ifconfig here,
+
+36
+00:01:32.940 --> 00:01:36.420
+you'll see that it's 10.20.14.204.
+
+37
+00:01:36.420 --> 00:01:40.150
+So I'm in there, and you can see that
+
+38
+00:01:40.150 --> 00:01:42.990
+they have an easy access for me for mutillidae,
+
+39
+00:01:42.990 --> 00:01:47.990
+if I click it, look at the URL here, so it's /mutillidae.
+
+40
+00:01:48.490 --> 00:01:51.540
+That means I'm inside the mutillidae directory,
+
+41
+00:01:51.540 --> 00:01:53.640
+so every time you see a forward slash,
+
+42
+00:01:53.640 --> 00:01:56.700
+that usually means you're inside a directory.
+
+43
+00:01:56.700 --> 00:01:59.560
+So let's go back here, do an ls,
+
+44
+00:01:59.560 --> 00:02:04.560
+and if I do cd mutillidae, and I'm gonna do an ls.
+
+45
+00:02:05.410 --> 00:02:08.240
+And you'll see that I have a large number of files,
+
+46
+00:02:08.240 --> 00:02:10.340
+a large number of files here.
+
+47
+00:02:10.340 --> 00:02:11.850
+So let's say for example,
+
+48
+00:02:11.850 --> 00:02:15.197
+I wanted to open one of these files, and we have index.php.
+
+49
+00:02:16.520 --> 00:02:17.867
+If I do index.php,
+
+50
+00:02:20.630 --> 00:02:24.327
+then this is our current file, it's called index.php.
+
+51
+00:02:24.327 --> 00:02:27.230
+So what we learn from this is,
+
+52
+00:02:27.230 --> 00:02:30.660
+mutillidae is just a directory inside my web route.
+
+53
+00:02:30.660 --> 00:02:33.920
+So at the moment in the metasploitable device,
+
+54
+00:02:33.920 --> 00:02:37.210
+I'm in, let me just write it here for you,
+
+55
+00:02:37.210 --> 00:02:39.423
+so I'm in var/www mutillidae.
+
+56
+00:02:45.510 --> 00:02:50.077
+and then the file that I'm accessing is index.php.
+
+57
+00:02:52.627 --> 00:02:54.880
+Okay, so I hope this is clear now,
+
+58
+00:02:54.880 --> 00:02:58.930
+so I'm in this directory, in this directory
+
+59
+00:02:58.930 --> 00:03:02.287
+an I'm accessing a file called index.php.
+
+60
+00:03:03.410 --> 00:03:05.910
+So if I just do a pwd here,
+
+61
+00:03:05.910 --> 00:03:08.063
+you'll see that I'm in var/www/mutillidae.
+
+62
+00:03:10.300 --> 00:03:14.640
+The IP address kinda hides where your WWW route is,
+
+63
+00:03:14.640 --> 00:03:17.020
+so it hides the var/www,
+
+64
+00:03:17.020 --> 00:03:19.940
+and then everything after that will be displayed here
+
+65
+00:03:19.940 --> 00:03:21.810
+after the IP address.
+
+66
+00:03:21.810 --> 00:03:24.120
+So what we're looking to find today is
+
+67
+00:03:24.120 --> 00:03:27.520
+all the directories and the files that we cannot see.
+
+68
+00:03:27.520 --> 00:03:30.130
+So throughout these links, we will be able to access
+
+69
+00:03:30.130 --> 00:03:32.530
+different types and different pages,
+
+70
+00:03:32.530 --> 00:03:34.700
+this is the same with any other website.
+
+71
+00:03:34.700 --> 00:03:37.390
+But there is always files and directories hidden
+
+72
+00:03:37.390 --> 00:03:39.490
+that you just never see.
+
+73
+00:03:39.490 --> 00:03:42.750
+So we'll see how we can get URLs for these files,
+
+74
+00:03:42.750 --> 00:03:45.273
+and access them, and read the information in it.
+
+75
+00:03:46.670 --> 00:03:49.660
+To do that, we're going to use a tool called dirb,
+
+76
+00:03:49.660 --> 00:03:53.970
+and to see how to use that tool, we're gonna do, man dirb,
+
+77
+00:03:53.970 --> 00:03:57.053
+to see all the options associated with that tool.
+
+78
+00:03:58.210 --> 00:04:00.920
+So you can you see that to use the tool,
+
+79
+00:04:00.920 --> 00:04:04.720
+you just type in dirb, the URL of your target,
+
+80
+00:04:04.720 --> 00:04:06.590
+and then you put a word list.
+
+81
+00:04:06.590 --> 00:04:08.010
+So the way this works is,
+
+82
+00:04:08.010 --> 00:04:10.330
+it works based on a brute force attack.
+
+83
+00:04:10.330 --> 00:04:14.330
+And it just uses a word list of names,
+
+84
+00:04:14.330 --> 00:04:16.520
+and it sends requests with these names,
+
+85
+00:04:16.520 --> 00:04:18.520
+and anytime it actually finds something,
+
+86
+00:04:18.520 --> 00:04:22.290
+it tells us that, "Oh, I found a file with this name."
+
+87
+00:04:22.290 --> 00:04:25.450
+So it will only be able to find names and directories
+
+88
+00:04:25.450 --> 00:04:27.823
+based on the word list that you provide.
+
+89
+00:04:29.810 --> 00:04:33.270
+Now, you can create a word list using crunch,
+
+90
+00:04:33.270 --> 00:04:36.970
+or you can use word lists that come in within dirb.
+
+91
+00:04:38.040 --> 00:04:40.070
+The options here allow you to configure
+
+92
+00:04:40.070 --> 00:04:42.080
+how the tool is going to work,
+
+93
+00:04:42.080 --> 00:04:45.330
+so you can change things around the way you want it.
+
+94
+00:04:45.330 --> 00:04:48.620
+For example, you can disable the recursiveness of the tool,
+
+95
+00:04:48.620 --> 00:04:50.890
+so it just runs on one directory
+
+96
+00:04:50.890 --> 00:04:52.990
+instead of trying a number of directories.
+
+97
+00:04:54.190 --> 00:04:55.940
+You can get it to ask you
+
+98
+00:04:55.940 --> 00:04:58.870
+if you wanted to access a directory or not,
+
+99
+00:04:58.870 --> 00:05:01.500
+instead of it automatically accessing directories,
+
+100
+00:05:01.500 --> 00:05:03.830
+and trying to find files within these directories
+
+101
+00:05:03.830 --> 00:05:05.510
+because this could be exhaustive
+
+102
+00:05:05.510 --> 00:05:07.970
+if your target is a big website,
+
+103
+00:05:07.970 --> 00:05:09.480
+there might be a lot of directories
+
+104
+00:05:09.480 --> 00:05:11.680
+and then the tool will be trying to access all of them,
+
+105
+00:05:11.680 --> 00:05:13.500
+and find files within all of them,
+
+106
+00:05:13.500 --> 00:05:15.913
+so you can see how big the tree could go.
+
+107
+00:05:18.480 --> 00:05:21.420
+You can also set it to use a username and a password
+
+108
+00:05:21.420 --> 00:05:24.673
+if the target websites uses some sort of authentication.
+
+109
+00:05:26.230 --> 00:05:28.993
+And we can use v for verbose output,
+
+110
+00:05:30.700 --> 00:05:34.573
+and you can also use o to output the results to a file.
+
+111
+00:05:35.460 --> 00:05:37.900
+So let me show you a very simple example of it.
+
+112
+00:05:37.900 --> 00:05:41.420
+I'm just gonna run dirb on our target,
+
+113
+00:05:41.420 --> 00:05:46.420
+which is 10.20.14.204, and that should be http.
+
+114
+00:05:52.330 --> 00:05:54.590
+'Cause remember, we're targeting a website,
+
+115
+00:05:54.590 --> 00:05:55.783
+not an IP address.
+
+116
+00:05:58.090 --> 00:06:00.367
+Then I'm gonna put the directory
+
+117
+00:06:00.367 --> 00:06:03.713
+that I wanna find files and directories within.
+
+118
+00:06:04.610 --> 00:06:07.690
+I don't want it to be accessing anything within other
+
+119
+00:06:07.690 --> 00:06:09.270
+because we can see here
+
+120
+00:06:09.270 --> 00:06:11.800
+there is a number of scripts installed on this web server,
+
+121
+00:06:11.800 --> 00:06:15.683
+so we have this script and we also have phpMyAdmin,
+
+122
+00:06:16.620 --> 00:06:18.478
+and we have TikiWiki.
+
+123
+00:06:18.478 --> 00:06:21.130
+So we don't want you to be accessing all of them,
+
+124
+00:06:21.130 --> 00:06:25.100
+we only want it to be working on mutillidae on this example.
+
+125
+00:06:25.100 --> 00:06:26.940
+So that's why I'm only using this URL,
+
+126
+00:06:26.940 --> 00:06:29.260
+and then it's gonna start finding URLs
+
+127
+00:06:29.260 --> 00:06:32.653
+and files within this particular web application.
+
+128
+00:06:33.680 --> 00:06:37.010
+So I'm gonna hit Enter, and we're gonna let it to work.
+
+129
+00:06:37.010 --> 00:06:39.880
+So this is going to use a wordlist file.
+
+130
+00:06:39.880 --> 00:06:43.510
+And it's using a default small wordlist file
+
+131
+00:06:43.510 --> 00:06:44.520
+that is stored in here.
+
+132
+00:06:44.520 --> 00:06:48.550
+So it's a user/share/dirb/wordlists/common.txt,
+
+133
+00:06:48.550 --> 00:06:49.980
+you can have a look at this directory
+
+134
+00:06:49.980 --> 00:06:52.410
+and see if there is any other wordlists
+
+135
+00:06:52.410 --> 00:06:53.640
+that you'd like to use,
+
+136
+00:06:53.640 --> 00:06:57.370
+and you can use them only by placing the full path
+
+137
+00:06:57.370 --> 00:06:59.630
+to the wordlist after the command.
+
+138
+00:06:59.630 --> 00:07:01.630
+So instead of the way I wrote the command,
+
+139
+00:07:01.630 --> 00:07:04.210
+you'd write it like this, and then you'd state
+
+140
+00:07:04.210 --> 00:07:05.790
+where your wordlist is, for example,
+
+141
+00:07:05.790 --> 00:07:07.130
+let's say if it's root,
+
+142
+00:07:07.130 --> 00:07:09.647
+you'd stated as root/wordlist.txt, or whatever.
+
+143
+00:07:15.640 --> 00:07:17.810
+But at the moment, it's using the default one,
+
+144
+00:07:17.810 --> 00:07:20.550
+which is stored in this directory
+
+145
+00:07:20.550 --> 00:07:23.240
+in user/share/dirb/wordlist, and it's using
+
+146
+00:07:23.240 --> 00:07:25.513
+the one that's called common.txt.
+

@@ -1,0 +1,674 @@
+WEBVTT
+
+1
+00:00:00.490 --> 00:00:02.700
+<v ->In this video, I'd like to show you</v>
+
+2
+00:00:02.700 --> 00:00:04.900
+how to target a person.
+
+3
+00:00:04.900 --> 00:00:07.169
+So, we're gonna start with literally just a name,
+
+4
+00:00:07.169 --> 00:00:10.780
+just a person's name, and then we'll see
+
+5
+00:00:10.780 --> 00:00:13.540
+how we can gather information about that person,
+
+6
+00:00:13.540 --> 00:00:16.840
+and then build up an attack strategy as well.
+
+7
+00:00:16.840 --> 00:00:19.490
+And as we do that, I'm gonna show you some more features
+
+8
+00:00:19.490 --> 00:00:23.250
+of Maltego and how to configure a few more settings.
+
+9
+00:00:23.250 --> 00:00:25.390
+So, I'm gonna start a new graph
+
+10
+00:00:25.390 --> 00:00:27.390
+by clicking on the plus sign right here.
+
+11
+00:00:29.490 --> 00:00:31.763
+I'm gonna look for personal,
+
+12
+00:00:33.540 --> 00:00:35.773
+and I'm gonna look for a person.
+
+13
+00:00:39.400 --> 00:00:42.210
+And right here, we have a person entity.
+
+14
+00:00:42.210 --> 00:00:45.220
+Now, as I said in this example, I'm gonna assume
+
+15
+00:00:45.220 --> 00:00:47.210
+that I have a target, and I know their name.
+
+16
+00:00:47.210 --> 00:00:49.430
+I know their first name, and their second name.
+
+17
+00:00:49.430 --> 00:00:51.100
+And again, that target is me,
+
+18
+00:00:51.100 --> 00:00:52.760
+and my first name is Zaid,
+
+19
+00:00:52.760 --> 00:00:54.720
+and my second name is Sabith.
+
+20
+00:00:54.720 --> 00:00:57.040
+So, I'm gonna go here on the property list.
+
+21
+00:00:57.040 --> 00:00:58.320
+I'm gonna set the first name.
+
+22
+00:00:58.320 --> 00:01:00.200
+Just double-click it.
+
+23
+00:01:00.200 --> 00:01:01.920
+I'm gonna set it to Zaid,
+
+24
+00:01:01.920 --> 00:01:05.423
+and then I'm gonna set the surname to Sabith.
+
+25
+00:01:08.110 --> 00:01:10.060
+And I'm just gonna set this to capital.
+
+26
+00:01:11.030 --> 00:01:13.563
+Doesn't really matter but just looks better.
+
+27
+00:01:14.860 --> 00:01:16.590
+Now, let's see what information
+
+28
+00:01:16.590 --> 00:01:18.480
+can we gather about this entity.
+
+29
+00:01:18.480 --> 00:01:20.510
+Again, as we usual, all we have to do
+
+30
+00:01:20.510 --> 00:01:24.760
+is just right-click it, and see what we can get.
+
+31
+00:01:24.760 --> 00:01:29.483
+So, I'm already in the Paterva category,
+
+32
+00:01:30.840 --> 00:01:33.423
+and I'm gonna go to all transformers,
+
+33
+00:01:34.620 --> 00:01:37.160
+and you can see we can get associated emails.
+
+34
+00:01:37.160 --> 00:01:39.420
+We can transfer this to a radio person.
+
+35
+00:01:39.420 --> 00:01:41.040
+We can try to get a phone number.
+
+36
+00:01:41.040 --> 00:01:43.590
+We can try to get a Twitter account.
+
+37
+00:01:43.590 --> 00:01:45.160
+You can try all of these.
+
+38
+00:01:45.160 --> 00:01:47.500
+For now, I'm gonna try to get a website
+
+39
+00:01:47.500 --> 00:01:49.073
+or websites for this person.
+
+40
+00:01:50.500 --> 00:01:52.160
+Now, this is gonna ask you if you want
+
+41
+00:01:52.160 --> 00:01:54.540
+to look for a specific domain name.
+
+42
+00:01:54.540 --> 00:01:56.370
+I'm gonna assume that I know nothing.
+
+43
+00:01:56.370 --> 00:02:00.040
+So, I'm just gonna put a space in here in both entries.
+
+44
+00:02:00.040 --> 00:02:02.623
+So, that just means look up for any websites
+
+45
+00:02:02.623 --> 00:02:04.793
+that are associated with this person.
+
+46
+00:02:05.920 --> 00:02:07.140
+Now, you can see that we managed
+
+47
+00:02:07.140 --> 00:02:09.950
+to get a number of websites right here,
+
+48
+00:02:09.950 --> 00:02:11.540
+and all of these websites
+
+49
+00:02:11.540 --> 00:02:15.170
+are associated with Zaid Sabith.
+
+50
+00:02:15.170 --> 00:02:17.430
+Now, that doesn't really mean that these websites
+
+51
+00:02:17.430 --> 00:02:19.720
+are actually associated with your target,
+
+52
+00:02:19.720 --> 00:02:22.590
+'cause there could be another person named Zaid Sabith.
+
+53
+00:02:22.590 --> 00:02:25.260
+So, you'll have to go on each one of these,
+
+54
+00:02:25.260 --> 00:02:28.820
+and see which ones actually are related to that person.
+
+55
+00:02:28.820 --> 00:02:31.070
+For example, if we click on the Facebook here,
+
+56
+00:02:31.070 --> 00:02:35.090
+I'm gonna double-click it to see what information is there,
+
+57
+00:02:35.090 --> 00:02:36.840
+and I'm gonna go on the properties,
+
+58
+00:02:38.510 --> 00:02:41.140
+and you'll see that we have the Facebook URLs
+
+59
+00:02:41.140 --> 00:02:44.820
+that are associated with that person with that name.
+
+60
+00:02:44.820 --> 00:02:46.730
+Now, I'm gonna copy all of these,
+
+61
+00:02:46.730 --> 00:02:49.140
+and I'm just gonna put them in a text file,
+
+62
+00:02:49.140 --> 00:02:50.543
+so we can read them better.
+
+63
+00:02:53.470 --> 00:02:56.310
+And you can see we have three profiles.
+
+64
+00:02:56.310 --> 00:02:59.370
+Now, in a real life situation, you should be going
+
+65
+00:02:59.370 --> 00:03:01.910
+into each of these profiles, and see which ones
+
+66
+00:03:01.910 --> 00:03:04.010
+actually are related to your person.
+
+67
+00:03:04.010 --> 00:03:05.900
+I'm not gonna do that because the three of them
+
+68
+00:03:05.900 --> 00:03:08.290
+are actually not related to me at all.
+
+69
+00:03:08.290 --> 00:03:11.910
+So, this is really not useful, and you'll just move in.
+
+70
+00:03:11.910 --> 00:03:13.700
+In this case, you'll just come back,
+
+71
+00:03:13.700 --> 00:03:16.960
+move into the next entity, and see what's useful.
+
+72
+00:03:16.960 --> 00:03:18.860
+And I highly recommend you delete the ones
+
+73
+00:03:18.860 --> 00:03:21.820
+that are not useful, because they'll just make it harder
+
+74
+00:03:21.820 --> 00:03:22.653
+to look through things.
+
+75
+00:03:22.653 --> 00:03:24.550
+So, you can just click it, press delete,
+
+76
+00:03:24.550 --> 00:03:26.440
+and that'll delete it for you.
+
+77
+00:03:26.440 --> 00:03:28.480
+Now, the LinkedIn profile right here again,
+
+78
+00:03:28.480 --> 00:03:29.440
+you can double-click it,
+
+79
+00:03:29.440 --> 00:03:31.690
+and see which profile it links you to,
+
+80
+00:03:31.690 --> 00:03:33.470
+but again, it's not my own profile,
+
+81
+00:03:33.470 --> 00:03:36.320
+and you can see that once you actually go through the URL.
+
+82
+00:03:36.320 --> 00:03:38.270
+So, for now I'm just gonna delete that.
+
+83
+00:03:39.480 --> 00:03:41.880
+And you can see the rest of the stuff in here
+
+84
+00:03:41.880 --> 00:03:43.960
+is actually all related to me.
+
+85
+00:03:43.960 --> 00:03:45.970
+So, it's all related to your target,
+
+86
+00:03:45.970 --> 00:03:48.800
+and you can try and double-click each one of them,
+
+87
+00:03:48.800 --> 00:03:51.560
+go to the properties, look for the URL,
+
+88
+00:03:51.560 --> 00:03:53.660
+and open it in your browser.
+
+89
+00:03:53.660 --> 00:03:55.500
+When you do that, you'll get the information
+
+90
+00:03:55.500 --> 00:03:57.100
+that's related to that person,
+
+91
+00:03:57.100 --> 00:03:59.480
+and hopefully it'll help you to form some sort
+
+92
+00:03:59.480 --> 00:04:03.670
+of an attack strategy or help you get even more information.
+
+93
+00:04:03.670 --> 00:04:06.030
+For now, because I've already looked on all of them,
+
+94
+00:04:06.030 --> 00:04:10.050
+I'm gonna focus on one of them which is the udemy link,
+
+95
+00:04:10.050 --> 00:04:13.310
+so the information related to me on udemy.
+
+96
+00:04:13.310 --> 00:04:16.130
+I'm gonna double-click this like we did before,
+
+97
+00:04:16.130 --> 00:04:17.853
+and I'm gonna go on properties,
+
+98
+00:04:18.960 --> 00:04:21.730
+and you can see that we have a URL or description here.
+
+99
+00:04:21.730 --> 00:04:22.823
+I'm gonna copy that.
+
+100
+00:04:26.340 --> 00:04:28.683
+I'm gonna put it in my text file right here,
+
+101
+00:04:30.550 --> 00:04:32.703
+and I'm just gonna copy the URL,
+
+102
+00:04:35.950 --> 00:04:37.923
+and open it in my browser right here.
+
+103
+00:04:43.240 --> 00:04:45.510
+So, you can see that this URL is related
+
+104
+00:04:45.510 --> 00:04:47.150
+to our target person, and you can see
+
+105
+00:04:47.150 --> 00:04:50.350
+that it's leading us to a course that's taught by myself.
+
+106
+00:04:50.350 --> 00:04:52.170
+Now, this is not really useful.
+
+107
+00:04:52.170 --> 00:04:53.370
+We can see that the target person
+
+108
+00:04:53.370 --> 00:04:54.720
+is teaching online courses.
+
+109
+00:04:54.720 --> 00:04:57.340
+Whatever, not very useful.
+
+110
+00:04:57.340 --> 00:04:59.910
+But if we go back and look at the other URLs.
+
+111
+00:04:59.910 --> 00:05:03.030
+So this had two URLs if I scroll back to the left,
+
+112
+00:05:03.030 --> 00:05:06.210
+we can see we have the first URL right here,
+
+113
+00:05:06.210 --> 00:05:09.270
+and this URL is my profile URL.
+
+114
+00:05:09.270 --> 00:05:12.673
+So, I'm gonna copy it again, and paste it in the browser.
+
+115
+00:05:15.730 --> 00:05:18.260
+And you can see this is showing us the profile
+
+116
+00:05:18.260 --> 00:05:19.800
+for the target person.
+
+117
+00:05:19.800 --> 00:05:21.530
+You can see that it's the same name.
+
+118
+00:05:21.530 --> 00:05:24.530
+You can see their picture, so you know this is your target.
+
+119
+00:05:24.530 --> 00:05:26.300
+You can see a description about what they do,
+
+120
+00:05:26.300 --> 00:05:28.037
+but you probably already know that,
+
+121
+00:05:28.037 --> 00:05:29.640
+but you can see some useful stuff.
+
+122
+00:05:29.640 --> 00:05:31.450
+For example, you can see that they used to work
+
+123
+00:05:31.450 --> 00:05:33.500
+with a company called iSecurity.
+
+124
+00:05:33.500 --> 00:05:36.430
+So again, you can go to what we did previously.
+
+125
+00:05:36.430 --> 00:05:40.020
+Research iSecurity, add their website as a target,
+
+126
+00:05:40.020 --> 00:05:42.860
+and then gather all the information that we were able to do,
+
+127
+00:05:42.860 --> 00:05:46.883
+and then use that to build up a strategy against Zaid.
+
+128
+00:05:47.740 --> 00:05:48.680
+Now, we're not gonna do that
+
+129
+00:05:48.680 --> 00:05:50.750
+because I've already done something like that.
+
+130
+00:05:50.750 --> 00:05:51.950
+So, we're gonna try to see
+
+131
+00:05:51.950 --> 00:05:53.823
+what other information we can get.
+
+132
+00:05:54.830 --> 00:05:57.220
+What's really useful in here, we can see that the person
+
+133
+00:05:57.220 --> 00:05:58.810
+is sharing a few links.
+
+134
+00:05:58.810 --> 00:06:01.070
+So, they're sharing their YouTube channel.
+
+135
+00:06:01.070 --> 00:06:03.170
+They're sharing their LinkedIn profile.
+
+136
+00:06:03.170 --> 00:06:04.800
+They're sharing their Facebook,
+
+137
+00:06:04.800 --> 00:06:06.633
+and they're sharing their own blog.
+
+138
+00:06:07.750 --> 00:06:10.510
+All of these, you can go ahead and browse all
+
+139
+00:06:10.510 --> 00:06:12.530
+of these things to gather more information
+
+140
+00:06:12.530 --> 00:06:14.130
+about that person.
+
+141
+00:06:14.130 --> 00:06:17.300
+Now, you need to keep in mind that I'm setting my target
+
+142
+00:06:17.300 --> 00:06:20.070
+to myself, which is an aware person
+
+143
+00:06:20.070 --> 00:06:22.500
+about computer and information technology,
+
+144
+00:06:22.500 --> 00:06:24.180
+and even the target I targeted
+
+145
+00:06:24.180 --> 00:06:26.040
+in my previous video, iSecurity.
+
+146
+00:06:26.040 --> 00:06:28.650
+It's an information technology company,
+
+147
+00:06:28.650 --> 00:06:30.380
+and even with that, we were able
+
+148
+00:06:30.380 --> 00:06:32.530
+to gather so much information.
+
+149
+00:06:32.530 --> 00:06:35.790
+So, when you're targeting normal companies or normal people,
+
+150
+00:06:35.790 --> 00:06:39.410
+it'll be so much easier to get effective information.
+
+151
+00:06:39.410 --> 00:06:42.670
+So right now, if you actually go look at the YouTube,
+
+152
+00:06:42.670 --> 00:06:44.660
+look at the LinkedIn, and look at the Facebook,
+
+153
+00:06:44.660 --> 00:06:45.940
+you really won't get much.
+
+154
+00:06:45.940 --> 00:06:47.720
+Like, even if you click on the Facebook,
+
+155
+00:06:47.720 --> 00:06:49.820
+you'll see the Facebook won't lead you to anything.
+
+156
+00:06:49.820 --> 00:06:52.180
+You need to log in, and even after logging in,
+
+157
+00:06:52.180 --> 00:06:54.373
+you won't get too much useful information.
+
+158
+00:06:55.310 --> 00:06:58.403
+What's useful in my case is if we go on the blog,
+
+159
+00:07:03.000 --> 00:07:05.723
+and we're gonna go to the about,
+
+160
+00:07:07.770 --> 00:07:09.290
+and what's useful in this,
+
+161
+00:07:09.290 --> 00:07:13.700
+is we have the email address of the target person,
+
+162
+00:07:13.700 --> 00:07:15.200
+and we have their Twitter account,
+
+163
+00:07:15.200 --> 00:07:18.710
+so this information were not included on udemy,
+
+164
+00:07:18.710 --> 00:07:22.810
+and now we have two really useful pieces of information.
+
+165
+00:07:22.810 --> 00:07:24.210
+So, in the next video,
+
+166
+00:07:24.210 --> 00:07:26.370
+we'll see how we can use this information
+
+167
+00:07:26.370 --> 00:07:29.190
+to gather even more info about our target,
+
+168
+00:07:29.190 --> 00:07:32.533
+and hopefully be able to build up an attack strategy.
+

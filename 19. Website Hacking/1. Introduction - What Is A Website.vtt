@@ -1,0 +1,364 @@
+WEBVTT
+
+00:00.630 --> 00:02.490
+Instructor: Just like all of my other courses,
+
+00:02.490 --> 00:04.530
+this course is highly practical
+
+00:04.530 --> 00:06.750
+but it does not neglect the theory.
+
+00:06.750 --> 00:08.190
+So we'll start with the basics
+
+00:08.190 --> 00:10.590
+just to make sure that you really understand
+
+00:10.590 --> 00:13.290
+what web applications are and how they work,
+
+00:13.290 --> 00:14.700
+the technologies used
+
+00:14.700 --> 00:17.280
+and how these technologies work together
+
+00:17.280 --> 00:20.943
+to produce these platforms that we love and use every day.
+
+00:22.320 --> 00:25.710
+So a website is basically just a web application
+
+00:25.710 --> 00:27.660
+installed on a server,
+
+00:27.660 --> 00:30.240
+and a server is simply just a computer.
+
+00:30.240 --> 00:31.920
+So right now we have this computer.
+
+00:31.920 --> 00:34.860
+It could be any computer, it could be a personal computer
+
+00:34.860 --> 00:36.990
+and when we say it's a server,
+
+00:36.990 --> 00:39.810
+it just has certain applications on it
+
+00:39.810 --> 00:42.300
+that allow it to act as a server.
+
+00:42.300 --> 00:45.840
+Now, generally, servers on the internet are accessible
+
+00:45.840 --> 00:47.940
+from any computer on the internet.
+
+00:47.940 --> 00:51.060
+So they're hosted on the cloud as they call them now
+
+00:51.060 --> 00:53.160
+and basically it has a real IP
+
+00:53.160 --> 00:55.530
+and then anybody connected to the internet
+
+00:55.530 --> 00:58.320
+is able to communicate with this computer.
+
+00:58.320 --> 01:00.930
+Because this computer has a specific application
+
+01:00.930 --> 01:04.410
+that allow it to act as a server, we call it a server.
+
+01:04.410 --> 01:06.360
+But if you strip everything down,
+
+01:06.360 --> 01:08.100
+it basically just a computer
+
+01:08.100 --> 01:10.110
+with special programs installed on it.
+
+01:10.110 --> 01:12.900
+Then we make that computer accessible over the cloud,
+
+01:12.900 --> 01:16.590
+over the internet, which makes it very appropriate to use
+
+01:16.590 --> 01:19.140
+as a web server or a server that can be accessed
+
+01:19.140 --> 01:21.543
+from other computers or other locations.
+
+01:22.440 --> 01:24.300
+Now, a very common application
+
+01:24.300 --> 01:28.350
+that could make it act as a server is a web server.
+
+01:28.350 --> 01:29.790
+Now, what is a web server?
+
+01:29.790 --> 01:32.070
+It's basically an application that you can install
+
+01:32.070 --> 01:33.030
+on any computer
+
+01:33.030 --> 01:35.610
+so the computer doesn't even have to be exposed
+
+01:35.610 --> 01:36.443
+to the internet.
+
+01:36.443 --> 01:38.940
+You can install it on your own local computer,
+
+01:38.940 --> 01:41.040
+even if it's not connected to the internet.
+
+01:41.040 --> 01:42.720
+It's just an application.
+
+01:42.720 --> 01:44.580
+And what that application does,
+
+01:44.580 --> 01:48.690
+it specifies a certain location within your file system
+
+01:48.690 --> 01:51.420
+and in that location you can host files.
+
+01:51.420 --> 01:54.270
+So anybody connected to the same network as you,
+
+01:54.270 --> 01:57.210
+or if this computer is exposed to the internet
+
+01:57.210 --> 02:00.690
+and anybody that is on the internet will be able to access
+
+02:00.690 --> 02:04.020
+the files stored within the web route
+
+02:04.020 --> 02:06.720
+or the file that the web server uses to serve files
+
+02:06.720 --> 02:08.220
+to the users.
+
+02:08.220 --> 02:10.890
+Now, web servers usually also contain
+
+02:10.890 --> 02:12.720
+the web application files.
+
+02:12.720 --> 02:16.110
+So a web application is similar to any application.
+
+02:16.110 --> 02:19.740
+The only difference is it's designed to run on a web server
+
+02:19.740 --> 02:22.920
+and designed to be served over the internet
+
+02:22.920 --> 02:24.840
+to another computer.
+
+02:24.840 --> 02:28.740
+So the web server can execute web application languages
+
+02:28.740 --> 02:31.080
+similar to PHP, Python and Ruby.
+
+02:31.080 --> 02:34.230
+So you would have the web application files stored
+
+02:34.230 --> 02:36.420
+within the web server 'cause like I said,
+
+02:36.420 --> 02:38.250
+the initial goal of the web server
+
+02:38.250 --> 02:41.700
+is to be able to serve files to remote computers
+
+02:41.700 --> 02:44.673
+using a web browser, using the HTTP protocol.
+
+02:45.510 --> 02:48.000
+The web application files contain codes
+
+02:48.000 --> 02:50.280
+so the website files could be images,
+
+02:50.280 --> 02:51.980
+they could be normal HTML files,
+
+02:51.980 --> 02:53.820
+so they don't really contain code.
+
+02:53.820 --> 02:55.710
+But the web application files,
+
+02:55.710 --> 02:59.130
+they actually contain code written in a program and language
+
+02:59.130 --> 03:02.610
+that can process information and manipulate it
+
+03:02.610 --> 03:04.470
+and do useful tasks.
+
+03:04.470 --> 03:06.300
+So it would be written in languages
+
+03:06.300 --> 03:08.850
+like PHP, Python, Ruby, and so on.
+
+03:08.850 --> 03:11.820
+And most websites that actually do something useful
+
+03:11.820 --> 03:14.700
+other than websites just simply display information
+
+03:14.700 --> 03:17.160
+like a shop website, they would actually be written
+
+03:17.160 --> 03:19.563
+in a programming language such as these.
+
+03:20.880 --> 03:22.800
+Now, another very common component
+
+03:22.800 --> 03:26.010
+of a website is the database.
+
+03:26.010 --> 03:30.150
+So the web server contains the files like images,
+
+03:30.150 --> 03:31.950
+styling files, HTML files.
+
+03:31.950 --> 03:34.620
+These are all just used to display the website
+
+03:34.620 --> 03:35.730
+to render the website
+
+03:35.730 --> 03:37.560
+and then you have the web application files
+
+03:37.560 --> 03:41.460
+which is the ones run on the server side to process data.
+
+03:41.460 --> 03:45.270
+But the data is usually stored in a different application
+
+03:45.270 --> 03:46.950
+which is called a database.
+
+03:46.950 --> 03:49.560
+Now the database contains a number of tables
+
+03:49.560 --> 03:52.410
+and we have in here a sample of a table.
+
+03:52.410 --> 03:55.170
+And we're assuming that this table contains products
+
+03:55.170 --> 03:57.780
+that are being sold on a shop website.
+
+03:57.780 --> 04:01.170
+So you can see we have the ID of the products.
+
+04:01.170 --> 04:03.180
+We have the title so this is an iPhone,
+
+04:03.180 --> 04:05.340
+an iPad, a mouse, and the price,
+
+04:05.340 --> 04:08.193
+we have the price in here for each of these products.
+
+04:09.090 --> 04:12.300
+So the web server contains the HTML pages,
+
+04:12.300 --> 04:14.730
+the beautiful pages that you actually see.
+
+04:14.730 --> 04:15.840
+The ones with the...
+
+04:15.840 --> 04:18.540
+It contains the images so the images for the iPhones,
+
+04:18.540 --> 04:21.540
+the iPads, the mouses that this website is selling.
+
+04:21.540 --> 04:25.980
+It also contains a web application that interacts
+
+04:25.980 --> 04:29.970
+with the database to display all of these products.
+
+04:29.970 --> 04:32.850
+So the web application itself doesn't contain the products.
+
+04:32.850 --> 04:36.480
+The product information is stored in the database.
+
+04:36.480 --> 04:39.090
+Now, the database contains a number of tables.
+
+04:39.090 --> 04:41.820
+This is just one example of a table.
+
+04:41.820 --> 04:44.190
+It'll contain tables, for example, for the users
+
+04:44.190 --> 04:46.380
+and it'll contain the usernames and the passwords.
+
+04:46.380 --> 04:48.300
+And then users, when they log in,
+
+04:48.300 --> 04:51.510
+the web application will communicate with the database
+
+04:51.510 --> 04:53.580
+to check if the username you supplied
+
+04:53.580 --> 04:55.620
+is the same one as the password.
+
+04:55.620 --> 04:57.360
+So it's very important to understand
+
+04:57.360 --> 04:59.010
+the role of the database.
+
+04:59.010 --> 05:01.260
+Web application stored on the web server,
+
+05:01.260 --> 05:04.950
+it just communicates with the database, gets information
+
+05:04.950 --> 05:08.220
+and then displays it or does something useful with it
+
+05:08.220 --> 05:11.310
+but the data itself is not stored on the web server,
+
+05:11.310 --> 05:13.530
+it's not stored within the web application.
+
+05:13.530 --> 05:15.813
+It's actually stored on the database.

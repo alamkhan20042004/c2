@@ -1,0 +1,398 @@
+WEBVTT
+
+1
+00:00:01.450 --> 00:00:03.760
+<v Zaid>Right, so now we have the email address</v>
+
+2
+00:00:03.760 --> 00:00:05.140
+of the target person,
+
+3
+00:00:05.140 --> 00:00:07.680
+and we have their Twitter account.
+
+4
+00:00:07.680 --> 00:00:08.930
+So let's start with Twitter
+
+5
+00:00:08.930 --> 00:00:10.980
+and see what we can get from that.
+
+6
+00:00:10.980 --> 00:00:12.640
+So I'm gonna open the Twitter account
+
+7
+00:00:12.640 --> 00:00:14.383
+for the target person right here.
+
+8
+00:00:17.090 --> 00:00:18.383
+I'm gonna copy the link.
+
+9
+00:00:22.850 --> 00:00:24.693
+And we're gonna come here,
+
+10
+00:00:25.570 --> 00:00:28.173
+and we're gonna add a Twitter entity.
+
+11
+00:00:30.370 --> 00:00:32.993
+So I'm just gonna move all of this to the side.
+
+12
+00:00:35.850 --> 00:00:37.900
+And we're gonna add a Twitter entity
+
+13
+00:00:37.900 --> 00:00:40.993
+from the Social Network category.
+
+14
+00:00:44.170 --> 00:00:47.550
+The problem here is you'll see that there is a Tweet entity,
+
+15
+00:00:47.550 --> 00:00:49.950
+but there is no Twitter entity.
+
+16
+00:00:49.950 --> 00:00:53.020
+But Maltego actually has an entity for Twitter,
+
+17
+00:00:53.020 --> 00:00:55.310
+it's just not being shown in here.
+
+18
+00:00:55.310 --> 00:00:57.560
+And that's why I said I wanna spend
+
+19
+00:00:57.560 --> 00:01:00.060
+more time using Maltego with you,
+
+20
+00:01:00.060 --> 00:01:03.270
+to show you how to access these settings.
+
+21
+00:01:03.270 --> 00:01:05.653
+So we're gonna go to Entities.
+
+22
+00:01:06.680 --> 00:01:08.703
+We're gonna go to Manage Entities.
+
+23
+00:01:11.470 --> 00:01:14.420
+And right here, you can add all of these entities.
+
+24
+00:01:14.420 --> 00:01:17.930
+So all of these entities are not added to the palette,
+
+25
+00:01:17.930 --> 00:01:19.990
+to the left in here.
+
+26
+00:01:19.990 --> 00:01:24.410
+So if you see something in here that's interesting to you,
+
+27
+00:01:24.410 --> 00:01:25.910
+you can just click on it.
+
+28
+00:01:25.910 --> 00:01:28.290
+So the one I'm interested in right now
+
+29
+00:01:28.290 --> 00:01:30.160
+is the Twitter Affiliation,
+
+30
+00:01:30.160 --> 00:01:33.840
+the membership of the Twitter social network.
+
+31
+00:01:33.840 --> 00:01:36.140
+I'm gonna click on the three little dots here.
+
+32
+00:01:37.640 --> 00:01:39.703
+I'm gonna go on Advanced Settings,
+
+33
+00:01:41.020 --> 00:01:44.233
+and I'm gonna check this box, which says Palette Item.
+
+34
+00:01:45.720 --> 00:01:49.840
+Now if I click on OK and close this,
+
+35
+00:01:49.840 --> 00:01:53.780
+you'll see that I have a Twitter entity showing up in here.
+
+36
+00:01:53.780 --> 00:01:55.840
+So again, I'm gonna use this as normal.
+
+37
+00:01:55.840 --> 00:01:57.440
+I'm just gonna drag and drop it.
+
+38
+00:01:58.370 --> 00:02:01.230
+I'm gonna set the name of it here.
+
+39
+00:02:01.230 --> 00:02:03.553
+So that's gonna be myself, which is Zaid.
+
+40
+00:02:05.660 --> 00:02:08.830
+And we're gonna put the URL in here.
+
+41
+00:02:08.830 --> 00:02:11.210
+So that's the URL of the profile.
+
+42
+00:02:11.210 --> 00:02:13.560
+And I've already copied that, so it's this one.
+
+43
+00:02:14.530 --> 00:02:18.120
+And my user ID is Zaid_alq,
+
+44
+00:02:18.120 --> 00:02:19.803
+so I'm gonna put that in here.
+
+45
+00:02:22.760 --> 00:02:23.890
+And we're good to go.
+
+46
+00:02:23.890 --> 00:02:25.460
+Now we can gather information
+
+47
+00:02:25.460 --> 00:02:28.253
+about this person based on their Twitter account.
+
+48
+00:02:29.120 --> 00:02:30.470
+So I'm gonna right-click it
+
+49
+00:02:32.290 --> 00:02:33.560
+and see what we can get.
+
+50
+00:02:33.560 --> 00:02:35.560
+So we can get their Tweets.
+
+51
+00:02:35.560 --> 00:02:39.040
+We can see the Tweets they sent to people.
+
+52
+00:02:39.040 --> 00:02:41.170
+We can transfer this to person.
+
+53
+00:02:41.170 --> 00:02:43.090
+We can get more details.
+
+54
+00:02:43.090 --> 00:02:45.250
+We can get the followers.
+
+55
+00:02:45.250 --> 00:02:48.940
+What I really want to get in this is to get their friends
+
+56
+00:02:48.940 --> 00:02:52.640
+so that I can actually target them through their friends.
+
+57
+00:02:52.640 --> 00:02:55.390
+So again, I'm just gonna click on the play button here.
+
+58
+00:02:57.440 --> 00:03:00.300
+And this particular transformer
+
+59
+00:03:00.300 --> 00:03:02.610
+require you to log in to Twitter.
+
+60
+00:03:02.610 --> 00:03:03.540
+So as you can see now,
+
+61
+00:03:03.540 --> 00:03:06.280
+Maltego is telling me that I have to log in to Twitter
+
+62
+00:03:06.280 --> 00:03:10.220
+to be able to gather information about this person.
+
+63
+00:03:10.220 --> 00:03:11.370
+So I'm gonna click Yes.
+
+64
+00:03:11.370 --> 00:03:13.120
+I'll log in, no problem.
+
+65
+00:03:13.120 --> 00:03:15.720
+And then I'm gonna click on this Sign In right here.
+
+66
+00:03:19.530 --> 00:03:22.850
+And I'm just gonna log in with a username and a password.
+
+67
+00:03:22.850 --> 00:03:24.880
+So I'm gonna actually use a different account
+
+68
+00:03:24.880 --> 00:03:27.480
+than the one that we're gathering information about.
+
+69
+00:03:30.920 --> 00:03:33.800
+And now it's asking me, do I want to authorize this app?
+
+70
+00:03:33.800 --> 00:03:36.013
+I'm gonna say yes, authorize it, no problem.
+
+71
+00:03:38.100 --> 00:03:40.340
+And that's it, now we're logged in to Maltego.
+
+72
+00:03:40.340 --> 00:03:43.290
+I'm gonna go back to Maltego, and you can see
+
+73
+00:03:43.290 --> 00:03:45.640
+that it's telling me I can sign out using this button.
+
+74
+00:03:45.640 --> 00:03:47.730
+So now I'm logged in to it.
+
+75
+00:03:47.730 --> 00:03:50.910
+And if I close this, the search will start.
+
+76
+00:03:50.910 --> 00:03:52.640
+So it's now starting to look
+
+77
+00:03:52.640 --> 00:03:56.003
+for friends on Twitter, of Zaid.
+
+78
+00:03:56.990 --> 00:03:58.210
+And as you can see now,
+
+79
+00:03:58.210 --> 00:04:02.870
+I managed to get the people that are friends with Zaid,
+
+80
+00:04:02.870 --> 00:04:04.790
+and we can see some really interesting stuff.
+
+81
+00:04:04.790 --> 00:04:06.550
+Now these are all just websites,
+
+82
+00:04:06.550 --> 00:04:08.840
+so they're not really very useful.
+
+83
+00:04:08.840 --> 00:04:10.430
+We can go ahead and pretend
+
+84
+00:04:10.430 --> 00:04:12.240
+to be a person from these websites,
+
+85
+00:04:12.240 --> 00:04:15.470
+and there is a high chance of Zaid to respond to it.
+
+86
+00:04:15.470 --> 00:04:17.770
+But it's not as good as using the people.
+
+87
+00:04:17.770 --> 00:04:19.970
+So I'm actually gonna delete these websites,
+
+88
+00:04:21.560 --> 00:04:23.253
+just gonna click on Delete.
+
+89
+00:04:26.950 --> 00:04:28.763
+And we're just gonna organize these.
+
+90
+00:04:32.530 --> 00:04:35.850
+And now we can see that Zaid has three friends.
+
+91
+00:04:35.850 --> 00:04:37.830
+And again, we can use all of these friends,
+
+92
+00:04:37.830 --> 00:04:38.820
+right-click them,
+
+93
+00:04:38.820 --> 00:04:41.663
+and try to gather more information about them.
+
+94
+00:04:42.950 --> 00:04:44.650
+This is good so far.
+
+95
+00:04:44.650 --> 00:04:48.910
+And in the next lecture, we'll go back to where we were.
+
+96
+00:04:48.910 --> 00:04:50.750
+So we gathered the information now
+
+97
+00:04:50.750 --> 00:04:52.100
+about the Twitter account.
+
+98
+00:04:52.100 --> 00:04:54.130
+We'll see how to gather information
+
+99
+00:04:54.130 --> 00:04:56.513
+about the email of that person.
+

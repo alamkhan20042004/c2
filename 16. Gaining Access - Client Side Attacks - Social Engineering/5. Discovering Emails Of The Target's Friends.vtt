@@ -1,0 +1,302 @@
+WEBVTT
+
+1
+00:00:00.820 --> 00:00:03.230
+<v Instructor>Okay, now let's see what can we get</v>
+
+2
+00:00:03.230 --> 00:00:05.560
+using the email of the target person?
+
+3
+00:00:05.560 --> 00:00:07.880
+Now if we hover over this
+
+4
+00:00:07.880 --> 00:00:11.350
+or if we just copy the email address,
+
+5
+00:00:11.350 --> 00:00:13.220
+it will copy the email of the person,
+
+6
+00:00:13.220 --> 00:00:16.610
+which is zaid@isecur1ty.org.
+
+7
+00:00:16.610 --> 00:00:20.970
+So we're gonna go back to our Maltego, and I'm gonna add,
+
+8
+00:00:20.970 --> 00:00:22.623
+I'm gonna put this to the side.
+
+9
+00:00:28.170 --> 00:00:31.030
+And we're gonna add a new entity,
+
+10
+00:00:31.030 --> 00:00:33.280
+and this is going to be an email address.
+
+11
+00:00:33.280 --> 00:00:34.833
+So we're gonna go to Personal,
+
+12
+00:00:36.240 --> 00:00:39.000
+and we're gonna look for Email Address.
+
+13
+00:00:39.000 --> 00:00:40.083
+Drag, drop that,
+
+14
+00:00:42.270 --> 00:00:44.550
+and set the email to the email
+
+15
+00:00:44.550 --> 00:00:47.030
+of the target person from the Properties.
+
+16
+00:00:47.030 --> 00:00:49.390
+Again, I'm gonna double-click it
+
+17
+00:00:49.390 --> 00:00:52.043
+and type zaid@isecur1ty.org.
+
+18
+00:00:55.310 --> 00:00:58.250
+Now again, we actually got the email from here,
+
+19
+00:00:58.250 --> 00:00:59.970
+from this icon right here,
+
+20
+00:00:59.970 --> 00:01:02.290
+which leads us to the email of the person.
+
+21
+00:01:02.290 --> 00:01:06.340
+So I didn't guess it myself or just get it out of nowhere.
+
+22
+00:01:06.340 --> 00:01:08.160
+I actually managed to get it
+
+23
+00:01:08.160 --> 00:01:10.963
+from only typing the name of the person.
+
+24
+00:01:12.580 --> 00:01:13.660
+Now from this email,
+
+25
+00:01:13.660 --> 00:01:16.593
+we're gonna try and see what information we can get.
+
+26
+00:01:17.950 --> 00:01:20.223
+I'm gonna right-click this, as usual,
+
+27
+00:01:21.330 --> 00:01:24.990
+and I'm gonna transfer this to a domain name.
+
+28
+00:01:24.990 --> 00:01:27.840
+Now again, you can transfer this to a person.
+
+29
+00:01:27.840 --> 00:01:31.140
+You can transfer this to a phone number,
+
+30
+00:01:31.140 --> 00:01:33.110
+to URLs, to websites.
+
+31
+00:01:33.110 --> 00:01:34.380
+But I'm not gonna do all of that
+
+32
+00:01:34.380 --> 00:01:37.150
+because I've already actually done this on my own time.
+
+33
+00:01:37.150 --> 00:01:40.363
+And the useful one is if we transfer it to a person.
+
+34
+00:01:41.510 --> 00:01:43.460
+So there is a lot of trial and error in this.
+
+35
+00:01:43.460 --> 00:01:45.000
+You'll try things.
+
+36
+00:01:45.000 --> 00:01:47.010
+It might not give you good information.
+
+37
+00:01:47.010 --> 00:01:50.400
+Delete the bad entities, and just keep going.
+
+38
+00:01:50.400 --> 00:01:52.150
+So we can see that we got a domain name,
+
+39
+00:01:52.150 --> 00:01:54.700
+which is isecur1ty.org.
+
+40
+00:01:54.700 --> 00:01:57.280
+Now from this website, I'm gonna try to get
+
+41
+00:01:57.280 --> 00:02:00.400
+the email addresses associated to this website.
+
+42
+00:02:00.400 --> 00:02:02.210
+We're gonna go back,
+
+43
+00:02:02.210 --> 00:02:04.190
+and we're gonna look for email addresses,
+
+44
+00:02:04.190 --> 00:02:05.293
+as you can see here.
+
+45
+00:02:06.370 --> 00:02:08.150
+So I'm just gonna click on Run All
+
+46
+00:02:08.150 --> 00:02:11.550
+to run all the transformers that will get me email addresses
+
+47
+00:02:11.550 --> 00:02:14.200
+associated with this domain.
+
+48
+00:02:14.200 --> 00:02:17.870
+And if we go down, we have this domain protection email,
+
+49
+00:02:17.870 --> 00:02:18.790
+which is not useful,
+
+50
+00:02:18.790 --> 00:02:21.150
+so I'm just gonna delete it straight away.
+
+51
+00:02:21.150 --> 00:02:24.370
+And we have m.askar@isecur1ty.org,
+
+52
+00:02:24.370 --> 00:02:27.403
+which is the same person as this.
+
+53
+00:02:28.810 --> 00:02:31.760
+Now another thing that we can do from the domain
+
+54
+00:02:31.760 --> 00:02:34.303
+is transfer that to a website.
+
+55
+00:02:43.500 --> 00:02:46.050
+And then from this website,
+
+56
+00:02:46.050 --> 00:02:49.303
+we're gonna look for email addresses associated with it.
+
+57
+00:02:55.000 --> 00:02:56.853
+Great, now this is done.
+
+58
+00:02:57.910 --> 00:03:00.103
+And if we go down,
+
+59
+00:03:01.130 --> 00:03:04.670
+we can see now we got two not-useful emails right here,
+
+60
+00:03:04.670 --> 00:03:06.313
+so I'm gonna delete these two.
+
+61
+00:03:08.530 --> 00:03:10.283
+And we have two good ones.
+
+62
+00:03:12.430 --> 00:03:15.780
+So we have mustafa@albazy.com,
+
+63
+00:03:15.780 --> 00:03:17.670
+which is the same as this person,
+
+64
+00:03:17.670 --> 00:03:19.370
+which we got from Twitter.
+
+65
+00:03:19.370 --> 00:03:21.963
+And we have the info@isecur1ty.org.
+
+66
+00:03:23.230 --> 00:03:24.950
+Now again, you can just keep going
+
+67
+00:03:24.950 --> 00:03:28.210
+and try to gather more information about this target.
+
+68
+00:03:28.210 --> 00:03:30.680
+But for now, I think this is enough.
+
+69
+00:03:30.680 --> 00:03:32.880
+So we have enough info
+
+70
+00:03:32.880 --> 00:03:37.290
+to start building up an attack strategy for this person.
+
+71
+00:03:37.290 --> 00:03:38.390
+Now in the next lecture,
+
+72
+00:03:38.390 --> 00:03:40.670
+we'll discuss all the info that we gathered,
+
+73
+00:03:40.670 --> 00:03:42.460
+and we'll come up with ideas
+
+74
+00:03:42.460 --> 00:03:44.650
+on how we can attack this person
+
+75
+00:03:44.650 --> 00:03:47.553
+and hack into their system or into their accounts.
+

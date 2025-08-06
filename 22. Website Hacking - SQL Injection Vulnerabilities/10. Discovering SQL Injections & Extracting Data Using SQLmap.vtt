@@ -1,0 +1,562 @@
+WEBVTT
+
+1
+00:00:01.651 --> 00:00:03.019
+<v Instructor>In all of the lectures so far,</v>
+
+2
+00:00:03.019 --> 00:00:06.480
+we were exploiting SQL injections manually.
+
+3
+00:00:06.480 --> 00:00:09.250
+So we were injecting the code into the URL
+
+4
+00:00:09.250 --> 00:00:11.183
+or into the text boxes.
+
+5
+00:00:12.140 --> 00:00:15.660
+In this video, I'm going to show you a tool called sqlmap
+
+6
+00:00:15.660 --> 00:00:18.810
+which allows you to do everything we learned so far
+
+7
+00:00:18.810 --> 00:00:20.043
+and even more stuff.
+
+8
+00:00:21.240 --> 00:00:24.130
+This tool can be used against MySQL databases
+
+9
+00:00:24.130 --> 00:00:26.770
+which the one that we were having the example on.
+
+10
+00:00:26.770 --> 00:00:29.910
+It can also be used against Microsoft SQL,
+
+11
+00:00:29.910 --> 00:00:33.290
+Oracle and other database types.
+
+12
+00:00:33.290 --> 00:00:36.750
+The tool is very useful and is very handy in many cases.
+
+13
+00:00:36.750 --> 00:00:39.330
+Sometimes the injections aren't as nice
+
+14
+00:00:39.330 --> 00:00:40.330
+as the one we've seen.
+
+15
+00:00:40.330 --> 00:00:43.530
+Sometimes you only get one output for each record
+
+16
+00:00:43.530 --> 00:00:46.090
+and you have to loop through all the outputs.
+
+17
+00:00:46.090 --> 00:00:47.640
+So the tool can automate that
+
+18
+00:00:47.640 --> 00:00:50.713
+and just do everything for you much easier and much simpler.
+
+19
+00:00:52.270 --> 00:00:54.450
+So let's first of all get the URL
+
+20
+00:00:54.450 --> 00:00:56.690
+that we were using for the injection.
+
+21
+00:00:56.690 --> 00:00:59.640
+So I have that text file here that we were using
+
+22
+00:00:59.640 --> 00:01:01.990
+and I have the URL that we were using before.
+
+23
+00:01:01.990 --> 00:01:04.120
+So it's the user.info.php,
+
+24
+00:01:04.120 --> 00:01:06.859
+username is admin, password, adminpass.
+
+25
+00:01:06.859 --> 00:01:09.130
+You don't really need to know the username and password
+
+26
+00:01:09.130 --> 00:01:12.410
+so I'm actually just gonna put anything here.
+
+27
+00:01:12.410 --> 00:01:14.580
+So just to assume that we don't know the password,
+
+28
+00:01:14.580 --> 00:01:17.280
+we we're only injecting SQL injections.
+
+29
+00:01:17.280 --> 00:01:20.140
+We don't really need to know any of this stuff.
+
+30
+00:01:20.140 --> 00:01:21.690
+All I'm gonna do is copy this
+
+31
+00:01:22.820 --> 00:01:24.447
+and then I'm gonna run sqlmap.
+
+32
+00:01:26.700 --> 00:01:31.700
+And I'm gonna do u to specify the URL
+
+33
+00:01:31.740 --> 00:01:34.793
+and I'll put my target.
+
+34
+00:01:35.690 --> 00:01:36.560
+And I'm gonna make sure
+
+35
+00:01:36.560 --> 00:01:39.000
+that I have it between two quotation marks
+
+36
+00:01:39.000 --> 00:01:40.998
+so that it doesn't ignore anything,
+
+37
+00:01:40.998 --> 00:01:42.850
+any signs in the middle,
+
+38
+00:01:42.850 --> 00:01:45.050
+so we have some signs and characters in the middle
+
+39
+00:01:45.050 --> 00:01:48.490
+that I want it to all be treated as one URL.
+
+40
+00:01:48.490 --> 00:01:52.360
+So all I did was sqlmap -u my target.
+
+41
+00:01:52.360 --> 00:01:53.630
+And I'm gonna hit Enter
+
+42
+00:01:53.630 --> 00:01:56.400
+and the tool automatically look through the parameters,
+
+43
+00:01:56.400 --> 00:01:58.540
+so it's gonna look through the user info,
+
+44
+00:01:58.540 --> 00:02:00.610
+through the username and the password
+
+45
+00:02:00.610 --> 00:02:02.910
+to see if any of them is injectable
+
+46
+00:02:02.910 --> 00:02:04.660
+and then once it does that,
+
+47
+00:02:04.660 --> 00:02:06.290
+it's gonna store it in its memory.
+
+48
+00:02:06.290 --> 00:02:08.310
+So it's gonna know that this is injectable
+
+49
+00:02:08.310 --> 00:02:11.970
+and then we'll be able to further exploit the target.
+
+50
+00:02:11.970 --> 00:02:13.210
+So as you can see now,
+
+51
+00:02:13.210 --> 00:02:17.343
+it's thinking that our target could be MySQL or PostgreSQL.
+
+52
+00:02:18.770 --> 00:02:21.800
+It's asking me if it should skip other tests
+
+53
+00:02:21.800 --> 00:02:22.770
+and I'm gonna say yes
+
+54
+00:02:22.770 --> 00:02:24.113
+because I know it's MySQL.
+
+55
+00:02:25.790 --> 00:02:29.050
+And now it's asking me if it should do all the tests
+
+56
+00:02:29.050 --> 00:02:30.420
+for both databases?
+
+57
+00:02:30.420 --> 00:02:32.360
+And I'm gonna say yes, assuming that I'm not sure
+
+58
+00:02:32.360 --> 00:02:33.600
+which one it is.
+
+59
+00:02:33.600 --> 00:02:36.410
+I know it's MySQL but I'm just gonna let it do its thing
+
+60
+00:02:36.410 --> 00:02:38.893
+and we'll see if it can do it properly or not.
+
+61
+00:02:40.870 --> 00:02:41.710
+So at the moment,
+
+62
+00:02:41.710 --> 00:02:43.943
+it's checking if it's PostgreSQL.
+
+63
+00:02:45.360 --> 00:02:48.210
+And I'm assuming it's gonna know that it's not
+
+64
+00:02:48.210 --> 00:02:50.953
+and then it's gonna know that it's MySQL.
+
+65
+00:02:53.020 --> 00:02:55.300
+It just found out that the username seems
+
+66
+00:02:55.300 --> 00:02:56.483
+to be injectable.
+
+67
+00:02:57.980 --> 00:03:00.410
+And sure enough, it's telling us here
+
+68
+00:03:00.410 --> 00:03:03.370
+that the parameter username is vulnerable
+
+69
+00:03:03.370 --> 00:03:04.540
+and we can inject it.
+
+70
+00:03:04.540 --> 00:03:07.040
+So it's asking me do I want to check the other parameters
+
+71
+00:03:07.040 --> 00:03:08.770
+such as the password and all of them?
+
+72
+00:03:08.770 --> 00:03:10.731
+I can say yes and let it do it
+
+73
+00:03:10.731 --> 00:03:11.564
+but I'm gonna say No
+
+74
+00:03:11.564 --> 00:03:14.210
+because I don't mind if it just uses the username
+
+75
+00:03:14.210 --> 00:03:16.650
+for the injection so it's all good.
+
+76
+00:03:16.650 --> 00:03:20.570
+Now, sqlmap knows that the target is injectable
+
+77
+00:03:20.570 --> 00:03:23.510
+and it knows that it's going to use the username parameter
+
+78
+00:03:23.510 --> 00:03:24.623
+to inject stuff.
+
+79
+00:03:25.995 --> 00:03:27.600
+And I can see that it figured out
+
+80
+00:03:27.600 --> 00:03:29.910
+that it's running Linux Ubuntu
+
+81
+00:03:29.910 --> 00:03:32.473
+and it figured out that it's using PHP with Apache 2.2.8.
+
+82
+00:03:34.560 --> 00:03:38.313
+And it's using MySQL Server as the database server.
+
+83
+00:03:39.200 --> 00:03:41.729
+So let's run sqlmap --help
+
+84
+00:03:41.729 --> 00:03:42.753
+and see what we can do now.
+
+85
+00:03:43.730 --> 00:03:45.230
+Now, this tool is really big
+
+86
+00:03:45.230 --> 00:03:47.150
+and it allows you to do a lot of things.
+
+87
+00:03:47.150 --> 00:03:49.160
+So on this video, I'm actually just gonna show you
+
+88
+00:03:49.160 --> 00:03:50.760
+a quick look on the video
+
+89
+00:03:50.760 --> 00:03:54.750
+and I recommend you spend more time with it
+
+90
+00:03:54.750 --> 00:03:57.713
+and try to see what else you can do with it.
+
+91
+00:03:59.430 --> 00:04:02.640
+Okay, so let's try to get the current-user
+
+92
+00:04:02.640 --> 00:04:05.213
+and we're gonna try to get the current-database.
+
+93
+00:04:06.480 --> 00:04:09.480
+So we're gonna use the same command that we used before
+
+94
+00:04:09.480 --> 00:04:14.240
+and I'm just gonna add to it dbms
+
+95
+00:04:14.240 --> 00:04:15.863
+to get the current databases.
+
+96
+00:04:20.150 --> 00:04:21.573
+Or dbs, sorry.
+
+97
+00:04:23.240 --> 00:04:26.110
+As you can see, we got all the databases that we have.
+
+98
+00:04:26.110 --> 00:04:29.675
+So we have dvwa, we have information_schema,
+
+99
+00:04:29.675 --> 00:04:32.620
+metasploit, mysql, owasp10 which was the one
+
+100
+00:04:32.620 --> 00:04:36.390
+that we were exploiting before and tikiwiki.
+
+101
+00:04:36.390 --> 00:04:39.633
+Now, if we do current-user,
+
+102
+00:04:45.170 --> 00:04:47.170
+you can see that we are root
+
+103
+00:04:47.170 --> 00:04:49.463
+and if I do current-database,
+
+104
+00:04:52.200 --> 00:04:55.860
+we'll see that owasp10 is our current database.
+
+105
+00:04:55.860 --> 00:04:57.910
+So now let's try to get the tables
+
+106
+00:04:57.910 --> 00:05:01.250
+for owasp10, so remember when we did a select table name
+
+107
+00:05:01.250 --> 00:05:03.560
+from information_scheme.tables
+
+108
+00:05:03.560 --> 00:05:08.450
+where table_schema is equal to owasp10.
+
+109
+00:05:08.450 --> 00:05:11.660
+We're gonna do, we're gonna let sqlmap do all of that for us
+
+110
+00:05:11.660 --> 00:05:14.680
+and so the command is going to be,
+
+111
+00:05:14.680 --> 00:05:18.170
+we're gonna ask it to get all the tables for us.
+
+112
+00:05:18.170 --> 00:05:19.750
+And we're gonna use the D option
+
+113
+00:05:19.750 --> 00:05:22.560
+to specify the database
+
+114
+00:05:22.560 --> 00:05:25.640
+and our database is going to be called owasp10.
+
+115
+00:05:29.670 --> 00:05:31.620
+And as you can see, it got us all the tables
+
+116
+00:05:31.620 --> 00:05:33.650
+that exist and remember, it's the same.
+
+117
+00:05:33.650 --> 00:05:35.880
+We got accounts, blogs_table
+
+118
+00:05:35.880 --> 00:05:38.730
+and the credit_cards as well.
+
+119
+00:05:38.730 --> 00:05:40.736
+And now if we want to get the columns,
+
+120
+00:05:40.736 --> 00:05:42.920
+then we can use the same command again
+
+121
+00:05:42.920 --> 00:05:46.390
+and we're gonna say get me the columns
+
+122
+00:05:49.440 --> 00:05:53.050
+where the table is called accounts
+
+123
+00:05:53.920 --> 00:05:56.523
+and the database is owasp10.
+
+124
+00:06:00.070 --> 00:06:02.890
+And right here we can see that we got the columns.
+
+125
+00:06:02.890 --> 00:06:06.110
+So we have the is_admin, the password and the username
+
+126
+00:06:06.110 --> 00:06:07.710
+and we can get the data
+
+127
+00:06:09.030 --> 00:06:10.873
+using the dump option.
+
+128
+00:06:11.860 --> 00:06:13.500
+So it's the same command that we used before.
+
+129
+00:06:13.500 --> 00:06:18.500
+So we're getting the from the table that's called accounts
+
+130
+00:06:18.550 --> 00:06:21.714
+and the database that is called owasp10.
+
+131
+00:06:21.714 --> 00:06:23.773
+I want you to get me all the data.
+
+132
+00:06:24.720 --> 00:06:26.810
+And here we go, we got all the data.
+
+133
+00:06:26.810 --> 00:06:29.440
+We have the admin, its password, adminpass
+
+134
+00:06:29.440 --> 00:06:32.940
+and we have adrian and his password is somepassword.
+
+135
+00:06:32.940 --> 00:06:35.333
+And we got all the data right here.
+
+136
+00:06:36.180 --> 00:06:38.940
+So as I said, the tool is very useful.
+
+137
+00:06:38.940 --> 00:06:41.558
+It can be used to make our life much easier
+
+138
+00:06:41.558 --> 00:06:43.430
+and it does everything automatically
+
+139
+00:06:43.430 --> 00:06:45.130
+and it can do everything we did
+
+140
+00:06:45.130 --> 00:06:46.803
+and it can even do more stuff.
+

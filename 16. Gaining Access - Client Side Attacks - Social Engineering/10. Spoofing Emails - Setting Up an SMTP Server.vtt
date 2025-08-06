@@ -1,0 +1,409 @@
+WEBVTT
+
+00:00.947 --> 00:02.280
+Instructor: In the previous videos,
+
+00:02.280 --> 00:04.680
+we learned how to create a Trojan
+
+00:04.680 --> 00:06.900
+by backdooring normal files,
+
+00:06.900 --> 00:11.610
+such as images, documents, songs, and so on,
+
+00:11.610 --> 00:15.840
+so that when executed, the user sees the normal file,
+
+00:15.840 --> 00:17.730
+but at the same time,
+
+00:17.730 --> 00:21.513
+our evil code gets executed in the background.
+
+00:23.070 --> 00:26.790
+So the challenge now is how to deliver the Trojan
+
+00:26.790 --> 00:28.350
+to the target.
+
+00:28.350 --> 00:31.080
+The first delivery method that we're gonna talk about,
+
+00:31.080 --> 00:35.160
+and my personal favorite, is the mail delivery.
+
+00:35.160 --> 00:36.360
+Now, this delivery method,
+
+00:36.360 --> 00:38.790
+just like any other delivery methods,
+
+00:38.790 --> 00:41.730
+relies on the information that you gathered so far.
+
+00:41.730 --> 00:44.700
+So information gathering is very, very important
+
+00:44.700 --> 00:46.350
+when it comes to this.
+
+00:46.350 --> 00:48.059
+This delivery method is really handy
+
+00:48.059 --> 00:51.750
+because you can use it in so many scenarios.
+
+00:51.750 --> 00:54.090
+You can use it to deliver all the back doors
+
+00:54.090 --> 00:56.670
+and the evil files that we see so far.
+
+00:56.670 --> 00:59.520
+You can use it to pretend to be a friend
+
+00:59.520 --> 01:02.670
+and contact your friend and tell him to download something.
+
+01:02.670 --> 01:05.430
+You can use it to pretend to be a website
+
+01:05.430 --> 01:07.830
+that the target website interacts with
+
+01:07.830 --> 01:10.380
+and pretend to be the admin of the other website
+
+01:10.380 --> 01:12.510
+and ask the target to do something.
+
+01:12.510 --> 01:15.600
+You can pretend to be a member of the support team
+
+01:15.600 --> 01:17.850
+that the target website uses,
+
+01:17.850 --> 01:20.250
+and then ask them to change their password, for example,
+
+01:20.250 --> 01:22.560
+for the web server that they're using.
+
+01:22.560 --> 01:24.720
+You can use it to pretend to be a company
+
+01:24.720 --> 01:27.270
+that your target interacts with
+
+01:27.270 --> 01:29.790
+and tell them that there's a new update of your software
+
+01:29.790 --> 01:31.350
+that they already use,
+
+01:31.350 --> 01:34.290
+and then get them to download and install a backdoor.
+
+01:34.290 --> 01:36.930
+So the possibilities are limitless, really,
+
+01:36.930 --> 01:39.390
+when it comes to mail delivery.
+
+01:39.390 --> 01:40.223
+In this lecture,
+
+01:40.223 --> 01:42.660
+I'm gonna show you an example of targeting a person
+
+01:42.660 --> 01:43.860
+that's called Zaed.
+
+01:43.860 --> 01:46.770
+Zaed could be just a normal person that you want to hack.
+
+01:46.770 --> 01:49.320
+He could be a friend of a person that you want to hack,
+
+01:49.320 --> 01:50.610
+but you want to hack Zaed first
+
+01:50.610 --> 01:52.200
+and then hack to that person.
+
+01:52.200 --> 01:54.660
+He could be the admin of a website,
+
+01:54.660 --> 01:57.030
+or he could be an employee of a company.
+
+01:57.030 --> 01:58.260
+It really doesn't matter.
+
+01:58.260 --> 02:00.846
+What we're looking at in this lecture is hacking a person
+
+02:00.846 --> 02:02.400
+that's called Zaed.
+
+02:02.400 --> 02:03.420
+And then from there,
+
+02:03.420 --> 02:06.780
+you can leverage that person to hack into other systems
+
+02:06.780 --> 02:10.020
+or into other networks or into a different company.
+
+02:10.020 --> 02:12.360
+And I have the information that we gathered already
+
+02:12.360 --> 02:15.120
+in our information gathering lecture,
+
+02:15.120 --> 02:17.010
+and after we gathered everything,
+
+02:17.010 --> 02:21.420
+we managed to see that Zaed has a number of friends in here.
+
+02:21.420 --> 02:25.710
+And the same friends, we managed to see their emails here.
+
+02:25.710 --> 02:27.210
+And we managed to get Zaed's email,
+
+02:27.210 --> 02:29.760
+which is zaed@isecurity.org.
+
+02:29.760 --> 02:31.710
+So what we're gonna do is we're gonna pretend
+
+02:31.710 --> 02:33.750
+to be one of these guys.
+
+02:33.750 --> 02:38.160
+So m.askar@isecurity.org, and it's this person in here.
+
+02:38.160 --> 02:40.170
+His name is Mohammad Askar.
+
+02:40.170 --> 02:42.690
+So we're gonna pretend to be that person.
+
+02:42.690 --> 02:44.520
+We're gonna send an email to Zaed
+
+02:44.520 --> 02:45.570
+and the email's gonna look
+
+02:45.570 --> 02:47.760
+as if it's coming from this person,
+
+02:47.760 --> 02:50.973
+and then we're gonna ask Zaed to download a file.
+
+02:51.990 --> 02:53.190
+Let's see how this works.
+
+02:53.190 --> 02:55.950
+And this is gonna be a more realistic delivery method
+
+02:55.950 --> 02:58.830
+that you can actually use in real life.
+
+02:58.830 --> 03:01.110
+Now, there are a number of ways to do this.
+
+03:01.110 --> 03:03.690
+The easiest is just to go on Google
+
+03:03.690 --> 03:07.080
+and look for spoof emails online.
+
+03:07.080 --> 03:10.530
+You'll see a lot of websites that will allow you to do this.
+
+03:10.530 --> 03:13.740
+The only problem with these websites is the email
+
+03:13.740 --> 03:17.670
+that you're going to send will end up in the spam directory
+
+03:17.670 --> 03:19.080
+of the target person,
+
+03:19.080 --> 03:22.470
+so it will not be delivered into their inbox,
+
+03:22.470 --> 03:24.450
+which is not great.
+
+03:24.450 --> 03:26.610
+The main reason for this is,
+
+03:26.610 --> 03:28.890
+because these websites are public,
+
+03:28.890 --> 03:31.890
+and a lot of people use them for spamming,
+
+03:31.890 --> 03:36.060
+mail servers such as Google, Hotmail and Yahoo
+
+03:36.060 --> 03:38.370
+have blacklisted these servers,
+
+03:38.370 --> 03:40.920
+and any email that comes from the servers
+
+03:40.920 --> 03:45.510
+that these websites use will be marked as spam.
+
+03:45.510 --> 03:47.790
+Therefore, in order to bypass this,
+
+03:47.790 --> 03:49.950
+you can either use your own server,
+
+03:49.950 --> 03:52.470
+if you already have a web hosting plan,
+
+03:52.470 --> 03:55.290
+or you can sign up for a free web hosting plan
+
+03:55.290 --> 03:58.020
+and use that to send your fake emails.
+
+03:58.020 --> 04:01.211
+Or an even better solution is to sign up
+
+04:01.211 --> 04:04.923
+for an SMTP or a mail server.
+
+04:06.000 --> 04:10.020
+Now again, there are a number of websites that offer this.
+
+04:10.020 --> 04:12.870
+A lot of them are paid, but with the paid websites,
+
+04:12.870 --> 04:15.420
+you'll actually get really, really good results
+
+04:15.420 --> 04:18.150
+because they are used by actual marketers
+
+04:18.150 --> 04:20.970
+and by actual companies to send emails.
+
+04:20.970 --> 04:24.180
+So spam is never sent through these servers.
+
+04:24.180 --> 04:27.180
+If you look through Google for a free SMTP server
+
+04:27.180 --> 04:30.390
+or a free mail server, you will find some websites,
+
+04:30.390 --> 04:33.270
+and an example of this, this one right here.
+
+04:33.270 --> 04:35.490
+And this is also a really, really good website
+
+04:35.490 --> 04:37.590
+because it is a paid website,
+
+04:37.590 --> 04:39.930
+but they offer a free plan,
+
+04:39.930 --> 04:43.320
+which we can use to send our fake emails.
+
+04:43.320 --> 04:47.190
+Again, this website is designed for email marketing
+
+04:47.190 --> 04:48.960
+and for actual companies
+
+04:48.960 --> 04:51.390
+to communicate with their customers.
+
+04:51.390 --> 04:54.990
+So when you send emails through the servers of this website,
+
+04:54.990 --> 04:57.060
+they will not be marked as spam,
+
+04:57.060 --> 05:00.720
+because it's very rarely used for spam.
+
+05:00.720 --> 05:05.310
+So we're gonna sign up with this website, input my email,
+
+05:05.310 --> 05:09.213
+and I'm gonna set a password and create the account.
+
+05:11.550 --> 05:14.890
+Now I'm gonna go to the email that I used when I signed up
+
+05:16.110 --> 05:18.930
+and you'll see that we got a welcome message
+
+05:18.930 --> 05:21.270
+and I'm gonna confirm my email address
+
+05:21.270 --> 05:22.803
+to activate my account.
+
+05:23.760 --> 05:25.590
+Now it's asking me for more questions.
+
+05:25.590 --> 05:29.190
+So it's asking for my first name, last name, company name,
+
+05:29.190 --> 05:32.250
+phone number, company, website, and so on.
+
+05:32.250 --> 05:34.650
+You don't have to fill this very accurately,
+
+05:34.650 --> 05:36.843
+I'm just gonna use any information for it.
+
+05:38.010 --> 05:41.100
+Just make sure you put a correct phone number
+
+05:41.100 --> 05:44.220
+because they will send a verification code
+
+05:44.220 --> 05:46.290
+to this phone number.
+
+05:46.290 --> 05:49.020
+Now it's asking us for the verification code.
+
+05:49.020 --> 05:51.273
+I have it here on my phone number.
+
+05:52.740 --> 05:56.280
+And finally it's asking us to select the plan.
+
+05:56.280 --> 05:58.650
+Like I said, the free one is fine,
+
+05:58.650 --> 06:02.673
+unless you want to send a lot of emails on the same day.
+
+06:04.260 --> 06:06.090
+And that's it. We're good to go.
+
+06:06.090 --> 06:07.080
+In the next lecture,
+
+06:07.080 --> 06:10.980
+I will show you how to use the SMTP servers
+
+06:10.980 --> 06:15.213
+offered by this website in order to send fake emails.
