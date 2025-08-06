@@ -1,0 +1,538 @@
+WEBVTT
+
+00:00.660 --> 00:01.710
+Instructor: Now that we understand,
+
+00:01.710 --> 00:03.300
+what we mean by a backdoor,
+
+00:03.300 --> 00:06.410
+a payload, the naming convention, and so on,
+
+00:06.410 --> 00:09.210
+in this lecture, we're gonna use all of this knowledge
+
+00:09.210 --> 00:11.490
+in order to create a backdoor
+
+00:11.490 --> 00:13.710
+that can be used to remotely hack
+
+00:13.710 --> 00:16.740
+and control Windows computers.
+
+00:16.740 --> 00:18.300
+So as mentioned previously,
+
+00:18.300 --> 00:21.600
+the tool that we're gonna be using is called msfvenom,
+
+00:21.600 --> 00:24.480
+and it's always a good idea to do --help,
+
+00:24.480 --> 00:26.400
+the first time that you use a tool
+
+00:26.400 --> 00:28.710
+in order to see all of the options
+
+00:28.710 --> 00:31.380
+and arguments that you can use with it.
+
+00:31.380 --> 00:33.510
+So as you can see, this gives us a list
+
+00:33.510 --> 00:35.280
+of everything that we can do.
+
+00:35.280 --> 00:38.460
+And straight away we can see the first option is the -l
+
+00:38.460 --> 00:41.850
+or --list option, which is what we used previously
+
+00:41.850 --> 00:45.180
+to list all of the payloads available in this tool.
+
+00:45.180 --> 00:47.110
+So I'm actually gonna split the screen
+
+00:48.270 --> 00:49.980
+and we're just gonna run it quickly.
+
+00:49.980 --> 00:54.660
+We're gonna do msfvenom --list payloads
+
+00:54.660 --> 00:57.090
+in order to get a list of all of the payloads
+
+00:57.090 --> 00:58.410
+that we can use.
+
+00:58.410 --> 00:59.430
+And we saw previously
+
+00:59.430 --> 01:01.890
+that we got a really big list of payloads.
+
+01:01.890 --> 01:04.050
+So once you find the payload that you like
+
+01:04.050 --> 01:05.580
+and that you'd want to use,
+
+01:05.580 --> 01:09.030
+we can go ahead and if we look at the help menu,
+
+01:09.030 --> 01:10.650
+and here you'll see
+
+01:10.650 --> 01:12.450
+that we can select the payload
+
+01:12.450 --> 01:15.840
+using the -p or --payload option.
+
+01:15.840 --> 01:18.960
+So I'm gonna go ahead and do msfvenom again,
+
+01:18.960 --> 01:21.870
+and I'm gonna do --payload to select the payload
+
+01:21.870 --> 01:25.050
+that I want to use inside of my backdoor.
+
+01:25.050 --> 01:26.880
+And the payload that I'm gonna wanna use
+
+01:26.880 --> 01:28.770
+is a windows payload.
+
+01:28.770 --> 01:30.600
+So the platform is Windows,
+
+01:30.600 --> 01:33.900
+and the type is meterpreter payload.
+
+01:33.900 --> 01:36.120
+So this is the type of payloads
+
+01:36.120 --> 01:38.370
+that I said in the previous lecture
+
+01:38.370 --> 01:42.240
+that is specifically designed by the Meta Exploit team.
+
+01:42.240 --> 01:45.270
+It runs in memory, it encrypts its communication
+
+01:45.270 --> 01:47.250
+between the backdoor and the target.
+
+01:47.250 --> 01:49.710
+And it has so many modules and so many options.
+
+01:49.710 --> 01:51.600
+And you're gonna see how useful it is
+
+01:51.600 --> 01:53.220
+as we go through the course.
+
+01:53.220 --> 01:54.660
+And finally, as we know,
+
+01:54.660 --> 01:57.360
+the last part is the communication method.
+
+01:57.360 --> 01:59.730
+So we're gonna use a reverse payload
+
+01:59.730 --> 02:02.130
+because as mentioned in the previous lecture,
+
+02:02.130 --> 02:05.850
+reverse payloads connect from the target computer to us,
+
+02:05.850 --> 02:07.740
+allowing us to bypass firewalls
+
+02:07.740 --> 02:09.780
+and many security measurements.
+
+02:09.780 --> 02:11.610
+And the last part, we're gonna set it
+
+02:11.610 --> 02:15.480
+to use the HTTPS protocol, again,
+
+02:15.480 --> 02:18.330
+so that the traffic looks less suspicious
+
+02:18.330 --> 02:20.520
+and looks similar to a normal traffic
+
+02:20.520 --> 02:22.260
+that the target would create
+
+02:22.260 --> 02:26.310
+when they load normal websites over HTTPS.
+
+02:26.310 --> 02:28.260
+So now that we selected the payload,
+
+02:28.260 --> 02:32.370
+we can actually do --list-options to see the options
+
+02:32.370 --> 02:34.440
+that we can set for this payload
+
+02:34.440 --> 02:37.890
+so we can instruct it how it should work.
+
+02:37.890 --> 02:39.930
+So we're gonna go ahead in here
+
+02:39.930 --> 02:44.340
+and do --list-options.
+
+02:44.340 --> 02:45.603
+We're gonna hit Enter,
+
+02:47.760 --> 02:50.070
+and as you can see, we get a big list
+
+02:50.070 --> 02:53.220
+of all the potential options that we can use,
+
+02:53.220 --> 02:56.163
+along with the description of this option.
+
+02:57.210 --> 02:59.280
+Now these are all the advanced options
+
+02:59.280 --> 03:01.890
+so we're not actually gonna be setting in any of these.
+
+03:01.890 --> 03:04.500
+They're not mandatory at all.
+
+03:04.500 --> 03:05.700
+What we're interested in,
+
+03:05.700 --> 03:09.450
+is the basic options that we have in here.
+
+03:09.450 --> 03:12.330
+So as you can see, these options are required
+
+03:12.330 --> 03:15.750
+and we can also see the description of these options.
+
+03:15.750 --> 03:20.130
+So the LHOST specifies the local listener hostname.
+
+03:20.130 --> 03:23.700
+So that basically means the IP of the computer
+
+03:23.700 --> 03:26.040
+that you want to receive the connection on.
+
+03:26.040 --> 03:29.340
+So this is this computer, our hacker computer,
+
+03:29.340 --> 03:33.900
+and the LPORT is the port that we want to listen on.
+
+03:33.900 --> 03:37.530
+It's this part of the diagram, it's the plug in the wall.
+
+03:37.530 --> 03:39.960
+So it's the port that the target machine
+
+03:39.960 --> 03:43.983
+will connect to, once the backdoor is executed.
+
+03:44.880 --> 03:47.220
+So first we're gonna set the LHOST.
+
+03:47.220 --> 03:49.620
+So we're gonna go back to our command
+
+03:49.620 --> 03:52.170
+and we're gonna remove the --list-options
+
+03:52.170 --> 03:54.480
+because we don't want to see the options anymore.
+
+03:54.480 --> 03:57.330
+But we actually want to set the LHOST value,
+
+03:57.330 --> 04:00.150
+which is going to be the IP of this current computer
+
+04:00.150 --> 04:03.630
+because I want to receive connections on this computer.
+
+04:03.630 --> 04:06.210
+So I'm gonna split this screen in here,
+
+04:06.210 --> 04:08.640
+and I'm simply gonna run ifconfig
+
+04:08.640 --> 04:11.253
+to get the IP of my current computer.
+
+04:12.330 --> 04:13.163
+And as you can see,
+
+04:13.163 --> 04:15.660
+this is the IP of this computer right now.
+
+04:15.660 --> 04:18.540
+You might have a different IP that's completely normal,
+
+04:18.540 --> 04:20.940
+just make sure you use the correct IP.
+
+04:20.940 --> 04:25.573
+So it's 192.168.0.26.
+
+04:26.640 --> 04:30.390
+Next we're gonna set the next required option.
+
+04:30.390 --> 04:33.390
+So if we scroll up, that is the LPORT.
+
+04:33.390 --> 04:34.920
+And like I said, this is the port
+
+04:34.920 --> 04:37.650
+that we're going to receive the connection on.
+
+04:37.650 --> 04:39.540
+So we're gonna follow the same syntax.
+
+04:39.540 --> 04:42.180
+We're gonna type LPORT, which is the name of the option
+
+04:42.180 --> 04:45.390
+that we want to set equal to the value that we want.
+
+04:45.390 --> 04:48.900
+And the value that we want is going to be 8080.
+
+04:48.900 --> 04:51.030
+So I'm choosing the 8080 port
+
+04:51.030 --> 04:53.190
+because that is a common port that is used
+
+04:53.190 --> 04:56.367
+by web servers port 80 and 8080.
+
+04:56.367 --> 04:57.810
+And this makes perfect sense
+
+04:57.810 --> 05:02.130
+because we are using a backdoor that's going to use HTTPS,
+
+05:02.130 --> 05:04.020
+which is a protocol that is usually used
+
+05:04.020 --> 05:07.530
+by web servers to serve websites over HTTPS.
+
+05:07.530 --> 05:10.260
+And the port that we're using is 8080.
+
+05:10.260 --> 05:13.860
+So when this backdoor gets executed on the target computer,
+
+05:13.860 --> 05:17.190
+it's going to connect to us on port 8080.
+
+05:17.190 --> 05:20.610
+And it's going to use the HTTPS protocol to do that.
+
+05:20.610 --> 05:23.250
+And this is great because the target computer
+
+05:23.250 --> 05:28.050
+will do that every time it loads a website that uses HTTPS,
+
+05:28.050 --> 05:30.630
+which is pretty much all websites these days.
+
+05:30.630 --> 05:33.780
+That's why the traffic is going to look very similar
+
+05:33.780 --> 05:35.610
+to traffic that is generated
+
+05:35.610 --> 05:39.150
+when the target computer loads normal websites.
+
+05:39.150 --> 05:42.780
+So now that we have the basic options set,
+
+05:42.780 --> 05:44.910
+the last thing that we need to do
+
+05:44.910 --> 05:49.080
+is actually export this into an actual file.
+
+05:49.080 --> 05:51.630
+And to do that, you can see here in the help menu,
+
+05:51.630 --> 05:56.630
+we can use the -f to specify the format of the payload.
+
+05:57.510 --> 06:00.810
+So we're gonna do --format,
+
+06:00.810 --> 06:04.593
+and that's going to be an executable, so we're doing exe.
+
+06:05.670 --> 06:09.870
+And finally, we can use the -o or --out
+
+06:09.870 --> 06:12.240
+to specify the file name.
+
+06:12.240 --> 06:14.670
+So we're gonna do --out,
+
+06:14.670 --> 06:17.040
+followed by the file name that we want.
+
+06:17.040 --> 06:20.317
+And I'm gonna call it rev_https_8080.exe.
+
+06:24.120 --> 06:26.370
+And I'm just using a meaningful name here
+
+06:26.370 --> 06:29.670
+just so that I know this is a reverse HTTPS backdoor
+
+06:29.670 --> 06:32.460
+that uses the 8080 port.
+
+06:32.460 --> 06:33.293
+And that's it.
+
+06:33.293 --> 06:34.230
+Our command is done
+
+06:34.230 --> 06:37.080
+and it's ready to be used to generate a backdoor.
+
+06:37.080 --> 06:40.200
+But let's go through it one more time before we hit Enter.
+
+06:40.200 --> 06:41.940
+So we're using msfvenom,
+
+06:41.940 --> 06:45.090
+which is the tool that we're using to generate the backdoor.
+
+06:45.090 --> 06:49.440
+We're using the --payload argument to specify the payload.
+
+06:49.440 --> 06:51.990
+And this is the payload that we are choosing.
+
+06:51.990 --> 06:54.600
+So it runs on Windows platforms.
+
+06:54.600 --> 06:57.690
+The type of payload is a meterpreter payload,
+
+06:57.690 --> 07:02.690
+and it uses reverse connection over the HTTPS protocol.
+
+07:03.150 --> 07:06.300
+Then we're setting the basic options of this payload.
+
+07:06.300 --> 07:08.130
+So the first option is the LHOST,
+
+07:08.130 --> 07:10.320
+which is the IP of the computer
+
+07:10.320 --> 07:13.860
+that will receive the connection from the target computer.
+
+07:13.860 --> 07:15.870
+And I put my current IP
+
+07:15.870 --> 07:17.940
+and then we specified the port
+
+07:17.940 --> 07:19.770
+that we want to receive the connection on,
+
+07:19.770 --> 07:22.110
+and we set that to 8080.
+
+07:22.110 --> 07:24.420
+We're using the --format argument
+
+07:24.420 --> 07:26.640
+to specify the format of the backdoor,
+
+07:26.640 --> 07:28.980
+and we wanted to be an executable.
+
+07:28.980 --> 07:31.650
+And then we're using the --out argument
+
+07:31.650 --> 07:34.650
+to specify the output file name of the backdoor,
+
+07:34.650 --> 07:39.650
+which is gonna be called rev_https_8080.exe.
+
+07:39.930 --> 07:43.020
+If we hit Enter, this will take some time
+
+07:43.020 --> 07:45.420
+and it'll generate the backdoor for us
+
+07:45.420 --> 07:47.340
+and the current working directory.
+
+07:47.340 --> 07:48.270
+So as you know,
+
+07:48.270 --> 07:50.550
+if you want to get the current working directory,
+
+07:50.550 --> 07:52.860
+you can use the pwd command
+
+07:52.860 --> 07:55.440
+and you can see that I am currently in root.
+
+07:55.440 --> 07:57.753
+So if I go to my File Manager,
+
+07:58.890 --> 08:01.860
+it'll load the root directory by default.
+
+08:01.860 --> 08:03.180
+And if we look down,
+
+08:03.180 --> 08:06.840
+you'll see that we have my backdoor generated in here.
+
+08:06.840 --> 08:08.160
+So next, I'm gonna show you
+
+08:08.160 --> 08:09.510
+how to use this backdoor
+
+08:09.510 --> 08:12.030
+in order to hack a Windows computer
+
+08:12.030 --> 08:14.553
+and gain full remote control over it.

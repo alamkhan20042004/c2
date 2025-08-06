@@ -1,0 +1,634 @@
+WEBVTT
+
+1
+00:00:01.265 --> 00:00:03.440
+<v Instructor>Okay, my scan is over.</v>
+
+2
+00:00:03.440 --> 00:00:05.803
+And I'm here now at the assets page.
+
+3
+00:00:06.730 --> 00:00:10.083
+And as you can see that we have one asset.
+
+4
+00:00:11.290 --> 00:00:12.840
+Has been scanned.
+
+5
+00:00:12.840 --> 00:00:15.665
+We can see that the asset is running Ubuntu
+
+6
+00:00:15.665 --> 00:00:17.620
+and the skills that you need
+
+7
+00:00:17.620 --> 00:00:20.353
+to hack into this asset is novice.
+
+8
+00:00:22.290 --> 00:00:25.250
+Now already from this you can see that Nexpose
+
+9
+00:00:25.250 --> 00:00:29.280
+show us much more information than Metasploit Community,
+
+10
+00:00:29.280 --> 00:00:31.110
+and it's a much more advanced
+
+11
+00:00:31.110 --> 00:00:33.820
+vulnerability management framework.
+
+12
+00:00:33.820 --> 00:00:36.600
+We can see that we scanned one target,
+
+13
+00:00:36.600 --> 00:00:39.810
+it's Metasploitable, and the site is Global.
+
+14
+00:00:39.810 --> 00:00:41.420
+Let me zoom in.
+
+15
+00:00:41.420 --> 00:00:44.763
+It's running on Ubuntu Linux 8.04.
+
+16
+00:00:47.100 --> 00:00:52.100
+We discovered no malware and 177 exploits,
+
+17
+00:00:52.240 --> 00:00:54.610
+308 vulnerabilities.
+
+18
+00:00:54.610 --> 00:00:57.340
+Remember with Metasploit Community,
+
+19
+00:00:57.340 --> 00:00:59.500
+I think we only only discovered eight,
+
+20
+00:00:59.500 --> 00:01:01.580
+only one exploitable vulnerability,
+
+21
+00:01:01.580 --> 00:01:03.630
+and eight modules that can be used.
+
+22
+00:01:03.630 --> 00:01:06.410
+Here we discovered 308 vulnerabilities,
+
+23
+00:01:06.410 --> 00:01:10.153
+so it's covered so many more vulnerabilities and exploits.
+
+24
+00:01:11.970 --> 00:01:15.750
+You can see that there is a risk factor assessed to this
+
+25
+00:01:15.750 --> 00:01:18.763
+and the last time that the scan was done.
+
+26
+00:01:19.870 --> 00:01:22.360
+Now if we go down we can see that the operating system
+
+27
+00:01:22.360 --> 00:01:24.880
+that we discovered again, it's Metasploit.
+
+28
+00:01:24.880 --> 00:01:27.630
+We can see the software that is installed
+
+29
+00:01:27.630 --> 00:01:28.750
+on the target computer.
+
+30
+00:01:28.750 --> 00:01:31.730
+So not only the services that's running on ports,
+
+31
+00:01:31.730 --> 00:01:36.400
+we can see actual software installed on the target computer.
+
+32
+00:01:36.400 --> 00:01:39.270
+This can be very useful after we have the computer,
+
+33
+00:01:39.270 --> 00:01:41.190
+so after we've managed to hack into it,
+
+34
+00:01:41.190 --> 00:01:44.410
+it's very useful to find local exploits
+
+35
+00:01:44.410 --> 00:01:47.140
+that can be used to increase our privileges,
+
+36
+00:01:47.140 --> 00:01:50.230
+for example, if you got a normal user
+
+37
+00:01:50.230 --> 00:01:52.650
+and you wanted to become a route, then you can use
+
+38
+00:01:52.650 --> 00:01:56.150
+a local buffer overflow to increase your privileges
+
+39
+00:01:56.150 --> 00:01:57.770
+or to do other kind of stuff.
+
+40
+00:01:57.770 --> 00:02:01.763
+So these are very useful in terms of post-exploitation.
+
+41
+00:02:03.190 --> 00:02:06.280
+If we go down, we'll see the services that's installed
+
+42
+00:02:06.280 --> 00:02:07.800
+on the target computer.
+
+43
+00:02:07.800 --> 00:02:10.370
+Just like UNMAP gave it to us,
+
+44
+00:02:10.370 --> 00:02:12.250
+we can see that HTTPs running,
+
+45
+00:02:12.250 --> 00:02:15.073
+DNS, and so on.
+
+46
+00:02:19.810 --> 00:02:22.140
+If you click on any of these services,
+
+47
+00:02:22.140 --> 00:02:24.700
+you'll see that it'll give you more information about it,
+
+48
+00:02:24.700 --> 00:02:29.400
+for example it's a HTTP service, a description about it
+
+49
+00:02:29.400 --> 00:02:31.350
+and the ports that it's running on.
+
+50
+00:02:31.350 --> 00:02:34.530
+So we can see that HTTPs running on port 80,
+
+51
+00:02:34.530 --> 00:02:37.243
+and on port 8180.
+
+52
+00:02:39.890 --> 00:02:41.300
+Now let's go up.
+
+53
+00:02:41.300 --> 00:02:44.010
+And if we wanted to have a closer look
+
+54
+00:02:44.010 --> 00:02:45.880
+on the vulnerabilities,
+
+55
+00:02:45.880 --> 00:02:48.623
+we can go to the vulnerabilities page here.
+
+56
+00:02:49.495 --> 00:02:51.400
+And you can see we have a graph here
+
+57
+00:02:52.680 --> 00:02:54.260
+about the vulnerabilities,
+
+58
+00:02:54.260 --> 00:02:57.310
+categorized based on their risk factor.
+
+59
+00:02:57.310 --> 00:03:00.160
+And here they're categorized based on the skill level
+
+60
+00:03:00.160 --> 00:03:03.653
+needed in order to exploit these vulnerabilities.
+
+61
+00:03:05.140 --> 00:03:08.430
+And in here you can see a list of all of them
+
+62
+00:03:08.430 --> 00:03:11.653
+and we can switch between them using this right here.
+
+63
+00:03:12.760 --> 00:03:14.950
+Again, this, if there is any malware,
+
+64
+00:03:14.950 --> 00:03:16.470
+you'll see it in here.
+
+65
+00:03:16.470 --> 00:03:19.380
+And if there is an exploitation you'll see it in here.
+
+66
+00:03:19.380 --> 00:03:22.150
+Now all of these top vulnerabilities here
+
+67
+00:03:22.150 --> 00:03:24.860
+don't have an exploitation using their tool
+
+68
+00:03:24.860 --> 00:03:27.960
+but they are ordered based on their risk.
+
+69
+00:03:27.960 --> 00:03:30.770
+So these are very risky vulnerabilities
+
+70
+00:03:30.770 --> 00:03:33.380
+and then as we proceed through them,
+
+71
+00:03:33.380 --> 00:03:35.283
+the risk will be a bit less.
+
+72
+00:03:36.620 --> 00:03:39.300
+So you can see here I discovered that VNC password
+
+73
+00:03:39.300 --> 00:03:43.470
+is 'password', so we can go in and try to connect using VNC.
+
+74
+00:03:43.470 --> 00:03:46.830
+Now VNC is a service very similar to Remote Desktop,
+
+75
+00:03:46.830 --> 00:03:49.040
+basically it'll show you the desktop
+
+76
+00:03:49.040 --> 00:03:51.360
+and it'll allow you to gain full access
+
+77
+00:03:51.360 --> 00:03:54.230
+to the target computer, just like Remote Desktop.
+
+78
+00:03:54.230 --> 00:03:56.570
+I'm not gonna show you how to do that, very simple.
+
+79
+00:03:56.570 --> 00:03:59.710
+Was telling you here, the password is 'password',
+
+80
+00:03:59.710 --> 00:04:02.580
+now it's also telling you that there is a backdoor running
+
+81
+00:04:02.580 --> 00:04:04.540
+and we used that already.
+
+82
+00:04:04.540 --> 00:04:07.170
+It's telling us that it's running an old version of PHP
+
+83
+00:04:07.170 --> 00:04:11.930
+that can be exploitable, just an old version actually.
+
+84
+00:04:11.930 --> 00:04:14.410
+Now let's look at something that can be exploitable.
+
+85
+00:04:14.410 --> 00:04:19.120
+So I'm gonna click on this to order them by the exploit,
+
+86
+00:04:19.120 --> 00:04:22.910
+and you can see that all of these have an 'M' logo,
+
+87
+00:04:22.910 --> 00:04:25.710
+which means that they can be exploited using Metasploit.
+
+88
+00:04:26.990 --> 00:04:29.110
+You can see here we have the remote shell service
+
+89
+00:04:29.110 --> 00:04:31.890
+that we use, and there is the rlogin service here
+
+90
+00:04:31.890 --> 00:04:35.380
+that can be used as well, that we already had a look on.
+
+91
+00:04:35.380 --> 00:04:38.180
+So let's click on something that we haven't seen before.
+
+92
+00:04:39.710 --> 00:04:42.563
+And here you can see a description of this vulnerability.
+
+93
+00:04:43.710 --> 00:04:46.580
+Again, you can see the port that it's running on.
+
+94
+00:04:46.580 --> 00:04:50.730
+And you can see why it thinks that this particular target
+
+95
+00:04:50.730 --> 00:04:53.713
+is vulnerable to this exploit.
+
+96
+00:04:54.570 --> 00:04:58.500
+If you go down, it'll show you how you can exploit it.
+
+97
+00:04:58.500 --> 00:05:00.290
+So there's three different modules
+
+98
+00:05:00.290 --> 00:05:02.683
+that can be used to exploit it.
+
+99
+00:05:03.740 --> 00:05:05.390
+But it doesn't really have to exploit it,
+
+100
+00:05:05.390 --> 00:05:07.800
+sometimes you just see modules that can be used
+
+101
+00:05:07.800 --> 00:05:10.700
+to verify the existence of this exploit.
+
+102
+00:05:10.700 --> 00:05:14.530
+But basically these are modules associated with it.
+
+103
+00:05:14.530 --> 00:05:18.170
+And if we click on this it'll take us to the Rapid7 page
+
+104
+00:05:18.170 --> 00:05:20.810
+that we always use to see when we Google stuff.
+
+105
+00:05:20.810 --> 00:05:23.510
+And we see the module name where we can just copy
+
+106
+00:05:23.510 --> 00:05:27.460
+and paste it in Metasploit and it shows the options
+
+107
+00:05:27.460 --> 00:05:30.370
+and then use this exploit the same way that we seeing it
+
+108
+00:05:30.370 --> 00:05:31.543
+in previous videos.
+
+109
+00:05:35.160 --> 00:05:39.070
+Again when you go down, you'll see references to this,
+
+110
+00:05:39.070 --> 00:05:40.723
+to this particular exploit.
+
+111
+00:05:41.760 --> 00:05:44.600
+And at the bottom it'll show you the solution
+
+112
+00:05:44.600 --> 00:05:46.490
+on how you can fix this exploit.
+
+113
+00:05:46.490 --> 00:05:48.430
+So for this one, all you need to do
+
+114
+00:05:48.430 --> 00:05:51.140
+is just change the administrator password
+
+115
+00:05:51.140 --> 00:05:53.693
+and not use the default configuration.
+
+116
+00:05:55.990 --> 00:05:58.910
+Another useful thing is the reports.
+
+117
+00:05:58.910 --> 00:06:02.981
+So this framework allow you to generate reports
+
+118
+00:06:02.981 --> 00:06:05.540
+for each scan that you do.
+
+119
+00:06:05.540 --> 00:06:08.350
+And there is different types of templates for the reports
+
+120
+00:06:08.350 --> 00:06:10.380
+so if you go on Create Report,
+
+121
+00:06:10.380 --> 00:06:12.940
+you can see that there is an audit report
+
+122
+00:06:12.940 --> 00:06:16.180
+that contains a lot of information, detailed information
+
+123
+00:06:16.180 --> 00:06:19.780
+for the programmers or for the technical people.
+
+124
+00:06:19.780 --> 00:06:22.000
+Or you can use an executive report
+
+125
+00:06:22.000 --> 00:06:25.370
+which has less information and it's made for the managers
+
+126
+00:06:25.370 --> 00:06:28.430
+or for the top level people that don't have much experience
+
+127
+00:06:28.430 --> 00:06:30.050
+with technical stuff.
+
+128
+00:06:30.050 --> 00:06:33.180
+You can select any template you want, call it anything,
+
+129
+00:06:33.180 --> 00:06:35.980
+so I'm gonna call this 'Metasploitable' or 'Metasploit'.
+
+130
+00:06:39.600 --> 00:06:42.360
+And you select the format that you want,
+
+131
+00:06:42.360 --> 00:06:44.360
+so it's set to PDF here.
+
+132
+00:06:44.360 --> 00:06:47.870
+Then I'm going to select the target scan
+
+133
+00:06:47.870 --> 00:06:49.670
+that I want to generate the report for,
+
+134
+00:06:49.670 --> 00:06:51.320
+and I selected my Metasploitable.
+
+135
+00:06:53.700 --> 00:06:56.100
+And then you save, and run the report,
+
+136
+00:06:56.100 --> 00:06:57.543
+to generate the report.
+
+137
+00:06:59.120 --> 00:07:02.410
+You can also get this to generate reports automatically
+
+138
+00:07:02.410 --> 00:07:04.180
+every time, 'cause as I showed you,
+
+139
+00:07:04.180 --> 00:07:07.090
+you can schedule reports, you can schedule scans,
+
+140
+00:07:07.090 --> 00:07:10.070
+and you can also schedule an automatic report
+
+141
+00:07:10.070 --> 00:07:11.720
+after each time a scan is done.
+
+142
+00:07:11.720 --> 00:07:14.100
+So for example, if you're scanning every week,
+
+143
+00:07:14.100 --> 00:07:16.570
+you can also generate a report every week,
+
+144
+00:07:16.570 --> 00:07:18.760
+every time that scans done.
+
+145
+00:07:18.760 --> 00:07:21.110
+Now let me just download the report and show you
+
+146
+00:07:21.110 --> 00:07:22.180
+what it looks like.
+
+147
+00:07:22.180 --> 00:07:25.190
+As you can see it has the date, it has the title,
+
+148
+00:07:25.190 --> 00:07:28.200
+it has all the exploits that have been found.
+
+149
+00:07:28.200 --> 00:07:31.440
+But this is the executive report so it has small details
+
+150
+00:07:31.440 --> 00:07:34.120
+about the exploits and more graphical stuff
+
+151
+00:07:34.120 --> 00:07:36.883
+to show the executives the risks that has been found
+
+152
+00:07:36.883 --> 00:07:38.923
+and how critical they are.
+
+153
+00:07:40.620 --> 00:07:43.870
+So as you can see, Nexpose shows you much more detail
+
+154
+00:07:43.870 --> 00:07:45.570
+and it's much more advanced.
+
+155
+00:07:45.570 --> 00:07:47.970
+It's directed towards bigger companies,
+
+156
+00:07:47.970 --> 00:07:51.360
+bigger infrastructures, where you need to always make sure
+
+157
+00:07:51.360 --> 00:07:54.034
+everything is up to date, and everything is installed,
+
+158
+00:07:54.034 --> 00:07:56.313
+and does not have any exploits.
+

@@ -1,0 +1,490 @@
+WEBVTT
+
+1
+00:00:00.510 --> 00:00:04.240
+<v ->Okay, now that we installed Nexpose successfully,</v>
+
+2
+00:00:04.240 --> 00:00:06.500
+let's see how we can run that tool
+
+3
+00:00:06.500 --> 00:00:07.640
+and see what that tool is.
+
+4
+00:00:07.640 --> 00:00:09.070
+I know we spoke about it a lot
+
+5
+00:00:09.070 --> 00:00:10.770
+and we went through the installation process,
+
+6
+00:00:10.770 --> 00:00:14.060
+but you still haven't seen what the tool does.
+
+7
+00:00:14.060 --> 00:00:16.690
+So this is the homepage of the tool.
+
+8
+00:00:16.690 --> 00:00:19.190
+And, as you can see now, everything is empty.
+
+9
+00:00:19.190 --> 00:00:22.430
+So, before I start talking about what everything means,
+
+10
+00:00:22.430 --> 00:00:24.500
+let's go ahead and add the target
+
+11
+00:00:24.500 --> 00:00:27.460
+and then we'll do a test and we'll see,
+
+12
+00:00:27.460 --> 00:00:30.210
+'cause this stuff will be filled after we do a test.
+
+13
+00:00:30.210 --> 00:00:32.830
+So the first thing I'm gonna do is go on Create
+
+14
+00:00:32.830 --> 00:00:35.910
+and go on Site to add the target.
+
+15
+00:00:35.910 --> 00:00:39.413
+And I'm gonna call this target "metaesploitable",
+
+16
+00:00:42.300 --> 00:00:46.840
+and I'm going to go to the assets
+
+17
+00:00:47.800 --> 00:00:49.640
+and we're gonna add the target.
+
+18
+00:00:49.640 --> 00:00:53.240
+So the target can be arranged the same way we added it
+
+19
+00:00:53.240 --> 00:00:55.740
+when we were doing the network penetration part
+
+20
+00:00:55.740 --> 00:00:57.660
+of the things with Zenmap.
+
+21
+00:00:57.660 --> 00:01:00.680
+So you can add the range or you can add a specific IP.
+
+22
+00:01:00.680 --> 00:01:03.510
+So in this, we're actually targeting
+
+23
+00:01:03.510 --> 00:01:05.150
+the Metasploitable machine.
+
+24
+00:01:05.150 --> 00:01:06.700
+So we're going to add our target,
+
+25
+00:01:06.700 --> 00:01:10.710
+which is 10, 20, 14, 2, 0, 4.
+
+26
+00:01:10.710 --> 00:01:13.510
+Confirm this here. This is our Metasploitable machine,
+
+27
+00:01:13.510 --> 00:01:15.083
+10, 20, 14, 2, 0, 4.
+
+28
+00:01:17.530 --> 00:01:19.340
+And we're gonna add this to a group
+
+29
+00:01:19.340 --> 00:01:22.387
+and we call that "metasploitable" as well.
+
+30
+00:01:22.387 --> 00:01:24.817
+And we call this "test".
+
+31
+00:01:25.780 --> 00:01:27.163
+So this is our group name.
+
+32
+00:01:28.400 --> 00:01:31.870
+Now, here in the authentication part,
+
+33
+00:01:31.870 --> 00:01:35.520
+if the target uses some sort of authentication,
+
+34
+00:01:35.520 --> 00:01:38.360
+so nobody can access the target,
+
+35
+00:01:38.360 --> 00:01:40.040
+unless they need to authenticate
+
+36
+00:01:40.040 --> 00:01:41.350
+with some sort of a service.
+
+37
+00:01:41.350 --> 00:01:44.700
+For example, if it's an FTP service
+
+38
+00:01:44.700 --> 00:01:46.940
+or a web http authentication,
+
+39
+00:01:46.940 --> 00:01:49.943
+a TELNET or an SQL server.
+
+40
+00:01:51.230 --> 00:01:53.310
+So you can pick it from here,
+
+41
+00:01:53.310 --> 00:01:57.330
+put the domain, username, password, confirm your password.
+
+42
+00:01:57.330 --> 00:02:01.230
+And that way the framework would be able to authenticate
+
+43
+00:02:01.230 --> 00:02:04.730
+with that service and test the security of your server.
+
+44
+00:02:04.730 --> 00:02:07.380
+Now, our server doesn't use any type of authentication,
+
+45
+00:02:07.380 --> 00:02:08.623
+so we don't need this.
+
+46
+00:02:09.560 --> 00:02:12.680
+Also, if you're targeting a web application
+
+47
+00:02:12.680 --> 00:02:17.290
+and the web application has a login page, for example,
+
+48
+00:02:17.290 --> 00:02:19.250
+for users, for example, Facebook.
+
+49
+00:02:19.250 --> 00:02:20.950
+Let's say you're targeting Facebook.
+
+50
+00:02:20.950 --> 00:02:23.960
+Then you won't have access to most of Facebook's features
+
+51
+00:02:23.960 --> 00:02:27.010
+unless you log in with using a certain username
+
+52
+00:02:27.010 --> 00:02:28.000
+and a password.
+
+53
+00:02:28.000 --> 00:02:29.750
+So again, using this feature here,
+
+54
+00:02:29.750 --> 00:02:33.593
+you can log in and then test the security of your target.
+
+55
+00:02:35.550 --> 00:02:39.510
+And the Templates is, where you select the scan type.
+
+56
+00:02:39.510 --> 00:02:41.960
+So it's very similar to the scan type with Zenmap.
+
+57
+00:02:41.960 --> 00:02:44.470
+We've seen in Zenmap, we had a quick scan,
+
+58
+00:02:44.470 --> 00:02:48.740
+quick scan plus, and intense scan. This is the same.
+
+59
+00:02:48.740 --> 00:02:52.420
+So each one of these profiles is different.
+
+60
+00:02:52.420 --> 00:02:53.700
+It scans different things.
+
+61
+00:02:53.700 --> 00:02:55.290
+For example, we have the full audit here,
+
+62
+00:02:55.290 --> 00:02:56.820
+which takes a lot of time,
+
+63
+00:02:56.820 --> 00:02:59.570
+but pretty much checks for everything.
+
+64
+00:02:59.570 --> 00:03:02.290
+Then you have a full audit enhanced logging
+
+65
+00:03:02.290 --> 00:03:04.410
+without Web Spider.
+
+66
+00:03:04.410 --> 00:03:07.640
+So a Web Spider is a tool or a script
+
+67
+00:03:07.640 --> 00:03:11.413
+that finds all the files and directories in your target.
+
+68
+00:03:13.120 --> 00:03:15.980
+And the default one is a full audit without Web Spider.
+
+69
+00:03:15.980 --> 00:03:18.560
+So that's the one we're gonna be doing.
+
+70
+00:03:18.560 --> 00:03:22.520
+And you also have network specific profiles.
+
+71
+00:03:22.520 --> 00:03:24.430
+You have web audits as well.
+
+72
+00:03:24.430 --> 00:03:29.030
+So I really encourage you to try all of them or most of them
+
+73
+00:03:29.030 --> 00:03:30.780
+and get yourself familiar with them.
+
+74
+00:03:30.780 --> 00:03:32.180
+Now we're only gonna try this one
+
+75
+00:03:32.180 --> 00:03:34.110
+because using them is the same.
+
+76
+00:03:34.110 --> 00:03:39.110
+Which will be scanning for ICMP, TCP and UDP ports.
+
+77
+00:03:39.330 --> 00:03:42.260
+So I'm leaving that the same.
+
+78
+00:03:42.260 --> 00:03:44.320
+I'm gonna leave the engine the same as well,
+
+79
+00:03:44.320 --> 00:03:46.830
+which means it's going to use our local engine,
+
+80
+00:03:46.830 --> 00:03:48.870
+which we installed instead of using
+
+81
+00:03:48.870 --> 00:03:51.653
+the one that is provided by Rapid7.
+
+82
+00:03:52.840 --> 00:03:55.220
+And the alerts, you can set up custom alerts.
+
+83
+00:03:55.220 --> 00:03:57.580
+So that's when a vulnerability is found,
+
+84
+00:03:57.580 --> 00:03:59.730
+you get a notification.
+
+85
+00:03:59.730 --> 00:04:02.470
+And the schedule is a really, really cool feature.
+
+86
+00:04:02.470 --> 00:04:05.640
+Now, say you're working for a company or for an enterprise
+
+87
+00:04:05.640 --> 00:04:09.280
+that keeps pushing code, new code every day.
+
+88
+00:04:09.280 --> 00:04:11.370
+Or for example, maybe your code,
+
+89
+00:04:11.370 --> 00:04:13.110
+you do a test today
+
+90
+00:04:13.110 --> 00:04:15.190
+and everything you're working on is good.
+
+91
+00:04:15.190 --> 00:04:18.370
+Your web servers, your programs, your applications.
+
+92
+00:04:18.370 --> 00:04:19.430
+Everything is up to date
+
+93
+00:04:19.430 --> 00:04:21.310
+and there's no vulnerabilities in them.
+
+94
+00:04:21.310 --> 00:04:24.810
+Let's say tomorrow you push a new vulnerable code,
+
+95
+00:04:24.810 --> 00:04:28.600
+or maybe tomorrow someone discovers a new vulnerability
+
+96
+00:04:28.600 --> 00:04:31.370
+with a program that you're using on your web server.
+
+97
+00:04:31.370 --> 00:04:33.630
+So you're not secure anymore.
+
+98
+00:04:33.630 --> 00:04:37.540
+So this feature allows you to schedule this test
+
+99
+00:04:37.540 --> 00:04:41.250
+so that it runs every week or every hour or every month,
+
+100
+00:04:41.250 --> 00:04:43.573
+depending on how critical it is.
+
+101
+00:04:44.980 --> 00:04:49.530
+So all you have to do is just go into create a schedule
+
+102
+00:04:49.530 --> 00:04:50.660
+and create the schedule,
+
+103
+00:04:50.660 --> 00:04:53.220
+so you can put a start date and an end date,
+
+104
+00:04:53.220 --> 00:04:55.460
+and you set up the frequency from here,
+
+105
+00:04:55.460 --> 00:04:58.150
+for every day, every Thursday, every 26th,
+
+106
+00:04:58.150 --> 00:05:00.633
+or depending on what you want, really.
+
+107
+00:05:01.470 --> 00:05:04.420
+You create a schedule and then every interval
+
+108
+00:05:04.420 --> 00:05:07.190
+that you specify, the scan will run.
+
+109
+00:05:07.190 --> 00:05:09.860
+And even you can get it to produce a report for you.
+
+110
+00:05:09.860 --> 00:05:12.540
+So you can go over the report and see what's changed
+
+111
+00:05:12.540 --> 00:05:13.940
+or what has been discovered.
+
+112
+00:05:14.780 --> 00:05:16.150
+So everything's good, now.
+
+113
+00:05:16.150 --> 00:05:17.790
+The most important part today,
+
+114
+00:05:17.790 --> 00:05:20.823
+or what we did here is you put your target here.
+
+115
+00:05:22.720 --> 00:05:26.440
+And the next thing is you select the template.
+
+116
+00:05:26.440 --> 00:05:28.030
+So we have both of them selected,
+
+117
+00:05:28.030 --> 00:05:30.330
+and we're gonna do save and scan,
+
+118
+00:05:30.330 --> 00:05:34.483
+which will save this configuration and start a scan for us.
+
+119
+00:05:35.490 --> 00:05:38.780
+Now, as you can see, our asset discovery is in progress.
+
+120
+00:05:38.780 --> 00:05:40.230
+I'm gonna pause the video.
+
+121
+00:05:40.230 --> 00:05:41.600
+And after that,
+
+122
+00:05:41.600 --> 00:05:45.073
+we will talk about the results that we got.
+

@@ -1,0 +1,580 @@
+WEBVTT
+
+00:00.260 --> 00:02.670
+Zaid: In the previous lecture, we've seen how
+
+00:02.670 --> 00:07.320
+to downgrade HTTPS websites to HTTP,
+
+00:07.320 --> 00:08.610
+and this allowed us
+
+00:08.610 --> 00:12.870
+to basically see anything a user does on these websites
+
+00:12.870 --> 00:16.800
+because data and HTTP is sent in plain text.
+
+00:16.800 --> 00:19.890
+Therefore, we were able to see the usernames, the passwords,
+
+00:19.890 --> 00:24.890
+the URLs, and anything they do on HTTPS websites.
+
+00:25.500 --> 00:27.840
+At the end of the lecture, I also showed you
+
+00:27.840 --> 00:31.920
+that the method will not work against Facebook, Twitter,
+
+00:31.920 --> 00:36.270
+and other websites that use HSTS.
+
+00:36.270 --> 00:39.540
+The reason why it won't work against these websites,
+
+00:39.540 --> 00:43.710
+because modern web browsers come with a list
+
+00:43.710 --> 00:48.203
+of websites that they should only load over HTTPS.
+
+00:50.310 --> 00:53.190
+See, what we were doing in the previous lecture,
+
+00:53.190 --> 00:58.140
+whenever a browser requests a website, we load that website,
+
+00:58.140 --> 01:00.480
+even if it uses HTTPS,
+
+01:00.480 --> 01:04.530
+but we always give him back the HTTP version.
+
+01:04.530 --> 01:09.360
+In HSTS, the browser knows that this website, for example,
+
+01:09.360 --> 01:14.310
+facebook.com, should always be loaded over HTTPs.
+
+01:14.310 --> 01:17.490
+So, even before sending this request to us,
+
+01:17.490 --> 01:20.460
+it'll always send it in HTTPS,
+
+01:20.460 --> 01:25.460
+and it'll always only accept it if it comes back as HTTPS.
+
+01:25.830 --> 01:29.670
+So, there is nothing we can do really once we become
+
+01:29.670 --> 01:31.200
+the man in the middle.
+
+01:31.200 --> 01:34.440
+Because the browser is doing this check locally,
+
+01:34.440 --> 01:36.570
+it's checking this against a list
+
+01:36.570 --> 01:39.843
+that is stored on the computer itself.
+
+01:40.950 --> 01:44.820
+Therefore, the only practical solution, at the moment,
+
+01:44.820 --> 01:47.580
+to bypass HSTS
+
+01:47.580 --> 01:50.220
+is to make the browser think
+
+01:50.220 --> 01:53.043
+that it is loading another website.
+
+01:54.030 --> 01:57.930
+To do this, we're gonna replace all HSTS links
+
+01:57.930 --> 02:00.780
+in loaded pages to similar links,
+
+02:00.780 --> 02:03.300
+but they're not the same links.
+
+02:03.300 --> 02:08.300
+For example, we can replace facebook.com with facebook.corn.
+
+02:08.760 --> 02:12.090
+Now, I know this seems very suspicious,
+
+02:12.090 --> 02:15.450
+but trust me, when it goes into the URL bar,
+
+02:15.450 --> 02:19.140
+the RN here at the middle, it'll seem very similar
+
+02:19.140 --> 02:20.463
+to the M letter.
+
+02:21.420 --> 02:24.720
+Another way of doing this, you can replace twitter.com
+
+02:24.720 --> 02:28.230
+with twiter.com, but with a single T here
+
+02:28.230 --> 02:29.703
+and instead of a double T.
+
+02:30.930 --> 02:33.720
+I know this sounds a little bit confusing right now,
+
+02:33.720 --> 02:36.300
+but let me go and do it practically
+
+02:36.300 --> 02:38.853
+and you will see how this is gonna work.
+
+02:39.840 --> 02:42.573
+So, right here I have my Kali machine,
+
+02:43.590 --> 02:47.760
+and we're actually gonna use the HSTS caplet
+
+02:47.760 --> 02:49.950
+that we used in the previous lecture.
+
+02:49.950 --> 02:51.990
+As mentioned in the previous lecture,
+
+02:51.990 --> 02:55.950
+this caplet is already installed in the custom Kali.
+
+02:55.950 --> 02:59.010
+If you want to use it with the original Kali,
+
+02:59.010 --> 03:00.990
+You'll have to manually download it
+
+03:00.990 --> 03:05.070
+and place it in the right path in user, local,
+
+03:05.070 --> 03:07.713
+share, bettercap, caplets.
+
+03:08.610 --> 03:10.050
+I have the caplet right here.
+
+03:10.050 --> 03:12.120
+Like I said, this is already the correct one
+
+03:12.120 --> 03:14.670
+because I am using the custom Kali.
+
+03:14.670 --> 03:16.170
+If we go inside it,
+
+03:16.170 --> 03:20.190
+we have a file called hstshijack.cap.
+
+03:20.190 --> 03:24.030
+This is the configuration file of the caplet,
+
+03:24.030 --> 03:25.830
+so I'm gonna right-click it.
+
+03:25.830 --> 03:28.680
+I'm gonna open it with Other Application.
+
+03:28.680 --> 03:31.500
+I'm gonna click on View All Applications,
+
+03:31.500 --> 03:35.010
+and you wanna pick any text editor that you have.
+
+03:35.010 --> 03:37.020
+So, I'm gonna keep this at Leafpad.
+
+03:37.020 --> 03:38.610
+You might have to scroll down
+
+03:38.610 --> 03:40.860
+to find it, but I have it here.
+
+03:40.860 --> 03:43.860
+I'm gonna Select, and as you can see,
+
+03:43.860 --> 03:47.220
+we have a normal text file with all the configurations
+
+03:47.220 --> 03:49.260
+that we can set, and I've already
+
+03:49.260 --> 03:51.480
+pre-configured this for you.
+
+03:51.480 --> 03:54.150
+The main things that you wanna understand
+
+03:54.150 --> 03:58.980
+and maybe change is the targets and the replacements.
+
+03:58.980 --> 04:02.880
+So, the targets are the domains that use HSTS
+
+04:02.880 --> 04:04.680
+that you want to replace.
+
+04:04.680 --> 04:07.497
+For example, I have twitter.com in here,
+
+04:07.497 --> 04:10.770
+and I also have *.twitter.com.
+
+04:10.770 --> 04:13.830
+Basically, when you use a star, this is a wild card
+
+04:13.830 --> 04:17.940
+and it basically means any subdomain .twitter.com
+
+04:17.940 --> 04:19.563
+is a target as well.
+
+04:20.730 --> 04:23.490
+In the replacement, you wanna tell the program
+
+04:23.490 --> 04:26.190
+what to replace this target with.
+
+04:26.190 --> 04:28.740
+For example, whenever we see twitter.com,
+
+04:28.740 --> 04:31.560
+we're gonna replace it with twitter.corn.
+
+04:31.560 --> 04:34.470
+Similar goes for Facebook and Apple
+
+04:34.470 --> 04:36.783
+and a few other domains that I set.
+
+04:37.710 --> 04:40.290
+You can also play around with the obfuscate
+
+04:40.290 --> 04:42.180
+and encode options.
+
+04:42.180 --> 04:44.490
+I've set both of these to false
+
+04:44.490 --> 04:46.470
+because basically what these will do,
+
+04:46.470 --> 04:49.800
+they'll obfuscate the code and encode it,
+
+04:49.800 --> 04:53.670
+but I noticed some browsers like Firefox will block
+
+04:53.670 --> 04:56.070
+obfuscated or encoded code.
+
+04:56.070 --> 04:58.470
+That's why I set both of these to false
+
+04:58.470 --> 05:00.723
+so that the code is left as is.
+
+05:02.370 --> 05:05.790
+Here in the payloads, you can set any other JavaScript code
+
+05:05.790 --> 05:07.140
+that you want to inject.
+
+05:07.140 --> 05:08.070
+Leave this the same.
+
+05:08.070 --> 05:12.120
+We'll talk about JavaScript injection in a future lecture.
+
+05:12.120 --> 05:13.500
+Finally, you wanna make sure
+
+05:13.500 --> 05:18.390
+that the dns.spoof.domains are set exactly the same
+
+05:18.390 --> 05:20.430
+as the replacements in here.
+
+05:20.430 --> 05:23.643
+So, I literally copy this line and paste it here.
+
+05:24.600 --> 05:26.670
+Now, I'm actually gonna keep all of this the same.
+
+05:26.670 --> 05:28.320
+I don't need to modify any of it,
+
+05:28.320 --> 05:31.320
+but like I said, if you're targeting different websites
+
+05:31.320 --> 05:34.350
+or if you want to use different replacements, for example,
+
+05:34.350 --> 05:37.080
+if you wanted to use a Twitter with a single T
+
+05:37.080 --> 05:39.570
+and keep this .com, you can do that here.
+
+05:39.570 --> 05:42.690
+If you wanted to use a Facebook with a single O
+
+05:42.690 --> 05:45.780
+and keep this .com, again, instead of .corn,
+
+05:45.780 --> 05:47.310
+you can do it here.
+
+05:47.310 --> 05:50.230
+Once done, make sure you Save and quit this file
+
+05:51.210 --> 05:53.250
+and we're ready to run the attack.
+
+05:53.250 --> 05:56.430
+So, running this attack is actually gonna be identical
+
+05:56.430 --> 05:58.560
+to what we did in the previous lecture.
+
+05:58.560 --> 06:02.790
+You just wanna make sure you modify this file properly.
+
+06:02.790 --> 06:06.270
+So, going back to bettercap, I'm gonna clear the screen,
+
+06:06.270 --> 06:08.460
+run bettercap with the same command,
+
+06:08.460 --> 06:10.050
+loading the spoof caplet,
+
+06:10.050 --> 06:13.740
+so we can do all of the ARP spoofing commands
+
+06:13.740 --> 06:17.310
+and run the sniffer all automatically.
+
+06:17.310 --> 06:19.860
+And perfect, as you can see, everything is running
+
+06:19.860 --> 06:22.080
+as expected with no errors.
+
+06:22.080 --> 06:25.350
+If you run this and you get an error, just do Exit
+
+06:25.350 --> 06:27.003
+and run bettercap again.
+
+06:27.990 --> 06:29.910
+Next, we wanna run the caplet,
+
+06:29.910 --> 06:33.330
+the HSTS hijack caplet exactly as shown
+
+06:33.330 --> 06:34.380
+in the previous lecture.
+
+06:34.380 --> 06:39.060
+All we have to do is type HS tab, it'll autocomplete for us
+
+06:39.060 --> 06:40.623
+and hit Enter to run it.
+
+06:41.520 --> 06:43.440
+Again, as you can see, no error.
+
+06:43.440 --> 06:45.783
+So, everything is working as expected.
+
+06:46.680 --> 06:48.390
+Let's go to the target machine
+
+06:48.390 --> 06:50.823
+and see how this is going to work.
+
+06:52.140 --> 06:54.600
+So, I have my Windows machine right here.
+
+06:54.600 --> 06:56.970
+This is Chrome, the latest version,
+
+06:56.970 --> 06:59.580
+and before I do anything, like I said, it's a good idea
+
+06:59.580 --> 07:02.013
+to always just remove the browsing data.
+
+07:03.960 --> 07:06.690
+And before I actually load any websites,
+
+07:06.690 --> 07:10.950
+it is very important to understand that even with everything
+
+07:10.950 --> 07:14.910
+that we're doing right now, if you try to go to Facebook
+
+07:14.910 --> 07:18.690
+and type .com at the end here, it will not work.
+
+07:18.690 --> 07:21.540
+What we're doing right now will not work
+
+07:21.540 --> 07:24.810
+because Chrome, right here, has a list
+
+07:24.810 --> 07:28.110
+that is stored on this computer that says,
+
+07:28.110 --> 07:32.783
+do not load facebook.com unless it is loaded over HTTPS.
+
+07:33.720 --> 07:36.840
+So, if you type Facebook right here like this,
+
+07:36.840 --> 07:38.460
+it will not work.
+
+07:38.460 --> 07:42.060
+The only way we can do this is if the user
+
+07:42.060 --> 07:47.060
+first goes to search engine, for example, Google.ie
+
+07:47.490 --> 07:50.370
+for Ireland, and then in Google,
+
+07:50.370 --> 07:53.070
+as you can see, Google doesn't use HSTS.
+
+07:53.070 --> 07:57.450
+So, we bypass this using the normal HTTPS bypass.
+
+07:57.450 --> 08:00.210
+And then if the user in here searches
+
+08:00.210 --> 08:03.783
+for their target website, for example, Facebook,
+
+08:04.980 --> 08:08.460
+then our script is gonna run in the background
+
+08:08.460 --> 08:12.030
+and it's going to replace all links in this page
+
+08:12.030 --> 08:16.440
+for facebook.com with facebook.corn.
+
+08:16.440 --> 08:19.290
+So, if I actually hover over this,
+
+08:19.290 --> 08:22.350
+you'll see in the status bar, the website
+
+08:22.350 --> 08:27.350
+that will be loaded is facebook.corn, not facebook.com.
+
+08:27.450 --> 08:28.470
+This is fine here.
+
+08:28.470 --> 08:30.450
+It's still says facebook.com,
+
+08:30.450 --> 08:33.930
+but only in the code of the HTML page.
+
+08:33.930 --> 08:38.490
+Facebook.com got replaced with facebook.corn.
+
+08:38.490 --> 08:43.230
+So, if I click on this link, again, as you can see,
+
+08:43.230 --> 08:45.660
+we get a normal Facebook page.
+
+08:45.660 --> 08:50.640
+But if you look here on top, you'll see there is no HTTPS,
+
+08:50.640 --> 08:52.950
+and if you look at the domain name,
+
+08:52.950 --> 08:56.253
+you'll see it says .corn not .com.
+
+08:57.180 --> 09:00.090
+Again, like I said, you can actually keep this .com
+
+09:00.090 --> 09:04.020
+and use Facebook with one O, or you can add an extra O.
+
+09:04.020 --> 09:07.320
+You can be as creative as you want with this.
+
+09:07.320 --> 09:09.573
+This is just an example that I'm giving you.
+
+09:10.620 --> 09:13.890
+Now, once we're here, we can log in normally
+
+09:13.890 --> 09:17.020
+with my username, so zaid@zsecurity.org
+
+09:18.330 --> 09:20.370
+and put my password one, two, three, four,
+
+09:20.370 --> 09:22.443
+five, six, seven, eight, nine, zero.
+
+09:23.310 --> 09:27.390
+Hit Enter, and if we go back...
+
+09:27.390 --> 09:28.623
+Scroll up.
+
+09:30.090 --> 09:30.923
+Perfect.
+
+09:30.923 --> 09:31.756
+As you can see,
+
+09:31.756 --> 09:34.680
+we have the username zaid@zsecurity.org
+
+09:34.680 --> 09:37.713
+and the password all the way up to nine, zero.
+
+09:39.270 --> 09:42.300
+Now, like I said, the only way for this
+
+09:42.300 --> 09:45.840
+to work is if the user gets to Facebook
+
+09:45.840 --> 09:50.100
+through another website that does not use HSTS.
+
+09:50.100 --> 09:52.410
+If they go on the URL bar
+
+09:52.410 --> 09:55.140
+and type facebook.com themselves,
+
+09:55.140 --> 09:57.570
+we will not be able to do this.
+
+09:57.570 --> 10:01.410
+That's why this is considered as a partial solution
+
+10:01.410 --> 10:03.153
+and not a full solution.

@@ -1,0 +1,661 @@
+WEBVTT
+
+00:00.510 --> 00:01.920
+Instructor: In the previous lectures,
+
+00:01.920 --> 00:04.950
+we covered how to sniff and read data
+
+00:04.950 --> 00:06.780
+from HTTP,
+
+00:06.780 --> 00:11.780
+HTTPS, and preloaded HSTS websites.
+
+00:11.940 --> 00:15.600
+We spoke about the limitations of each of these cases,
+
+00:15.600 --> 00:18.570
+but we did that as we are going through the lectures.
+
+00:18.570 --> 00:22.560
+Therefore, I feel like some of the details might be missing,
+
+00:22.560 --> 00:25.380
+and therefore I made this table right here,
+
+00:25.380 --> 00:28.080
+and I'm gonna show you some examples in this lecture
+
+00:28.080 --> 00:30.420
+just to lay everything down for you
+
+00:30.420 --> 00:32.550
+so you understand exactly
+
+00:32.550 --> 00:36.390
+how this is gonna work and what are the limitations.
+
+00:36.390 --> 00:39.420
+So first of all, we spoke about HTTP websites,
+
+00:39.420 --> 00:41.970
+and an example of this would be a website
+
+00:41.970 --> 00:45.750
+that doesn't use HTTPS, it just loads of our plain HTTP,
+
+00:45.750 --> 00:47.853
+similar to Vulnweb.com.
+
+00:49.110 --> 00:51.540
+Then we spoke about HTTPS websites,
+
+00:51.540 --> 00:54.630
+and this would cover most websites on the internet.
+
+00:54.630 --> 00:57.750
+So examples would be linkedin.com,
+
+00:57.750 --> 01:01.710
+Winzip, Stack Overflow, Google, the local Google,
+
+01:01.710 --> 01:06.300
+so not google.com, but the google.ie or .co.uk,
+
+01:06.300 --> 01:11.300
+or .in, any local Google domain and netflix.com.
+
+01:11.490 --> 01:13.830
+Now the list here could go on for very long
+
+01:13.830 --> 01:17.343
+because like I said, most websites use HTTPS.
+
+01:18.240 --> 01:20.910
+And finally, we spoke about the most restrictive
+
+01:20.910 --> 01:23.400
+and the most secure method of communication,
+
+01:23.400 --> 01:26.850
+which is preloaded HSTS websites.
+
+01:26.850 --> 01:27.990
+And the way this works,
+
+01:27.990 --> 01:30.990
+we said the web browser itself will have a list
+
+01:30.990 --> 01:35.940
+of hard coded websites that will only load over HTTPS,
+
+01:35.940 --> 01:37.500
+and therefore because the browser
+
+01:37.500 --> 01:39.630
+has to contain this list locally,
+
+01:39.630 --> 01:42.570
+it will not contain all websites on the internet.
+
+01:42.570 --> 01:46.530
+It only contains very popular websites, such as Twitter,
+
+01:46.530 --> 01:48.570
+Facebook, and GitHub and so on.
+
+01:48.570 --> 01:50.520
+Now, we could have a bigger list in here,
+
+01:50.520 --> 01:54.210
+but it won't be as big as HTTPS websites
+
+01:54.210 --> 01:56.913
+as most websites use HTTPS.
+
+01:58.320 --> 02:01.230
+Now, when it comes to HTTP, no encryption is used,
+
+02:01.230 --> 02:03.840
+so there's nothing you need to do to bypass.
+
+02:03.840 --> 02:06.540
+So you can basically use the basic Bettercap,
+
+02:06.540 --> 02:08.130
+no modifications at all,
+
+02:08.130 --> 02:10.680
+and it works perfectly with Firefox and Chrome.
+
+02:10.680 --> 02:12.480
+So you'll be able to read the data
+
+02:12.480 --> 02:13.530
+and even modify it
+
+02:13.530 --> 02:15.880
+as we're gonna show you later on in the course.
+
+02:16.860 --> 02:20.040
+Then when it comes to HTTPS and HSTS,
+
+02:20.040 --> 02:22.800
+we can't decrypt HTTPS,
+
+02:22.800 --> 02:24.750
+and therefore what we try to do
+
+02:24.750 --> 02:27.750
+is we try to downgrade HTTPS
+
+02:27.750 --> 02:29.430
+to HTTP.
+
+02:29.430 --> 02:32.460
+And then when the website is loading over HTTP,
+
+02:32.460 --> 02:34.440
+we will be able to read all of the data
+
+02:34.440 --> 02:36.240
+that is being sent and received.
+
+02:36.240 --> 02:38.310
+So we'll be able to see the usernames
+
+02:38.310 --> 02:40.020
+and the passwords and so on.
+
+02:40.020 --> 02:42.510
+And as I'm gonna show you later on in the course,
+
+02:42.510 --> 02:44.640
+you'll be able to modify this data.
+
+02:44.640 --> 02:47.520
+So you'll be able to launch attacks like DNS spoofing,
+
+02:47.520 --> 02:50.370
+where we redirect the domain to another location
+
+02:50.370 --> 02:52.650
+or inject code in the loaded website.
+
+02:52.650 --> 02:57.240
+But all of that is dependent on loading the website in HTTP.
+
+02:57.240 --> 03:00.960
+Therefore, when it comes to HTTPS and HSTS,
+
+03:00.960 --> 03:04.110
+the goal is always to downgrade that website
+
+03:04.110 --> 03:07.263
+or downgrade that connection to HTTP.
+
+03:08.550 --> 03:12.810
+So for this to work, we used a custom modified Kali
+
+03:12.810 --> 03:15.330
+that comes with the latest version of Bettercap
+
+03:15.330 --> 03:18.630
+and a modified HSTShijack caplet.
+
+03:18.630 --> 03:23.610
+This is the caplet that downgrades HTTP to HTTPS.
+
+03:23.610 --> 03:27.630
+And this works perfectly with the latest version of Firefox.
+
+03:27.630 --> 03:29.880
+So let me show you a quick example.
+
+03:29.880 --> 03:33.240
+We're gonna load Bettercap with the HSTShijack caplet
+
+03:33.240 --> 03:35.550
+and then try to load some of these websites.
+
+03:35.550 --> 03:39.510
+And the goal is that these websites should load in HTTP,
+
+03:39.510 --> 03:41.430
+not HTTPS.
+
+03:41.430 --> 03:44.250
+If that happens, that means we can read all of the data
+
+03:44.250 --> 03:46.860
+and analyze it, and we can even modify it
+
+03:46.860 --> 03:50.130
+as I'm gonna show you later on in the course.
+
+03:50.130 --> 03:52.200
+So right here in my Kali machine,
+
+03:52.200 --> 03:53.700
+I'm just gonna start Bettercap
+
+03:53.700 --> 03:55.800
+exactly the same way as we usually do.
+
+03:55.800 --> 03:58.923
+I'm selecting my interface and my spoof caplet,
+
+03:59.760 --> 04:02.970
+and then I'm gonna start the HSTShijack caplet
+
+04:02.970 --> 04:06.690
+by typing hs Tab, and it'll auto complete for me.
+
+04:06.690 --> 04:09.360
+I'm gonna hit Enter, and now it's working.
+
+04:09.360 --> 04:11.520
+And let's go to the Windows machine.
+
+04:11.520 --> 04:12.480
+And as you can see,
+
+04:12.480 --> 04:14.670
+it's telling me that I'm using the latest version
+
+04:14.670 --> 04:15.900
+of Firefox.
+
+04:15.900 --> 04:17.700
+And let's go ahead, before we test,
+
+04:17.700 --> 04:20.100
+I'm just gonna remove all browsing data.
+
+04:20.100 --> 04:23.400
+So I'm gonna press Ctrl, Alt and Delete,
+
+04:23.400 --> 04:24.930
+and we're gonna tick everything,
+
+04:24.930 --> 04:27.630
+make sure everything is selected in here,
+
+04:27.630 --> 04:29.640
+and click on OK,
+
+04:29.640 --> 04:32.610
+and let's go ahead to the first HTTPS website,
+
+04:32.610 --> 04:34.800
+like linkedin.com.
+
+04:34.800 --> 04:35.633
+And Perfect.
+
+04:35.633 --> 04:38.691
+As you can see, the website is loading over HTTP,
+
+04:38.691 --> 04:42.510
+not HTTPS, because we can see this cross over the lock,
+
+04:42.510 --> 04:44.580
+but most people won't notice this.
+
+04:44.580 --> 04:45.780
+And basically, like I said,
+
+04:45.780 --> 04:48.180
+that means we can read whatever username and password
+
+04:48.180 --> 04:49.530
+the user will put in here,
+
+04:49.530 --> 04:52.500
+and we can modify the data and inject data in this.
+
+04:52.500 --> 04:54.840
+And you'll see this later on in the course.
+
+04:54.840 --> 04:56.100
+Now, I'm not gonna log in now
+
+04:56.100 --> 04:57.780
+because we've already seen this.
+
+04:57.780 --> 04:59.490
+The goal now is just to show you
+
+04:59.490 --> 05:02.040
+which websites are gonna downgrade to HTTP,
+
+05:02.040 --> 05:04.080
+and even if you don't see the login data,
+
+05:04.080 --> 05:06.750
+now, if I log in and you don't see it in Bettercap,
+
+05:06.750 --> 05:08.220
+that is completely fine
+
+05:08.220 --> 05:10.440
+because the sniffer that comes with Bettercap
+
+05:10.440 --> 05:11.730
+is not perfect.
+
+05:11.730 --> 05:14.610
+I will show you better sniffers later on in the course.
+
+05:14.610 --> 05:16.950
+So the main goal when we're using Bettercap
+
+05:16.950 --> 05:21.480
+is to be able to downgrade HTTPS to HTTP.
+
+05:21.480 --> 05:23.970
+So let's load another HTTPS website
+
+05:23.970 --> 05:25.803
+like stackoverflow.com,
+
+05:26.730 --> 05:27.563
+and perfect,
+
+05:27.563 --> 05:29.880
+as you can see, it's downgrading as well.
+
+05:29.880 --> 05:33.333
+And let's do a last one. Now, let's go to netflix.com.
+
+05:36.270 --> 05:37.260
+And again, perfect.
+
+05:37.260 --> 05:40.560
+It's downgrading, it's loading over normal HTTP.
+
+05:40.560 --> 05:42.300
+So we haven't done anything different
+
+05:42.300 --> 05:43.920
+from what we covered earlier.
+
+05:43.920 --> 05:46.593
+Everything is working perfectly with Firefox.
+
+05:47.550 --> 05:50.220
+Now, when it comes to Chrome, there is a slight modification
+
+05:50.220 --> 05:51.570
+that we'll need to talk about.
+
+05:51.570 --> 05:54.390
+So let's continue testing with Firefox.
+
+05:54.390 --> 05:57.180
+So moving on to preloaded HSTS websites
+
+05:57.180 --> 05:59.880
+similar to Twitter, Facebook, and GitHub.
+
+05:59.880 --> 06:01.290
+Again, for this to work,
+
+06:01.290 --> 06:04.380
+we're gonna have to use the custom Kali with Bettercap,
+
+06:04.380 --> 06:07.650
+with the custom HSTShijack caplet.
+
+06:07.650 --> 06:10.500
+Now, let's go ahead and test it with Firefox.
+
+06:10.500 --> 06:11.760
+So the way this will work,
+
+06:11.760 --> 06:14.940
+as mentioned in the HSTS bypass lecture,
+
+06:14.940 --> 06:19.680
+the target will first have to load a normal HTTPS website.
+
+06:19.680 --> 06:23.640
+An example would be a local Google domain, for example,
+
+06:23.640 --> 06:25.110
+google.ie,
+
+06:25.110 --> 06:26.610
+or google.in,
+
+06:26.610 --> 06:30.570
+or google.co.uk, anything but the google.com,
+
+06:30.570 --> 06:33.870
+because these use normal HTTPS
+
+06:33.870 --> 06:36.660
+and therefore, we will be able to downgrade them
+
+06:36.660 --> 06:39.363
+to normal HTTP, as you can see in here.
+
+06:40.290 --> 06:42.750
+And then once they are on any website
+
+06:42.750 --> 06:45.660
+or any search engine that uses normal HTTPS,
+
+06:45.660 --> 06:48.930
+and we successfully manage to downgrade it to HTTP,
+
+06:48.930 --> 06:53.250
+if they search for a HSTS website, for example, Twitter,
+
+06:53.250 --> 06:57.480
+the HSTShijack caplet is gonna replace the link
+
+06:57.480 --> 07:01.230
+for twitter.com with twitter.corn.
+
+07:01.230 --> 07:04.800
+Therefore, that will bypass the hardcoded list
+
+07:04.800 --> 07:06.600
+that the browser comes with
+
+07:06.600 --> 07:09.480
+because it does not have an entry for a website
+
+07:09.480 --> 07:11.790
+that is called twitter.corn.
+
+07:11.790 --> 07:14.490
+So if I hover my mouse over here,
+
+07:14.490 --> 07:16.200
+you can notice at the bottom,
+
+07:16.200 --> 07:19.530
+the website that we will go to is twitter.corn
+
+07:19.530 --> 07:21.510
+and not twitter.com.
+
+07:21.510 --> 07:24.120
+Now this replacement takes a second or two.
+
+07:24.120 --> 07:26.340
+So if you hover over it straight away,
+
+07:26.340 --> 07:27.780
+as soon as the website loads,
+
+07:27.780 --> 07:29.850
+you might actually notice twitter.com.
+
+07:29.850 --> 07:32.910
+And then instantly it's gonna change to .corn.
+
+07:32.910 --> 07:35.643
+Once it changes, if the user opens this,
+
+07:36.600 --> 07:39.330
+you're actually gonna get a redirect notice like this one,
+
+07:39.330 --> 07:41.220
+that will not work automatically.
+
+07:41.220 --> 07:43.980
+So this is another limitation with this method.
+
+07:43.980 --> 07:45.930
+But if the user actually goes ahead
+
+07:45.930 --> 07:47.373
+and loads the website,
+
+07:49.020 --> 07:51.540
+you will notice that we will get a website
+
+07:51.540 --> 07:53.400
+that is identical to Twitter,
+
+07:53.400 --> 07:56.070
+which we can use to sign in or sign up,
+
+07:56.070 --> 07:59.910
+but the website is loading over normal HTTP,
+
+07:59.910 --> 08:01.800
+not HTTPS.
+
+08:01.800 --> 08:06.480
+And if you note, it's twitter.corn, not .com.
+
+08:06.480 --> 08:08.190
+So if the user looks in here,
+
+08:08.190 --> 08:09.870
+they might be able to notice
+
+08:09.870 --> 08:11.790
+that something is fishy happening,
+
+08:11.790 --> 08:15.120
+but I would say it'll pass most users.
+
+08:15.120 --> 08:18.210
+So now that the website is loading over normal HTTP,
+
+08:18.210 --> 08:21.270
+you can first of all read the data the user sends,
+
+08:21.270 --> 08:23.310
+for example, usernames and passwords,
+
+08:23.310 --> 08:26.130
+and you'll also be able to manipulate this page
+
+08:26.130 --> 08:28.140
+and inject evil code in it,
+
+08:28.140 --> 08:30.483
+and we will cover that later on in the course.
+
+08:31.380 --> 08:32.640
+Let's have another example.
+
+08:32.640 --> 08:35.400
+So let's close these and let's go ahead
+
+08:35.400 --> 08:37.110
+and look for Facebook.
+
+08:37.110 --> 08:39.450
+Again. Facebook is another example of a website
+
+08:39.450 --> 08:41.370
+that uses HSTS.
+
+08:41.370 --> 08:44.520
+If we hover over it, you can see already it's been replaced
+
+08:44.520 --> 08:46.050
+to facebook.corn.
+
+08:46.050 --> 08:47.910
+So let's open it in a new tab
+
+08:47.910 --> 08:49.653
+and open it again,
+
+08:51.300 --> 08:52.133
+and perfect.
+
+08:52.133 --> 08:56.640
+As you can see, Facebook loads normally over HTTP
+
+08:56.640 --> 08:58.890
+and not HSTS
+
+08:58.890 --> 09:00.600
+or HTTPS.
+
+09:00.600 --> 09:02.520
+Again, once the user logs in,
+
+09:02.520 --> 09:04.560
+you're gonna be able to capture the username
+
+09:04.560 --> 09:05.393
+and the password
+
+09:05.393 --> 09:07.400
+and you'll be able to manipulate this page.
+
+09:09.150 --> 09:10.830
+So that's everything for Firefox.
+
+09:10.830 --> 09:13.410
+HTTP obviously works with no issues at all.
+
+09:13.410 --> 09:16.440
+HTTPS also works with no issues at all.
+
+09:16.440 --> 09:18.870
+And HSTS, you just need to make sure
+
+09:18.870 --> 09:20.640
+that the target websites are listed
+
+09:20.640 --> 09:22.710
+in the HSTShijack caplet,
+
+09:22.710 --> 09:25.800
+and I show that in the HSTShijack lecture.
+
+09:25.800 --> 09:28.260
+So if you don't know how to do that, please revise that.
+
+09:28.260 --> 09:31.230
+But as you can see, it's working exactly as expected,
+
+09:31.230 --> 09:35.220
+as long as the target user accesses the HSTS website
+
+09:35.220 --> 09:38.070
+through a normal HTTPS website.
+
+09:38.070 --> 09:39.180
+Now, in the next lecture,
+
+09:39.180 --> 09:41.250
+we'll have a quick recap for Chrome,
+
+09:41.250 --> 09:43.380
+because Chrome is slightly different
+
+09:43.380 --> 09:45.183
+and could be slightly trickier.

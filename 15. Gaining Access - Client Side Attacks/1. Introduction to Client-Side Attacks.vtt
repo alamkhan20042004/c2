@@ -1,0 +1,109 @@
+WEBVTT
+
+00:00.000 --> 00:00.960
+-: In this section,
+
+00:00.960 --> 00:04.200
+we're gonna start talking about client side attacks.
+
+00:04.200 --> 00:07.560
+So most of the time it's better to try to gain access
+
+00:07.560 --> 00:10.230
+to your target using the server side attacks.
+
+00:10.230 --> 00:13.530
+So try to find exploits in the operating system
+
+00:13.530 --> 00:16.020
+and in the applications installed.
+
+00:16.020 --> 00:18.270
+If you tried that and it didn't work,
+
+00:18.270 --> 00:20.970
+or if your target is hidden behind an IP,
+
+00:20.970 --> 00:23.760
+so if the target person is not in the same server as us,
+
+00:23.760 --> 00:25.320
+on the same network as us,
+
+00:25.320 --> 00:28.290
+and if the target person is using a network,
+
+00:28.290 --> 00:31.320
+so if you ping their IP you won't be able to reach it
+
+00:31.320 --> 00:33.300
+because they're hidden behind the router
+
+00:33.300 --> 00:35.190
+or behind a network,
+
+00:35.190 --> 00:36.990
+then your next resort
+
+00:36.990 --> 00:39.600
+is going to be the client side attacks.
+
+00:39.600 --> 00:42.300
+So these attacks require the user to do something.
+
+00:42.300 --> 00:44.280
+So the user is gonna have to open a link,
+
+00:44.280 --> 00:45.900
+they're gonna have to install an update,
+
+00:45.900 --> 00:48.420
+they're gonna have to install a picture or open a picture,
+
+00:48.420 --> 00:50.520
+or they have to interact, they have to do something.
+
+00:50.520 --> 00:51.570
+And once they do it,
+
+00:51.570 --> 00:54.603
+we will be able to run code and achieve our goal.
+
+00:55.650 --> 00:58.290
+Therefore, because it requires user interaction,
+
+00:58.290 --> 01:01.410
+information gathering is very important in this case,
+
+01:01.410 --> 01:04.110
+and we don't only need to get information
+
+01:04.110 --> 01:06.000
+about the installed applications.
+
+01:06.000 --> 01:07.980
+We also need to know the person.
+
+01:07.980 --> 01:09.810
+We need to know their friends.
+
+01:09.810 --> 01:11.760
+We need to know the networks they use,
+
+01:11.760 --> 01:13.200
+the websites they use,
+
+01:13.200 --> 01:18.090
+if there's any websites that they frequently use and trust.
+
+01:18.090 --> 01:21.750
+Therefore, the information gathering section in here
+
+01:21.750 --> 01:24.030
+is going to be focused on the person
+
+01:24.030 --> 01:26.970
+rather than focused on the applications
+
+01:26.970 --> 01:28.653
+and on the operating system.

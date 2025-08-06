@@ -1,0 +1,934 @@
+WEBVTT
+
+1
+00:00:00.370 --> 00:00:01.620
+<v Instructor>Now in this lecture,</v>
+
+2
+00:00:01.620 --> 00:00:05.000
+we're going to learn what DNS spoofing is
+
+3
+00:00:05.000 --> 00:00:06.433
+and how to perform it.
+
+4
+00:00:07.510 --> 00:00:11.290
+DNS is a server that converts domain names,
+
+5
+00:00:11.290 --> 00:00:15.340
+such as google.com, to the IP of the server
+
+6
+00:00:15.340 --> 00:00:17.393
+that is hosting this website.
+
+7
+00:00:18.620 --> 00:00:22.490
+So, when you type google.com in your web browser,
+
+8
+00:00:22.490 --> 00:00:25.600
+the request goes to a DNS server,
+
+9
+00:00:25.600 --> 00:00:28.290
+the server responds with the IP
+
+10
+00:00:28.290 --> 00:00:31.510
+where google.com files are stored,
+
+11
+00:00:31.510 --> 00:00:34.100
+and the browser will load the website
+
+12
+00:00:34.100 --> 00:00:35.573
+from this IP.
+
+13
+00:00:37.060 --> 00:00:39.260
+Now, when we are the man in the middle,
+
+14
+00:00:39.260 --> 00:00:41.560
+the request for google.com
+
+15
+00:00:41.560 --> 00:00:43.240
+will pass through us first
+
+16
+00:00:43.240 --> 00:00:45.910
+before it goes to the DNS server.
+
+17
+00:00:45.910 --> 00:00:48.550
+Therefore, instead of giving the IP
+
+18
+00:00:48.550 --> 00:00:52.230
+of the server that is hosting google.com,
+
+19
+00:00:52.230 --> 00:00:55.640
+we can actually give any IP we want.
+
+20
+00:00:55.640 --> 00:00:58.290
+So we can redirect them to a fake website
+
+21
+00:00:58.290 --> 00:01:01.750
+with a backdoor or with evil code,
+
+22
+00:01:01.750 --> 00:01:05.543
+hijack software updates and so much more.
+
+23
+00:01:06.570 --> 00:01:09.110
+We'll actually have examples on this
+
+24
+00:01:09.110 --> 00:01:11.690
+in future lectures but for now
+
+25
+00:01:11.690 --> 00:01:13.070
+let's see how we can run
+
+26
+00:01:13.070 --> 00:01:15.770
+a basic DNS spoofing attack,
+
+27
+00:01:15.770 --> 00:01:17.900
+in which we redirect requests
+
+28
+00:01:17.900 --> 00:01:21.840
+from a specific website to our own website
+
+29
+00:01:21.840 --> 00:01:24.250
+or our own web server.
+
+30
+00:01:24.250 --> 00:01:26.220
+Now before we run bettercap,
+
+31
+00:01:26.220 --> 00:01:30.870
+let's decide on where to redirect our target to.
+
+32
+00:01:30.870 --> 00:01:33.630
+So, we can redirect them to any website we want,
+
+33
+00:01:33.630 --> 00:01:36.300
+for example when someone requests google.com,
+
+34
+00:01:36.300 --> 00:01:39.180
+we can redirect them to Yahoo.
+
+35
+00:01:39.180 --> 00:01:40.870
+But what I want to do is
+
+36
+00:01:40.870 --> 00:01:44.140
+I want to redirect them to my own website,
+
+37
+00:01:44.140 --> 00:01:47.733
+to a local website that I'm gonna start on Kali.
+
+38
+00:01:48.766 --> 00:01:51.350
+Kali comes with its own web server
+
+39
+00:01:51.350 --> 00:01:53.900
+so we can actually use it as a website
+
+40
+00:01:53.900 --> 00:01:55.600
+and to do this, all we have to do
+
+41
+00:01:55.600 --> 00:01:57.620
+is just start the web server
+
+42
+00:01:57.620 --> 00:02:02.223
+so we're gonna do service apache2 start.
+
+43
+00:02:03.690 --> 00:02:06.210
+So apache2 is the name of the web server
+
+44
+00:02:06.210 --> 00:02:09.240
+and we're saying that we want to start this service.
+
+45
+00:02:09.240 --> 00:02:11.690
+If I hit Enter, we see no errors,
+
+46
+00:02:11.690 --> 00:02:14.410
+which means that the server is working now.
+
+47
+00:02:14.410 --> 00:02:16.030
+And to access this website,
+
+48
+00:02:16.030 --> 00:02:17.520
+to access this server,
+
+49
+00:02:17.520 --> 00:02:20.020
+we have to go to Kali's IP.
+
+50
+00:02:20.020 --> 00:02:24.010
+So as you know, to get our IP we can do ifconfig,
+
+51
+00:02:24.010 --> 00:02:27.790
+and we can see our IP is 10.0.2.15.
+
+52
+00:02:27.790 --> 00:02:30.140
+So if I just go to a web browser
+
+53
+00:02:30.140 --> 00:02:34.173
+and go to 10.0.2.15,
+
+54
+00:02:35.180 --> 00:02:38.513
+you'll see I'll get the default page of this website.
+
+55
+00:02:39.940 --> 00:02:42.600
+Now, the pages for this default web site
+
+56
+00:02:42.600 --> 00:02:47.040
+is stored in var/www/html.
+
+57
+00:02:47.040 --> 00:02:50.190
+So I'm gonna open my file manager
+
+58
+00:02:51.190 --> 00:02:53.620
+and I'm gonna click here on the title bar,
+
+59
+00:02:53.620 --> 00:02:55.740
+press forward slash to open it,
+
+60
+00:02:55.740 --> 00:03:00.257
+and we're gonna go to var/www/html,
+
+61
+00:03:02.020 --> 00:03:05.890
+and as you can see, these are the files
+
+62
+00:03:05.890 --> 00:03:07.180
+for this website.
+
+63
+00:03:07.180 --> 00:03:09.780
+So if you want to install a fake website
+
+64
+00:03:09.780 --> 00:03:12.280
+or any type of website, all you have to do
+
+65
+00:03:12.280 --> 00:03:14.423
+is just put its files in here.
+
+66
+00:03:15.480 --> 00:03:18.250
+Now, index.html is the file
+
+67
+00:03:18.250 --> 00:03:20.260
+that gets loaded here by default.
+
+68
+00:03:20.260 --> 00:03:22.540
+So this is what you see in here.
+
+69
+00:03:22.540 --> 00:03:24.980
+So I'm actually gonna right-click it.
+
+70
+00:03:24.980 --> 00:03:27.980
+I'm gonna open it with another application.
+
+71
+00:03:27.980 --> 00:03:30.133
+I'm gonna select my Text Editor.
+
+72
+00:03:31.200 --> 00:03:34.020
+This will open the html code for me,
+
+73
+00:03:34.020 --> 00:03:36.100
+and I'm actually just gonna remove this,
+
+74
+00:03:36.100 --> 00:03:38.490
+and I'll just put a smiley face.
+
+75
+00:03:38.490 --> 00:03:40.810
+Like I said, we're just doing this for testing,
+
+76
+00:03:40.810 --> 00:03:44.510
+so just showing you which files get loaded by default
+
+77
+00:03:44.510 --> 00:03:47.450
+and where you can actually put a website
+
+78
+00:03:47.450 --> 00:03:50.223
+if you wanted to host a proper website here.
+
+79
+00:03:51.350 --> 00:03:55.060
+So, I'm gonna go back here and if I refresh the page,
+
+80
+00:03:55.060 --> 00:03:57.773
+you can see we get the smiley face in here.
+
+81
+00:03:58.730 --> 00:04:00.240
+Now that's perfect.
+
+82
+00:04:00.240 --> 00:04:02.350
+Right now we still haven't executed
+
+83
+00:04:02.350 --> 00:04:04.640
+our DNS spoofing attack
+
+84
+00:04:04.640 --> 00:04:06.590
+but what I want to do is,
+
+85
+00:04:06.590 --> 00:04:09.950
+when my target tries to go to a specific website
+
+86
+00:04:09.950 --> 00:04:12.080
+I'm gonna redirect them to this page
+
+87
+00:04:12.080 --> 00:04:14.850
+that shows the smiley face.
+
+88
+00:04:14.850 --> 00:04:17.900
+So let's go to the target machine first
+
+89
+00:04:17.900 --> 00:04:19.880
+and let's go to our target website.
+
+90
+00:04:19.880 --> 00:04:22.110
+I'm gonna do this against my own website,
+
+91
+00:04:22.110 --> 00:04:24.423
+zsecurity.org.
+
+92
+00:04:25.570 --> 00:04:27.950
+So if you load this website,
+
+93
+00:04:27.950 --> 00:04:30.870
+you'll see we'll get an actual security website
+
+94
+00:04:30.870 --> 00:04:33.670
+with a number of topics and all that kind of stuff.
+
+95
+00:04:33.670 --> 00:04:36.953
+Basically the website is working as expected.
+
+96
+00:04:37.920 --> 00:04:40.540
+Now let's go ahead and run this attack.
+
+97
+00:04:40.540 --> 00:04:43.780
+So I'm gonna go to bettercap.
+
+98
+00:04:43.780 --> 00:04:46.320
+I'm gonna run it using the exact same command
+
+99
+00:04:46.320 --> 00:04:48.890
+that we've been using so far.
+
+100
+00:04:48.890 --> 00:04:50.520
+So we're just doing bettercap
+
+101
+00:04:50.520 --> 00:04:52.880
+with the interface with the spoof caplet
+
+102
+00:04:52.880 --> 00:04:55.610
+so we can intercept data and modify it
+
+103
+00:04:55.610 --> 00:04:57.553
+as it's flowing through our computer.
+
+104
+00:04:58.430 --> 00:05:00.740
+And as you can see, it's running with no errors
+
+105
+00:05:00.740 --> 00:05:02.650
+so that's all good.
+
+106
+00:05:02.650 --> 00:05:05.300
+Now, the module that we want to use
+
+107
+00:05:05.300 --> 00:05:07.570
+is called dns spoof.
+
+108
+00:05:07.570 --> 00:05:10.090
+So if I do help right now,
+
+109
+00:05:10.090 --> 00:05:11.540
+you can see it right here,
+
+110
+00:05:11.540 --> 00:05:14.640
+it's called dns spoof and it's not running.
+
+111
+00:05:14.640 --> 00:05:17.820
+And as usual, if we don't know how to use a module,
+
+112
+00:05:17.820 --> 00:05:19.880
+all we have to do is do help
+
+113
+00:05:19.880 --> 00:05:21.490
+followed by the module name
+
+114
+00:05:21.490 --> 00:05:24.380
+and in this case it's dns spoof.
+
+115
+00:05:24.380 --> 00:05:27.040
+And as you can see we get all the options
+
+116
+00:05:27.040 --> 00:05:29.093
+that we can set for this module.
+
+117
+00:05:30.010 --> 00:05:32.760
+First option being the dns spoof address.
+
+118
+00:05:32.760 --> 00:05:35.350
+This is the address that the user
+
+119
+00:05:35.350 --> 00:05:37.560
+will be redirected to.
+
+120
+00:05:37.560 --> 00:05:39.440
+So if you want to redirect them
+
+121
+00:05:39.440 --> 00:05:41.550
+to another website, you have to put
+
+122
+00:05:41.550 --> 00:05:44.630
+the IP of this other website here.
+
+123
+00:05:44.630 --> 00:05:46.830
+In my case I want to redirect them
+
+124
+00:05:46.830 --> 00:05:48.120
+to my local website,
+
+125
+00:05:48.120 --> 00:05:49.720
+to the website that we have here,
+
+126
+00:05:49.720 --> 00:05:52.660
+which is running at 10.0.2.15.
+
+127
+00:05:52.660 --> 00:05:55.560
+Therefore, I'm not gonna have to modify this
+
+128
+00:05:55.560 --> 00:05:58.010
+because by default this is set
+
+129
+00:05:58.010 --> 00:06:00.233
+to the IP of my interface.
+
+130
+00:06:01.720 --> 00:06:03.780
+The next thing that we want to modify
+
+131
+00:06:03.780 --> 00:06:07.073
+is the dns.spoof.all.
+
+132
+00:06:07.910 --> 00:06:09.840
+We want to set this to true
+
+133
+00:06:09.840 --> 00:06:12.180
+so that bettercap responds
+
+134
+00:06:12.180 --> 00:06:15.030
+to any DNS request.
+
+135
+00:06:15.030 --> 00:06:18.530
+So just like any other option within bettercap
+
+136
+00:06:18.530 --> 00:06:21.533
+to change its value, we have to do set,
+
+137
+00:06:21.533 --> 00:06:23.310
+followed by the option name
+
+138
+00:06:23.310 --> 00:06:24.870
+that we want to modify,
+
+139
+00:06:24.870 --> 00:06:29.270
+and in this case it's dns.spoof.all,
+
+140
+00:06:29.270 --> 00:06:31.933
+and we want to set this to true.
+
+141
+00:06:33.580 --> 00:06:37.010
+Sorry, this is all being produced by the sniffer.
+
+142
+00:06:37.010 --> 00:06:39.410
+The next option that we want to set
+
+143
+00:06:39.410 --> 00:06:43.210
+is the dns.spoof.domains.
+
+144
+00:06:43.210 --> 00:06:45.520
+This will specify the domains
+
+145
+00:06:45.520 --> 00:06:47.030
+that we want to target,
+
+146
+00:06:47.030 --> 00:06:48.780
+that we want to spoof.
+
+147
+00:06:48.780 --> 00:06:51.010
+And as mentioned, we can use a comma
+
+148
+00:06:51.010 --> 00:06:53.960
+to separate more than one domain.
+
+149
+00:06:53.960 --> 00:06:58.140
+And as you know, we want to target zsecurity.org
+
+150
+00:06:58.140 --> 00:06:59.700
+and we want to redirect that
+
+151
+00:06:59.700 --> 00:07:02.493
+to our own website running on Kali.
+
+152
+00:07:03.360 --> 00:07:06.320
+So, we need to change this option right here,
+
+153
+00:07:06.320 --> 00:07:09.280
+dns.spoof.domains, and again,
+
+154
+00:07:09.280 --> 00:07:11.870
+we're gonna do this by doing set,
+
+155
+00:07:11.870 --> 00:07:16.570
+the option name, which is dns.spoof.domains,
+
+156
+00:07:16.570 --> 00:07:21.253
+and we're gonna set this to zsecurity.org.
+
+157
+00:07:22.330 --> 00:07:23.650
+As mentioned in the option
+
+158
+00:07:23.650 --> 00:07:24.850
+we can use the comma
+
+159
+00:07:24.850 --> 00:07:27.240
+to specify more than one domain
+
+160
+00:07:27.240 --> 00:07:29.830
+and the other domain that I want to specify
+
+161
+00:07:29.830 --> 00:07:34.830
+is star .zsecurity.org.
+
+162
+00:07:34.860 --> 00:07:37.540
+So the star right here is a wildcard
+
+163
+00:07:37.540 --> 00:07:40.090
+and it basically means that I want to target
+
+164
+00:07:40.090 --> 00:07:43.823
+any subdomain .zsecurity.org.
+
+165
+00:07:45.130 --> 00:07:46.580
+So I'm gonna hit Enter
+
+166
+00:07:46.580 --> 00:07:47.870
+and we don't see any errors
+
+167
+00:07:47.870 --> 00:07:50.550
+so everything is set as expected.
+
+168
+00:07:50.550 --> 00:07:52.490
+And all we need to do now
+
+169
+00:07:52.490 --> 00:07:56.130
+is start the dns spoof and to do this,
+
+170
+00:07:56.130 --> 00:08:00.010
+we just need to run dns.spoof
+
+171
+00:08:00.010 --> 00:08:03.290
+on exactly the same way that we start
+
+172
+00:08:03.290 --> 00:08:04.573
+any other module.
+
+173
+00:08:05.720 --> 00:08:09.290
+I'm gonna hit Enter and this should be running right now
+
+174
+00:08:09.290 --> 00:08:10.980
+and as you can see, it's telling us
+
+175
+00:08:10.980 --> 00:08:14.880
+that it's going to spoof zsecurity.org
+
+176
+00:08:14.880 --> 00:08:18.040
+to this IP, which is again, this is our IP,
+
+177
+00:08:18.040 --> 00:08:21.510
+we verified this using the ifconfig command.
+
+178
+00:08:21.510 --> 00:08:23.680
+And keep in mind, we actually did not have
+
+179
+00:08:23.680 --> 00:08:25.860
+to give bettercap this IP.
+
+180
+00:08:25.860 --> 00:08:27.453
+It got it automatically.
+
+181
+00:08:28.390 --> 00:08:30.680
+It's also telling us that the other target
+
+182
+00:08:30.680 --> 00:08:32.870
+is star .zsecurity.org
+
+183
+00:08:32.870 --> 00:08:34.823
+and it'll be spoofed to this.
+
+184
+00:08:36.020 --> 00:08:38.080
+Now, let's go to the target machine
+
+185
+00:08:38.080 --> 00:08:40.490
+and test this and before you test this,
+
+186
+00:08:40.490 --> 00:08:42.940
+please keep in mind you might need to wait
+
+187
+00:08:42.940 --> 00:08:46.810
+for a minute or two for the changes to propagate.
+
+188
+00:08:46.810 --> 00:08:49.150
+Also, if you just loaded this website,
+
+189
+00:08:49.150 --> 00:08:50.760
+just like I did right now,
+
+190
+00:08:50.760 --> 00:08:54.690
+it's a good idea to remove all your browsing data.
+
+191
+00:08:54.690 --> 00:08:58.500
+You won't have to do this in real-life scenarios
+
+192
+00:08:58.500 --> 00:09:01.220
+unless the target person is constantly loading
+
+193
+00:09:01.220 --> 00:09:04.070
+the same page, which doesn't happen a lot.
+
+194
+00:09:04.070 --> 00:09:06.020
+But if the target person goes ahead
+
+195
+00:09:06.020 --> 00:09:08.010
+and browses a few websites,
+
+196
+00:09:08.010 --> 00:09:10.993
+comes back to zsecurity.org,
+
+197
+00:09:12.610 --> 00:09:13.443
+and perfect.
+
+198
+00:09:13.443 --> 00:09:15.570
+As you can see, we get redirected
+
+199
+00:09:15.570 --> 00:09:20.113
+to the smiley face instead of loading zsecurity.org.
+
+200
+00:09:21.320 --> 00:09:23.890
+Now, this will work against all websites
+
+201
+00:09:23.890 --> 00:09:26.840
+even if they use HTTPS.
+
+202
+00:09:26.840 --> 00:09:30.640
+As you saw earlier, zSecurity uses HTTPS
+
+203
+00:09:30.640 --> 00:09:34.120
+and it loaded over https by default.
+
+204
+00:09:34.120 --> 00:09:37.560
+The only websites that this will not work against
+
+205
+00:09:37.560 --> 00:09:40.280
+are websites that use HSTS
+
+206
+00:09:40.280 --> 00:09:42.820
+because again, as I mentioned before,
+
+207
+00:09:42.820 --> 00:09:45.530
+the browser has a list of these websites,
+
+208
+00:09:45.530 --> 00:09:48.730
+the list is stored locally on the target computer
+
+209
+00:09:48.730 --> 00:09:51.050
+so it doesn't send any requests
+
+210
+00:09:51.050 --> 00:09:54.543
+and it'll only load these websites over HTTPS.
+
+211
+00:09:55.544 --> 00:09:57.400
+So even though the attack will work,
+
+212
+00:09:57.400 --> 00:10:00.300
+the browser will refuse to load the website
+
+213
+00:10:00.300 --> 00:10:02.433
+that we are spoofing them to.
+
+214
+00:10:03.350 --> 00:10:05.990
+Now, as you can see, what we did so far
+
+215
+00:10:05.990 --> 00:10:07.140
+is not very useful.
+
+216
+00:10:07.140 --> 00:10:10.050
+All we did is just we showed a smiley face.
+
+217
+00:10:10.050 --> 00:10:13.570
+But DNS spoofing is very very useful
+
+218
+00:10:13.570 --> 00:10:15.110
+in so many scenarios.
+
+219
+00:10:15.110 --> 00:10:16.650
+You can use it, for example,
+
+220
+00:10:16.650 --> 00:10:18.930
+when someone is trying to go to a login page
+
+221
+00:10:18.930 --> 00:10:20.750
+and show them a fake page,
+
+222
+00:10:20.750 --> 00:10:22.370
+or if they're trying to go
+
+223
+00:10:22.370 --> 00:10:24.730
+to zSecurity, for example,
+
+224
+00:10:24.730 --> 00:10:27.700
+and then just show them another zSecurity website
+
+225
+00:10:27.700 --> 00:10:30.810
+with some malware embedded into it.
+
+226
+00:10:30.810 --> 00:10:34.310
+You can also use it to serve fake updates.
+
+227
+00:10:34.310 --> 00:10:35.960
+So whenever they have a software
+
+228
+00:10:35.960 --> 00:10:37.490
+that's gonna check for updates,
+
+229
+00:10:37.490 --> 00:10:39.700
+we can DNS spoof that request
+
+230
+00:10:39.700 --> 00:10:42.340
+and send them a fake update with a backdoor,
+
+231
+00:10:42.340 --> 00:10:44.700
+and we'll see that later on in the course.
+
+232
+00:10:44.700 --> 00:10:47.250
+So it's a really really handy skill
+
+233
+00:10:47.250 --> 00:10:50.323
+that can be used in so many scenarios.
+

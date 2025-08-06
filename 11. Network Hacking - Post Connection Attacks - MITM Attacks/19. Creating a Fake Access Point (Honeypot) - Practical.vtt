@@ -1,0 +1,830 @@
+WEBVTT
+
+1
+00:00:00.260 --> 00:00:02.240
+<v Instructor>Now, before doing anything,</v>
+
+2
+00:00:02.240 --> 00:00:04.094
+I wanna show you the network settings
+
+3
+00:00:04.094 --> 00:00:06.830
+of my Kali machine.
+
+4
+00:00:06.830 --> 00:00:08.920
+So I'm gonna select I here.
+
+5
+00:00:08.920 --> 00:00:10.643
+I'm gonna go to Settings.
+
+6
+00:00:12.040 --> 00:00:12.963
+Network.
+
+7
+00:00:14.110 --> 00:00:18.263
+And as you can see, it's set to use a NAT network.
+
+8
+00:00:19.420 --> 00:00:23.483
+So now if I go to my Kali machine and do ifconfig,
+
+9
+00:00:25.980 --> 00:00:29.990
+we'll see we have an interface called eth0.
+
+10
+00:00:29.990 --> 00:00:33.550
+This interface is a virtual interface created
+
+11
+00:00:33.550 --> 00:00:37.790
+by VirtualBox because we set this machine
+
+12
+00:00:37.790 --> 00:00:39.723
+to use a NAT network.
+
+13
+00:00:40.770 --> 00:00:45.230
+You can also see that this interface has an IP address,
+
+14
+00:00:45.230 --> 00:00:48.210
+which means that it is properly connected
+
+15
+00:00:48.210 --> 00:00:49.920
+to this NAT network,
+
+16
+00:00:49.920 --> 00:00:53.130
+and it will provide the Kali machine
+
+17
+00:00:53.130 --> 00:00:54.860
+with internet access
+
+18
+00:00:54.860 --> 00:00:57.820
+as long as my host machine right here
+
+19
+00:00:57.820 --> 00:00:59.663
+has internet access.
+
+20
+00:01:00.620 --> 00:01:03.100
+So now on my Kali, if I go
+
+21
+00:01:03.100 --> 00:01:06.730
+and let's say if I just go to bing.com
+
+22
+00:01:06.730 --> 00:01:07.963
+on my browser,
+
+23
+00:01:10.350 --> 00:01:14.010
+you'll see that I can successfully go to the website
+
+24
+00:01:14.010 --> 00:01:17.300
+because Kali is connected to the internet
+
+25
+00:01:17.300 --> 00:01:19.740
+through this virtual interface
+
+26
+00:01:19.740 --> 00:01:21.883
+that is called eth0.
+
+27
+00:01:22.780 --> 00:01:25.140
+Now, if we go back to our diagram
+
+28
+00:01:25.140 --> 00:01:28.720
+that shows what we need to create an access point,
+
+29
+00:01:28.720 --> 00:01:31.350
+you can see that we need an interface
+
+30
+00:01:31.350 --> 00:01:33.860
+that is connected to the internet.
+
+31
+00:01:33.860 --> 00:01:36.900
+We don't care what type of interface this is
+
+32
+00:01:36.900 --> 00:01:41.830
+as long as this interface has internet access.
+
+33
+00:01:41.830 --> 00:01:46.200
+So in our example, we're gonna be using eth0
+
+34
+00:01:46.200 --> 00:01:50.443
+to provide our fake access point with internet access.
+
+35
+00:01:51.690 --> 00:01:53.860
+The other interface that we need,
+
+36
+00:01:53.860 --> 00:01:57.520
+we said that this needs to be a wireless adapter
+
+37
+00:01:57.520 --> 00:02:01.460
+that is able to act as an access point.
+
+38
+00:02:01.460 --> 00:02:03.660
+Again, if I go back to the result
+
+39
+00:02:03.660 --> 00:02:06.870
+of my ifconfig, you can see I already have
+
+40
+00:02:06.870 --> 00:02:10.030
+a wireless adapter connected to this computer.
+
+41
+00:02:10.030 --> 00:02:11.153
+It's called lan0.
+
+42
+00:02:12.300 --> 00:02:14.570
+Keep in mind that this is in managed mode,
+
+43
+00:02:14.570 --> 00:02:17.157
+it's not in monitor mode,
+
+44
+00:02:17.157 --> 00:02:19.570
+and it is not connected to anything.
+
+45
+00:02:19.570 --> 00:02:23.010
+So you can see it does not have an IP address.
+
+46
+00:02:23.010 --> 00:02:25.040
+This is very, very important.
+
+47
+00:02:25.040 --> 00:02:27.670
+It needs to be, first of all, in managed mode,
+
+48
+00:02:27.670 --> 00:02:31.970
+and second, not connected to any network.
+
+49
+00:02:31.970 --> 00:02:35.250
+So even if we go at the Network Manager in here,
+
+50
+00:02:35.250 --> 00:02:37.410
+you can see we have wired connected,
+
+51
+00:02:37.410 --> 00:02:41.723
+this is my eth0, and Wi-Fi not connected.
+
+52
+00:02:44.270 --> 00:02:46.780
+Once we have everything configured properly,
+
+53
+00:02:46.780 --> 00:02:50.070
+we can go ahead and start the fake access point.
+
+54
+00:02:50.070 --> 00:02:53.920
+The program we'll use is called Wifi Hotspot.
+
+55
+00:02:53.920 --> 00:02:56.700
+It's pre-installed in the custom Kali Linux
+
+56
+00:02:56.700 --> 00:02:58.480
+that we made for this course.
+
+57
+00:02:58.480 --> 00:02:59.854
+So all you have to do is simply click
+
+58
+00:02:59.854 --> 00:03:02.550
+on Show Applications in here
+
+59
+00:03:02.550 --> 00:03:07.270
+and type Wifi, and you'll have the application in here.
+
+60
+00:03:07.270 --> 00:03:09.690
+Now, if you're using the original Kali,
+
+61
+00:03:09.690 --> 00:03:12.240
+I'm gonna include a link in the resources
+
+62
+00:03:12.240 --> 00:03:15.400
+that you can use to download and install this tool
+
+63
+00:03:15.400 --> 00:03:16.960
+but right now, we can simply click
+
+64
+00:03:16.960 --> 00:03:18.920
+on it right here to start it.
+
+65
+00:03:18.920 --> 00:03:20.290
+And as you can see,
+
+66
+00:03:20.290 --> 00:03:23.350
+it has a really nice graphical user interface
+
+67
+00:03:23.350 --> 00:03:25.630
+that is self-explanatory.
+
+68
+00:03:25.630 --> 00:03:27.940
+But I'm just gonna walk you through it real quick.
+
+69
+00:03:27.940 --> 00:03:29.040
+You can see, first of all,
+
+70
+00:03:29.040 --> 00:03:30.513
+it's asking us for the SSID.
+
+71
+00:03:31.570 --> 00:03:33.740
+This is the name of the network
+
+72
+00:03:33.740 --> 00:03:36.210
+that the clients will see when they look
+
+73
+00:03:36.210 --> 00:03:38.950
+for Wi-Fi networks around them.
+
+74
+00:03:38.950 --> 00:03:41.033
+So I'm gonna keep this as Internet.
+
+75
+00:03:42.110 --> 00:03:44.570
+Next, it's asking us if we want to have a password
+
+76
+00:03:44.570 --> 00:03:45.720
+on this network.
+
+77
+00:03:45.720 --> 00:03:48.380
+So I checked the Open box,
+
+78
+00:03:48.380 --> 00:03:51.030
+which basically means this will be an open network
+
+79
+00:03:51.030 --> 00:03:52.200
+with no password
+
+80
+00:03:52.200 --> 00:03:55.130
+because it makes more sense in our scenario
+
+81
+00:03:55.130 --> 00:03:57.290
+so that we can attract more people
+
+82
+00:03:57.290 --> 00:03:59.610
+and spy on their traffic.
+
+83
+00:03:59.610 --> 00:04:01.730
+If, in your scenario, it makes more sense
+
+84
+00:04:01.730 --> 00:04:03.510
+to have a password on the network,
+
+85
+00:04:03.510 --> 00:04:05.130
+then you can uncheck this box
+
+86
+00:04:05.130 --> 00:04:06.873
+and put the password in here.
+
+87
+00:04:07.880 --> 00:04:09.070
+So I'm gonna check it back in
+
+88
+00:04:09.070 --> 00:04:10.980
+'cause I want it to be open,
+
+89
+00:04:10.980 --> 00:04:14.750
+and next, it's asking us for the Wi-Fi interface.
+
+90
+00:04:14.750 --> 00:04:18.820
+This is the interface that will be broadcasting the signal.
+
+91
+00:04:18.820 --> 00:04:22.790
+So this will be this interface right here.
+
+92
+00:04:22.790 --> 00:04:25.300
+And in our case, this is my wireless adapter
+
+93
+00:04:25.300 --> 00:04:28.211
+and it's called lan0, as we've seen earlier.
+
+94
+00:04:28.211 --> 00:04:32.210
+And next, it's asking us for the internet interface.
+
+95
+00:04:32.210 --> 00:04:33.290
+This is the interface
+
+96
+00:04:33.290 --> 00:04:35.940
+that will provide the fake access point
+
+97
+00:04:35.940 --> 00:04:37.830
+with internet access.
+
+98
+00:04:37.830 --> 00:04:39.290
+Again, going back to the diagram,
+
+99
+00:04:39.290 --> 00:04:41.400
+this will be the interface in here,
+
+100
+00:04:41.400 --> 00:04:44.050
+and we said it doesn't matter what type of interface.
+
+101
+00:04:44.050 --> 00:04:46.190
+It could be a wireless card or a wired.
+
+102
+00:04:46.190 --> 00:04:47.480
+It doesn't really matter.
+
+103
+00:04:47.480 --> 00:04:48.900
+In my case, I'm actually getting
+
+104
+00:04:48.900 --> 00:04:51.610
+my internet access from eth0.
+
+105
+00:04:51.610 --> 00:04:54.090
+So it's already selected correctly.
+
+106
+00:04:54.090 --> 00:04:56.730
+And that is my virtual interface
+
+107
+00:04:56.730 --> 00:05:00.000
+that is connected to my virtual NAT network.
+
+108
+00:05:00.000 --> 00:05:01.980
+Now, before starting the access point,
+
+109
+00:05:01.980 --> 00:05:03.420
+let's click on the Advanced
+
+110
+00:05:03.420 --> 00:05:06.343
+just to have a look on the other options that we can set.
+
+111
+00:05:07.290 --> 00:05:09.760
+So you can see, you can select the frequency band.
+
+112
+00:05:09.760 --> 00:05:12.500
+You can set it to auto or five gigahertz.
+
+113
+00:05:12.500 --> 00:05:14.770
+You can set this network to be hidden.
+
+114
+00:05:14.770 --> 00:05:17.356
+You can use a pre-shared key.
+
+115
+00:05:17.356 --> 00:05:21.570
+You could set the MAC address of the network.
+
+116
+00:05:21.570 --> 00:05:25.290
+You could configure it to not use an virtual interfaces.
+
+117
+00:05:25.290 --> 00:05:28.440
+This might be useful to try if it's failing to start
+
+118
+00:05:28.440 --> 00:05:30.540
+but we're gonna keep it the way it is.
+
+119
+00:05:30.540 --> 00:05:31.980
+You can specify the channel
+
+120
+00:05:31.980 --> 00:05:35.520
+that you what the network to broadcast on.
+
+121
+00:05:35.520 --> 00:05:38.810
+You can check this box to use MAC filtering,
+
+122
+00:05:38.810 --> 00:05:40.980
+and then specify the MAC addresses
+
+123
+00:05:40.980 --> 00:05:43.920
+that you want to allow to connect to this network
+
+124
+00:05:43.920 --> 00:05:45.530
+in here in this box
+
+125
+00:05:45.530 --> 00:05:48.450
+so that only the specified MAC addresses in here
+
+126
+00:05:48.450 --> 00:05:50.920
+are allowed to connect to this network.
+
+127
+00:05:50.920 --> 00:05:53.660
+Again, we don't want to do this in here.
+
+128
+00:05:53.660 --> 00:05:55.930
+And you can also select the standard in here
+
+129
+00:05:55.930 --> 00:05:58.120
+for the n and the ac.
+
+130
+00:05:58.120 --> 00:05:59.750
+We're just gonna keep everything
+
+131
+00:05:59.750 --> 00:06:01.240
+on the default settings in here.
+
+132
+00:06:01.240 --> 00:06:02.880
+We really don't need to change anything
+
+133
+00:06:02.880 --> 00:06:04.800
+in our specific scenario.
+
+134
+00:06:04.800 --> 00:06:06.900
+But I just wanted to go through it real quick
+
+135
+00:06:06.900 --> 00:06:08.530
+just so you have an idea
+
+136
+00:06:08.530 --> 00:06:11.110
+in case any of these options make sense
+
+137
+00:06:11.110 --> 00:06:13.960
+in a future scenario that you'll find yourself in
+
+138
+00:06:13.960 --> 00:06:15.500
+in the future.
+
+139
+00:06:15.500 --> 00:06:17.750
+So the main things that you'll really need to set
+
+140
+00:06:17.750 --> 00:06:19.800
+when you're starting a fake access point
+
+141
+00:06:19.800 --> 00:06:22.540
+is the name, the Wi-Fi interface
+
+142
+00:06:22.540 --> 00:06:24.300
+and the internet interface,
+
+143
+00:06:24.300 --> 00:06:27.033
+and once you're ready, click on Create hotspot.
+
+144
+00:06:28.870 --> 00:06:31.270
+And perfect, now it's running as you can see,
+
+145
+00:06:31.270 --> 00:06:34.490
+and it's giving us the process ID that it's running through
+
+146
+00:06:34.490 --> 00:06:36.090
+just in case it freezes and you need
+
+147
+00:06:36.090 --> 00:06:37.810
+to kill it through the terminal.
+
+148
+00:06:37.810 --> 00:06:40.400
+But now we have a fake access point
+
+149
+00:06:40.400 --> 00:06:43.370
+that looks like a real Wi-Fi network with internet access
+
+150
+00:06:43.370 --> 00:06:46.110
+that is broadcasting within our range,
+
+151
+00:06:46.110 --> 00:06:49.660
+and the name of this wireless access point is Internet.
+
+152
+00:06:49.660 --> 00:06:51.600
+So let's go to the Windows machine
+
+153
+00:06:51.600 --> 00:06:55.620
+and see if this access point is working as expected.
+
+154
+00:06:55.620 --> 00:06:57.849
+So right here I have a Windows machine.
+
+155
+00:06:57.849 --> 00:07:00.230
+It's another virtual machine
+
+156
+00:07:00.230 --> 00:07:04.540
+but I have another wireless adapter connected
+
+157
+00:07:04.540 --> 00:07:06.070
+to this machine.
+
+158
+00:07:06.070 --> 00:07:09.220
+Do not test this from your host machine
+
+159
+00:07:09.220 --> 00:07:11.330
+because the fake access point
+
+160
+00:07:11.330 --> 00:07:15.200
+is getting its internet access from the host machine
+
+161
+00:07:15.200 --> 00:07:16.670
+through the NAT network.
+
+162
+00:07:16.670 --> 00:07:19.750
+So if you test this network from the host machine,
+
+163
+00:07:19.750 --> 00:07:21.672
+the network will not work.
+
+164
+00:07:21.672 --> 00:07:25.210
+So either test it from another virtual machine
+
+165
+00:07:25.210 --> 00:07:27.280
+with another wireless adapter,
+
+166
+00:07:27.280 --> 00:07:30.500
+or if you don't have another wireless adapter,
+
+167
+00:07:30.500 --> 00:07:32.570
+then you can test it from your phone
+
+168
+00:07:32.570 --> 00:07:34.160
+or from another laptop
+
+169
+00:07:34.160 --> 00:07:37.810
+or any other computer within range.
+
+170
+00:07:37.810 --> 00:07:41.933
+But do not ever test it from the host machine.
+
+171
+00:07:43.330 --> 00:07:46.850
+So right here, I'm gonna search for networks to connect to.
+
+172
+00:07:46.850 --> 00:07:50.480
+And as you can see, I have a network called Internet.
+
+173
+00:07:50.480 --> 00:07:52.210
+It does not use a password,
+
+174
+00:07:52.210 --> 00:07:53.883
+so I'm just gonna connect to it.
+
+175
+00:08:00.640 --> 00:08:03.030
+As you can see, I'm connected now.
+
+176
+00:08:03.030 --> 00:08:05.710
+And I'm gonna open Firefox
+
+177
+00:08:05.710 --> 00:08:08.490
+just to check if I have internet connection.
+
+178
+00:08:08.490 --> 00:08:10.603
+So I'm gonna go to bing.com.
+
+179
+00:08:13.260 --> 00:08:15.990
+And as you can see, bing.com's loading,
+
+180
+00:08:15.990 --> 00:08:20.090
+so now I actually have internet access.
+
+181
+00:08:20.090 --> 00:08:22.850
+So now anything I do on this computer
+
+182
+00:08:22.850 --> 00:08:25.510
+will have to be sent to the access point
+
+183
+00:08:25.510 --> 00:08:27.480
+if I want to access any websites,
+
+184
+00:08:27.480 --> 00:08:30.280
+if I enter any passwords and usernames.
+
+185
+00:08:30.280 --> 00:08:33.257
+Everything is gonna go to the access point.
+
+186
+00:08:33.257 --> 00:08:36.250
+And the access point is the hacker machine,
+
+187
+00:08:36.250 --> 00:08:39.870
+so the hacker machine is already the man in the middle.
+
+188
+00:08:39.870 --> 00:08:42.200
+So now you're at the same position
+
+189
+00:08:42.200 --> 00:08:46.480
+that you would be after running an ARP spoofing attack.
+
+190
+00:08:46.480 --> 00:08:49.710
+So you can go ahead and use Wireshark to sniff packets
+
+191
+00:08:49.710 --> 00:08:51.340
+and analyze them
+
+192
+00:08:51.340 --> 00:08:55.380
+or you can go and use bettercap exactly
+
+193
+00:08:55.380 --> 00:08:57.173
+as I showed you before.
+
+194
+00:08:58.410 --> 00:09:00.600
+The only thing that you need to keep in mind
+
+195
+00:09:00.600 --> 00:09:02.906
+when using Wireshark or any other tool,
+
+196
+00:09:02.906 --> 00:09:05.440
+you need to set the interface
+
+197
+00:09:05.440 --> 00:09:08.910
+to the interface that is broadcasting the signal.
+
+198
+00:09:08.910 --> 00:09:13.350
+So this is the interface that you set in the PHY option,
+
+199
+00:09:13.350 --> 00:09:15.950
+not in the upstream.
+
+200
+00:09:15.950 --> 00:09:17.530
+So in my case right now,
+
+201
+00:09:17.530 --> 00:09:21.610
+this would be lan0, not eth0.
+
+202
+00:09:21.610 --> 00:09:23.790
+Once you're done and you wanna stop this access point
+
+203
+00:09:23.790 --> 00:09:26.310
+from running, don't click on the X,
+
+204
+00:09:26.310 --> 00:09:28.220
+make sure you click on Stop first
+
+205
+00:09:28.220 --> 00:09:30.050
+to stop it properly.
+
+206
+00:09:30.050 --> 00:09:31.720
+And then you can exit the program
+
+207
+00:09:31.720 --> 00:09:33.553
+and continue whatever you wanna do.
+

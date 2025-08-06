@@ -1,0 +1,430 @@
+WEBVTT
+
+1
+00:00:00.000 --> 00:00:01.550
+<v ->Now in the next lectures,</v>
+
+2
+00:00:01.550 --> 00:00:05.220
+we're gonna start talking about server-side attacks.
+
+3
+00:00:05.220 --> 00:00:07.160
+I'm gonna teach you what a server is,
+
+4
+00:00:07.160 --> 00:00:09.610
+and we're gonna talk about that in details.
+
+5
+00:00:09.610 --> 00:00:11.660
+But before we jump into this,
+
+6
+00:00:11.660 --> 00:00:13.460
+we need to have a computer
+
+7
+00:00:13.460 --> 00:00:16.630
+or a machine that acts as a server
+
+8
+00:00:16.630 --> 00:00:19.520
+so that we can try to hack into it.
+
+9
+00:00:19.520 --> 00:00:22.340
+So similar to the way that we had a Windows machine,
+
+10
+00:00:22.340 --> 00:00:26.430
+to practice attacks that we can launch against normal users,
+
+11
+00:00:26.430 --> 00:00:28.760
+we need to have another virtual machine
+
+12
+00:00:28.760 --> 00:00:31.010
+that behaves like a server
+
+13
+00:00:31.010 --> 00:00:34.410
+so that we can practice server-side attacks against it
+
+14
+00:00:34.410 --> 00:00:37.113
+and see how we can hack into servers.
+
+15
+00:00:38.160 --> 00:00:40.180
+So the machine that we're gonna use is called
+
+16
+00:00:40.180 --> 00:00:41.650
+Metasploitable
+
+17
+00:00:41.650 --> 00:00:44.940
+and it's a virtual machine that's built on Linux
+
+18
+00:00:44.940 --> 00:00:47.770
+and it contains a number of services
+
+19
+00:00:47.770 --> 00:00:51.020
+that's typically used by servers.
+
+20
+00:00:51.020 --> 00:00:54.070
+It also contains a number of web applications
+
+21
+00:00:54.070 --> 00:00:57.540
+that act exactly like normal web applications
+
+22
+00:00:57.540 --> 00:01:01.320
+and use the same technologies used by normal servers
+
+23
+00:01:01.320 --> 00:01:03.990
+and normal web applications.
+
+24
+00:01:03.990 --> 00:01:06.090
+So, we're gonna install this machine
+
+25
+00:01:06.090 --> 00:01:07.600
+and then in the future,
+
+26
+00:01:07.600 --> 00:01:09.680
+we're gonna use it as a target
+
+27
+00:01:09.680 --> 00:01:11.950
+to learn how to hack into servers
+
+28
+00:01:11.950 --> 00:01:15.210
+and how to hack into websites.
+
+29
+00:01:15.210 --> 00:01:17.760
+You can download this from the following link.
+
+30
+00:01:17.760 --> 00:01:19.580
+Now I've also included this link
+
+31
+00:01:19.580 --> 00:01:21.640
+in the resources of this lecture.
+
+32
+00:01:21.640 --> 00:01:24.530
+If you click on this link, you'll get this page.
+
+33
+00:01:24.530 --> 00:01:26.910
+And all you have to do is simply click on download
+
+34
+00:01:26.910 --> 00:01:28.430
+to download it.
+
+35
+00:01:28.430 --> 00:01:30.540
+I've already done that to save time.
+
+36
+00:01:30.540 --> 00:01:33.730
+So, if I go to my downloads directory in here,
+
+37
+00:01:33.730 --> 00:01:36.080
+you will see that I have a ZIP archive
+
+38
+00:01:36.080 --> 00:01:37.773
+in here called Metasploitable2.
+
+39
+00:01:38.610 --> 00:01:40.370
+And we know that this is an archive,
+
+40
+00:01:40.370 --> 00:01:42.950
+a ZIP archive because we can see the icon
+
+41
+00:01:42.950 --> 00:01:44.750
+and you can see the file type.
+
+42
+00:01:44.750 --> 00:01:46.610
+So in order to uncompressed this,
+
+43
+00:01:46.610 --> 00:01:47.830
+as we've seen before,
+
+44
+00:01:47.830 --> 00:01:50.680
+we have to first double click it to access it,
+
+45
+00:01:50.680 --> 00:01:53.080
+we're gonna right click and copy.
+
+46
+00:01:53.080 --> 00:01:56.033
+We're gonna go back one directory and paste it here.
+
+47
+00:01:57.400 --> 00:01:59.240
+On Linux, you'll have to right click it
+
+48
+00:01:59.240 --> 00:02:01.240
+and click on extract here
+
+49
+00:02:01.240 --> 00:02:03.410
+and on macOS,
+
+50
+00:02:03.410 --> 00:02:06.410
+you're gonna have to double click it to uncompress it.
+
+51
+00:02:06.410 --> 00:02:07.620
+We're gonna give it some time
+
+52
+00:02:07.620 --> 00:02:10.610
+to uncompress the contents of this file.
+
+53
+00:02:10.610 --> 00:02:12.620
+And once this process is over,
+
+54
+00:02:12.620 --> 00:02:15.370
+you'll see that you'll have a new directory in here
+
+55
+00:02:15.370 --> 00:02:18.620
+with the contents of this virtual machine.
+
+56
+00:02:18.620 --> 00:02:20.770
+To import it in VMware,
+
+57
+00:02:20.770 --> 00:02:23.710
+we're gonna double click VMware to open it.
+
+58
+00:02:23.710 --> 00:02:27.450
+And we're gonna click on open a virtual machine.
+
+59
+00:02:27.450 --> 00:02:29.220
+We're gonna navigate to the location
+
+60
+00:02:29.220 --> 00:02:31.550
+where we downloaded this virtual machine,
+
+61
+00:02:31.550 --> 00:02:33.460
+so it's in my downloads.
+
+62
+00:02:33.460 --> 00:02:36.440
+It's called Metasploitable2 dash Linux.
+
+63
+00:02:36.440 --> 00:02:39.350
+And the only file that we can click is this file,
+
+64
+00:02:39.350 --> 00:02:41.210
+called Metaspoitable.
+
+65
+00:02:41.210 --> 00:02:42.410
+We're gonna open it
+
+66
+00:02:43.430 --> 00:02:47.160
+and perfect, as you can see VM-ware added there for us.
+
+67
+00:02:47.160 --> 00:02:49.610
+You can click on edit virtual machine settings,
+
+68
+00:02:49.610 --> 00:02:51.440
+to edit it settings.
+
+69
+00:02:51.440 --> 00:02:53.050
+The main thing you want to make sure is
+
+70
+00:02:53.050 --> 00:02:55.530
+that it's connected to the NAT network,
+
+71
+00:02:55.530 --> 00:02:56.940
+as you can see in here,
+
+72
+00:02:56.940 --> 00:02:58.070
+the same NAT network
+
+73
+00:02:58.070 --> 00:03:01.720
+that all of the other machines are connected to.
+
+74
+00:03:01.720 --> 00:03:03.050
+Once you're sure with that,
+
+75
+00:03:03.050 --> 00:03:06.280
+we're gonna click on start, to start it.
+
+76
+00:03:06.280 --> 00:03:07.973
+We're gonna say, I copied it.
+
+77
+00:03:09.300 --> 00:03:10.730
+This pop-up is asking us
+
+78
+00:03:10.730 --> 00:03:14.320
+if we want to install the VMware tools for this machine,
+
+79
+00:03:14.320 --> 00:03:17.640
+this is not necessary at all, especially for this machine.
+
+80
+00:03:17.640 --> 00:03:20.640
+So we're gonna to click on remind me later,
+
+81
+00:03:20.640 --> 00:03:21.473
+and perfect.
+
+82
+00:03:21.473 --> 00:03:22.400
+As you can see,
+
+83
+00:03:22.400 --> 00:03:26.240
+this machine is installed now and ready to be used.
+
+84
+00:03:26.240 --> 00:03:27.910
+Now it's asking us to log in,
+
+85
+00:03:27.910 --> 00:03:30.773
+so the default username is msfadmin,
+
+86
+00:03:33.370 --> 00:03:38.370
+and the default password is the same: msfadmin, as well.
+
+87
+00:03:38.550 --> 00:03:41.260
+But you'll notice when typing the password
+
+88
+00:03:41.260 --> 00:03:43.720
+you will not see the characters on screen,
+
+89
+00:03:43.720 --> 00:03:44.553
+this is normal,
+
+90
+00:03:44.553 --> 00:03:47.320
+it's a security feature to prevent people beside you
+
+91
+00:03:47.320 --> 00:03:48.730
+from seeing the password.
+
+92
+00:03:48.730 --> 00:03:51.560
+So simply type msfadmin,
+
+93
+00:03:51.560 --> 00:03:52.660
+and hit enter,
+
+94
+00:03:52.660 --> 00:03:55.920
+and you should be allowed to log in.
+
+95
+00:03:55.920 --> 00:03:57.300
+And that's pretty much it,
+
+96
+00:03:57.300 --> 00:04:00.710
+right now we have this virtual machine installed
+
+97
+00:04:00.710 --> 00:04:05.710
+inside our own main operating system within our hiking club.
+
+98
+00:04:05.920 --> 00:04:08.310
+And we're gonna use it as a target
+
+99
+00:04:08.310 --> 00:04:10.820
+to practice a number of attacks.
+
+100
+00:04:10.820 --> 00:04:13.920
+Don't be intimidated by the way this machine looks,
+
+101
+00:04:13.920 --> 00:04:15.960
+we're actually not gonna be using it much,
+
+102
+00:04:15.960 --> 00:04:18.610
+we're only gonna be using it as a target.
+
+103
+00:04:18.610 --> 00:04:21.410
+And you'll know what I mean, as we go through the course.
+
+104
+00:04:21.410 --> 00:04:23.310
+So for now, our job is done.
+
+105
+00:04:23.310 --> 00:04:26.030
+We managed to install a vulnerable server
+
+106
+00:04:26.030 --> 00:04:29.950
+as a virtual machine so we can test server-side attacks
+
+107
+00:04:29.950 --> 00:04:33.203
+and other attacks in the next lectures in this course.
+

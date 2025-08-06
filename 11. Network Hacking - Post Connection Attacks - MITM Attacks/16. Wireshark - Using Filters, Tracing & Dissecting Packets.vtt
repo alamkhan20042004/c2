@@ -1,0 +1,518 @@
+WEBVTT
+
+1
+00:00:00.240 --> 00:00:02.200
+<v Instructor>In this lecture, I wanna spend more time</v>
+
+2
+00:00:02.200 --> 00:00:05.340
+with Wireshark showing you how to filter all
+
+3
+00:00:05.340 --> 00:00:08.840
+of these packets to only display the useful packets,
+
+4
+00:00:08.840 --> 00:00:11.470
+how to trace them, what do they mean,
+
+5
+00:00:11.470 --> 00:00:14.650
+and how to display more information about
+
+6
+00:00:14.650 --> 00:00:16.443
+each one of these packets.
+
+7
+00:00:17.920 --> 00:00:20.070
+Now what we did on the target computer so far,
+
+8
+00:00:20.070 --> 00:00:22.330
+we most of the traffic that we generated
+
+9
+00:00:22.330 --> 00:00:24.060
+was HTTP traffic,
+
+10
+00:00:24.060 --> 00:00:26.770
+so to get rid of all this information that's hard
+
+11
+00:00:26.770 --> 00:00:27.920
+for us to read,
+
+12
+00:00:27.920 --> 00:00:30.500
+we're just gonna type in here in the filters.
+
+13
+00:00:30.500 --> 00:00:32.593
+We're just gonna type in http.
+
+14
+00:00:33.640 --> 00:00:34.473
+Hit enter,
+
+15
+00:00:35.590 --> 00:00:38.480
+and as you can see now that filtered all the packets
+
+16
+00:00:38.480 --> 00:00:40.453
+to HTTP traffic only.
+
+17
+00:00:41.740 --> 00:00:44.930
+So this is the traffic that was basically sent
+
+18
+00:00:44.930 --> 00:00:48.060
+by the browser and is usually sent by web browsers.
+
+19
+00:00:48.060 --> 00:00:52.120
+They always send traffic over HTTP or HTTPS.
+
+20
+00:00:52.120 --> 00:00:55.530
+And since we're downgraded HTTPS to HTTP,
+
+21
+00:00:55.530 --> 00:00:58.880
+you wanna use the HTTP filter to see everything
+
+22
+00:00:58.880 --> 00:01:01.680
+that a target person is doing on the browser,
+
+23
+00:01:01.680 --> 00:01:02.990
+regardless of what they're doing.
+
+24
+00:01:02.990 --> 00:01:05.070
+Whether they're browsing websites,
+
+25
+00:01:05.070 --> 00:01:07.150
+whether they're watching a video,
+
+26
+00:01:07.150 --> 00:01:08.890
+whether they're looking at images,
+
+27
+00:01:08.890 --> 00:01:12.413
+whatever they're looking, it will be loaded over HTTP.
+
+28
+00:01:14.810 --> 00:01:17.770
+So looking at the first record right here,
+
+29
+00:01:17.770 --> 00:01:20.860
+we can see that this request is sent from
+
+30
+00:01:20.860 --> 00:01:24.050
+this IP, which is the IP of my target
+
+31
+00:01:24.050 --> 00:01:26.070
+to an IP on the internet.
+
+32
+00:01:26.070 --> 00:01:28.140
+So we can see that this is not a private IP,
+
+33
+00:01:28.140 --> 00:01:29.970
+this is an IP on the internet.
+
+34
+00:01:29.970 --> 00:01:32.000
+So it's sent to a server.
+
+35
+00:01:32.000 --> 00:01:34.550
+And if we double click this record,
+
+36
+00:01:34.550 --> 00:01:38.593
+we'll get much more information about the packet itself.
+
+37
+00:01:39.600 --> 00:01:42.850
+So we have the information about the frame,
+
+38
+00:01:42.850 --> 00:01:45.680
+which includes the size of the packet.
+
+39
+00:01:45.680 --> 00:01:49.260
+It includes the interface that it was sent on,
+
+40
+00:01:49.260 --> 00:01:51.043
+the time, and all that.
+
+41
+00:01:52.050 --> 00:01:55.470
+In the internet, we have information about the source MAC
+
+42
+00:01:55.470 --> 00:01:57.910
+address and the destination MAC address.
+
+43
+00:01:57.910 --> 00:02:02.410
+So where did this packet go from and where did it go to?
+
+44
+00:02:02.410 --> 00:02:05.760
+Remember when I first spoke about packets and how
+
+45
+00:02:05.760 --> 00:02:09.580
+they always travel from a source MAC to a destination MAC?
+
+46
+00:02:09.580 --> 00:02:12.523
+So this information is all stored in here.
+
+47
+00:02:14.210 --> 00:02:18.160
+In the internet protocol, we have information about
+
+48
+00:02:18.160 --> 00:02:21.710
+the IPs, so in the internet we had information about
+
+49
+00:02:21.710 --> 00:02:22.960
+the MAC addresses.
+
+50
+00:02:22.960 --> 00:02:25.950
+In the internet protocol, we have information about
+
+51
+00:02:25.950 --> 00:02:28.910
+the source IP and the destination IP
+
+52
+00:02:28.910 --> 00:02:31.410
+for this particular packet.
+
+53
+00:02:31.410 --> 00:02:34.230
+And the transmission protocol we have information
+
+54
+00:02:34.230 --> 00:02:36.880
+about the port, so we can see that this went from this
+
+55
+00:02:36.880 --> 00:02:39.430
+source port to port 80.
+
+56
+00:02:39.430 --> 00:02:43.000
+This is usually the default port used on web servers,
+
+57
+00:02:43.000 --> 00:02:47.280
+so in most cases whenever data is sent to a website,
+
+58
+00:02:47.280 --> 00:02:49.693
+it'll always be sent to port 80.
+
+59
+00:02:50.770 --> 00:02:55.550
+But the most important part in here is the hypertext
+
+60
+00:02:55.550 --> 00:02:58.760
+transfer protocol, which is basically the data sent
+
+61
+00:02:58.760 --> 00:03:00.133
+over HTTP.
+
+62
+00:03:01.220 --> 00:03:04.803
+Clicking on this will give us information on whatever
+
+63
+00:03:04.803 --> 00:03:07.000
+data has been sent over HTTP.
+
+64
+00:03:07.000 --> 00:03:09.730
+And like I said, this would contain everything
+
+65
+00:03:09.730 --> 00:03:13.670
+that was sent to and from a browser.
+
+66
+00:03:13.670 --> 00:03:17.140
+So right here we can see that this particular packet
+
+67
+00:03:17.140 --> 00:03:21.823
+sent a get request to a website called google.ie.
+
+68
+00:03:23.300 --> 00:03:25.920
+Now this is literally when we typed google.ie,
+
+69
+00:03:25.920 --> 00:03:27.230
+we didn't search for anything.
+
+70
+00:03:27.230 --> 00:03:29.120
+We didn't really do anything.
+
+71
+00:03:29.120 --> 00:03:32.420
+You can also expand this to see more information
+
+72
+00:03:32.420 --> 00:03:34.420
+about the actual request.
+
+73
+00:03:34.420 --> 00:03:38.290
+And you can even see the HTTP header sent if you wanna
+
+74
+00:03:38.290 --> 00:03:41.963
+get more information about this particular request.
+
+75
+00:03:42.870 --> 00:03:45.930
+Now this whole method of getting information follows
+
+76
+00:03:45.930 --> 00:03:47.260
+with all types of packets,
+
+77
+00:03:47.260 --> 00:03:49.740
+so you can double click any packet you have
+
+78
+00:03:49.740 --> 00:03:52.240
+and you'll be able to read the data sent
+
+79
+00:03:52.240 --> 00:03:53.383
+within this packet.
+
+80
+00:03:54.420 --> 00:03:57.090
+Now you can also in here see an arrow,
+
+81
+00:03:57.090 --> 00:03:59.563
+which basically means that this was a request
+
+82
+00:03:59.563 --> 00:04:03.860
+and the arrow back here marks that this was
+
+83
+00:04:03.860 --> 00:04:06.823
+a response to this request right here.
+
+84
+00:04:08.250 --> 00:04:11.360
+Now moving down you can see also see requests
+
+85
+00:04:11.360 --> 00:04:12.680
+for images.
+
+86
+00:04:12.680 --> 00:04:16.270
+What you can also do is click on any of these packets,
+
+87
+00:04:16.270 --> 00:04:19.220
+for example, again back to this get request,
+
+88
+00:04:19.220 --> 00:04:24.220
+right click it, and go to Follow HTTP Stream.
+
+89
+00:04:24.810 --> 00:04:27.630
+And this will basically follow the stream
+
+90
+00:04:27.630 --> 00:04:30.760
+that this request has caused, all the way down
+
+91
+00:04:30.760 --> 00:04:32.400
+to the response.
+
+92
+00:04:32.400 --> 00:04:36.740
+So if I click it, you'll see the response for this
+
+93
+00:04:36.740 --> 00:04:40.030
+particular request was this right here.
+
+94
+00:04:40.030 --> 00:04:42.450
+You can see that this was a PNG,
+
+95
+00:04:42.450 --> 00:04:46.560
+and literally the binary content of this PNG image
+
+96
+00:04:46.560 --> 00:04:48.410
+is right here.
+
+97
+00:04:48.410 --> 00:04:51.230
+So as you can see we're literally getting the raw data
+
+98
+00:04:51.230 --> 00:04:52.870
+in here.
+
+99
+00:04:52.870 --> 00:04:55.730
+Now I'm gonna close this and go back to what we had,
+
+100
+00:04:55.730 --> 00:04:57.393
+which was HTTP.
+
+101
+00:04:59.340 --> 00:05:01.010
+Now if we keep going down.
+
+102
+00:05:01.010 --> 00:05:04.070
+You literally see everything that has been sent
+
+103
+00:05:04.070 --> 00:05:06.420
+and received by the target.
+
+104
+00:05:06.420 --> 00:05:09.810
+So, for example, again in here we can see this was
+
+105
+00:05:09.810 --> 00:05:13.240
+a JavaScript file that was loaded by Google.
+
+106
+00:05:13.240 --> 00:05:16.480
+Then in here we can see another get request.
+
+107
+00:05:16.480 --> 00:05:19.770
+And this get request was where we searched for
+
+108
+00:05:19.770 --> 00:05:24.030
+that security, so you can even see the search term in here.
+
+109
+00:05:24.030 --> 00:05:27.370
+So let me double click this to show you in more details.
+
+110
+00:05:27.370 --> 00:05:29.140
+Again, this automatically went
+
+111
+00:05:29.140 --> 00:05:31.110
+to the hypertext protocol part.
+
+112
+00:05:31.110 --> 00:05:33.640
+Like I said, this is the HTTP part.
+
+113
+00:05:33.640 --> 00:05:36.058
+Whatever that gets sent to the browser,
+
+114
+00:05:36.058 --> 00:05:40.340
+and you can see that this was sent to google.com
+
+115
+00:05:40.340 --> 00:05:44.210
+first of all and the URI, so whatever went after
+
+116
+00:05:44.210 --> 00:05:48.240
+google.com was search and what we were searching
+
+117
+00:05:48.240 --> 00:05:53.240
+for that zsecurity which is exactly what we typed in here.
+
+118
+00:05:55.920 --> 00:05:58.820
+Again, in here you can see the full URL
+
+119
+00:05:58.820 --> 00:06:00.140
+with the search term.
+
+120
+00:06:00.140 --> 00:06:03.390
+This is literally what the user gets and their URL
+
+121
+00:06:03.390 --> 00:06:04.503
+bar in here.
+
+122
+00:06:05.660 --> 00:06:09.640
+So as you can see Wireshark literally shows everything
+
+123
+00:06:09.640 --> 00:06:12.010
+that flows through the interface.
+
+124
+00:06:12.010 --> 00:06:15.270
+In this lecture I wanted to show you a quick overview
+
+125
+00:06:15.270 --> 00:06:17.360
+on how we can filter data.
+
+126
+00:06:17.360 --> 00:06:19.510
+And don't worry too much about this.
+
+127
+00:06:19.510 --> 00:06:22.140
+We'll actually be using it more in the next lectures
+
+128
+00:06:22.140 --> 00:06:24.760
+and we will see how we can easily use it
+
+129
+00:06:24.760 --> 00:06:28.363
+to filter data and discover useful information.
+

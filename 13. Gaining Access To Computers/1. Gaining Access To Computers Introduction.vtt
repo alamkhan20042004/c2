@@ -1,0 +1,244 @@
+WEBVTT
+
+00:00.210 --> 00:03.236
+-: Now you have enough information to go ahead
+
+00:03.236 --> 00:06.420
+and try to gain access to other systems
+
+00:06.420 --> 00:10.280
+to computers, servers, web servers and stuff like that.
+
+00:10.280 --> 00:13.230
+And in this section we're gonna be talking
+
+00:13.230 --> 00:16.584
+about gaining access to computer devices.
+
+00:16.584 --> 00:21.080
+And what I mean by computer devices is any electronic device
+
+00:21.080 --> 00:23.220
+you see is as a computer.
+
+00:23.220 --> 00:25.579
+So a phone, a TV, a laptop
+
+00:25.579 --> 00:29.498
+a web server, a website, a network, a router.
+
+00:29.498 --> 00:31.923
+All of these things are computers.
+
+00:31.923 --> 00:33.784
+All of them have an operating system
+
+00:33.784 --> 00:37.523
+and they have programs installed on these operating systems.
+
+00:37.523 --> 00:41.098
+And usually, in most cases these computers
+
+00:41.098 --> 00:43.315
+are used by a user.
+
+00:43.315 --> 00:45.000
+So you have an operating system,
+
+00:45.000 --> 00:48.059
+they have programs installed on that operating system
+
+00:48.059 --> 00:50.520
+and they have a user who uses them
+
+00:50.520 --> 00:52.723
+and configures this system.
+
+00:52.723 --> 00:55.650
+So I'm gonna be talking about how you gain access
+
+00:55.650 --> 00:59.640
+to computers in this example, an actual personal computer.
+
+00:59.640 --> 01:02.880
+So the name that people call it usually i.e. a computer.
+
+01:02.880 --> 01:05.820
+So we're gonna have a target of a Windows device
+
+01:05.820 --> 01:08.201
+and we're gonna have a target of a Linux device.
+
+01:08.201 --> 01:11.860
+But the concept is always the same.
+
+01:11.860 --> 01:15.480
+Getting access to computer devices is always the same.
+
+01:15.480 --> 01:17.266
+So you can apply the same concepts
+
+01:17.266 --> 01:18.960
+if you are targeting a phone
+
+01:18.960 --> 01:21.090
+if you're targeting a tablet,
+
+01:21.090 --> 01:22.470
+if you're targeting a web server.
+
+01:22.470 --> 01:24.530
+And we will be targeting web servers as well.
+
+01:24.530 --> 01:28.890
+But I will be talking about it just like a normal computer.
+
+01:28.890 --> 01:30.632
+This is very important to understand.
+
+01:30.632 --> 01:34.050
+Every device you see is a computer
+
+01:34.050 --> 01:36.690
+and it works just like your personal computer.
+
+01:36.690 --> 01:39.180
+So I can set up a web server on my computer
+
+01:39.180 --> 01:42.060
+I can make it look like a website and act as a website.
+
+01:42.060 --> 01:43.920
+I can make it act as a TV,
+
+01:43.920 --> 01:46.013
+and I can make it act as anything I want.
+
+01:46.013 --> 01:48.810
+And literally, TVs and all these things are just
+
+01:48.810 --> 01:52.936
+simpler computers with less complicated hardware in them.
+
+01:52.936 --> 01:57.750
+So we're gonna be talking about attacking these devices
+
+01:57.750 --> 02:00.632
+from two main parts or from two main sites.
+
+02:00.632 --> 02:03.900
+The first approach that we're going to use is
+
+02:03.900 --> 02:05.460
+the server site.
+
+02:05.460 --> 02:08.910
+So in this site it doesn't require any user interaction.
+
+02:08.910 --> 02:11.517
+We're gonna have a computer and we're gonna see how
+
+02:11.517 --> 02:15.240
+we can gain access to that computer without the need
+
+02:15.240 --> 02:17.490
+for the user to do anything for the user who
+
+02:17.490 --> 02:19.740
+uses that computer to do anything.
+
+02:19.740 --> 02:21.870
+All we have is gonna be an IP address
+
+02:21.870 --> 02:23.954
+and we're gonna see how we can test the security
+
+02:23.954 --> 02:26.953
+and gain access to that computer based on that IP.
+
+02:26.953 --> 02:31.107
+So our main way of getting in is gonna be the operating
+
+02:31.107 --> 02:34.781
+system that that target runs and the applications installed
+
+02:34.781 --> 02:36.207
+on that system.
+
+02:36.207 --> 02:39.330
+The second approach that we're gonna try
+
+02:39.330 --> 02:40.980
+is the client side attacks.
+
+02:40.980 --> 02:44.146
+So this approach will require the client or the person
+
+02:44.146 --> 02:46.583
+who uses that computer to do something.
+
+02:46.583 --> 02:49.080
+It could be install an update, it could be
+
+02:49.080 --> 02:52.230
+opening a picture, it could be opening a Trojan.
+
+02:52.230 --> 02:54.600
+So we're gonna learn how to create a Trojan, how to create
+
+02:54.600 --> 02:58.980
+back doors, how to use social engineering to make
+
+02:58.980 --> 03:01.170
+the target person do something
+
+03:01.170 --> 03:02.701
+and when they do that action
+
+03:02.701 --> 03:05.197
+we will gain access to their computer.
+
+03:05.197 --> 03:07.770
+Information gathering is gonna be crucial
+
+03:07.770 --> 03:09.450
+in this case because we actually need to
+
+03:09.450 --> 03:11.793
+know the person that we're targeting.
+
+03:12.630 --> 03:13.710
+After all of that,
+
+03:13.710 --> 03:16.590
+I'm gonna talk about the post exploitation.
+
+03:16.590 --> 03:20.010
+So what you could do after you gain access to this computer
+
+03:20.010 --> 03:22.860
+regardless of the method that you gained access to it.
+
+03:22.860 --> 03:25.200
+So you could have used a server side exploit
+
+03:25.200 --> 03:27.630
+you could have used a client side exploit
+
+03:27.630 --> 03:29.820
+or you could have just got a physical access,
+
+03:29.820 --> 03:31.377
+the person left their desk and you got in.
+
+03:31.377 --> 03:34.498
+So we're gonna see what can you do once you have access
+
+03:34.498 --> 03:37.437
+to your target, how you could further exploit that target
+
+03:37.437 --> 03:39.390
+and increase your privileges
+
+03:39.390 --> 03:41.883
+or target other computers in the same place.

@@ -1,0 +1,714 @@
+WEBVTT
+
+1
+00:00:00.560 --> 00:00:01.960
+<v Lecturer>In the previous lectures,</v>
+
+2
+00:00:01.960 --> 00:00:04.160
+we learned how to use Bettercap
+
+3
+00:00:04.160 --> 00:00:07.570
+to discover all clients on the same network,
+
+4
+00:00:07.570 --> 00:00:11.800
+run an ARP spoofing attack to intercept the data
+
+5
+00:00:11.800 --> 00:00:15.460
+and then sniff data to see the usernames, passwords,
+
+6
+00:00:15.460 --> 00:00:19.760
+and everything that's getting sent over the network.
+
+7
+00:00:19.760 --> 00:00:21.580
+Now in order to do this,
+
+8
+00:00:21.580 --> 00:00:24.920
+we actually had to run a number of commands.
+
+9
+00:00:24.920 --> 00:00:28.800
+So first of all, we had to do net.probe on,
+
+10
+00:00:28.800 --> 00:00:30.910
+to turn on the probe module.
+
+11
+00:00:30.910 --> 00:00:35.060
+We had to set the settings for the ARPspoof module,
+
+12
+00:00:35.060 --> 00:00:40.060
+turn that on, and then turn the sniffing module on.
+
+13
+00:00:40.200 --> 00:00:43.070
+Now, every time you want to do this,
+
+14
+00:00:43.070 --> 00:00:46.640
+every time you want to intercept data and see it onscreen,
+
+15
+00:00:46.640 --> 00:00:49.970
+you're gonna have to do all of the steps that I showed you
+
+16
+00:00:49.970 --> 00:00:51.483
+in the previous lecture.
+
+17
+00:00:52.500 --> 00:00:55.450
+Or if you're lazy like myself,
+
+18
+00:00:55.450 --> 00:01:00.230
+you can use a caplet to do all of that automatically,
+
+19
+00:01:00.230 --> 00:01:03.673
+which is exactly what I wanna show you in this lecture.
+
+20
+00:01:04.530 --> 00:01:07.300
+So what do I mean by a caplet?
+
+21
+00:01:07.300 --> 00:01:10.770
+Well, basically a caplet is just a text file
+
+22
+00:01:10.770 --> 00:01:14.890
+that contains all of the commands that you want to run.
+
+23
+00:01:14.890 --> 00:01:17.640
+So I'm gonna resize this menu.
+
+24
+00:01:17.640 --> 00:01:19.590
+I'm gonna open a text file
+
+25
+00:01:20.680 --> 00:01:22.890
+and I'm just gonna organize this a little bit
+
+26
+00:01:22.890 --> 00:01:25.430
+to make it easier to follow
+
+27
+00:01:25.430 --> 00:01:27.880
+and I'm gonna clear this window here
+
+28
+00:01:27.880 --> 00:01:30.670
+and I'm gonna go to the first command that we had to run
+
+29
+00:01:30.670 --> 00:01:32.240
+in order to do this.
+
+30
+00:01:32.240 --> 00:01:35.280
+So again scrolling up, the first thing we did
+
+31
+00:01:35.280 --> 00:01:39.000
+was net.probe on.
+
+32
+00:01:39.000 --> 00:01:40.980
+So in my text file here,
+
+33
+00:01:40.980 --> 00:01:45.643
+I'm gonna literally type this command, net.probe on.
+
+34
+00:01:46.890 --> 00:01:49.370
+And as we saw, this will automatically start
+
+35
+00:01:49.370 --> 00:01:51.380
+the net.recon module.
+
+36
+00:01:51.380 --> 00:01:54.020
+Again, we enabled both of these modules
+
+37
+00:01:54.020 --> 00:01:56.850
+in order to discover the connected clients
+
+38
+00:01:56.850 --> 00:02:00.300
+and keep automatically discovering any new clients
+
+39
+00:02:00.300 --> 00:02:02.700
+that connect to the network.
+
+40
+00:02:02.700 --> 00:02:04.240
+The next thing that we did
+
+41
+00:02:04.240 --> 00:02:09.200
+was modify the settings for the ARPspoof module.
+
+42
+00:02:09.200 --> 00:02:14.200
+So we did set ARPspoof full duplex to true.
+
+43
+00:02:15.250 --> 00:02:18.223
+I'm gonna actually copy this and paste it here.
+
+44
+00:02:20.900 --> 00:02:24.280
+Then we set the target IP.
+
+45
+00:02:24.280 --> 00:02:28.580
+So again, I'm just gonna copy this and paste it here
+
+46
+00:02:28.580 --> 00:02:31.060
+and keep in mind this is very important.
+
+47
+00:02:31.060 --> 00:02:34.060
+You wanna make sure that you change the IP here
+
+48
+00:02:34.060 --> 00:02:36.940
+to the IP of your target all the time.
+
+49
+00:02:36.940 --> 00:02:39.730
+And if you are targeting multiple computers,
+
+50
+00:02:39.730 --> 00:02:41.390
+you can just use the comma
+
+51
+00:02:41.390 --> 00:02:44.343
+and type the next IP after the coma.
+
+52
+00:02:46.060 --> 00:02:49.640
+Next we turned on the ARPspoof module.
+
+53
+00:02:49.640 --> 00:02:51.720
+So again, this is what I'm gonna do here.
+
+54
+00:02:51.720 --> 00:02:56.123
+I'm gonna do arp.spoof on.
+
+55
+00:02:57.110 --> 00:03:02.110
+And finally we also run the sniffer by doing net.sniff on.
+
+56
+00:03:03.310 --> 00:03:08.310
+So again, I'm just gonna type this in here, net.sniff on.
+
+57
+00:03:09.900 --> 00:03:11.840
+So this is actually a nice summary
+
+58
+00:03:11.840 --> 00:03:14.610
+of what we did in the previous lectures.
+
+59
+00:03:14.610 --> 00:03:15.680
+Again, like I said,
+
+60
+00:03:15.680 --> 00:03:18.150
+every time you wanna intercept the connections,
+
+61
+00:03:18.150 --> 00:03:20.140
+you're gonna have to start Bettercap
+
+62
+00:03:20.140 --> 00:03:22.760
+and run all of these commands manually.
+
+63
+00:03:22.760 --> 00:03:24.530
+You wanna start the probe module,
+
+64
+00:03:24.530 --> 00:03:26.550
+you wanna enable the full duplex.
+
+65
+00:03:26.550 --> 00:03:30.600
+So you full or spoof the target and the router.
+
+66
+00:03:30.600 --> 00:03:32.890
+You wanna set your target IP
+
+67
+00:03:32.890 --> 00:03:36.770
+and you wanna turn on the spoof and turn on the sniff.
+
+68
+00:03:36.770 --> 00:03:39.260
+So to make this very easy,
+
+69
+00:03:39.260 --> 00:03:42.380
+instead of having to type this every time
+
+70
+00:03:42.380 --> 00:03:47.110
+we want to run an ARP spoofing attack and intercept data,
+
+71
+00:03:47.110 --> 00:03:49.520
+I put all of this in a text file.
+
+72
+00:03:49.520 --> 00:03:51.503
+I'm gonna save this text file.
+
+73
+00:03:52.830 --> 00:03:55.400
+I'm gonna put it in my root directory
+
+74
+00:03:55.400 --> 00:03:57.837
+and I'm gonna call it spoof.cap.
+
+75
+00:04:02.000 --> 00:04:06.040
+So I'm gonna save this now and I can close it
+
+76
+00:04:06.040 --> 00:04:10.180
+because we're done with it and we can go back here.
+
+77
+00:04:10.180 --> 00:04:13.410
+And what I'm actually gonna do, I'm gonna exit out of this.
+
+78
+00:04:13.410 --> 00:04:18.150
+So I'm gonna quit Bettercap and I'm gonna clear the screen.
+
+79
+00:04:18.150 --> 00:04:22.130
+And if I do LS to list all of the files and directories
+
+80
+00:04:22.130 --> 00:04:23.660
+in the current working directory,
+
+81
+00:04:23.660 --> 00:04:26.630
+because right now I am in root.
+
+82
+00:04:26.630 --> 00:04:30.660
+So if I do LS, you can see we have a new file
+
+83
+00:04:30.660 --> 00:04:33.560
+called spoof.cap.
+
+84
+00:04:33.560 --> 00:04:35.110
+And just to confirm,
+
+85
+00:04:35.110 --> 00:04:38.313
+if I go down to my file manager right here,
+
+86
+00:04:39.180 --> 00:04:42.030
+you can see we have a new file, again in the root
+
+87
+00:04:42.030 --> 00:04:44.270
+called spoof.cap.
+
+88
+00:04:44.270 --> 00:04:48.620
+And all we want to do, is feed this spoof file
+
+89
+00:04:48.620 --> 00:04:51.923
+to Bettercap before we start Bettercap.
+
+90
+00:04:53.230 --> 00:04:55.500
+Now, we don't know how to do this,
+
+91
+00:04:55.500 --> 00:05:00.150
+so we're gonna do bettercap--help to see all of the options
+
+92
+00:05:00.150 --> 00:05:01.700
+that we can set with Bettercap.
+
+93
+00:05:02.920 --> 00:05:07.920
+And what we want to do is use the -caplet option right here.
+
+94
+00:05:09.400 --> 00:05:12.580
+So we're gonna run Bettercap like we used to do.
+
+95
+00:05:12.580 --> 00:05:16.160
+First of all, we do Bettercap followed by iface
+
+96
+00:05:16.160 --> 00:05:19.060
+to specify the interface that is connected
+
+97
+00:05:19.060 --> 00:05:23.603
+to the target network and in my case this is ETH0.
+
+98
+00:05:24.490 --> 00:05:26.620
+So, so far this is identical
+
+99
+00:05:26.620 --> 00:05:29.540
+to what I've been doing in the previous lectures.
+
+100
+00:05:29.540 --> 00:05:31.210
+The only difference now,
+
+101
+00:05:31.210 --> 00:05:34.280
+is we're gonna use the -caplet option
+
+102
+00:05:34.280 --> 00:05:38.850
+to specify my caplet file that I just created.
+
+103
+00:05:38.850 --> 00:05:41.200
+So I'm gonna do -caplet
+
+104
+00:05:41.200 --> 00:05:43.590
+followed by the file that I just created,
+
+105
+00:05:43.590 --> 00:05:48.233
+which is called spoof.cap and that's it.
+
+106
+00:05:49.080 --> 00:05:52.040
+Now, before I hit enter, just to confirm to you,
+
+107
+00:05:52.040 --> 00:05:54.920
+I'm gonna go back to my windows machine
+
+108
+00:05:54.920 --> 00:05:58.760
+and I'm gonna do ARP-a to show you.
+
+109
+00:05:58.760 --> 00:06:00.630
+And as you can see right now,
+
+110
+00:06:00.630 --> 00:06:05.030
+the router's IP right here, has this MAC address.
+
+111
+00:06:05.030 --> 00:06:06.640
+So after I run this,
+
+112
+00:06:06.640 --> 00:06:09.300
+it should automatically start all of the modules
+
+113
+00:06:09.300 --> 00:06:13.230
+that I just typed and it should run an ARP spoofing attack.
+
+114
+00:06:13.230 --> 00:06:16.060
+Therefore, the router's MAC address
+
+115
+00:06:16.060 --> 00:06:19.620
+should change to the MAC address of ETH0
+
+116
+00:06:19.620 --> 00:06:22.763
+that is connected to kali right here.
+
+117
+00:06:24.020 --> 00:06:28.240
+So I'm gonna hit enter and as you can see,
+
+118
+00:06:28.240 --> 00:06:29.990
+we actually got an error
+
+119
+00:06:29.990 --> 00:06:34.000
+and the error is saying the caplet spoof could not be found.
+
+120
+00:06:34.000 --> 00:06:38.760
+So I'm suspecting I made a spelling mistake and I did.
+
+121
+00:06:38.760 --> 00:06:43.020
+As you can see, I actually named the caplet soof not spoof.
+
+122
+00:06:43.020 --> 00:06:46.080
+So I actually make a lot of mistakes like this.
+
+123
+00:06:46.080 --> 00:06:49.320
+So I'm just gonna rename this to spoof
+
+124
+00:06:49.320 --> 00:06:51.660
+and we're gonna go back here.
+
+125
+00:06:51.660 --> 00:06:56.660
+I'm gonna exit and run the same command again, and perfect.
+
+126
+00:06:57.330 --> 00:07:01.080
+As you can see, we got no errors at all.
+
+127
+00:07:01.080 --> 00:07:04.100
+If I do help, as you can see
+
+128
+00:07:04.100 --> 00:07:06.990
+automatically we have this spoof is running.
+
+129
+00:07:06.990 --> 00:07:11.370
+We have the probe, the recon, and the sniff all running
+
+130
+00:07:11.370 --> 00:07:13.990
+as soon as we run Bettercap.
+
+131
+00:07:13.990 --> 00:07:17.520
+If you remember the first time we ran it,
+
+132
+00:07:17.520 --> 00:07:19.410
+we only had the stream running
+
+133
+00:07:19.410 --> 00:07:21.430
+and we had to do everything manually
+
+134
+00:07:21.430 --> 00:07:23.840
+and set the options manually.
+
+135
+00:07:23.840 --> 00:07:26.623
+So this is a really, really nice way of doing it.
+
+136
+00:07:27.580 --> 00:07:31.280
+Now let's confirm that everything is working as expected.
+
+137
+00:07:31.280 --> 00:07:33.320
+So I'm gonna go to the windows machine
+
+138
+00:07:34.420 --> 00:07:38.760
+and we're gonna do ARP-a again.
+
+139
+00:07:38.760 --> 00:07:42.750
+And perfect, as you can see, the routers MAC address
+
+140
+00:07:42.750 --> 00:07:47.180
+has changed to the same MAC address as the kali machine
+
+141
+00:07:47.180 --> 00:07:49.440
+and the original routers MAC address,
+
+142
+00:07:49.440 --> 00:07:51.980
+the correct one was this.
+
+143
+00:07:51.980 --> 00:07:54.140
+So this means that this windows machine
+
+144
+00:07:54.140 --> 00:07:57.990
+is now spoofed, thinking that the kali machine is the router
+
+145
+00:07:57.990 --> 00:07:59.320
+and the router now thinks
+
+146
+00:07:59.320 --> 00:08:01.650
+that the kali machine is this machine.
+
+147
+00:08:01.650 --> 00:08:04.850
+This will place kali in the middle of the connection.
+
+148
+00:08:04.850 --> 00:08:07.430
+And just to confirm this, just real quick,
+
+149
+00:08:07.430 --> 00:08:09.040
+I'm already in vulnweb.
+
+150
+00:08:09.040 --> 00:08:12.360
+This is the website that we tested the login before.
+
+151
+00:08:12.360 --> 00:08:14.360
+I'm actually even still logged in.
+
+152
+00:08:14.360 --> 00:08:17.990
+So I'm gonna log out, log in again,
+
+153
+00:08:17.990 --> 00:08:20.720
+and I'm gonna leave the username to admin
+
+154
+00:08:20.720 --> 00:08:22.630
+and I'm just gonna put a password again,
+
+155
+00:08:22.630 --> 00:08:27.380
+one, two, three, four to nine zero, enter.
+
+156
+00:08:27.380 --> 00:08:29.440
+Let's go back and perfect.
+
+157
+00:08:29.440 --> 00:08:32.500
+As you can see, we wouldn't be able to get this
+
+158
+00:08:32.500 --> 00:08:35.430
+if we were not in the middle of the connection.
+
+159
+00:08:35.430 --> 00:08:38.310
+So the fact that we're getting all of this information
+
+160
+00:08:38.310 --> 00:08:41.130
+means that we managed to intercept the data
+
+161
+00:08:41.130 --> 00:08:45.120
+and see everything the target user sends or receives.
+
+162
+00:08:45.120 --> 00:08:49.630
+And again we have the username and the password right here.
+
+163
+00:08:49.630 --> 00:08:52.350
+Like I said, this will only work with HTTP.
+
+164
+00:08:52.350 --> 00:08:56.320
+We will discuss HTTPS in the next lectures.
+
+165
+00:08:56.320 --> 00:09:00.800
+But in this lecture I just wanted to show you an easy way
+
+166
+00:09:00.800 --> 00:09:05.470
+of scripting the commands that you often run with Bettercap
+
+167
+00:09:05.470 --> 00:09:06.980
+because in the future
+
+168
+00:09:06.980 --> 00:09:09.410
+we're gonna be doing a number of things
+
+169
+00:09:09.410 --> 00:09:12.890
+that rely on us being the man in the middle.
+
+170
+00:09:12.890 --> 00:09:16.270
+So because I don't want to waste time
+
+171
+00:09:16.270 --> 00:09:19.610
+enabling all of the modules that we're running here.
+
+172
+00:09:19.610 --> 00:09:21.840
+So again, if I right click this
+
+173
+00:09:21.840 --> 00:09:25.623
+and open with a normal text editor,
+
+174
+00:09:27.460 --> 00:09:30.980
+all you'll have to do is just put your commands in a file,
+
+175
+00:09:30.980 --> 00:09:33.210
+give a file a specific name,
+
+176
+00:09:33.210 --> 00:09:36.550
+and then when you're on Bettercap, all you have to do
+
+177
+00:09:36.550 --> 00:09:39.210
+is just use the caplet argument,
+
+178
+00:09:39.210 --> 00:09:42.193
+followed by the name of your caplet file.
+

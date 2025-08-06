@@ -1,0 +1,738 @@
+WEBVTT
+
+1
+00:00:00.910 --> 00:00:02.210
+<v Instructor>In the pervious lectures,</v>
+
+2
+00:00:02.210 --> 00:00:05.300
+we learned how to detect ARP spoofing attacks
+
+3
+00:00:05.300 --> 00:00:08.500
+by manually analyzing the ARP tables.
+
+4
+00:00:08.500 --> 00:00:10.970
+We also learned how to install tools
+
+5
+00:00:10.970 --> 00:00:15.550
+such as Xarp to automatically detect ARP spoofing attacks
+
+6
+00:00:15.550 --> 00:00:18.690
+without having to manually check the ARP tables
+
+7
+00:00:18.690 --> 00:00:19.920
+and we even learned
+
+8
+00:00:19.920 --> 00:00:24.193
+how to detect other suspicious activities using Wireshark.
+
+9
+00:00:25.240 --> 00:00:29.430
+Now, this is really good but still has a few problems.
+
+10
+00:00:29.430 --> 00:00:32.450
+First of all, we're only talking about detection,
+
+11
+00:00:32.450 --> 00:00:34.410
+so even when we detect that someone
+
+12
+00:00:34.410 --> 00:00:36.660
+is intercepting the connection,
+
+13
+00:00:36.660 --> 00:00:38.280
+we can't really do much,
+
+14
+00:00:38.280 --> 00:00:40.610
+all we could so is simply disconnect
+
+15
+00:00:40.610 --> 00:00:43.770
+from the network, maybe change its password if we can,
+
+16
+00:00:43.770 --> 00:00:46.620
+if we're on the network to something that's more difficult
+
+17
+00:00:46.620 --> 00:00:48.610
+or if this is a public network
+
+18
+00:00:48.610 --> 00:00:51.750
+such as a airport, a hotel or a college network,
+
+19
+00:00:51.750 --> 00:00:54.480
+then all we can do is simply just disconnect
+
+20
+00:00:54.480 --> 00:00:56.470
+and use a different network
+
+21
+00:00:56.470 --> 00:00:58.463
+because we can change its password.
+
+22
+00:00:59.660 --> 00:01:01.820
+The other problem with the previous methods,
+
+23
+00:01:01.820 --> 00:01:04.500
+like I said, they're only detection methods,
+
+24
+00:01:04.500 --> 00:01:07.750
+therefore they'll only work if the target manage
+
+25
+00:01:07.750 --> 00:01:12.060
+to become the man-in-the-middle using ARP spoofing.
+
+26
+00:01:12.060 --> 00:01:13.840
+But what if someone is able
+
+27
+00:01:13.840 --> 00:01:16.770
+to intercept the connection using another method?
+
+28
+00:01:16.770 --> 00:01:20.980
+For example, if someone is running a fake access point,
+
+29
+00:01:20.980 --> 00:01:22.430
+like I showed you earlier,
+
+30
+00:01:22.430 --> 00:01:25.250
+and you connected to this fake access point?
+
+31
+00:01:25.250 --> 00:01:28.200
+Or if you connected to a hotel, a college,
+
+32
+00:01:28.200 --> 00:01:31.010
+a public Wi-Fi network, a cafe network
+
+33
+00:01:31.010 --> 00:01:32.501
+and the admin of that network
+
+34
+00:01:32.501 --> 00:01:35.500
+is actually collecting data or someone
+
+35
+00:01:35.500 --> 00:01:38.590
+or a hacker gained access to the admin's computer
+
+36
+00:01:38.590 --> 00:01:40.780
+and again is analyzing the data
+
+37
+00:01:40.780 --> 00:01:42.870
+because by default, in fake networks
+
+38
+00:01:42.870 --> 00:01:44.510
+and in any network,
+
+39
+00:01:44.510 --> 00:01:46.760
+the admin is able to see the traffic
+
+40
+00:01:46.760 --> 00:01:49.220
+because the traffic will have to go through their server
+
+41
+00:01:49.220 --> 00:01:50.430
+or through their router.
+
+42
+00:01:50.430 --> 00:01:51.800
+So the detection methods
+
+43
+00:01:51.800 --> 00:01:55.425
+that I showed you earlier won't even work against this.
+
+44
+00:01:55.425 --> 00:01:58.100
+Therefore, in this lecture,
+
+45
+00:01:58.100 --> 00:02:01.250
+I wanna discuss two solutions to this problem
+
+46
+00:02:01.250 --> 00:02:03.620
+so the idea is you use these solutions
+
+47
+00:02:03.620 --> 00:02:06.700
+if you discover that you're being attacked
+
+48
+00:02:06.700 --> 00:02:09.150
+or if you're connecting to a network
+
+49
+00:02:09.150 --> 00:02:11.460
+that you don't own and manage yourself.
+
+50
+00:02:11.460 --> 00:02:13.410
+So if you're connecting to a college network,
+
+51
+00:02:13.410 --> 00:02:15.730
+an airport network, a cafe network,
+
+52
+00:02:15.730 --> 00:02:17.120
+or any other network
+
+53
+00:02:17.120 --> 00:02:20.593
+that you yourself don't have control over.
+
+54
+00:02:21.730 --> 00:02:23.480
+The solution to all of this
+
+55
+00:02:23.480 --> 00:02:25.460
+is to encrypt your traffic.
+
+56
+00:02:25.460 --> 00:02:27.166
+If you encrypt your traffic,
+
+57
+00:02:27.166 --> 00:02:30.560
+we don't really care if somebody is able
+
+58
+00:02:30.560 --> 00:02:32.350
+to intercept this traffic
+
+59
+00:02:32.350 --> 00:02:35.370
+because our traffic is going to be encrypted,
+
+60
+00:02:35.370 --> 00:02:36.960
+therefore it'll be gibberish
+
+61
+00:02:36.960 --> 00:02:39.550
+and it won't be useful to anybody
+
+62
+00:02:39.550 --> 00:02:41.913
+that is intercepting our traffic.
+
+63
+00:02:42.830 --> 00:02:44.800
+So there are a number of ways to so this
+
+64
+00:02:44.800 --> 00:02:47.730
+and I'll explain how they work as we go through it.
+
+65
+00:02:47.730 --> 00:02:50.140
+So let me show you this in action.
+
+66
+00:02:50.140 --> 00:02:52.480
+Right here, I'm already running Bettercap
+
+67
+00:02:52.480 --> 00:02:55.044
+and as you can see, it's already getting information.
+
+68
+00:02:55.044 --> 00:02:57.690
+And right here is my target
+
+69
+00:02:57.690 --> 00:02:59.447
+and we're already on Vulnweb
+
+70
+00:02:59.447 --> 00:03:02.380
+and if we just click on anything just to show you,
+
+71
+00:03:02.380 --> 00:03:05.233
+you'll see the domain is gonna be detected in here.
+
+72
+00:03:06.570 --> 00:03:08.963
+And then let's just quickly log in.
+
+73
+00:03:10.350 --> 00:03:12.970
+You'll see this login attempt will be detected
+
+74
+00:03:12.970 --> 00:03:14.760
+so we have the username is admin
+
+75
+00:03:14.760 --> 00:03:17.290
+and the password is testtesttest.
+
+76
+00:03:17.290 --> 00:03:20.270
+Again, if we try, I'll just open a new tab
+
+77
+00:03:20.270 --> 00:03:23.453
+and go to Stack Overflow,
+
+78
+00:03:24.410 --> 00:03:28.150
+you'll see it'll load over HTTP, not hTTPS,
+
+79
+00:03:28.150 --> 00:03:30.330
+so again, if I go ahead and log in,
+
+80
+00:03:30.330 --> 00:03:32.970
+I'll be able to log in and detect the password
+
+81
+00:03:32.970 --> 00:03:35.450
+and the HSTS method that I showed you earlier,
+
+82
+00:03:35.450 --> 00:03:38.270
+again it'll work and we'll be able to bypass that
+
+83
+00:03:38.270 --> 00:03:39.560
+and steal the password.
+
+84
+00:03:39.560 --> 00:03:41.840
+So right, this Kali machine
+
+85
+00:03:41.840 --> 00:03:44.160
+is able to intercept all the data
+
+86
+00:03:44.160 --> 00:03:48.293
+that is sent to and from my Windows machine right here.
+
+87
+00:03:49.740 --> 00:03:52.270
+So the first method to prevent these attacks
+
+88
+00:03:52.270 --> 00:03:53.730
+and we don't care if we're being attacked,
+
+89
+00:03:53.730 --> 00:03:56.441
+again, I'm not running Xarp, I'm not managing my ARP tables,
+
+90
+00:03:56.441 --> 00:04:00.090
+I don't care if someone intercepts my data.
+
+91
+00:04:00.090 --> 00:04:02.580
+Wheat I'm gonna do is I'm gonna install a plugin
+
+92
+00:04:02.580 --> 00:04:06.240
+on my browser called HTTPS Everywhere.
+
+93
+00:04:06.240 --> 00:04:08.230
+So I'm gonna be installing it on Firefox.
+
+94
+00:04:08.230 --> 00:04:11.120
+I'll include its link in the resources of this lecture,
+
+95
+00:04:11.120 --> 00:04:13.580
+but there is an equivalent of this plugin
+
+96
+00:04:13.580 --> 00:04:17.220
+for most browsers such as Chrome and others.
+
+97
+00:04:17.220 --> 00:04:20.070
+All we have to do is simply click on Add to Firefox
+
+98
+00:04:20.070 --> 00:04:22.985
+or Add to Browser, whatever browser you use.
+
+99
+00:04:22.985 --> 00:04:25.743
+We're gonna click on Add in here.
+
+100
+00:04:26.780 --> 00:04:29.380
+And that's it, the plugin is added in here.
+
+101
+00:04:29.380 --> 00:04:32.320
+As you can see, I'm gonna click on OK
+
+102
+00:04:32.320 --> 00:04:36.123
+and we can manage it here from its icon on the top right.
+
+103
+00:04:37.530 --> 00:04:40.150
+So as you can see right here now it's set to off
+
+104
+00:04:40.150 --> 00:04:41.840
+and if I click this,
+
+105
+00:04:41.840 --> 00:04:44.030
+I will turn on this plugin
+
+106
+00:04:44.030 --> 00:04:46.550
+and basically what this plugin will do,
+
+107
+00:04:46.550 --> 00:04:51.150
+you can think of it as if it adds HSTS support
+
+108
+00:04:51.150 --> 00:04:54.050
+to more websites, pretty much to any website
+
+109
+00:04:54.050 --> 00:04:55.333
+that uses HTTPS.
+
+110
+00:04:56.320 --> 00:04:57.810
+Therefore, for example,
+
+111
+00:04:57.810 --> 00:05:00.580
+when I try to access stack Overflow in here,
+
+112
+00:05:00.580 --> 00:05:02.340
+I was able to downgrade it
+
+113
+00:05:02.340 --> 00:05:04.600
+because my browser does not know
+
+114
+00:05:04.600 --> 00:05:07.870
+that this website should be loaded over HTTPS
+
+115
+00:05:07.870 --> 00:05:12.600
+and Bettercap was downgrading the HTTPS requests to HTTP
+
+116
+00:05:12.600 --> 00:05:14.702
+like I explained in previous lectures.
+
+117
+00:05:14.702 --> 00:05:16.500
+What this plugin will do,
+
+118
+00:05:16.500 --> 00:05:20.080
+similar to HSTS, it has a list of websites
+
+119
+00:05:20.080 --> 00:05:21.785
+that support HTTPS
+
+120
+00:05:21.785 --> 00:05:26.630
+and therefore when we try to downgrade the HTTPS connection
+
+121
+00:05:26.630 --> 00:05:29.280
+of this website to a HTTP connection,
+
+122
+00:05:29.280 --> 00:05:31.660
+it'll tell the browser no, don't do that
+
+123
+00:05:31.660 --> 00:05:33.630
+and it will upgrade it again back
+
+124
+00:05:33.630 --> 00:05:36.470
+to a HTTPS connection.
+
+125
+00:05:36.470 --> 00:05:37.303
+So let me show you.
+
+126
+00:05:37.303 --> 00:05:39.660
+I'm just gonna delete the history
+
+127
+00:05:39.660 --> 00:05:42.780
+and I'm gonna load Stack Overflow again
+
+128
+00:05:42.780 --> 00:05:44.300
+and perfect, as you can see,
+
+129
+00:05:44.300 --> 00:05:47.170
+it's loading with HTTPS in here.
+
+130
+00:05:47.170 --> 00:05:50.610
+Therefore now if I go and log in,
+
+131
+00:05:50.610 --> 00:05:54.330
+my information will be encrypted and therefore the hacker
+
+132
+00:05:54.330 --> 00:05:57.243
+won't be able to see my username and password.
+
+133
+00:05:58.150 --> 00:05:59.870
+So that's really, really good
+
+134
+00:05:59.870 --> 00:06:01.760
+but not perfect.
+
+135
+00:06:01.760 --> 00:06:03.890
+Let me tell you why it's not perfect.
+
+136
+00:06:03.890 --> 00:06:07.280
+First of all, if we go back to a HTTP website,
+
+137
+00:06:07.280 --> 00:06:10.400
+again similar to what we have in here in Vulnweb,
+
+138
+00:06:10.400 --> 00:06:12.057
+so I'm just gonna log out
+
+139
+00:06:12.057 --> 00:06:15.860
+and we'll log in again with another password.
+
+140
+00:06:15.860 --> 00:06:19.100
+I'll just put the password now to 1234567890.
+
+141
+00:06:21.510 --> 00:06:22.890
+We'll log in
+
+142
+00:06:22.890 --> 00:06:26.640
+and if we go back here to the logs,
+
+143
+00:06:26.640 --> 00:06:31.000
+all the way down, you'll see we are still able
+
+144
+00:06:31.000 --> 00:06:33.463
+to detect the username and the password.
+
+145
+00:06:34.360 --> 00:06:37.630
+So this plugin is really good for websites
+
+146
+00:06:37.630 --> 00:06:39.710
+that support HTTPS.
+
+147
+00:06:39.710 --> 00:06:42.960
+It'll force us to load HTTPS on websites
+
+148
+00:06:42.960 --> 00:06:44.190
+that support HTTPS
+
+149
+00:06:45.260 --> 00:06:49.070
+but if you access a website that only uses HTTP
+
+150
+00:06:49.070 --> 00:06:51.360
+such as Vulnweb, I know there aren't a lot
+
+151
+00:06:51.360 --> 00:06:53.040
+of websites that do that
+
+152
+00:06:53.040 --> 00:06:55.990
+but they still exist, so if you access any website
+
+153
+00:06:55.990 --> 00:07:00.070
+that uses only HTTP, then that website is still open
+
+154
+00:07:00.070 --> 00:07:00.910
+to the hacker.
+
+155
+00:07:00.910 --> 00:07:03.590
+So the hacker can still see this information,
+
+156
+00:07:03.590 --> 00:07:06.620
+they'll still be able to steal usernames and passwords.
+
+157
+00:07:06.620 --> 00:07:09.550
+If you send usernames and passwords to them.
+
+158
+00:07:09.550 --> 00:07:12.230
+Not only that but they will also still be able
+
+159
+00:07:12.230 --> 00:07:15.290
+to replace downloads, serve you fake updates
+
+160
+00:07:15.290 --> 00:07:18.610
+or inject JavaScript code like we've seen earlier
+
+161
+00:07:18.610 --> 00:07:20.303
+and get you hooked to Beef.
+
+162
+00:07:21.170 --> 00:07:25.060
+HTTPS Everywhere also does not prevent the hacker
+
+163
+00:07:25.060 --> 00:07:27.740
+from seeing the websites that you access
+
+164
+00:07:27.740 --> 00:07:30.710
+and running DNS spoofing attacks.
+
+165
+00:07:30.710 --> 00:07:31.710
+Let me show you.
+
+166
+00:07:31.710 --> 00:07:35.573
+So if I just go to bing.com, for example,
+
+167
+00:07:37.010 --> 00:07:41.803
+and then let's go to duckduckgo.com,
+
+168
+00:07:43.060 --> 00:07:46.340
+keep in mind, HTTPS Everywhere is still working
+
+169
+00:07:46.340 --> 00:07:50.530
+and let's go to the hacker machine
+
+170
+00:07:50.530 --> 00:07:52.543
+and just look at our logs.
+
+171
+00:07:53.570 --> 00:07:57.190
+So as you can see, we can still see that our target went
+
+172
+00:07:57.190 --> 00:08:01.090
+to DuckDuckGo, we can see that the target went to Google.
+
+173
+00:08:01.090 --> 00:08:04.020
+We can see that the target went to Bing,
+
+174
+00:08:04.020 --> 00:08:06.530
+so we can still see the domain names
+
+175
+00:08:06.530 --> 00:08:08.940
+but we can see the data that gets sent
+
+176
+00:08:08.940 --> 00:08:10.890
+because that'll be encrypted with HTTPS
+
+177
+00:08:11.830 --> 00:08:16.830
+so there is still some data that the hacker is able to get.
+
+178
+00:08:16.990 --> 00:08:20.010
+If you want to take your security to the next level
+
+179
+00:08:20.010 --> 00:08:23.970
+and completely encrypt everything you send and receive,
+
+180
+00:08:23.970 --> 00:08:26.823
+then you should think about using a VPN.
+
+181
+00:08:27.680 --> 00:08:29.530
+Therefore, in the next lecture,
+
+182
+00:08:29.530 --> 00:08:33.730
+I'll explain to you what a VPN is, how it works,
+
+183
+00:08:33.730 --> 00:08:36.260
+and how it can protect us from hackers
+
+184
+00:08:36.260 --> 00:08:39.613
+or anybody that intercepts our connection.
+

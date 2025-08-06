@@ -1,0 +1,858 @@
+WEBVTT
+
+1
+00:00:00.050 --> 00:00:01.370
+<v Instructor>In the previous lectures</v>
+
+2
+00:00:01.370 --> 00:00:03.430
+we learned how to use Bettercap
+
+3
+00:00:03.430 --> 00:00:06.010
+to do a number of cool things.
+
+4
+00:00:06.010 --> 00:00:09.660
+But everything we did, we did it through a text
+
+5
+00:00:09.660 --> 00:00:12.403
+or a terminal interface.
+
+6
+00:00:13.260 --> 00:00:17.140
+There is also a web interface or a graphical interface
+
+7
+00:00:17.140 --> 00:00:20.520
+for Bettercap that we can use to do everything
+
+8
+00:00:20.520 --> 00:00:22.053
+that I showed you so far.
+
+9
+00:00:23.060 --> 00:00:26.120
+The reason why I started with the text interface,
+
+10
+00:00:26.120 --> 00:00:28.720
+because first of all, I actually prefer using it
+
+11
+00:00:28.720 --> 00:00:31.500
+and I use that instead of the graphical interface
+
+12
+00:00:31.500 --> 00:00:33.130
+all the time.
+
+13
+00:00:33.130 --> 00:00:34.580
+I think it's faster,
+
+14
+00:00:34.580 --> 00:00:36.530
+you can use it to achieve your goal
+
+15
+00:00:36.530 --> 00:00:39.100
+and launch the attacks much faster.
+
+16
+00:00:39.100 --> 00:00:43.170
+It also requires less resources and less modules,
+
+17
+00:00:43.170 --> 00:00:46.963
+therefore it's less likely to fail and it's less buggy.
+
+18
+00:00:47.810 --> 00:00:48.643
+Not only that,
+
+19
+00:00:48.643 --> 00:00:51.360
+but by learning how to use the text interface,
+
+20
+00:00:51.360 --> 00:00:54.710
+I also showed you how to manually modify the caplets
+
+21
+00:00:54.710 --> 00:00:57.300
+and the scripts where they are stored,
+
+22
+00:00:57.300 --> 00:00:59.000
+and how to use them properly
+
+23
+00:00:59.000 --> 00:01:01.450
+without the need for an extra plugin,
+
+24
+00:01:01.450 --> 00:01:04.553
+which is the plugin that runs the web interface.
+
+25
+00:01:05.600 --> 00:01:06.660
+With that being said,
+
+26
+00:01:06.660 --> 00:01:08.840
+some people still think the web interface
+
+27
+00:01:08.840 --> 00:01:10.310
+is more user-friendly
+
+28
+00:01:10.310 --> 00:01:12.823
+and that's why I'm gonna cover it in this lecture.
+
+29
+00:01:14.070 --> 00:01:17.633
+So I'm gonna start Bettercap by typing bettercap,
+
+30
+00:01:18.760 --> 00:01:22.110
+and I'm gonna do -iface to select my interface
+
+31
+00:01:22.110 --> 00:01:24.070
+which is eth0.
+
+32
+00:01:24.070 --> 00:01:26.640
+And I'm not gonna specify a caplet this time,
+
+33
+00:01:26.640 --> 00:01:29.270
+because I simply just want to start Bettercap
+
+34
+00:01:29.270 --> 00:01:32.813
+on the interface that is connected to the target network.
+
+35
+00:01:33.670 --> 00:01:34.760
+So we're gonna hit enter
+
+36
+00:01:34.760 --> 00:01:37.990
+and that will run with no issues as usual.
+
+37
+00:01:37.990 --> 00:01:40.500
+Now, if you are using the custom Kali image
+
+38
+00:01:40.500 --> 00:01:42.130
+that I made for this course,
+
+39
+00:01:42.130 --> 00:01:44.890
+then you can simply start the web interface
+
+40
+00:01:44.890 --> 00:01:46.983
+by typing http-ui.
+
+41
+00:01:48.720 --> 00:01:51.820
+But if you're using the original version of Kali
+
+42
+00:01:51.820 --> 00:01:55.340
+or if you're using Bettercap on a different distribution,
+
+43
+00:01:55.340 --> 00:01:58.150
+then you're gonna have to install the web interface,
+
+44
+00:01:58.150 --> 00:02:02.680
+so you're gonna have to do ui.update to install it,
+
+45
+00:02:02.680 --> 00:02:07.393
+and then once it's installed, you can simply do http-ui.
+
+46
+00:02:09.260 --> 00:02:10.350
+Now, like I said,
+
+47
+00:02:10.350 --> 00:02:13.150
+because I am using the latest custom Kali
+
+48
+00:02:13.150 --> 00:02:14.700
+that is made for this course,
+
+49
+00:02:14.700 --> 00:02:18.200
+I can simply run it by typing http-ui
+
+50
+00:02:18.200 --> 00:02:20.500
+without having to install anything.
+
+51
+00:02:20.500 --> 00:02:22.550
+And if I hit enter,
+
+52
+00:02:22.550 --> 00:02:24.640
+you'll see that it's gonna run with no issues
+
+53
+00:02:24.640 --> 00:02:26.630
+on this URL.
+
+54
+00:02:26.630 --> 00:02:30.570
+So I'm gonna copy this and we're gonna go,
+
+55
+00:02:30.570 --> 00:02:32.993
+and open it in my web browser.
+
+56
+00:02:37.400 --> 00:02:38.233
+And perfect.
+
+57
+00:02:38.233 --> 00:02:43.140
+As you can see, we get the login page for the web interface,
+
+58
+00:02:43.140 --> 00:02:45.730
+so the default username is user
+
+59
+00:02:45.730 --> 00:02:47.933
+and the default password is pass.
+
+60
+00:02:49.160 --> 00:02:52.090
+I'm gonna click on Login to log in.
+
+61
+00:02:52.090 --> 00:02:53.330
+And as you can see,
+
+62
+00:02:53.330 --> 00:02:56.700
+we have a very simple and easy to use interface.
+
+63
+00:02:56.700 --> 00:02:59.210
+There is no more commands that we have to run,
+
+64
+00:02:59.210 --> 00:03:01.070
+even though we can run commands here
+
+65
+00:03:01.070 --> 00:03:02.383
+through the command line.
+
+66
+00:03:03.420 --> 00:03:05.570
+Right here, we have the event log.
+
+67
+00:03:05.570 --> 00:03:09.610
+So this is similar to what you see in here in the terminal,
+
+68
+00:03:09.610 --> 00:03:13.010
+but it's in a much nicer interface.
+
+69
+00:03:13.010 --> 00:03:15.520
+You can use the search bar here to filter,
+
+70
+00:03:15.520 --> 00:03:17.990
+if you're looking for a specific log
+
+71
+00:03:17.990 --> 00:03:19.843
+or for a specific event.
+
+72
+00:03:20.990 --> 00:03:24.690
+And you can actually click any event type to mute it,
+
+73
+00:03:24.690 --> 00:03:27.653
+so you won't see any of that event on screen.
+
+74
+00:03:28.960 --> 00:03:33.120
+All of this is happening in here, in the events menu.
+
+75
+00:03:33.120 --> 00:03:36.260
+The next useful page would be the land page right here,
+
+76
+00:03:36.260 --> 00:03:38.900
+which will show you all the devices connected
+
+77
+00:03:38.900 --> 00:03:39.940
+to the network,
+
+78
+00:03:39.940 --> 00:03:43.890
+so this is similar to when we used to do net.show.
+
+79
+00:03:43.890 --> 00:03:46.340
+As you can see right now, we only have the router,
+
+80
+00:03:46.340 --> 00:03:49.010
+which is a 10.0.2.1,
+
+81
+00:03:49.010 --> 00:03:54.010
+and my current computer, which is 10.0.2.15, this is Kali.
+
+82
+00:03:54.270 --> 00:03:55.640
+Now, as you know,
+
+83
+00:03:55.640 --> 00:04:00.620
+before we have to start the net.recon and net.probe
+
+84
+00:04:00.620 --> 00:04:04.460
+to discover all of the devices on the same network.
+
+85
+00:04:04.460 --> 00:04:06.900
+So when here, instead of writing the commands,
+
+86
+00:04:06.900 --> 00:04:09.840
+all you have to do is click on this play button
+
+87
+00:04:09.840 --> 00:04:12.440
+to start the net.probe
+
+88
+00:04:12.440 --> 00:04:17.020
+and click on this play button to start the net.recon,
+
+89
+00:04:17.020 --> 00:04:19.610
+you'll get nice notifications in here.
+
+90
+00:04:19.610 --> 00:04:20.650
+And as you can see,
+
+91
+00:04:20.650 --> 00:04:24.720
+we managed to discover all of the connected devices.
+
+92
+00:04:24.720 --> 00:04:27.760
+You can also see, and here we have a nice tag
+
+93
+00:04:27.760 --> 00:04:29.810
+to tell us that this is the gateway
+
+94
+00:04:29.810 --> 00:04:33.740
+and a nice tag telling us that this is our computer,
+
+95
+00:04:33.740 --> 00:04:37.320
+and the devices that we discovered are these two devices,
+
+96
+00:04:37.320 --> 00:04:40.360
+and you can see, this is my MS Edge device,
+
+97
+00:04:40.360 --> 00:04:43.963
+the windows machine that we have always been targeting.
+
+98
+00:04:45.000 --> 00:04:48.050
+Again, because this is a very simple web interface,
+
+99
+00:04:48.050 --> 00:04:49.880
+you won't have to type anything,
+
+100
+00:04:49.880 --> 00:04:52.590
+you can click on this little arrow right here
+
+101
+00:04:52.590 --> 00:04:55.133
+beside the machine, beside the IP,
+
+102
+00:04:55.970 --> 00:04:58.610
+you can either scan this machine for ports
+
+103
+00:04:58.610 --> 00:05:02.030
+or add it to your spoofing targets.
+
+104
+00:05:02.030 --> 00:05:05.970
+So you won't have to set arp.spoof.targets to this IP,
+
+105
+00:05:05.970 --> 00:05:08.300
+all they have to do is literally click here
+
+106
+00:05:08.300 --> 00:05:11.323
+and it's automatically added to the ARP spoof.
+
+107
+00:05:12.220 --> 00:05:13.053
+Not only that,
+
+108
+00:05:13.053 --> 00:05:15.280
+but we'll see a nice little window in here
+
+109
+00:05:15.280 --> 00:05:17.650
+to configure our ARP spoofer,
+
+110
+00:05:17.650 --> 00:05:20.540
+and remember we used to set this option to true,
+
+111
+00:05:20.540 --> 00:05:21.890
+the full duplex,
+
+112
+00:05:21.890 --> 00:05:25.690
+so all I have to do now is just click here to check it,
+
+113
+00:05:25.690 --> 00:05:27.100
+and to start this spoofer,
+
+114
+00:05:27.100 --> 00:05:30.530
+all I have to do is click on start spoofing and done.
+
+115
+00:05:30.530 --> 00:05:32.733
+Now we should be spoofing the target.
+
+116
+00:05:33.700 --> 00:05:34.533
+As you can see,
+
+117
+00:05:34.533 --> 00:05:37.590
+we also see a nice icon in here beside this IP
+
+118
+00:05:37.590 --> 00:05:41.040
+to tell us that at the moment we are spoofing this IP,
+
+119
+00:05:41.040 --> 00:05:43.013
+telling it that we are the gateway.
+
+120
+00:05:43.900 --> 00:05:48.623
+So now if I go to my target and just do arp -a,
+
+121
+00:05:49.460 --> 00:05:52.940
+you can see that the router's Mac address has changed
+
+122
+00:05:52.940 --> 00:05:56.350
+to the Mac address of the Kali machine, which is this one.
+
+123
+00:05:56.350 --> 00:05:59.530
+So that means that we are properly spoofing this device,
+
+124
+00:05:59.530 --> 00:06:01.400
+telling it that we are the router,
+
+125
+00:06:01.400 --> 00:06:03.750
+and we managed to become the man in the middle.
+
+126
+00:06:04.650 --> 00:06:07.530
+Now I've actually showed you how to do all of this before
+
+127
+00:06:07.530 --> 00:06:10.120
+in details, so if you don't remember any of this,
+
+128
+00:06:10.120 --> 00:06:12.270
+or if any of this feels strange,
+
+129
+00:06:12.270 --> 00:06:14.570
+then please go back and revise the lectures
+
+130
+00:06:14.570 --> 00:06:16.263
+where I covered these things.
+
+131
+00:06:17.260 --> 00:06:20.860
+Now, I also showed you how to bypass HTTPS
+
+132
+00:06:20.860 --> 00:06:25.860
+and partially bypass HSTS using a caplet.
+
+133
+00:06:26.060 --> 00:06:28.543
+Again, we have a nice menu here for caplets.
+
+134
+00:06:29.600 --> 00:06:32.300
+And as you can see, we have all of the caplets
+
+135
+00:06:32.300 --> 00:06:34.960
+currently available with Bettercap,
+
+136
+00:06:34.960 --> 00:06:37.760
+and all you have to do is just click on the caplets
+
+137
+00:06:37.760 --> 00:06:39.280
+that you want to run,
+
+138
+00:06:39.280 --> 00:06:43.800
+and in my case, it's the hstshijack caplet.
+
+139
+00:06:43.800 --> 00:06:47.400
+Also, if you remember, when we were modifying this caplet,
+
+140
+00:06:47.400 --> 00:06:50.090
+we used to have to open the location
+
+141
+00:06:50.090 --> 00:06:52.010
+where the caplets are installed
+
+142
+00:06:52.010 --> 00:06:54.650
+and then open the caplet in a text editor,
+
+143
+00:06:54.650 --> 00:06:57.010
+and then modify its options.
+
+144
+00:06:57.010 --> 00:06:58.060
+Whereas in here,
+
+145
+00:06:58.060 --> 00:07:00.570
+you can literally modify any options you want
+
+146
+00:07:00.570 --> 00:07:05.570
+within this menu, click on the disk icon right here to save,
+
+147
+00:07:06.020 --> 00:07:09.343
+and then click on play to run this caplet.
+
+148
+00:07:10.350 --> 00:07:11.183
+And as you can see,
+
+149
+00:07:11.183 --> 00:07:13.000
+you get nice notifications telling you
+
+150
+00:07:13.000 --> 00:07:17.030
+that everything got executed as expected,
+
+151
+00:07:17.030 --> 00:07:20.160
+and right now we can go ahead and test this.
+
+152
+00:07:20.160 --> 00:07:25.143
+So if I go here and just clear the browsing data as usual,
+
+153
+00:07:26.870 --> 00:07:30.050
+and then if I just go to a normal HTTPS page,
+
+154
+00:07:30.050 --> 00:07:35.050
+such as stackoverflow.com,
+
+155
+00:07:35.110 --> 00:07:39.240
+you'll see that this will load over HTTP so we can log in
+
+156
+00:07:39.240 --> 00:07:41.780
+and we should be able to get the username and password,
+
+157
+00:07:41.780 --> 00:07:43.970
+as I showed you before.
+
+158
+00:07:43.970 --> 00:07:47.420
+And we can test the partial HSTS bypass,
+
+159
+00:07:47.420 --> 00:07:49.683
+so if I go to google.ie,
+
+160
+00:07:50.810 --> 00:07:52.713
+and search for Facebook,
+
+161
+00:07:54.930 --> 00:07:56.743
+click on the first result,
+
+162
+00:07:59.520 --> 00:08:00.353
+and perfect.
+
+163
+00:08:00.353 --> 00:08:04.160
+As you can see, it's loading over normal HTTP here again,
+
+164
+00:08:04.160 --> 00:08:07.470
+so if I log in the information will be captured
+
+165
+00:08:07.470 --> 00:08:08.603
+by my sniffer.
+
+166
+00:08:09.600 --> 00:08:13.110
+So as you can see, it is very, very easy to edit caplets
+
+167
+00:08:13.110 --> 00:08:15.863
+and even run them through this web interface.
+
+168
+00:08:17.250 --> 00:08:19.900
+You can also run all of the other plugins
+
+169
+00:08:19.900 --> 00:08:22.420
+through the advanced menu in here.
+
+170
+00:08:22.420 --> 00:08:25.630
+So for example, if you wanted to start the sniffer,
+
+171
+00:08:25.630 --> 00:08:27.780
+all you have to do is just scroll down here,
+
+172
+00:08:27.780 --> 00:08:29.093
+looking for the sniffer,
+
+173
+00:08:29.960 --> 00:08:32.480
+and we have it right here, net.sniff,
+
+174
+00:08:32.480 --> 00:08:37.480
+if I click on that, as you can see on top, it's not running.
+
+175
+00:08:38.020 --> 00:08:40.610
+And right here, instead of running the commands,
+
+176
+00:08:40.610 --> 00:08:42.590
+all you have to do is just click on the command
+
+177
+00:08:42.590 --> 00:08:43.743
+that you want to run.
+
+178
+00:08:44.900 --> 00:08:45.733
+Not only that,
+
+179
+00:08:45.733 --> 00:08:48.330
+but if you wanted to modify any of the options,
+
+180
+00:08:48.330 --> 00:08:50.330
+again, all you have to do is just type
+
+181
+00:08:50.330 --> 00:08:52.350
+whatever you want to modify in here,
+
+182
+00:08:52.350 --> 00:08:53.920
+click on the save in here,
+
+183
+00:08:53.920 --> 00:08:56.363
+and then run the command that you want to run.
+
+184
+00:08:57.460 --> 00:08:59.450
+So if I wanted to start the sniffer now,
+
+185
+00:08:59.450 --> 00:09:03.070
+all I have to do is just click on net.sniff on,
+
+186
+00:09:03.070 --> 00:09:05.020
+and this will start the sniffer for me.
+
+187
+00:09:06.150 --> 00:09:08.600
+Now, the sniffer combined with the nice events
+
+188
+00:09:08.600 --> 00:09:10.010
+that we can get in here,
+
+189
+00:09:10.010 --> 00:09:14.280
+makes it easier to filter through the data that we capture,
+
+190
+00:09:14.280 --> 00:09:17.330
+but it's still not the best way to filter
+
+191
+00:09:17.330 --> 00:09:18.923
+through the capture data.
+
+192
+00:09:20.020 --> 00:09:22.320
+I will cover how to properly sniff data
+
+193
+00:09:22.320 --> 00:09:24.690
+and filter it using Wireshark,
+
+194
+00:09:24.690 --> 00:09:28.060
+which is the best tool for sniffing and filtering data.
+
+195
+00:09:28.060 --> 00:09:28.893
+But again,
+
+196
+00:09:28.893 --> 00:09:32.030
+this web interface right here provides a nicer way
+
+197
+00:09:32.030 --> 00:09:34.723
+of interacting and using Bettercap.
+
+198
+00:09:35.920 --> 00:09:38.880
+Now, I didn't show you how to use the WiFi, the BLE,
+
+199
+00:09:38.880 --> 00:09:41.990
+the HID and the Position menus,
+
+200
+00:09:41.990 --> 00:09:43.900
+because we actually did not use
+
+201
+00:09:43.900 --> 00:09:46.050
+any of these modules previously,
+
+202
+00:09:46.050 --> 00:09:48.660
+so I just wanted to focus on showing you
+
+203
+00:09:48.660 --> 00:09:52.833
+how to do everything we've done so far using this interface.
+
+204
+00:09:54.280 --> 00:09:57.610
+Like I said, it is easier to use, I agree,
+
+205
+00:09:57.610 --> 00:10:00.440
+but once you get used to the terminal interface,
+
+206
+00:10:00.440 --> 00:10:03.440
+it will be just as easy as this one.
+
+207
+00:10:03.440 --> 00:10:05.260
+To me, it's more organized,
+
+208
+00:10:05.260 --> 00:10:08.380
+it can be used to achieve my goals much quicker,
+
+209
+00:10:08.380 --> 00:10:11.330
+it uses less resources and it's faster,
+
+210
+00:10:11.330 --> 00:10:15.280
+that's why I prefer using it over the web interface.
+
+211
+00:10:15.280 --> 00:10:17.050
+And if it wasn't for showing you
+
+212
+00:10:17.050 --> 00:10:20.563
+how to use the web interface, I wouldn't even install it.
+
+213
+00:10:21.450 --> 00:10:24.920
+But at the end of the day, I want to show you both options,
+
+214
+00:10:24.920 --> 00:10:28.993
+and obviously you're free to use whatever is easier for you.
+

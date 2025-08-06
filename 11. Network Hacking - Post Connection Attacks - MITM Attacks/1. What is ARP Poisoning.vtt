@@ -1,0 +1,674 @@
+WEBVTT
+
+1
+00:00:01.160 --> 00:00:04.040
+[Lecturer] Now, in this lecture and the next few lectures
+
+2
+00:00:04.040 --> 00:00:07.693
+I wanna start talking about Man In the Middle Attacks.
+
+3
+00:00:08.790 --> 00:00:11.600
+These are attacks that we can launch
+
+4
+00:00:11.600 --> 00:00:14.860
+only if we are able to intercept
+
+5
+00:00:14.860 --> 00:00:18.540
+the communication between two devices.
+
+6
+00:00:18.540 --> 00:00:21.603
+Hence the name, Man In The Middle Attacks.
+
+7
+00:00:22.720 --> 00:00:26.030
+So a normal communication would look like this,
+
+8
+00:00:26.030 --> 00:00:29.870
+where the device is directly communicating with the entity
+
+9
+00:00:29.870 --> 00:00:32.520
+that they want to communicate with.
+
+10
+00:00:32.520 --> 00:00:34.560
+In a Man In The Middle Attack,
+
+11
+00:00:34.560 --> 00:00:38.210
+the hacker would be able to place themselves
+
+12
+00:00:38.210 --> 00:00:40.140
+in the middle of the connection,
+
+13
+00:00:40.140 --> 00:00:43.420
+allowing them to intercept and see anything
+
+14
+00:00:43.420 --> 00:00:47.113
+that is being transferred between the two devices.
+
+15
+00:00:48.330 --> 00:00:51.470
+Now, there are a number of ways to achieve this.
+
+16
+00:00:51.470 --> 00:00:54.530
+The first method that we'll cover in this course
+
+17
+00:00:54.530 --> 00:00:57.623
+is using an ARP spoofing attack.
+
+18
+00:00:58.630 --> 00:01:02.720
+ARP spoofing allow us to redirect the flow of packets
+
+19
+00:01:02.720 --> 00:01:06.830
+so instead of it flowing as shown in this diagram,
+
+20
+00:01:06.830 --> 00:01:10.900
+it would flow through my own computer.
+
+21
+00:01:10.900 --> 00:01:15.840
+So any requests sent and any responses received
+
+22
+00:01:15.840 --> 00:01:17.780
+by the target computer,
+
+23
+00:01:17.780 --> 00:01:20.823
+will have to flow through the hacker computer.
+
+24
+00:01:21.700 --> 00:01:25.940
+This means that any messages, any websites, any images,
+
+25
+00:01:25.940 --> 00:01:30.180
+any usernames, any passwords entered by the target
+
+26
+00:01:30.180 --> 00:01:32.473
+will have to flow through my computer.
+
+27
+00:01:33.360 --> 00:01:35.900
+This allows me to read this information,
+
+28
+00:01:35.900 --> 00:01:37.833
+modify it or drop it.
+
+29
+00:01:38.950 --> 00:01:40.040
+So as you can see,
+
+30
+00:01:40.040 --> 00:01:43.810
+this is a very serious and very powerful attack.
+
+31
+00:01:43.810 --> 00:01:46.340
+And the reason why it is possible
+
+32
+00:01:46.340 --> 00:01:50.343
+is because ARP is not very secure.
+
+33
+00:01:51.350 --> 00:01:53.770
+Now for us to understand how this works,
+
+34
+00:01:53.770 --> 00:01:58.153
+you need to have a basic understanding of what ARP is.
+
+35
+00:01:59.060 --> 00:02:02.500
+ARP stands for Address Resolution Protocol,
+
+36
+00:02:02.500 --> 00:02:04.640
+and it's a very simple protocol
+
+37
+00:02:04.640 --> 00:02:09.163
+that allow us to link IP addresses to MAC addresses.
+
+38
+00:02:10.070 --> 00:02:13.710
+So for example, let's say we have a network here,
+
+39
+00:02:13.710 --> 00:02:16.070
+we have devices A, B, C, and D.
+
+40
+00:02:16.070 --> 00:02:18.970
+They're all connected to the same network.
+
+41
+00:02:18.970 --> 00:02:21.930
+And we have the router here for this network.
+
+42
+00:02:21.930 --> 00:02:26.070
+We can see that each device has an IP and a MAC address.
+
+43
+00:02:26.070 --> 00:02:28.830
+Let's assume that device A
+
+44
+00:02:28.830 --> 00:02:31.323
+needs to communicate with device C.
+
+45
+00:02:32.200 --> 00:02:33.330
+Now we're also gonna assume
+
+46
+00:02:33.330 --> 00:02:37.030
+that device A knows the IP of device C.
+
+47
+00:02:37.030 --> 00:02:38.890
+But as we know so far,
+
+48
+00:02:38.890 --> 00:02:41.350
+in order for these devices to communicate
+
+49
+00:02:41.350 --> 00:02:42.960
+within the same network,
+
+50
+00:02:42.960 --> 00:02:47.030
+device A needs to know the MAC address of device C.
+
+51
+00:02:47.030 --> 00:02:48.710
+Because like we said before,
+
+52
+00:02:48.710 --> 00:02:50.970
+the communication inside the network
+
+53
+00:02:50.970 --> 00:02:53.350
+is carried out using the MAC address
+
+54
+00:02:53.350 --> 00:02:56.270
+and not using the IP address.
+
+55
+00:02:56.270 --> 00:03:00.100
+So this is a perfectly normal situation where have a client
+
+56
+00:03:00.100 --> 00:03:02.890
+that needs to know the MAC address of another client
+
+57
+00:03:02.890 --> 00:03:06.060
+so that it can communicate with this client.
+
+58
+00:03:06.060 --> 00:03:10.170
+So what this client does, it uses the ARP protocol.
+
+59
+00:03:10.170 --> 00:03:11.820
+What do I mean by that?
+
+60
+00:03:11.820 --> 00:03:15.060
+Basically, it sends a broadcast message.
+
+61
+00:03:15.060 --> 00:03:19.030
+So it sends an ARP request to all the clients on the network
+
+62
+00:03:19.030 --> 00:03:22.620
+saying who has 10.0.2.6?
+
+63
+00:03:22.620 --> 00:03:26.270
+Now all of these devices will ignore this packet
+
+64
+00:03:26.270 --> 00:03:28.820
+except the one that has this IP address,
+
+65
+00:03:28.820 --> 00:03:32.970
+which is 10.0.2.6, which is device C.
+
+66
+00:03:32.970 --> 00:03:36.060
+So all devices will not do anything
+
+67
+00:03:36.060 --> 00:03:39.650
+and the only device that will respond is device C
+
+68
+00:03:39.650 --> 00:03:42.600
+sending an ARP response.
+
+69
+00:03:42.600 --> 00:03:47.090
+In this response, device C is gonna say I have 10.0.2.6,
+
+70
+00:03:47.090 --> 00:03:49.893
+my MAC address is this MAC address.
+
+71
+00:03:51.010 --> 00:03:55.160
+This way device A will have the MAC address of device C
+
+72
+00:03:55.160 --> 00:03:58.310
+and now it will be able to communicate with device C
+
+73
+00:03:58.310 --> 00:04:02.460
+and do whatever task that it wanted to do initially.
+
+74
+00:04:02.460 --> 00:04:04.290
+So all of this communication
+
+75
+00:04:04.290 --> 00:04:08.050
+is facilitated using the ARP protocol.
+
+76
+00:04:08.050 --> 00:04:09.780
+Like I said, the ARP protocol
+
+77
+00:04:09.780 --> 00:04:12.250
+is a very simple protocol as you can see.
+
+78
+00:04:12.250 --> 00:04:15.710
+All it has is requests and responses
+
+79
+00:04:15.710 --> 00:04:17.690
+and the whole point of it
+
+80
+00:04:17.690 --> 00:04:21.630
+is so that we can link IP addresses to MAC addresses
+
+81
+00:04:21.630 --> 00:04:25.030
+or translate IP addresses to MAC addresses.
+
+82
+00:04:25.030 --> 00:04:28.390
+So a device can send a request asking for a MAC address
+
+83
+00:04:28.390 --> 00:04:30.840
+and then the device that has the MAC address
+
+84
+00:04:30.840 --> 00:04:33.373
+would respond with its MAC address.
+
+85
+00:04:35.070 --> 00:04:38.670
+So each computer have an ARP table,
+
+86
+00:04:38.670 --> 00:04:42.070
+which links IP addresses on the same network
+
+87
+00:04:42.070 --> 00:04:43.623
+to their MAC addresses.
+
+88
+00:04:44.860 --> 00:04:49.330
+So if I go on the kali machine and do ARP-a,
+
+89
+00:04:49.330 --> 00:04:52.730
+you can see my ARP table here and as you can see
+
+90
+00:04:52.730 --> 00:04:56.733
+it's linking the router's IP to the router's MAC address.
+
+91
+00:04:57.960 --> 00:05:00.640
+Now same if I go to the windows machine
+
+92
+00:05:00.640 --> 00:05:05.640
+and run my CMD and do ARP-a, you'll see again,
+
+93
+00:05:08.260 --> 00:05:13.120
+it's linking the router's IP to its MAC address.
+
+94
+00:05:13.120 --> 00:05:14.140
+So this machine,
+
+95
+00:05:14.140 --> 00:05:18.110
+anytime it needs to send any request to the Internet,
+
+96
+00:05:18.110 --> 00:05:21.690
+it will direct that request to this MAC address,
+
+97
+00:05:21.690 --> 00:05:24.600
+to the MAC address that's associated
+
+98
+00:05:24.600 --> 00:05:28.253
+with the IP of the router, which is 10.0.2.1.
+
+99
+00:05:29.590 --> 00:05:34.560
+Now this value in here, can be easily modified
+
+100
+00:05:34.560 --> 00:05:38.310
+by exploiting the ARP protocol.
+
+101
+00:05:38.310 --> 00:05:40.610
+So let me go back to my diagrams
+
+102
+00:05:40.610 --> 00:05:45.210
+and right here we have a diagram of a typical network
+
+103
+00:05:45.210 --> 00:05:47.750
+and you can see that normally
+
+104
+00:05:47.750 --> 00:05:50.470
+any device that's connected to the network,
+
+105
+00:05:50.470 --> 00:05:52.580
+if it wants to send a request,
+
+106
+00:05:52.580 --> 00:05:55.680
+it will send them to the router, the router will go
+
+107
+00:05:55.680 --> 00:05:59.310
+and send that request to the Internet, wait for the response
+
+108
+00:05:59.310 --> 00:06:01.010
+and then forward the response
+
+109
+00:06:01.010 --> 00:06:03.520
+to the device that requested it.
+
+110
+00:06:03.520 --> 00:06:05.490
+So if the hacker or the victim
+
+111
+00:06:05.490 --> 00:06:07.670
+or any other computer on the network
+
+112
+00:06:07.670 --> 00:06:09.400
+wanted to send a request,
+
+113
+00:06:09.400 --> 00:06:13.523
+they will send that request directly to the router.
+
+114
+00:06:14.620 --> 00:06:18.930
+Now what we can do is we can exploit the ARP protocol
+
+115
+00:06:18.930 --> 00:06:22.340
+and send two ARP responses,
+
+116
+00:06:22.340 --> 00:06:26.303
+one to the gateway and one to the victim.
+
+117
+00:06:27.230 --> 00:06:28.910
+We're gonna tell the gateway
+
+118
+00:06:28.910 --> 00:06:32.390
+that I am at the IP of the victim,
+
+119
+00:06:32.390 --> 00:06:35.980
+so the access point will update its ARP table
+
+120
+00:06:35.980 --> 00:06:39.560
+and it'll associate the IP of the target
+
+121
+00:06:39.560 --> 00:06:41.113
+with my MAC address.
+
+122
+00:06:42.160 --> 00:06:44.230
+We'll do the same with the victim,
+
+123
+00:06:44.230 --> 00:06:46.790
+so we'll send it an ARP response.
+
+124
+00:06:46.790 --> 00:06:50.920
+We're gonna tell it that I am at 10.0.2.1
+
+125
+00:06:50.920 --> 00:06:54.030
+so it's going to update its ARP table
+
+126
+00:06:54.030 --> 00:06:59.030
+and associate the IP of 10.0.2.1 with my own MAC address.
+
+127
+00:07:00.860 --> 00:07:04.310
+So the result of this, the victim is gonna think
+
+128
+00:07:04.310 --> 00:07:07.710
+that I am the router and the router is gonna think
+
+129
+00:07:07.710 --> 00:07:09.193
+that I am the victim.
+
+130
+00:07:10.120 --> 00:07:14.040
+So anytime the victim wants to send any requests,
+
+131
+00:07:14.040 --> 00:07:17.060
+the requests will have to flow through my computer
+
+132
+00:07:17.060 --> 00:07:19.840
+and I'm gonna forward them to the router.
+
+133
+00:07:19.840 --> 00:07:23.040
+And then anytime the access point or the router
+
+134
+00:07:23.040 --> 00:07:27.620
+wants to send responses, they're gonna go to my machine
+
+135
+00:07:27.620 --> 00:07:30.060
+because it thinks that I am the victim
+
+136
+00:07:30.060 --> 00:07:33.633
+and then I'm going to forward it to the victim.
+
+137
+00:07:34.680 --> 00:07:36.100
+So as you can see,
+
+138
+00:07:36.100 --> 00:07:38.400
+this puts me in the middle of the connection
+
+139
+00:07:38.400 --> 00:07:40.540
+and it gives me so much power
+
+140
+00:07:40.540 --> 00:07:42.820
+and we'll see all the things that we can do
+
+141
+00:07:42.820 --> 00:07:44.773
+once we become the Man In The Middle.
+
+142
+00:07:47.090 --> 00:07:50.430
+Now the main reason why we can do all of this
+
+143
+00:07:50.430 --> 00:07:54.930
+is because ARP is not secure.
+
+144
+00:07:54.930 --> 00:07:59.110
+Because first of all, clients can accept responses
+
+145
+00:07:59.110 --> 00:08:01.890
+even if they did not send a request.
+
+146
+00:08:01.890 --> 00:08:03.820
+So as I said before,
+
+147
+00:08:03.820 --> 00:08:06.100
+we're gonna send a response to the access point
+
+148
+00:08:06.100 --> 00:08:07.780
+and a response to the victim
+
+149
+00:08:07.780 --> 00:08:10.920
+telling them that I am at a specific IP
+
+150
+00:08:10.920 --> 00:08:13.000
+without them asking who am I
+
+151
+00:08:13.000 --> 00:08:15.500
+or without them asking for this IP.
+
+152
+00:08:15.500 --> 00:08:17.130
+I'm just gonna send the response
+
+153
+00:08:17.130 --> 00:08:19.753
+and they're gonna accept that response anyway.
+
+154
+00:08:20.840 --> 00:08:21.930
+Not only that,
+
+155
+00:08:21.930 --> 00:08:25.690
+well, they're also not going to verify who I am.
+
+156
+00:08:25.690 --> 00:08:28.830
+So when I say that I am a 10.0.2.7
+
+157
+00:08:28.830 --> 00:08:30.950
+I am clearly not at that IP
+
+158
+00:08:30.950 --> 00:08:33.720
+because this computer is at this IP.
+
+159
+00:08:33.720 --> 00:08:36.230
+But the access point will trust this
+
+160
+00:08:36.230 --> 00:08:39.150
+and it'll actually update its ARP table
+
+161
+00:08:39.150 --> 00:08:41.303
+based on the information that I sent.
+
+162
+00:08:42.250 --> 00:08:43.710
+Same goes to the victim.
+
+163
+00:08:43.710 --> 00:08:47.090
+I'm gonna tell it that I am at 10.0.2.1
+
+164
+00:08:47.090 --> 00:08:49.300
+it's gonna trust and believe this,
+
+165
+00:08:49.300 --> 00:08:52.050
+even though I am clearly not at this IP
+
+166
+00:08:52.050 --> 00:08:54.593
+because the access point is at this IP.
+
+167
+00:08:55.740 --> 00:09:00.430
+So these are the two main weaknesses with ARP protocol
+
+168
+00:09:00.430 --> 00:09:03.993
+that allow us to run ARP spoofing attacks.
+

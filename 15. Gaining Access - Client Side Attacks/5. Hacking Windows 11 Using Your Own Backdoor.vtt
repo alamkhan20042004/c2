@@ -1,0 +1,421 @@
+WEBVTT
+
+00:00.150 --> 00:01.620
+Instructor: So now that we are listening
+
+00:01.620 --> 00:04.710
+for incoming connections on our hacker machine,
+
+00:04.710 --> 00:06.090
+we are ready to go ahead
+
+00:06.090 --> 00:09.090
+and execute the backdoor at the target machine
+
+00:09.090 --> 00:11.760
+and receive a reverse connection from it
+
+00:11.760 --> 00:14.280
+and remotely control that computer.
+
+00:14.280 --> 00:17.280
+So first of all, we're gonna have to transfer the backdoor
+
+00:17.280 --> 00:18.950
+to the target machine.
+
+00:18.950 --> 00:21.750
+In the next lectures, I'm gonna cover smart methods
+
+00:21.750 --> 00:25.590
+of delivering backdoors and malware to the target computers.
+
+00:25.590 --> 00:27.690
+But for now, just because we're testing,
+
+00:27.690 --> 00:30.840
+I'm trying to keep everything as simple as possible,
+
+00:30.840 --> 00:32.100
+and we just want to make sure
+
+00:32.100 --> 00:34.920
+that the backdoor that we created works.
+
+00:34.920 --> 00:37.080
+That's why we're gonna use the web server
+
+00:37.080 --> 00:41.190
+that is built in within Kali Linux to upload the backdoor
+
+00:41.190 --> 00:44.373
+and download it from the target computer in here.
+
+00:45.420 --> 00:47.460
+So first of all, I'm gonna go ahead
+
+00:47.460 --> 00:50.010
+and copy the backdoor to the location
+
+00:50.010 --> 00:53.040
+that the web server uses to serve files.
+
+00:53.040 --> 00:54.360
+So as you saw previously,
+
+00:54.360 --> 00:57.540
+the backdoor was placed in my Home directory.
+
+00:57.540 --> 01:00.300
+So I'm simply going to copy it,
+
+01:00.300 --> 01:03.720
+and then I'm gonna click the title bar in here,
+
+01:03.720 --> 01:07.650
+or you can do Ctrl + L in order to open the path bar,
+
+01:07.650 --> 01:09.210
+as you can see in here,
+
+01:09.210 --> 01:12.750
+and then type the location that you want to go to.
+
+01:12.750 --> 01:17.750
+And we wanna go to /var/www/html/.
+
+01:19.350 --> 01:21.450
+Again, this is the default location
+
+01:21.450 --> 01:24.420
+that the web server uses to serve files.
+
+01:24.420 --> 01:28.200
+So in here I'm gonna create a new directory or a new folder,
+
+01:28.200 --> 01:31.380
+and I'm gonna call it evil-files.
+
+01:31.380 --> 01:33.630
+And I'm gonna use this in the future as well
+
+01:33.630 --> 01:37.170
+to store my evil-files so that I can easily share them
+
+01:37.170 --> 01:41.010
+with testing computers and test these evil-files,
+
+01:41.010 --> 01:43.830
+because it's very important to make sure that your malware,
+
+01:43.830 --> 01:47.070
+or backdoor, or key logger is working properly
+
+01:47.070 --> 01:49.590
+before you go ahead and use it in the wild.
+
+01:49.590 --> 01:51.840
+So now that I'm here, I'm simply gonna right click
+
+01:51.840 --> 01:54.930
+and paste in order to paste my backdoor,
+
+01:54.930 --> 01:56.790
+and we have it in here now.
+
+01:56.790 --> 02:00.690
+And next we're gonna go ahead and start this web server.
+
+02:00.690 --> 02:02.433
+So I'm gonna clear my screen,
+
+02:03.450 --> 02:06.030
+and to start the built-in web server in Kali,
+
+02:06.030 --> 02:11.030
+we're simply gonna do service apache2 start.
+
+02:11.730 --> 02:15.420
+So we're basically saying we want to start a service
+
+02:15.420 --> 02:17.400
+that is called apache2.
+
+02:17.400 --> 02:22.350
+And apache2 is the name of the built-in web server in Kali.
+
+02:22.350 --> 02:23.400
+I'm gonna hit Enter,
+
+02:23.400 --> 02:25.320
+and if you don't see any error messages,
+
+02:25.320 --> 02:28.560
+it means that the web server is running properly.
+
+02:28.560 --> 02:30.600
+So to access this web server,
+
+02:30.600 --> 02:33.900
+all you're gonna need is the IP of the Kali machine,
+
+02:33.900 --> 02:35.970
+and we can get the IP of the Kali machine
+
+02:35.970 --> 02:38.490
+as you know, by doing ifconfig.
+
+02:38.490 --> 02:41.730
+And it's the same IP that we used in the backdoor as well,
+
+02:41.730 --> 02:46.470
+which is 192.168.0.26.
+
+02:46.470 --> 02:49.920
+So I'm gonna go to the target Windows computer right here,
+
+02:49.920 --> 02:52.173
+and I'm gonna open up my web browser,
+
+02:53.040 --> 02:57.840
+and I'm simply going to navigate to the IP, 192.168.0.26.
+
+02:59.820 --> 03:02.430
+And if you load it as is, you're going to get
+
+03:02.430 --> 03:05.400
+the default welcome screen of the web server.
+
+03:05.400 --> 03:07.830
+But our file is stored in a directory
+
+03:07.830 --> 03:10.020
+that is called evil-files.
+
+03:10.020 --> 03:14.550
+So I'm gonna do /evil-files
+
+03:14.550 --> 03:16.620
+to load the evil-files directory.
+
+03:16.620 --> 03:19.200
+And as you can see in here,
+
+03:19.200 --> 03:21.660
+we have the backdoor that I generated.
+
+03:21.660 --> 03:24.060
+And like I said, this is not a very smart method
+
+03:24.060 --> 03:25.680
+of delivering backdoors,
+
+03:25.680 --> 03:27.870
+but we are just testing at the moment
+
+03:27.870 --> 03:30.540
+and we just want to make sure that the backdoor works.
+
+03:30.540 --> 03:33.210
+And before we download this backdoor, I'm gonna go ahead
+
+03:33.210 --> 03:35.910
+and disable the security on Windows.
+
+03:35.910 --> 03:39.180
+This is important because we didn't implement any techniques
+
+03:39.180 --> 03:41.220
+to bypass antivirus programs
+
+03:41.220 --> 03:43.500
+or Windows Defender in this backdoor,
+
+03:43.500 --> 03:45.450
+because at the moment we're focusing
+
+03:45.450 --> 03:47.610
+on building a very simple backdoor.
+
+03:47.610 --> 03:50.490
+It is very important to break the big problem
+
+03:50.490 --> 03:51.960
+into simple problems.
+
+03:51.960 --> 03:54.150
+First, learn how to create a backdoor,
+
+03:54.150 --> 03:55.980
+make sure it's working properly,
+
+03:55.980 --> 03:57.780
+and only then you can go ahead
+
+03:57.780 --> 04:00.090
+and build up on this knowledge and try to make
+
+04:00.090 --> 04:03.570
+that backdoor bypass antivirus programs and so on.
+
+04:03.570 --> 04:05.190
+So at the moment, we just wanna make sure
+
+04:05.190 --> 04:07.470
+that we can create a basic backdoor
+
+04:07.470 --> 04:09.990
+that actually allows us to remotely control
+
+04:09.990 --> 04:12.810
+the computers that it gets executed on.
+
+04:12.810 --> 04:15.150
+So before downloading this, we're gonna go ahead
+
+04:15.150 --> 04:17.340
+and disable Windows Defender.
+
+04:17.340 --> 04:19.740
+So we're simply gonna go to the Start menu,
+
+04:19.740 --> 04:23.733
+we're gonna look for Security, we have it right here,
+
+04:24.690 --> 04:27.690
+and we're gonna click on the Virus &amp; threat protection,
+
+04:27.690 --> 04:30.120
+we're gonna click on Manage settings,
+
+04:30.120 --> 04:33.060
+and you wanna make sure that everything is set to off
+
+04:33.060 --> 04:34.770
+in here as you can see.
+
+04:34.770 --> 04:36.840
+Otherwise the backdoor will be detected
+
+04:36.840 --> 04:38.433
+and it will simply not work.
+
+04:39.270 --> 04:41.850
+So we're gonna click it in here in order to download it.
+
+04:41.850 --> 04:43.860
+And that's downloaded for me,
+
+04:43.860 --> 04:47.640
+and we can see it here in our Downloads directory.
+
+04:47.640 --> 04:50.580
+And also, as you can see, this file does look a bit scary,
+
+04:50.580 --> 04:52.350
+it's simply an executable.
+
+04:52.350 --> 04:54.870
+We will cover how to make this look and function
+
+04:54.870 --> 04:56.760
+like any other file, like an image,
+
+04:56.760 --> 04:58.770
+or a PDF, or anything else.
+
+04:58.770 --> 05:02.010
+Again, we're breaking the big problem into simpler problems,
+
+05:02.010 --> 05:04.050
+and we're focusing on a very simple goal
+
+05:04.050 --> 05:07.260
+which is to get a backdoor working on Windows.
+
+05:07.260 --> 05:08.970
+So right now, just for testing,
+
+05:08.970 --> 05:11.430
+we're gonna double click this file to run it,
+
+05:11.430 --> 05:13.920
+and we're simply gonna say Run anyway,
+
+05:13.920 --> 05:16.830
+and then we're gonna go to the Kali machine.
+
+05:16.830 --> 05:19.560
+And perfect, as you can see at the window
+
+05:19.560 --> 05:21.930
+where we started our multi/handler,
+
+05:21.930 --> 05:25.560
+you can see that we received a connection back,
+
+05:25.560 --> 05:29.760
+and the prompt now says meterpreter instead of msf,
+
+05:29.760 --> 05:33.420
+which means that we actually received a connection back
+
+05:33.420 --> 05:37.140
+from the Windows computer through the meterpreter payload
+
+05:37.140 --> 05:38.283
+that we created.
+
+05:39.120 --> 05:42.150
+So just quickly, we can do sysinfo
+
+05:42.150 --> 05:45.273
+to get information about the system that we just hacked.
+
+05:46.470 --> 05:49.470
+And as you can see, we can get the computer name,
+
+05:49.470 --> 05:52.650
+the operating system, the architecture.
+
+05:52.650 --> 05:55.740
+So now we can go ahead and execute any command
+
+05:55.740 --> 05:58.260
+that the meterpreter allow us to execute.
+
+05:58.260 --> 06:00.720
+And you can do help to get a full list
+
+06:00.720 --> 06:02.310
+of all of these commands.
+
+06:02.310 --> 06:04.020
+But don't worry about this now,
+
+06:04.020 --> 06:05.820
+we will cover this in details
+
+06:05.820 --> 06:08.910
+in the post exploitation section later on.
+
+06:08.910 --> 06:12.870
+But for now, we've basically managed to hack this computer
+
+06:12.870 --> 06:15.810
+and gained full remote control over it.
+
+06:15.810 --> 06:17.820
+So right now we can do anything
+
+06:17.820 --> 06:20.370
+that the actual user of this computer
+
+06:20.370 --> 06:22.200
+can do on their computer,
+
+06:22.200 --> 06:23.970
+but we can do it remotely
+
+06:23.970 --> 06:27.093
+from within our meterpreter session in here.

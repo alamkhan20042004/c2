@@ -1,0 +1,774 @@
+WEBVTT
+
+1
+00:00:01.148 --> 00:00:01.981
+<v Instructor>In this lecture,</v>
+
+2
+00:00:01.981 --> 00:00:04.620
+we're gonna talk about the tool called Wireshark.
+
+3
+00:00:04.620 --> 00:00:07.690
+Wireshark is a network protocol analyzer.
+
+4
+00:00:07.690 --> 00:00:10.100
+It's not designed for hackers and it's not designed
+
+5
+00:00:10.100 --> 00:00:14.060
+for hacking and spying on other people on the network.
+
+6
+00:00:14.060 --> 00:00:17.410
+It's designed for network administrators so that they can
+
+7
+00:00:17.410 --> 00:00:19.620
+see what's happening in their network and make sure that
+
+8
+00:00:19.620 --> 00:00:22.370
+everything is working properly and that nobody's doing
+
+9
+00:00:22.370 --> 00:00:25.653
+anything bad or doing anything suspicious on the network.
+
+10
+00:00:26.980 --> 00:00:30.290
+The way that Wireshark works is it allows you to select an
+
+11
+00:00:30.290 --> 00:00:34.740
+interface and then logs all the packets or all the traffic
+
+12
+00:00:34.740 --> 00:00:36.860
+that flows through that interface.
+
+13
+00:00:36.860 --> 00:00:38.410
+So you're selecting an interface.
+
+14
+00:00:38.410 --> 00:00:39.800
+It could be a wireless card,
+
+15
+00:00:39.800 --> 00:00:43.060
+it could be a wired card, on your current computer.
+
+16
+00:00:43.060 --> 00:00:46.740
+And then it'll start logging all the information that flow
+
+17
+00:00:46.740 --> 00:00:48.342
+through that interface.
+
+18
+00:00:48.342 --> 00:00:52.550
+It also has a really nice graphical interface that allow you
+
+19
+00:00:52.550 --> 00:00:54.480
+to analyze this traffic.
+
+20
+00:00:54.480 --> 00:00:57.050
+So it allows you to filter these packets based on the
+
+21
+00:00:57.050 --> 00:01:01.080
+protocol using them like HTTP, TCP, and all that.
+
+22
+00:01:01.080 --> 00:01:03.780
+It also allow you to look for certain things.
+
+23
+00:01:03.780 --> 00:01:05.410
+For example, if you're looking for cookies
+
+24
+00:01:05.410 --> 00:01:06.660
+or if you're looking for posts
+
+25
+00:01:06.660 --> 00:01:08.370
+or get requests,
+
+26
+00:01:08.370 --> 00:01:12.018
+and it also allow you to search through these packets,
+
+27
+00:01:12.018 --> 00:01:15.020
+you can, search through the information that's stored
+
+28
+00:01:15.020 --> 00:01:17.890
+in the packets and find the things that you're looking for.
+
+29
+00:01:17.890 --> 00:01:19.520
+It's a really really big tool
+
+30
+00:01:19.520 --> 00:01:21.530
+and you need a whole course for it.
+
+31
+00:01:21.530 --> 00:01:22.363
+So in this course,
+
+32
+00:01:22.363 --> 00:01:24.500
+we're actually gonna use it in a few lectures,
+
+33
+00:01:24.500 --> 00:01:27.963
+just covering the basics or the things that's related to us.
+
+34
+00:01:29.870 --> 00:01:34.050
+So the main idea here is Wireshark is not a hacking tool.
+
+35
+00:01:34.050 --> 00:01:38.080
+It only allows you to capture the traffic that flows through
+
+36
+00:01:38.080 --> 00:01:41.223
+your own computer, through your own interface.
+
+37
+00:01:42.620 --> 00:01:43.700
+I'm gonna use it now,
+
+38
+00:01:43.700 --> 00:01:45.260
+and it's gonna become more clear to you.
+
+39
+00:01:45.260 --> 00:01:47.020
+So I'm just gonna go to kali
+
+40
+00:01:47.020 --> 00:01:48.620
+and we're gonna start Wireshark.
+
+41
+00:01:48.620 --> 00:01:50.900
+You can run Wireshark from the command prompt,
+
+42
+00:01:50.900 --> 00:01:54.590
+or you can just go on all applications and type Wireshark,
+
+43
+00:01:54.590 --> 00:01:56.040
+and it'll show up right here.
+
+44
+00:01:57.240 --> 00:01:59.470
+I'm gonna click that and that's gonna load the program
+
+45
+00:01:59.470 --> 00:02:00.303
+for me.
+
+46
+00:02:00.303 --> 00:02:01.730
+This is just the normal error.
+
+47
+00:02:01.730 --> 00:02:02.963
+Just ignore this error.
+
+48
+00:02:04.310 --> 00:02:07.713
+And this is the main interface of Wireshark.
+
+49
+00:02:09.070 --> 00:02:10.000
+So first of all,
+
+50
+00:02:10.000 --> 00:02:14.280
+you can actually just go to the file and go to the open.
+
+51
+00:02:14.280 --> 00:02:15.120
+And in here,
+
+52
+00:02:15.120 --> 00:02:18.530
+it'll allow you to open a file that you've already captured.
+
+53
+00:02:18.530 --> 00:02:19.363
+So for example,
+
+54
+00:02:19.363 --> 00:02:22.630
+if you capture the packets using a different sniffer,
+
+55
+00:02:22.630 --> 00:02:26.620
+using arrow dump or using man in the middle left or using
+
+56
+00:02:26.620 --> 00:02:30.190
+t-shark, which is the command prompt part of Wireshark.
+
+57
+00:02:30.190 --> 00:02:32.750
+So if you captured packets using any of these programs
+
+58
+00:02:32.750 --> 00:02:35.760
+and you started it in a file, you can just come in here,
+
+59
+00:02:35.760 --> 00:02:38.120
+open it and start analyzing that file.
+
+60
+00:02:38.120 --> 00:02:40.860
+This is really handy because sometimes you don't really want
+
+61
+00:02:40.860 --> 00:02:43.030
+to analyze the traffic on the fly.
+
+62
+00:02:43.030 --> 00:02:44.730
+So sometimes you just want to capture it.
+
+63
+00:02:44.730 --> 00:02:47.440
+If you're, sometimes you're capturing from small laptop
+
+64
+00:02:47.440 --> 00:02:49.720
+or your smart capture capturing from your phone,
+
+65
+00:02:49.720 --> 00:02:50.900
+and you're not even at home,
+
+66
+00:02:50.900 --> 00:02:53.620
+you're in somewhere else doing your pen tests and then you
+
+67
+00:02:53.620 --> 00:02:56.700
+go back home and then you want to analyze what you captured.
+
+68
+00:02:56.700 --> 00:02:58.610
+Then you can store that in a file.
+
+69
+00:02:58.610 --> 00:03:00.500
+And then just come here, go to the file,
+
+70
+00:03:00.500 --> 00:03:03.103
+open and open the file that you want to analyze.
+
+71
+00:03:04.840 --> 00:03:08.110
+So what I want to show you here is the idea that Wireshark
+
+72
+00:03:08.110 --> 00:03:09.310
+is not a hacking tool.
+
+73
+00:03:09.310 --> 00:03:11.420
+It's not going to capture things happening
+
+74
+00:03:11.420 --> 00:03:13.100
+in another device.
+
+75
+00:03:13.100 --> 00:03:14.900
+It'll only capture things
+
+76
+00:03:14.900 --> 00:03:18.200
+that flow through your own interface.
+
+77
+00:03:18.200 --> 00:03:20.570
+So right here, we can see that we have all the interfaces
+
+78
+00:03:20.570 --> 00:03:21.403
+in my computer.
+
+79
+00:03:21.403 --> 00:03:23.370
+So we can see that we have eth0.
+
+80
+00:03:23.370 --> 00:03:25.200
+We have any, which is just any,
+
+81
+00:03:25.200 --> 00:03:28.090
+and we have all the other ones that some of them are created
+
+82
+00:03:28.090 --> 00:03:29.760
+by virtual box.
+
+83
+00:03:29.760 --> 00:03:31.760
+So the main one here is eth0,
+
+84
+00:03:31.760 --> 00:03:35.563
+which is the virtual interface connected to my NOC network.
+
+85
+00:03:36.576 --> 00:03:39.010
+And you can see that there is no traffic flowing
+
+86
+00:03:39.010 --> 00:03:39.843
+through this.
+
+87
+00:03:39.843 --> 00:03:41.740
+So you can see that this is constant
+
+88
+00:03:41.740 --> 00:03:43.770
+and nothing's happening.
+
+89
+00:03:43.770 --> 00:03:46.460
+So what I'm gonna do now is I'm just gonna make this a
+
+90
+00:03:46.460 --> 00:03:49.743
+little bit smaller, and I'm gonna open my browser here.
+
+91
+00:03:51.050 --> 00:03:52.770
+And I'm just gonna go to a normal website.
+
+92
+00:03:52.770 --> 00:03:54.370
+I'm just gonna go to google.com.
+
+93
+00:03:57.350 --> 00:03:59.240
+Now as you can see right here,
+
+94
+00:03:59.240 --> 00:04:02.240
+you can see the traffic eth0 is a spiking up.
+
+95
+00:04:02.240 --> 00:04:05.730
+So there was some traffic generated through eth0.
+
+96
+00:04:05.730 --> 00:04:06.960
+So for sniffing on this,
+
+97
+00:04:06.960 --> 00:04:09.902
+we'll be able to capture these packets that were sent
+
+98
+00:04:09.902 --> 00:04:11.793
+over eth0.
+
+99
+00:04:12.830 --> 00:04:15.100
+Now what I'm gonna do is I'm gonna go to my windows
+
+100
+00:04:15.100 --> 00:04:17.050
+machine just to prove that point.
+
+101
+00:04:17.050 --> 00:04:19.600
+And I'm gonna browse the website here and you'll see that
+
+102
+00:04:19.600 --> 00:04:21.560
+eth0 will not be affected.
+
+103
+00:04:21.560 --> 00:04:24.630
+And the traffic that's generated on this windows machine,
+
+104
+00:04:24.630 --> 00:04:27.360
+which is in the same network as the kali machine,
+
+105
+00:04:27.360 --> 00:04:29.360
+it will not be captured by the kali machine.
+
+106
+00:04:29.360 --> 00:04:31.383
+So if I just go to Google again here,
+
+107
+00:04:33.670 --> 00:04:36.830
+you'll see that nothing happened in eth0.
+
+108
+00:04:36.830 --> 00:04:39.360
+So there is no traffic flowing through this.
+
+109
+00:04:39.360 --> 00:04:40.750
+It's still constant.
+
+110
+00:04:40.750 --> 00:04:44.463
+And we can only capture packets that go through eth0.
+
+111
+00:04:47.100 --> 00:04:50.140
+So now you'll probably ask then why Wireshark is so useful?
+
+112
+00:04:50.140 --> 00:04:51.569
+Why are we even talking about it?
+
+113
+00:04:51.569 --> 00:04:55.340
+If we can only see things that go through our own computer,
+
+114
+00:04:55.340 --> 00:04:56.810
+why are we talking about it?
+
+115
+00:04:56.810 --> 00:04:58.810
+Well we're talking about it because
+
+116
+00:04:58.810 --> 00:05:01.150
+we see there is a large number of ways
+
+117
+00:05:01.150 --> 00:05:02.220
+that you can become the man
+
+118
+00:05:02.220 --> 00:05:03.480
+in the middle.
+
+119
+00:05:03.480 --> 00:05:06.450
+We learned how to do this using ARP spoofing,
+
+120
+00:05:06.450 --> 00:05:08.090
+and in future lectures,
+
+121
+00:05:08.090 --> 00:05:09.810
+I'm gonna show you how to do it
+
+122
+00:05:09.810 --> 00:05:12.343
+by creating a fake access point.
+
+123
+00:05:13.220 --> 00:05:15.580
+So when we are the man in the middle,
+
+124
+00:05:15.580 --> 00:05:18.000
+if we start sniffing on the interface
+
+125
+00:05:18.000 --> 00:05:20.270
+that's used to become the man in the middle,
+
+126
+00:05:20.270 --> 00:05:23.480
+we'll be able to capture all the traffic generated by the
+
+127
+00:05:23.480 --> 00:05:25.810
+people that we're targeting
+
+128
+00:05:25.810 --> 00:05:27.747
+in our man in the middle attack.
+
+129
+00:05:27.747 --> 00:05:30.800
+So if you started the fake access point,
+
+130
+00:05:30.800 --> 00:05:33.610
+you can start sniffing on the interface
+
+131
+00:05:33.610 --> 00:05:36.790
+that's broadcast in the signal and you can capture all the
+
+132
+00:05:36.790 --> 00:05:40.280
+packets sent or received to anyone who's connected to
+
+133
+00:05:40.280 --> 00:05:41.693
+that fake access point.
+
+134
+00:05:42.940 --> 00:05:46.380
+If you became the man in the middle using ARP spoofing,
+
+135
+00:05:46.380 --> 00:05:50.490
+then just select the interface that you used when you
+
+136
+00:05:50.490 --> 00:05:53.123
+launched your ARP spoofing attack.
+
+137
+00:05:54.240 --> 00:05:56.890
+So for now, I'm gonna become the man in the middle,
+
+138
+00:05:56.890 --> 00:05:58.378
+using ARP spoofing.
+
+139
+00:05:58.378 --> 00:06:03.100
+You can use ARP spoof or bettercap as I showed you earlier,
+
+140
+00:06:03.100 --> 00:06:06.320
+but I'm gonna use bettercap using the exact same command
+
+141
+00:06:06.320 --> 00:06:07.890
+that we used to do.
+
+142
+00:06:07.890 --> 00:06:11.400
+So we're literally just doing bettercap followed by the
+
+143
+00:06:11.400 --> 00:06:13.730
+interface that is connected to my target network,
+
+144
+00:06:13.730 --> 00:06:15.750
+which is eth0.
+
+145
+00:06:15.750 --> 00:06:19.010
+And I'm launching my caplet, this spoof caplet,
+
+146
+00:06:19.010 --> 00:06:22.900
+so that it configures the ARP spoof module and runs it for
+
+147
+00:06:22.900 --> 00:06:25.683
+me to put me in the middle of the connection.
+
+148
+00:06:26.950 --> 00:06:28.303
+So I'm gonna hit enter.
+
+149
+00:06:29.300 --> 00:06:32.290
+And as you can see, it's working as expected.
+
+150
+00:06:32.290 --> 00:06:35.480
+So right now I should be in the middle of the connection,
+
+151
+00:06:35.480 --> 00:06:39.200
+intercepting anything the target windows machine sends
+
+152
+00:06:39.200 --> 00:06:40.233
+or receives.
+
+153
+00:06:41.810 --> 00:06:43.560
+Now let's go to the windows machine
+
+154
+00:06:43.560 --> 00:06:45.430
+and see if I do anything here
+
+155
+00:06:45.430 --> 00:06:48.140
+if it's gonna affect the traffic in eth0.
+
+156
+00:06:48.140 --> 00:06:51.150
+So we'll see if Wireshark will be able to capture traffic
+
+157
+00:06:51.150 --> 00:06:53.090
+generated by this computer.
+
+158
+00:06:53.090 --> 00:06:54.750
+So let's write anything here.
+
+159
+00:06:54.750 --> 00:06:55.790
+I'm just gonna Google it,
+
+160
+00:06:55.790 --> 00:06:57.430
+or I'm just gonna go to a different website.
+
+161
+00:06:57.430 --> 00:06:58.730
+I'm just gonna go to Bing.
+
+162
+00:07:01.300 --> 00:07:03.470
+And if we come back here,
+
+163
+00:07:03.470 --> 00:07:06.440
+you'll see that we have traffic being generated here,
+
+164
+00:07:06.440 --> 00:07:09.910
+and we can see that eth0 is actually capturing whatever
+
+165
+00:07:09.910 --> 00:07:12.300
+that's happening in a completely different device.
+
+166
+00:07:12.300 --> 00:07:15.380
+This is happening because when we are the man in the middle,
+
+167
+00:07:15.380 --> 00:07:18.750
+all the packets that's generated by the windows device is
+
+168
+00:07:18.750 --> 00:07:21.210
+actually being redirected to my own computer
+
+169
+00:07:21.210 --> 00:07:22.480
+right here to the kali.
+
+170
+00:07:22.480 --> 00:07:26.280
+And then Wireshark is sniffing that from the kali machine,
+
+171
+00:07:26.280 --> 00:07:28.570
+it's sniffing it from my own local machine.
+
+172
+00:07:28.570 --> 00:07:30.490
+It's not sniffing it from the network.
+
+173
+00:07:30.490 --> 00:07:33.130
+It's not sniffing it from the target computer.
+
+174
+00:07:33.130 --> 00:07:33.963
+So again,
+
+175
+00:07:33.963 --> 00:07:36.010
+if you're doing this with the fake access point and just
+
+176
+00:07:36.010 --> 00:07:38.630
+listen on the interface that you're broadcasting,
+
+177
+00:07:38.630 --> 00:07:41.530
+if you're doing this with a real wireless network,
+
+178
+00:07:41.530 --> 00:07:42.363
+if you're connected
+
+179
+00:07:42.363 --> 00:07:44.390
+to your home wireless network using land zero,
+
+180
+00:07:44.390 --> 00:07:46.470
+then you can just do this with land zero.
+
+181
+00:07:46.470 --> 00:07:47.650
+But with ARP spoofing,
+
+182
+00:07:47.650 --> 00:07:49.310
+you have to first redirect the traffic,
+
+183
+00:07:49.310 --> 00:07:51.130
+then you can use Wireshark.
+
+184
+00:07:51.130 --> 00:07:53.300
+Now this is just to show you what Wireshark is
+
+185
+00:07:53.300 --> 00:07:54.190
+and how it works.
+
+186
+00:07:54.190 --> 00:07:56.910
+And I just wanted to stress the idea that Wireshark is
+
+187
+00:07:56.910 --> 00:07:57.910
+not a hacking tool,
+
+188
+00:07:57.910 --> 00:08:00.750
+it's only a program that allows you to log packets
+
+189
+00:08:00.750 --> 00:08:02.310
+flowing through a certain interface
+
+190
+00:08:02.310 --> 00:08:04.610
+and then analyze these packets.
+
+191
+00:08:04.610 --> 00:08:05.550
+So in the next video,
+
+192
+00:08:05.550 --> 00:08:06.850
+we'll see how we can sniff
+
+193
+00:08:06.850 --> 00:08:08.933
+and analyze packets using Wireshark.
+

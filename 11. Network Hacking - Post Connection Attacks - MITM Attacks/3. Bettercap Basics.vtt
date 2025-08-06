@@ -1,0 +1,638 @@
+WEBVTT
+
+1
+00:00:00.910 --> 00:00:04.250
+<v Instructor>Previously we learned what ARP spoofing is</v>
+
+2
+00:00:04.250 --> 00:00:08.060
+and how to use it to intercept connections in our network
+
+3
+00:00:08.060 --> 00:00:11.700
+using a tool called ARP Spoof.
+
+4
+00:00:11.700 --> 00:00:15.480
+I covered this tool because it is simple, reliable,
+
+5
+00:00:15.480 --> 00:00:19.330
+and available for a number of operating systems.
+
+6
+00:00:19.330 --> 00:00:22.910
+Therefore learning how to use this tool can be useful
+
+7
+00:00:22.910 --> 00:00:24.493
+in so many scenarios.
+
+8
+00:00:25.420 --> 00:00:28.920
+However, in this lecture and in the next lectures,
+
+9
+00:00:28.920 --> 00:00:32.123
+we're going to be using a tool called Better Cap.
+
+10
+00:00:33.170 --> 00:00:37.280
+Better Cap can be used to do exactly what we did
+
+11
+00:00:37.280 --> 00:00:39.560
+with ARP Spoof.
+
+12
+00:00:39.560 --> 00:00:42.940
+So we can use it to run an ARP spoofing attack,
+
+13
+00:00:42.940 --> 00:00:44.824
+to intercept connections,
+
+14
+00:00:44.824 --> 00:00:48.100
+and it can be used to do so much more.
+
+15
+00:00:48.100 --> 00:00:50.980
+So we can use it to capture data and analyze it
+
+16
+00:00:50.980 --> 00:00:52.920
+and see usernames and passwords.
+
+17
+00:00:52.920 --> 00:00:57.850
+We can use it to bypass HTTPS and potentially bypass HSTS.
+
+18
+00:00:58.710 --> 00:01:01.069
+We can use it to do DNS spoofing,
+
+19
+00:01:01.069 --> 00:01:04.330
+inject code into loaded pages
+
+20
+00:01:04.330 --> 00:01:06.120
+and so much more.
+
+21
+00:01:06.120 --> 00:01:07.670
+For now, though I'm going to show you
+
+22
+00:01:07.670 --> 00:01:09.190
+how to install the tool
+
+23
+00:01:09.190 --> 00:01:12.610
+and give you a quick overview on how to use it.
+
+24
+00:01:12.610 --> 00:01:16.513
+And we'll go over all of that in the next lectures.
+
+25
+00:01:17.350 --> 00:01:19.693
+So I'm going to go to my Cali machine here
+
+26
+00:01:19.693 --> 00:01:22.350
+and to run Better Cap, all I have to do now
+
+27
+00:01:22.350 --> 00:01:24.743
+is just type its name, Better Cap.
+
+28
+00:01:25.780 --> 00:01:26.710
+Now, as usual,
+
+29
+00:01:26.710 --> 00:01:29.600
+if you want to get more information on this command
+
+30
+00:01:29.600 --> 00:01:32.950
+and how to use it, you can do dash dash help.
+
+31
+00:01:32.950 --> 00:01:36.490
+And this will give you a complete help menu,
+
+32
+00:01:36.490 --> 00:01:38.800
+but you don't really need to worry about this now
+
+33
+00:01:38.800 --> 00:01:40.970
+because we will be using the tool
+
+34
+00:01:40.970 --> 00:01:42.510
+a lot throughout the course,
+
+35
+00:01:42.510 --> 00:01:45.869
+and you will learn a lot as you use it.
+
+36
+00:01:45.869 --> 00:01:47.953
+So I'm going to clear the screen again.
+
+37
+00:01:49.283 --> 00:01:52.370
+And to run the tool now I'm going to type Better Cap,
+
+38
+00:01:52.370 --> 00:01:54.220
+the name of the tool,
+
+39
+00:01:54.220 --> 00:01:56.650
+followed by dash iface.
+
+40
+00:01:56.650 --> 00:01:59.950
+To specify the interface that is connected
+
+41
+00:01:59.950 --> 00:02:04.250
+to the network that I want to run the attacks against.
+
+42
+00:02:04.250 --> 00:02:06.540
+And as you know, to get my interface,
+
+43
+00:02:06.540 --> 00:02:08.583
+we can just do if config.
+
+44
+00:02:09.974 --> 00:02:13.350
+And I'm going to be running this against my net network,
+
+45
+00:02:13.350 --> 00:02:16.240
+which is ETH0 is connected to,
+
+46
+00:02:16.240 --> 00:02:20.530
+so I'm going to set my interface to ETH0.
+
+47
+00:02:20.530 --> 00:02:22.053
+I'm going to close this.
+
+48
+00:02:23.240 --> 00:02:26.170
+And I'm going to hit enter to run the tool.
+
+49
+00:02:26.170 --> 00:02:29.000
+And as you can see, now we're inside the tool.
+
+50
+00:02:29.000 --> 00:02:31.010
+We have a different prompt now
+
+51
+00:02:31.010 --> 00:02:34.763
+in which we can use the commands of Better Cap.
+
+52
+00:02:36.080 --> 00:02:37.480
+Now as you can see here,
+
+53
+00:02:37.480 --> 00:02:39.720
+it's telling us that we can type help
+
+54
+00:02:39.720 --> 00:02:41.940
+to get a list of all of the commands
+
+55
+00:02:41.940 --> 00:02:44.060
+that we can use with Better Cap.
+
+56
+00:02:44.060 --> 00:02:46.160
+And since we don't know how to use it,
+
+57
+00:02:46.160 --> 00:02:47.903
+I'm actually going to type help.
+
+58
+00:02:49.060 --> 00:02:49.893
+And perfect.
+
+59
+00:02:49.893 --> 00:02:50.726
+As you can see,
+
+60
+00:02:50.726 --> 00:02:54.630
+we get a full list of all of the commands that we can use.
+
+61
+00:02:54.630 --> 00:02:56.900
+Again, I'm going to use it with you now
+
+62
+00:02:56.900 --> 00:02:58.330
+as we go through the course,
+
+63
+00:02:58.330 --> 00:03:00.010
+so you can have a quick look on them,
+
+64
+00:03:00.010 --> 00:03:01.997
+but don't worry too much about them.
+
+65
+00:03:01.997 --> 00:03:04.100
+What's really important.
+
+66
+00:03:04.100 --> 00:03:07.693
+And you need to pay attention to right now is the modules.
+
+67
+00:03:08.620 --> 00:03:11.560
+So these are all of the modules that we can use
+
+68
+00:03:11.560 --> 00:03:15.350
+or all of the things that we can get Better Cap to do.
+
+69
+00:03:15.350 --> 00:03:16.790
+And as you can see right now,
+
+70
+00:03:16.790 --> 00:03:20.420
+none of them is working, except for the event stream,
+
+71
+00:03:20.420 --> 00:03:23.614
+which is basically the module that runs in the background
+
+72
+00:03:23.614 --> 00:03:25.723
+to handle all the events.
+
+73
+00:03:26.860 --> 00:03:29.760
+Now you can type, help.
+
+74
+00:03:29.760 --> 00:03:33.990
+Followed by the name of any module you want.
+
+75
+00:03:33.990 --> 00:03:36.120
+And this will show you a help menu
+
+76
+00:03:36.120 --> 00:03:40.360
+that shows you how to use this specific module.
+
+77
+00:03:40.360 --> 00:03:43.100
+For example, I want to show you in this lecture,
+
+78
+00:03:43.100 --> 00:03:47.600
+the net dot probe and the net dot recon modules.
+
+79
+00:03:47.600 --> 00:03:51.130
+So since I don't know how to use them, I've typed help,
+
+80
+00:03:51.130 --> 00:03:53.550
+and I'm going to follow it by the name of the module.
+
+81
+00:03:53.550 --> 00:03:55.063
+Which is net dot probe.
+
+82
+00:03:56.660 --> 00:03:57.980
+I'm going to hit enter.
+
+83
+00:03:57.980 --> 00:03:59.020
+And as you can see,
+
+84
+00:03:59.020 --> 00:04:02.810
+you'll get a description of what this module does.
+
+85
+00:04:02.810 --> 00:04:06.220
+So basically it keeps sending UDP packets
+
+86
+00:04:06.220 --> 00:04:09.160
+to discover devices on the same network.
+
+87
+00:04:09.160 --> 00:04:11.910
+And we can do net probe on,
+
+88
+00:04:11.910 --> 00:04:15.650
+to turn on the module and net dot probe off,
+
+89
+00:04:15.650 --> 00:04:16.823
+to turn it off.
+
+90
+00:04:17.770 --> 00:04:19.630
+You can also see all the options
+
+91
+00:04:19.630 --> 00:04:22.510
+that you can modify for this module.
+
+92
+00:04:22.510 --> 00:04:24.420
+And I'm going to talk about options
+
+93
+00:04:24.420 --> 00:04:27.360
+and how to modify them in the next lecture.
+
+94
+00:04:27.360 --> 00:04:28.193
+So for now,
+
+95
+00:04:28.193 --> 00:04:31.220
+I'm going to keep all these to the default option,
+
+96
+00:04:31.220 --> 00:04:32.590
+and I'm just going to do,
+
+97
+00:04:32.590 --> 00:04:36.823
+net dot probe on to turn it on.
+
+98
+00:04:38.540 --> 00:04:39.990
+And as you can see,
+
+99
+00:04:39.990 --> 00:04:43.030
+this'll automatically start discovering clients
+
+100
+00:04:43.030 --> 00:04:45.510
+connected to the same network.
+
+101
+00:04:45.510 --> 00:04:49.300
+So the 10.0.2.7 right here
+
+102
+00:04:49.300 --> 00:04:52.250
+is actually my windows target machine.
+
+103
+00:04:52.250 --> 00:04:54.890
+So if I go to the target windows machine right here
+
+104
+00:04:54.890 --> 00:04:59.890
+and do IP config, you'll see its IP address is 10.0.2.7.
+
+105
+00:05:01.690 --> 00:05:03.180
+So this is just another way
+
+106
+00:05:03.180 --> 00:05:07.500
+of discovering connected clients quickly using better cap.
+
+107
+00:05:07.500 --> 00:05:10.170
+And what you didn't notice right now
+
+108
+00:05:10.170 --> 00:05:13.106
+is when we started the net dot probe,
+
+109
+00:05:13.106 --> 00:05:17.740
+it automatically started the net dot recon.
+
+110
+00:05:17.740 --> 00:05:20.410
+To confirm this, so if we go upright here,
+
+111
+00:05:20.410 --> 00:05:22.860
+you can see the only module that was running
+
+112
+00:05:22.860 --> 00:05:25.260
+is the events dot stream.
+
+113
+00:05:25.260 --> 00:05:27.343
+And now if I do help,
+
+114
+00:05:29.168 --> 00:05:32.140
+you'll see, I actually have two modules running
+
+115
+00:05:32.140 --> 00:05:34.530
+the net dot probe, which we just saw
+
+116
+00:05:34.530 --> 00:05:36.440
+and we turned on manually.
+
+117
+00:05:36.440 --> 00:05:38.920
+And the net dot recon,
+
+118
+00:05:38.920 --> 00:05:43.530
+which got turned on automatically by Better Cap.
+
+119
+00:05:43.530 --> 00:05:46.505
+The reason for this is because the net dot probe
+
+120
+00:05:46.505 --> 00:05:50.184
+sends probe requests to all possible IP's.
+
+121
+00:05:50.184 --> 00:05:52.521
+And then if we get a response,
+
+122
+00:05:52.521 --> 00:05:55.930
+the net dot recon will be the one
+
+123
+00:05:55.930 --> 00:06:00.250
+detecting this response by monitoring my ARP cache.
+
+124
+00:06:00.250 --> 00:06:04.490
+And then adding all of these IP's in a nice list
+
+125
+00:06:04.490 --> 00:06:05.973
+so we can target them.
+
+126
+00:06:07.590 --> 00:06:10.960
+So now, because the net dot recon is actually running,
+
+127
+00:06:10.960 --> 00:06:15.960
+we can do net dot show, to see all of the connected clients.
+
+128
+00:06:16.440 --> 00:06:17.350
+And as you can see,
+
+129
+00:06:17.350 --> 00:06:20.360
+we get a nice list of all of the connected clients.
+
+130
+00:06:20.360 --> 00:06:22.340
+We can see their IP's.
+
+131
+00:06:22.340 --> 00:06:24.870
+We can see the corresponding Mac addresses
+
+132
+00:06:24.870 --> 00:06:26.430
+for these clients.
+
+133
+00:06:26.430 --> 00:06:29.970
+And it can also show you information right here
+
+134
+00:06:29.970 --> 00:06:32.157
+about each one of these IP's.
+
+135
+00:06:32.157 --> 00:06:33.290
+For example,
+
+136
+00:06:33.290 --> 00:06:35.620
+it's telling us that this IP right here
+
+137
+00:06:35.620 --> 00:06:37.750
+is the IP for ETH0.
+
+138
+00:06:37.750 --> 00:06:40.103
+So this is the IP of this computer.
+
+139
+00:06:41.030 --> 00:06:44.650
+It's also telling us that this IP right here is the gateway.
+
+140
+00:06:44.650 --> 00:06:46.973
+This is the IP of the router,
+
+141
+00:06:47.900 --> 00:06:50.800
+and you can also see at the vendor in here
+
+142
+00:06:50.800 --> 00:06:54.400
+it's attempting to discover the manufacturer
+
+143
+00:06:54.400 --> 00:06:57.269
+of the hardware used in each of these clients.
+
+144
+00:06:57.269 --> 00:06:59.620
+So as you can see for the gateway,
+
+145
+00:06:59.620 --> 00:07:02.583
+it thinks that it uses a Realtek chip set.
+
+146
+00:07:04.210 --> 00:07:08.850
+Now you can also see here the 10.0.2.7 device.
+
+147
+00:07:08.850 --> 00:07:12.273
+Like I said, this is my target Windows device right here.
+
+148
+00:07:15.010 --> 00:07:16.390
+So that's it for this lecture.
+
+149
+00:07:16.390 --> 00:07:18.880
+I just wanted to give you a quick overview
+
+150
+00:07:18.880 --> 00:07:21.680
+on how to get help about a specific module,
+
+151
+00:07:21.680 --> 00:07:23.620
+how to run a specific module
+
+152
+00:07:23.620 --> 00:07:26.500
+and analyze the results that it returns.
+
+153
+00:07:26.500 --> 00:07:27.740
+And in the next lecture,
+
+154
+00:07:27.740 --> 00:07:31.740
+I'm going to show you how we can run an ARP spoofing attack
+
+155
+00:07:31.740 --> 00:07:34.356
+using Better Cap to intercept the data
+
+156
+00:07:34.356 --> 00:07:37.350
+and read usernames and passwords
+
+157
+00:07:37.350 --> 00:07:39.370
+that flow through the network.
+
+158
+00:07:39.370 --> 00:07:41.400
+Once we become the man in the middle,
+
+159
+00:07:41.400 --> 00:07:43.283
+once we intercept the connection.
+

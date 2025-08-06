@@ -1,0 +1,598 @@
+WEBVTT
+
+1
+00:00:00.900 --> 00:00:02.810
+<v Instructor>Now from the previous lectures,</v>
+
+2
+00:00:02.810 --> 00:00:07.040
+we know, once we connect to a network, it's game over
+
+3
+00:00:07.040 --> 00:00:11.560
+because, once connected, we can run an ARP spoofing attack
+
+4
+00:00:11.560 --> 00:00:13.760
+to redirect the flow of packets
+
+5
+00:00:13.760 --> 00:00:16.630
+so that they go through our computer.
+
+6
+00:00:16.630 --> 00:00:19.110
+This allow us to become the man in the middle,
+
+7
+00:00:19.110 --> 00:00:21.060
+and once we're the man in the middle,
+
+8
+00:00:21.060 --> 00:00:25.270
+we can run so many dangerous and effective attacks.
+
+9
+00:00:25.270 --> 00:00:29.560
+So we can spy on all the users, steal their passwords,
+
+10
+00:00:29.560 --> 00:00:31.920
+redirect them to different websites,
+
+11
+00:00:31.920 --> 00:00:35.920
+and this is all just a small taste of what you can do.
+
+12
+00:00:35.920 --> 00:00:38.250
+You'll actually see us build on this
+
+13
+00:00:38.250 --> 00:00:40.580
+in the client side attack section,
+
+14
+00:00:40.580 --> 00:00:44.300
+where we're going to completely hack into computers
+
+15
+00:00:44.300 --> 00:00:47.110
+connected to the same network as us.
+
+16
+00:00:47.110 --> 00:00:50.890
+And if you go and do my Advanced Network Hacking course,
+
+17
+00:00:50.890 --> 00:00:53.050
+then you'll see more advanced attacks
+
+18
+00:00:53.050 --> 00:00:57.180
+that'll allow us to do so many cool stuff on the network.
+
+19
+00:00:57.180 --> 00:01:00.760
+Again, all of this is possible because, once we connect,
+
+20
+00:01:00.760 --> 00:01:05.103
+we can run ARP spoofing and become the man in the middle.
+
+21
+00:01:06.060 --> 00:01:08.640
+Now, in this section, I actually want to show you
+
+22
+00:01:08.640 --> 00:01:10.790
+another method that'll allow us
+
+23
+00:01:10.790 --> 00:01:12.380
+to become the man in the middle.
+
+24
+00:01:12.380 --> 00:01:14.240
+And once we're the man in the middle,
+
+25
+00:01:14.240 --> 00:01:16.320
+we'll be able to run all of the attacks
+
+26
+00:01:16.320 --> 00:01:19.270
+that you've seen so far and all of the other man
+
+27
+00:01:19.270 --> 00:01:21.970
+in the middle attacks that you'll learn in the future.
+
+28
+00:01:22.900 --> 00:01:25.010
+So let's go back to the first diagram
+
+29
+00:01:25.010 --> 00:01:26.770
+that we learned in this course
+
+30
+00:01:26.770 --> 00:01:30.300
+when we were talking about how networks work in general.
+
+31
+00:01:30.300 --> 00:01:33.600
+We said the only device that has access to the internet
+
+32
+00:01:33.600 --> 00:01:36.520
+is the access point, and whenever a client
+
+33
+00:01:36.520 --> 00:01:38.140
+wants to access something,
+
+34
+00:01:38.140 --> 00:01:40.300
+they send the request to the access point.
+
+35
+00:01:40.300 --> 00:01:42.530
+The access point goes to the internet,
+
+36
+00:01:42.530 --> 00:01:45.273
+gets the response and send it back to the client.
+
+37
+00:01:46.700 --> 00:01:50.590
+Now what if we replace this access point
+
+38
+00:01:50.590 --> 00:01:53.620
+with our hacker computer?
+
+39
+00:01:53.620 --> 00:01:57.160
+So what if we can use our machine
+
+40
+00:01:57.160 --> 00:02:02.160
+to create a wifi network that actually has internet access
+
+41
+00:02:02.740 --> 00:02:05.080
+so people will actually try to come in
+
+42
+00:02:05.080 --> 00:02:08.163
+and connect to our network to access the internet,
+
+43
+00:02:09.050 --> 00:02:11.740
+and then, when they connect to our network,
+
+44
+00:02:11.740 --> 00:02:14.460
+by default we will be the man in the middle
+
+45
+00:02:14.460 --> 00:02:16.090
+because we are the router?
+
+46
+00:02:16.090 --> 00:02:19.220
+So we won't really need to exploit anything.
+
+47
+00:02:19.220 --> 00:02:21.680
+We are automatically the man in the middle,
+
+48
+00:02:21.680 --> 00:02:24.810
+and the clients will automatically send us any requests
+
+49
+00:02:24.810 --> 00:02:27.210
+because they want to access the internet,
+
+50
+00:02:27.210 --> 00:02:29.950
+and we will see these requests, obviously,
+
+51
+00:02:29.950 --> 00:02:31.960
+go to the internet, get them what they want
+
+52
+00:02:31.960 --> 00:02:34.310
+and give it back to them.
+
+53
+00:02:34.310 --> 00:02:37.810
+This way, we'll be able to launch all of the attacks
+
+54
+00:02:37.810 --> 00:02:39.670
+that I showed you previously
+
+55
+00:02:39.670 --> 00:02:43.160
+without the need to exploit the ARP protocol,
+
+56
+00:02:43.160 --> 00:02:46.530
+so without the need to run ARP spoofing.
+
+57
+00:02:46.530 --> 00:02:49.180
+All we'll have to do, once our network is running
+
+58
+00:02:49.180 --> 00:02:50.890
+and we have clients connected,
+
+59
+00:02:50.890 --> 00:02:54.863
+we can just start sniffing using Wireshark or Bettercap.
+
+60
+00:02:56.350 --> 00:02:59.090
+So for this to work, you need a computer,
+
+61
+00:02:59.090 --> 00:03:02.560
+and we already have our hacker computer with Kali Linux.
+
+62
+00:03:02.560 --> 00:03:05.500
+You also need internet access,
+
+63
+00:03:05.500 --> 00:03:08.870
+and you need a wireless device
+
+64
+00:03:08.870 --> 00:03:11.780
+that's going to broadcast the wifi signal
+
+65
+00:03:11.780 --> 00:03:15.490
+and tell all the neighboring devices that I am a network,
+
+66
+00:03:15.490 --> 00:03:17.513
+you can come in and connect to me.
+
+67
+00:03:18.440 --> 00:03:22.310
+So you will need, first of all, an interface
+
+68
+00:03:22.310 --> 00:03:24.610
+that has internet connection.
+
+69
+00:03:24.610 --> 00:03:27.870
+This interface, it can be a wifi interface
+
+70
+00:03:27.870 --> 00:03:29.470
+connected to the internet.
+
+71
+00:03:29.470 --> 00:03:32.280
+It could be an ethernet interface
+
+72
+00:03:32.280 --> 00:03:34.410
+connected to an ethernet network.
+
+73
+00:03:34.410 --> 00:03:37.840
+It could be a 3G or a 4G dongle,
+
+74
+00:03:37.840 --> 00:03:40.660
+and it even can be a virtual interface,
+
+75
+00:03:40.660 --> 00:03:43.010
+and this is what I'm actually going to do.
+
+76
+00:03:43.010 --> 00:03:47.200
+It's going to be my ETA zero, the virtual interface
+
+77
+00:03:47.200 --> 00:03:50.920
+that is connected to my network.
+
+78
+00:03:50.920 --> 00:03:54.570
+So this can be any network device
+
+79
+00:03:54.570 --> 00:03:57.343
+as long as it has internet access.
+
+80
+00:03:58.830 --> 00:04:01.840
+The next interface that you will need, like I said,
+
+81
+00:04:01.840 --> 00:04:04.740
+it's gonna have to be a wifi interface
+
+82
+00:04:04.740 --> 00:04:06.480
+because it needs to be able
+
+83
+00:04:06.480 --> 00:04:10.250
+to broadcast the signal for the network.
+
+84
+00:04:10.250 --> 00:04:13.910
+And you can't use any wifi interface.
+
+85
+00:04:13.910 --> 00:04:16.820
+This interface needs to be able
+
+86
+00:04:16.820 --> 00:04:20.330
+to act as an access point.
+
+87
+00:04:20.330 --> 00:04:22.220
+So it needs to be capable
+
+88
+00:04:22.220 --> 00:04:27.220
+of acting like a proper access point like a router.
+
+89
+00:04:27.340 --> 00:04:31.210
+Now, all of the wifi adapters that I recommend
+
+90
+00:04:31.210 --> 00:04:34.380
+support this mode, and I've already included a video
+
+91
+00:04:34.380 --> 00:04:36.270
+in the resources before
+
+92
+00:04:36.270 --> 00:04:39.290
+when I first spoke about wireless adapters,
+
+93
+00:04:39.290 --> 00:04:41.080
+but I'm also gonna include this video
+
+94
+00:04:41.080 --> 00:04:43.300
+in the resources of this lecture.
+
+95
+00:04:43.300 --> 00:04:45.910
+So if you're going to buy one or if you're not sure
+
+96
+00:04:45.910 --> 00:04:48.840
+how to pick the right one, then check out this video.
+
+97
+00:04:48.840 --> 00:04:50.623
+It should be helpful for you.
+
+98
+00:04:51.480 --> 00:04:54.270
+So once we have this set up properly,
+
+99
+00:04:54.270 --> 00:04:58.500
+we can use our computer to start an access point,
+
+100
+00:04:58.500 --> 00:05:02.300
+and it's going to act exactly like a router.
+
+101
+00:05:02.300 --> 00:05:04.870
+So people will be able to see the network,
+
+102
+00:05:04.870 --> 00:05:06.860
+when they look for wifi networks.
+
+103
+00:05:06.860 --> 00:05:08.480
+They'll be able to connect to it
+
+104
+00:05:08.480 --> 00:05:10.730
+and get internet connection.
+
+105
+00:05:10.730 --> 00:05:12.340
+But when they connect,
+
+106
+00:05:12.340 --> 00:05:15.310
+they will have to send us all of their requests
+
+107
+00:05:15.310 --> 00:05:18.560
+because we are the router, we are the access point,
+
+108
+00:05:18.560 --> 00:05:22.610
+so by default, we will be the man in the middle.
+
+109
+00:05:22.610 --> 00:05:25.410
+Therefore, you'll be able to execute
+
+110
+00:05:25.410 --> 00:05:28.820
+all man in the middle attacks that you learned so far
+
+111
+00:05:28.820 --> 00:05:31.210
+and any other man in the middle attacks
+
+112
+00:05:31.210 --> 00:05:33.423
+that you will learn in the future.
+
+113
+00:05:34.610 --> 00:05:37.240
+So basically, ARP spoofing is one method
+
+114
+00:05:37.240 --> 00:05:39.250
+of becoming the man in the middle.
+
+115
+00:05:39.250 --> 00:05:41.130
+And what I'm gonna show you right now
+
+116
+00:05:41.130 --> 00:05:44.583
+is another method of becoming the man in the middle.
+
+117
+00:05:46.400 --> 00:05:50.310
+Now you can see that, in order to use our computer
+
+118
+00:05:50.310 --> 00:05:54.230
+as an access point, we need a number of components
+
+119
+00:05:54.230 --> 00:05:56.370
+to be configured properly.
+
+120
+00:05:56.370 --> 00:05:59.500
+So first of all, we need our wireless interface
+
+121
+00:05:59.500 --> 00:06:04.140
+to broadcast the signal as if it's a real network.
+
+122
+00:06:04.140 --> 00:06:07.050
+This will allow other clients to connect to it,
+
+123
+00:06:07.050 --> 00:06:09.230
+but that's not the end of the road.
+
+124
+00:06:09.230 --> 00:06:11.930
+The wireless interface needs to know
+
+125
+00:06:11.930 --> 00:06:14.780
+when these clients are requesting websites.
+
+126
+00:06:14.780 --> 00:06:18.040
+It needs to be able to forward these requests
+
+127
+00:06:18.040 --> 00:06:22.000
+to the other interface that is connected to the internet.
+
+128
+00:06:22.000 --> 00:06:23.880
+Then again, it'll need to be able
+
+129
+00:06:23.880 --> 00:06:26.390
+to know when the response has come back
+
+130
+00:06:26.390 --> 00:06:29.223
+and forward all of this to the right client.
+
+131
+00:06:30.320 --> 00:06:33.660
+Now you can configure all of these things manually,
+
+132
+00:06:33.660 --> 00:06:35.170
+and I actually cover this
+
+133
+00:06:35.170 --> 00:06:37.660
+in my Advanced Network Hacking course,
+
+134
+00:06:37.660 --> 00:06:40.040
+and I cover a lot of advanced things
+
+135
+00:06:40.040 --> 00:06:42.790
+that you can do with the fake access point,
+
+136
+00:06:42.790 --> 00:06:45.100
+like launching an evil twin attack,
+
+137
+00:06:45.100 --> 00:06:49.400
+hacking into WPA2 Enterprise, and so on.
+
+138
+00:06:49.400 --> 00:06:52.600
+But this would take at least 30 lectures,
+
+139
+00:06:52.600 --> 00:06:55.220
+and this is not a network hacking course.
+
+140
+00:06:55.220 --> 00:06:58.030
+This is a general ethical hacking course.
+
+141
+00:06:58.030 --> 00:07:01.640
+Therefore, that would be out of the scope of this lecture.
+
+142
+00:07:01.640 --> 00:07:04.780
+If you're interested in learning how to do this manually
+
+143
+00:07:04.780 --> 00:07:09.240
+and how to run advanced attacks using the fake access point,
+
+144
+00:07:09.240 --> 00:07:12.480
+then check out my Advanced Network Hacking course
+
+145
+00:07:12.480 --> 00:07:15.843
+in the bonus lecture, the last lecture of this course.
+
+146
+00:07:17.080 --> 00:07:19.380
+For now, for this course, I'm gonna show you
+
+147
+00:07:19.380 --> 00:07:23.730
+a great way of quickly creating a fake access point
+
+148
+00:07:23.730 --> 00:07:26.220
+that'll allow us to become the man in the middle,
+
+149
+00:07:26.220 --> 00:07:29.023
+similar to what's shown in this diagram.
+

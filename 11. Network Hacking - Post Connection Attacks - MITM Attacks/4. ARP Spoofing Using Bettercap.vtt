@@ -1,0 +1,646 @@
+WEBVTT
+
+1
+00:00:00.870 --> 00:00:01.950
+<v Lecturer>Now, in this lecture,</v>
+
+2
+00:00:01.950 --> 00:00:06.010
+I wanna show you how to run an ARP spoofing attack
+
+3
+00:00:06.010 --> 00:00:07.800
+using Bettercap.
+
+4
+00:00:07.800 --> 00:00:10.780
+This will allow us to place our computer
+
+5
+00:00:10.780 --> 00:00:15.100
+in the middle of the connection and intercept data.
+
+6
+00:00:15.100 --> 00:00:17.670
+Not only that, but we're also gonna see
+
+7
+00:00:17.670 --> 00:00:19.490
+how we can read this data.
+
+8
+00:00:19.490 --> 00:00:21.920
+So we can see all the URLs
+
+9
+00:00:21.920 --> 00:00:25.000
+and all the websites that the target visits
+
+10
+00:00:25.000 --> 00:00:27.670
+and we'll see everything that they post.
+
+11
+00:00:27.670 --> 00:00:30.360
+So anything any usernames, any passwords
+
+12
+00:00:30.360 --> 00:00:32.750
+they send to any websites,
+
+13
+00:00:32.750 --> 00:00:35.343
+we're gonna be able to capture them and see them.
+
+14
+00:00:36.930 --> 00:00:40.250
+So, first we need to become the man in the middle.
+
+15
+00:00:40.250 --> 00:00:44.510
+And we're gonna do this using a module called ARP spoof.
+
+16
+00:00:44.510 --> 00:00:47.500
+So if I scroll up to the help menu,
+
+17
+00:00:47.500 --> 00:00:51.923
+you can see we have a module here called ARP spoof.
+
+18
+00:00:53.990 --> 00:00:57.560
+So as usual, if we don't know how to use this module,
+
+19
+00:00:57.560 --> 00:01:01.310
+we're gonna do help arp.spoof,
+
+20
+00:01:01.310 --> 00:01:04.570
+because we want to see how to use this module
+
+21
+00:01:04.570 --> 00:01:07.773
+and see all the options that we can set for it.
+
+22
+00:01:08.660 --> 00:01:10.620
+So as you can see, as usual,
+
+23
+00:01:10.620 --> 00:01:14.800
+we can do arp.spoof on to turn this module on.
+
+24
+00:01:14.800 --> 00:01:17.160
+We can do arp.ban on
+
+25
+00:01:17.160 --> 00:01:19.810
+and this will literally just cut the connection
+
+26
+00:01:19.810 --> 00:01:21.110
+of the target.
+
+27
+00:01:21.110 --> 00:01:22.280
+This is very simple.
+
+28
+00:01:22.280 --> 00:01:24.070
+You can try it on your own time.
+
+29
+00:01:24.070 --> 00:01:26.120
+I'm not gonna do it here.
+
+30
+00:01:26.120 --> 00:01:29.340
+You can do arp.spoof off to turn it off
+
+31
+00:01:29.340 --> 00:01:32.783
+and arp.ban off to turn the ban off.
+
+32
+00:01:33.870 --> 00:01:36.980
+Now, in the previous lecture I also said
+
+33
+00:01:36.980 --> 00:01:39.440
+anything you see under the parameters
+
+34
+00:01:39.440 --> 00:01:44.000
+are the options that we can set for this specific module.
+
+35
+00:01:44.000 --> 00:01:46.163
+But I didn't show you how to modify that.
+
+36
+00:01:47.090 --> 00:01:48.270
+So in this lecture,
+
+37
+00:01:48.270 --> 00:01:51.223
+we're actually gonna be modifying some of these options.
+
+38
+00:01:52.250 --> 00:01:55.550
+Now as you can see, the tool is actually very helpful
+
+39
+00:01:55.550 --> 00:01:58.460
+because first of all it's given us the option name
+
+40
+00:01:58.460 --> 00:01:59.600
+in yellow here.
+
+41
+00:01:59.600 --> 00:02:01.980
+So these are the options that we can set,
+
+42
+00:02:01.980 --> 00:02:03.520
+that we can change.
+
+43
+00:02:03.520 --> 00:02:05.550
+And then it's also telling us
+
+44
+00:02:05.550 --> 00:02:08.350
+a description of what this option does
+
+45
+00:02:08.350 --> 00:02:09.893
+and the default value.
+
+46
+00:02:11.300 --> 00:02:13.530
+So for example, we can see we have an option
+
+47
+00:02:13.530 --> 00:02:16.230
+called arp.spoof.fullduplex.
+
+48
+00:02:17.080 --> 00:02:20.010
+You can see the description for this option
+
+49
+00:02:20.010 --> 00:02:22.390
+and basically what this option will do
+
+50
+00:02:22.390 --> 00:02:24.010
+if you set it to true,
+
+51
+00:02:24.010 --> 00:02:28.100
+it will spoof both the router and the target.
+
+52
+00:02:28.100 --> 00:02:31.130
+So it's similar to what we did with ARP spoof
+
+53
+00:02:31.130 --> 00:02:33.750
+when we executed the command twice
+
+54
+00:02:33.750 --> 00:02:36.440
+to spoof both the router and the target.
+
+55
+00:02:36.440 --> 00:02:38.700
+So if you set this to true,
+
+56
+00:02:38.700 --> 00:02:41.300
+both the router and the target will be spoofed
+
+57
+00:02:41.300 --> 00:02:43.860
+and you will be in the middle of the connection.
+
+58
+00:02:43.860 --> 00:02:47.300
+If you leave it to the default, which is false,
+
+59
+00:02:47.300 --> 00:02:50.380
+you will only spoof the target machine.
+
+60
+00:02:50.380 --> 00:02:52.010
+Now this can be useful
+
+61
+00:02:52.010 --> 00:02:54.710
+if the router has some sort of protection
+
+62
+00:02:54.710 --> 00:02:57.090
+against ARP spoofing attacks
+
+63
+00:02:57.090 --> 00:03:00.980
+because you won't to be interacting with router at all.
+
+64
+00:03:00.980 --> 00:03:04.980
+But it's also limiting because we won't be able to do
+
+65
+00:03:04.980 --> 00:03:06.920
+what I'm gonna do in the next lectures
+
+66
+00:03:06.920 --> 00:03:09.740
+because the router will communicate
+
+67
+00:03:09.740 --> 00:03:11.780
+with the target device directly.
+
+68
+00:03:11.780 --> 00:03:14.330
+So we won't to be able to inject stuff
+
+69
+00:03:14.330 --> 00:03:18.543
+in the responses that the router sends to the target device.
+
+70
+00:03:19.650 --> 00:03:22.380
+Now, I actually wanna change this to true
+
+71
+00:03:22.380 --> 00:03:24.180
+and the method I'm gonna do this
+
+72
+00:03:24.180 --> 00:03:27.530
+can be used to change any option
+
+73
+00:03:27.530 --> 00:03:29.830
+in any module in Bettercapp.
+
+74
+00:03:29.830 --> 00:03:32.690
+So not only in the arp.spoof.
+
+75
+00:03:32.690 --> 00:03:34.620
+If you're using any module,
+
+76
+00:03:34.620 --> 00:03:36.930
+you can do help followed by the module name
+
+77
+00:03:36.930 --> 00:03:39.140
+to get help about that module name.
+
+78
+00:03:39.140 --> 00:03:42.460
+You can see all of the options that you can set in here.
+
+79
+00:03:42.460 --> 00:03:45.550
+And then if you want to modify the value
+
+80
+00:03:45.550 --> 00:03:48.400
+of any of these options, all we have to do
+
+81
+00:03:48.400 --> 00:03:52.420
+is copy the option name, which is what I have right here
+
+82
+00:03:53.430 --> 00:03:57.150
+and type set, followed by the option
+
+83
+00:03:57.150 --> 00:03:58.820
+that you want to modify.
+
+84
+00:03:58.820 --> 00:04:03.500
+And in my case it's called arp.spoof.fullduplex.
+
+85
+00:04:03.500 --> 00:04:05.923
+And I wanna set this to true.
+
+86
+00:04:07.410 --> 00:04:09.430
+So very, very simple.
+
+87
+00:04:09.430 --> 00:04:11.850
+And like I said, you can use this command
+
+88
+00:04:11.850 --> 00:04:16.170
+to change any option in any module in Bettercap.
+
+89
+00:04:16.170 --> 00:04:18.170
+All you have to do is type, set,
+
+90
+00:04:18.170 --> 00:04:19.930
+followed by the option name,
+
+91
+00:04:19.930 --> 00:04:22.363
+followed by the value that you want to set.
+
+92
+00:04:23.390 --> 00:04:26.010
+So I'm gonna hit enter and that's done.
+
+93
+00:04:26.010 --> 00:04:27.070
+If you don't see errors,
+
+94
+00:04:27.070 --> 00:04:29.543
+that means it got executed properly.
+
+95
+00:04:30.520 --> 00:04:34.470
+The next option that I wanna change is the targets.
+
+96
+00:04:34.470 --> 00:04:36.030
+So again, in the description,
+
+97
+00:04:36.030 --> 00:04:38.390
+it's telling us that these are the targets
+
+98
+00:04:38.390 --> 00:04:41.430
+that I want to run the attack against
+
+99
+00:04:41.430 --> 00:04:46.140
+and I can use a coma if I wanted to target more than one IP
+
+100
+00:04:46.140 --> 00:04:47.313
+at the same time.
+
+101
+00:04:48.150 --> 00:04:50.370
+So again, just like what I did before,
+
+102
+00:04:50.370 --> 00:04:53.810
+I'm gonna do set, followed by the option name,
+
+103
+00:04:53.810 --> 00:04:58.810
+which is arp.spoof.targets.
+
+104
+00:04:59.360 --> 00:05:02.720
+And you can actually use the tab to auto-complete.
+
+105
+00:05:02.720 --> 00:05:05.800
+So if I just type T-A tab,
+
+106
+00:05:05.800 --> 00:05:08.203
+it'll auto complete the targets for me.
+
+107
+00:05:09.240 --> 00:05:11.470
+And after this I'm gonna put the value
+
+108
+00:05:11.470 --> 00:05:13.560
+that I want to set this option to,
+
+109
+00:05:13.560 --> 00:05:15.900
+which is the IP of my target
+
+110
+00:05:15.900 --> 00:05:19.930
+and we can get this using net discover, using zen map
+
+111
+00:05:19.930 --> 00:05:22.720
+or using the result that I got in here.
+
+112
+00:05:22.720 --> 00:05:26.490
+After I ran the recon module, I did net.show
+
+113
+00:05:26.490 --> 00:05:27.880
+and we got all of this,
+
+114
+00:05:27.880 --> 00:05:29.990
+which is the list of all of the computers
+
+115
+00:05:29.990 --> 00:05:32.150
+connected to the same network.
+
+116
+00:05:32.150 --> 00:05:35.500
+And my target right now, is this particular device,
+
+117
+00:05:35.500 --> 00:05:37.960
+the 10.0.2.7.
+
+118
+00:05:37.960 --> 00:05:41.623
+This is my windows virtual machine right here.
+
+119
+00:05:43.560 --> 00:05:47.120
+So I'm gonna put the IP 10.0.2.7.
+
+120
+00:05:48.440 --> 00:05:50.710
+And again, we don't see any errors,
+
+121
+00:05:50.710 --> 00:05:55.660
+which means that everything got executed as expected.
+
+122
+00:05:55.660 --> 00:05:57.810
+Now, we're ready to run the tool.
+
+123
+00:05:57.810 --> 00:06:00.700
+And again, based on the help menu that we got,
+
+124
+00:06:00.700 --> 00:06:05.700
+we can do arp.spoof on to turn this module on.
+
+125
+00:06:05.930 --> 00:06:10.363
+So we're gonna do arp.spoof on.
+
+126
+00:06:12.040 --> 00:06:14.700
+And perfect, as you can see, we see no errors.
+
+127
+00:06:14.700 --> 00:06:18.280
+It's telling us that the module is running.
+
+128
+00:06:18.280 --> 00:06:22.070
+And if I do help, again, we're gonna get a list
+
+129
+00:06:22.070 --> 00:06:25.120
+of all of the modules that are running right now.
+
+130
+00:06:25.120 --> 00:06:29.313
+And as you can see, we can see that ARP spoofing is on.
+
+131
+00:06:30.690 --> 00:06:33.860
+Also, it is very important that you make sure
+
+132
+00:06:33.860 --> 00:06:38.520
+that the net.probe and the net.recon are running.
+
+133
+00:06:38.520 --> 00:06:40.350
+We did this in the previous lecture.
+
+134
+00:06:40.350 --> 00:06:42.093
+That's why I didn't do it now.
+
+135
+00:06:43.260 --> 00:06:45.580
+So right now, Bettercap should be doing
+
+136
+00:06:45.580 --> 00:06:48.070
+what ARP spoofing was doing,
+
+137
+00:06:48.070 --> 00:06:51.150
+fooling both the router and the target device
+
+138
+00:06:51.150 --> 00:06:54.380
+and putting me in the middle of the connection
+
+139
+00:06:54.380 --> 00:06:56.250
+as shown here.
+
+140
+00:06:56.250 --> 00:06:59.760
+So, let's go to the windows machine right here.
+
+141
+00:06:59.760 --> 00:07:04.660
+And I'm gonna do arp-a and as you can see,
+
+142
+00:07:04.660 --> 00:07:07.430
+the routers MAC address right here
+
+143
+00:07:07.430 --> 00:07:11.690
+is the same as the MAC address for this device,
+
+144
+00:07:11.690 --> 00:07:14.410
+which is the 10.0.2.15.
+
+145
+00:07:14.410 --> 00:07:17.460
+And if I go back here to the Kali machine
+
+146
+00:07:17.460 --> 00:07:22.460
+and do ifconfig, you'll see this is the same MAC address
+
+147
+00:07:23.400 --> 00:07:28.400
+as the MAC address of the Kali ETH0 interface.
+
+148
+00:07:30.150 --> 00:07:33.800
+So basically, what this means is this windows machine,
+
+149
+00:07:33.800 --> 00:07:37.010
+every time it wants to send something to the router,
+
+150
+00:07:37.010 --> 00:07:40.130
+it'll send it to the Kali machine.
+
+151
+00:07:40.130 --> 00:07:45.130
+And because we set the full duplex option on, in Bettercap,
+
+152
+00:07:45.160 --> 00:07:48.110
+the router also thinks that this Kali machine
+
+153
+00:07:48.110 --> 00:07:50.210
+is the target machine.
+
+154
+00:07:50.210 --> 00:07:53.390
+Therefore, anytime it needs to send a response
+
+155
+00:07:53.390 --> 00:07:55.240
+to the windows machine,
+
+156
+00:07:55.240 --> 00:07:58.323
+it'll actually send it to Bettercap right here.
+
+157
+00:07:59.330 --> 00:08:03.750
+And like I said before, this means every username, password,
+
+158
+00:08:03.750 --> 00:08:07.600
+URL, anything the target computer sends or receives
+
+159
+00:08:07.600 --> 00:08:09.850
+will have to go through the Kali machine
+
+160
+00:08:09.850 --> 00:08:13.870
+where we're gonna be able to read it, modify it, or drop it.
+
+161
+00:08:13.870 --> 00:08:17.153
+And I'm gonna walk you through that in the next lectures.
+

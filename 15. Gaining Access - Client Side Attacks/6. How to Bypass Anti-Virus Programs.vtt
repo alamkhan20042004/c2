@@ -1,0 +1,421 @@
+WEBVTT
+
+00:00.210 --> 00:01.043
+Instructor: Now that you know
+
+00:01.043 --> 00:03.180
+how to create your own backdoor
+
+00:03.180 --> 00:05.400
+and use it to hack a computer
+
+00:05.400 --> 00:07.260
+and remotely control it,
+
+00:07.260 --> 00:09.180
+in this lecture, let's talk about
+
+00:09.180 --> 00:12.780
+how to get this backdoor to bypass antivirus
+
+00:12.780 --> 00:14.580
+and security programs.
+
+00:14.580 --> 00:16.590
+So first of all, in order to do that,
+
+00:16.590 --> 00:20.520
+we have to understand how these antivirus programs work.
+
+00:20.520 --> 00:22.590
+And there are two main principles
+
+00:22.590 --> 00:25.680
+that these antivirus programs work on.
+
+00:25.680 --> 00:29.100
+The first one is known as static analysis,
+
+00:29.100 --> 00:31.770
+and as the name suggests in this approach,
+
+00:31.770 --> 00:36.360
+the antivirus program compares the code of the executable
+
+00:36.360 --> 00:40.890
+or the backdoor to a database of known malware.
+
+00:40.890 --> 00:41.850
+So for example,
+
+00:41.850 --> 00:45.150
+let's say you have your executable backdoor in here
+
+00:45.150 --> 00:47.160
+and you send it to a target computer
+
+00:47.160 --> 00:48.390
+and they download it,
+
+00:48.390 --> 00:51.210
+and that computer has an antivirus program.
+
+00:51.210 --> 00:53.340
+The program is gonna go ahead
+
+00:53.340 --> 00:57.540
+and compare the code in this executable
+
+00:57.540 --> 01:01.680
+to a database of known malware and known threats.
+
+01:01.680 --> 01:04.860
+And if it manages to find code in this database
+
+01:04.860 --> 01:07.530
+of known threats that looks similar to the code
+
+01:07.530 --> 01:09.540
+that is inside your executable,
+
+01:09.540 --> 01:13.080
+then it's gonna know that this executable is harmful.
+
+01:13.080 --> 01:16.500
+Otherwise, it'll not detect this executable.
+
+01:16.500 --> 01:19.410
+Therefore, since this technique is static,
+
+01:19.410 --> 01:21.420
+and it only depends on the code
+
+01:21.420 --> 01:23.970
+that exists in the actual program,
+
+01:23.970 --> 01:25.920
+we can bypass this technique
+
+01:25.920 --> 01:29.340
+by simply making the program more unique
+
+01:29.340 --> 01:31.500
+so that the code used in our program
+
+01:31.500 --> 01:33.180
+does not match any code
+
+01:33.180 --> 01:36.630
+that exists in this database of known malware.
+
+01:36.630 --> 01:38.700
+And you can do this either manually
+
+01:38.700 --> 01:39.750
+if you know programming.
+
+01:39.750 --> 01:41.070
+You can write your own backdoor
+
+01:41.070 --> 01:43.980
+or modify the existing code of the backdoor,
+
+01:43.980 --> 01:46.822
+or you can use ready tools such as packers,
+
+01:46.822 --> 01:49.290
+encoders, or obfuscators.
+
+01:49.290 --> 01:53.070
+All of these tools basically modify the code of the program
+
+01:53.070 --> 01:56.550
+so that hopefully the resulting code is unique enough
+
+01:56.550 --> 01:57.840
+to not match anything
+
+01:57.840 --> 02:01.120
+that exists in this database of known malware.
+
+02:01.120 --> 02:04.890
+So this first approach is actually easy enough to bypass,
+
+02:04.890 --> 02:08.460
+but it gets trickier when antivirus programs get smarter
+
+02:08.460 --> 02:11.970
+and employ a technique that is known as dynamic
+
+02:11.970 --> 02:14.430
+or heuristic analysis.
+
+02:14.430 --> 02:17.400
+This technique analyzes the behavior
+
+02:17.400 --> 02:19.830
+of the executable or the backdoor
+
+02:19.830 --> 02:24.214
+and decides whether it is harmful or not based on that.
+
+02:24.214 --> 02:26.910
+So instead of simply comparing its code
+
+02:26.910 --> 02:30.540
+to a database of known malware, in this example,
+
+02:30.540 --> 02:32.310
+let's say you have your backdoor in here
+
+02:32.310 --> 02:34.860
+and it gets downloaded on a target computer.
+
+02:34.860 --> 02:37.620
+The antivirus program in this target computer
+
+02:37.620 --> 02:41.100
+will execute your backdoor in a sandbox
+
+02:41.100 --> 02:42.780
+or in a controlled environment
+
+02:42.780 --> 02:45.780
+so that it can't actually exit this sandbox.
+
+02:45.780 --> 02:49.696
+And then it analyzes the behavior of this executable.
+
+02:49.696 --> 02:53.790
+If this executable is trying to connect to another computer,
+
+02:53.790 --> 02:56.040
+as we saw earlier, that means it's a backdoor,
+
+02:56.040 --> 02:59.010
+or if it's trying to modify registry entries,
+
+02:59.010 --> 03:02.850
+or if it is encrypting certain paths in the computer,
+
+03:02.850 --> 03:05.160
+then we know that this is a ransomware.
+
+03:05.160 --> 03:08.040
+So based on the behavior of the executable,
+
+03:08.040 --> 03:10.350
+the antivirus program is gonna decide
+
+03:10.350 --> 03:14.400
+whether this executable is harmful or not.
+
+03:14.400 --> 03:17.040
+So in this case, simply making the code
+
+03:17.040 --> 03:18.480
+more unique is not enough
+
+03:18.480 --> 03:20.340
+because even if you have unique code
+
+03:20.340 --> 03:23.460
+that is doing suspicious stuff on the computer,
+
+03:23.460 --> 03:25.620
+the antivirus program is gonna flag it
+
+03:25.620 --> 03:27.900
+as a virus or as malware.
+
+03:27.900 --> 03:30.930
+Therefore, in order to bypass this technique,
+
+03:30.930 --> 03:32.580
+we're gonna have to make the program
+
+03:32.580 --> 03:34.858
+seem like it is not harmful.
+
+03:34.858 --> 03:35.850
+And to do that,
+
+03:35.850 --> 03:38.250
+you're gonna have to be a little bit creative.
+
+03:38.250 --> 03:41.490
+For example, you can add benign or safe operations.
+
+03:41.490 --> 03:42.990
+So you can make your malware
+
+03:42.990 --> 03:46.380
+or backdoor seem like it's a legit application.
+
+03:46.380 --> 03:48.360
+So for example, just to keep it simple,
+
+03:48.360 --> 03:51.060
+you can have code for a calculator program in there
+
+03:51.060 --> 03:53.850
+and at the same time have your backdoor executed
+
+03:53.850 --> 03:55.535
+at a certain stage.
+
+03:55.535 --> 03:58.530
+You can also delay the payload execution.
+
+03:58.530 --> 04:00.420
+So there are a number of ways of doing this.
+
+04:00.420 --> 04:01.710
+For example, you can detect
+
+04:01.710 --> 04:04.860
+whether this backdoor is being executed in a sandbox
+
+04:04.860 --> 04:06.090
+or a virtual environment.
+
+04:06.090 --> 04:09.060
+And if it is, then don't execute the payload,
+
+04:09.060 --> 04:11.670
+only show the calculator code, for example.
+
+04:11.670 --> 04:14.790
+You can also simply wait for the user to do something,
+
+04:14.790 --> 04:17.010
+so you can wait for a certain amount of time,
+
+04:17.010 --> 04:20.070
+or you can wait for the user to run a certain application
+
+04:20.070 --> 04:23.760
+or do a certain action and only then execute the payload.
+
+04:23.760 --> 04:25.410
+We can also get a bit creative
+
+04:25.410 --> 04:27.720
+with how we communicate with the backdoor.
+
+04:27.720 --> 04:32.100
+So instead of making a direct or a reverse connection,
+
+04:32.100 --> 04:35.790
+we can actually facilitate the communication between us
+
+04:35.790 --> 04:37.680
+and the target through programs
+
+04:37.680 --> 04:39.270
+that are known to be safe.
+
+04:39.270 --> 04:41.610
+So we can facilitate the communication
+
+04:41.610 --> 04:45.210
+through known platforms like GitHub, Telegram, and Discord.
+
+04:45.210 --> 04:47.460
+And I actually cover all of that in my course
+
+04:47.460 --> 04:49.833
+that shows how to use the cloud for hacking.
+
+04:50.760 --> 04:51.660
+Now as you can see,
+
+04:51.660 --> 04:54.570
+bypassing antivirus programs is a really big topic
+
+04:54.570 --> 04:57.240
+and it can take up so much of this course.
+
+04:57.240 --> 04:59.250
+But this is a basic course that is designed
+
+04:59.250 --> 05:01.200
+to cover the basics of hacking.
+
+05:01.200 --> 05:03.390
+So if you want to learn more about this,
+
+05:03.390 --> 05:05.790
+as you can see there are two main approaches.
+
+05:05.790 --> 05:09.030
+Either you're gonna rely on tools such as packers, encoders,
+
+05:09.030 --> 05:11.580
+obfuscators, or even the tools that I mentioned
+
+05:11.580 --> 05:13.350
+that will facilitate the connection
+
+05:13.350 --> 05:16.830
+using unconventional methods like Discord and Signal.
+
+05:16.830 --> 05:19.909
+All of that is covered in my social engineering course
+
+05:19.909 --> 05:22.170
+and hacking using the cloud course.
+
+05:22.170 --> 05:24.000
+The other approach would be
+
+05:24.000 --> 05:25.890
+to manually implement these techniques,
+
+05:25.890 --> 05:28.110
+so manually make the program more unique
+
+05:28.110 --> 05:30.060
+and manually add more operations
+
+05:30.060 --> 05:31.950
+and make the program seem safe.
+
+05:31.950 --> 05:34.590
+And you can do that manually if you know programming,
+
+05:34.590 --> 05:36.770
+and I covered that in my Python course,
+
+05:36.770 --> 05:38.310
+in the course that I teach Python
+
+05:38.310 --> 05:40.083
+and ethical hacking from scratch.
+
+05:40.980 --> 05:43.830
+All of these courses along with more information about them
+
+05:43.830 --> 05:46.770
+and special discounts for you guys are all included
+
+05:46.770 --> 05:49.114
+in the last lecture of the course, the bonus lecture.
+
+05:49.114 --> 05:51.210
+So check it out if you're interested
+
+05:51.210 --> 05:52.590
+in learning more about this.
+
+05:52.590 --> 05:54.210
+And I'm also gonna include some links
+
+05:54.210 --> 05:56.430
+and videos in the resources of this lecture
+
+05:56.430 --> 05:58.440
+just to show you these methods in action
+
+05:58.440 --> 06:02.103
+and how useful they can be to bypass antivirus programs.

@@ -1,0 +1,474 @@
+WEBVTT
+
+1
+00:00:02.000 --> 00:00:03.080
+<v Instructor>Okay, so now let's see</v>
+
+2
+00:00:03.080 --> 00:00:04.720
+how we can use Wireshark,
+
+3
+00:00:04.720 --> 00:00:08.463
+to discover suspicious activities in our network.
+
+4
+00:00:09.330 --> 00:00:12.180
+And before I do anything I'm gonna go to the preferences,
+
+5
+00:00:16.540 --> 00:00:18.243
+and I'm gonna go to protocols,
+
+6
+00:00:20.360 --> 00:00:21.193
+ARP,
+
+7
+00:00:23.840 --> 00:00:25.370
+and I'm gonna enable the option
+
+8
+00:00:25.370 --> 00:00:28.350
+to detect ARP request storms.
+
+9
+00:00:28.350 --> 00:00:30.720
+What this will do it will actually discover,
+
+10
+00:00:30.720 --> 00:00:33.120
+if anybody is trying to discover
+
+11
+00:00:33.120 --> 00:00:35.240
+all the devices on the network
+
+12
+00:00:35.240 --> 00:00:37.730
+and it's gonna give me a notification.
+
+13
+00:00:37.730 --> 00:00:39.660
+So I'm gonna click on okay,
+
+14
+00:00:39.660 --> 00:00:41.273
+and I'm gonna start my capture,
+
+15
+00:00:44.110 --> 00:00:46.213
+and now I'm gonna go to my Kali machine,
+
+16
+00:00:47.390 --> 00:00:48.760
+and I'm gonna use netdiscover.
+
+17
+00:00:48.760 --> 00:00:50.980
+So I'm not gonna do ARP poisoning.
+
+18
+00:00:50.980 --> 00:00:52.100
+I'm only gonna do,
+
+19
+00:00:52.100 --> 00:00:55.183
+or try to discover all the connected devices to my network.
+
+20
+00:00:56.100 --> 00:00:57.790
+So we are using we're using exactly the same command
+
+21
+00:00:57.790 --> 00:01:01.650
+that we used before, netdiscover, interface and the range.
+
+22
+00:01:01.650 --> 00:01:03.330
+I'm gonna hit enter,
+
+23
+00:01:03.330 --> 00:01:05.120
+and we can see that netdiscover finished.
+
+24
+00:01:05.120 --> 00:01:07.713
+It discovered all the devices that we have.
+
+25
+00:01:09.850 --> 00:01:10.950
+So if we come here,
+
+26
+00:01:10.950 --> 00:01:15.230
+even before we look at the output of the notifications,
+
+27
+00:01:15.230 --> 00:01:18.030
+let's just look at the packets that have been generated.
+
+28
+00:01:19.960 --> 00:01:22.340
+You can see that there is a device here.
+
+29
+00:01:22.340 --> 00:01:25.250
+This source, is broadcasting,
+
+30
+00:01:25.250 --> 00:01:27.320
+so basically it doesn't have a destination.
+
+31
+00:01:27.320 --> 00:01:30.950
+It's asking all the other devices in the network,
+
+32
+00:01:30.950 --> 00:01:34.060
+and it's inquiring about each possible IP.
+
+33
+00:01:34.060 --> 00:01:37.550
+So it's basically asking who has this IP?
+
+34
+00:01:37.550 --> 00:01:40.150
+And tell the 67 IP.
+
+35
+00:01:40.150 --> 00:01:42.850
+And then it's asking who has the 241 IP?
+
+36
+00:01:42.850 --> 00:01:44.220
+Tell the 67.
+
+37
+00:01:44.220 --> 00:01:45.920
+Who has the 251?
+
+38
+00:01:45.920 --> 00:01:47.380
+Tell the 67,
+
+39
+00:01:47.380 --> 00:01:50.470
+and it's doing this for every possible IP.
+
+40
+00:01:50.470 --> 00:01:51.870
+So it's basically
+
+41
+00:01:51.870 --> 00:01:55.990
+checking if any possible IP in the range exists
+
+42
+00:01:55.990 --> 00:01:58.140
+and it's asking to return the response
+
+43
+00:01:58.140 --> 00:02:01.780
+to the IP at 10.20.40.67.
+
+44
+00:02:01.780 --> 00:02:04.050
+So from this we can deduce that
+
+45
+00:02:04.050 --> 00:02:07.330
+someone is trying to discover all the connected devices
+
+46
+00:02:07.330 --> 00:02:11.793
+and that someone is at 10.20.40.67.
+
+47
+00:02:13.440 --> 00:02:17.700
+Now if we go on the analyze and expert information
+
+48
+00:02:19.800 --> 00:02:24.440
+you will see that we detected an ARP packet storm.
+
+49
+00:02:24.440 --> 00:02:27.410
+So basically it means that there was a single device
+
+50
+00:02:27.410 --> 00:02:30.460
+sending a very large number of ARP packets.
+
+51
+00:02:30.460 --> 00:02:33.580
+So they are probably trying to discover connected devices
+
+52
+00:02:33.580 --> 00:02:35.680
+or trying to discover connected ports.
+
+53
+00:02:35.680 --> 00:02:37.950
+So it's telling us that this person
+
+54
+00:02:37.950 --> 00:02:39.963
+is trying to do something suspicious.
+
+55
+00:02:43.150 --> 00:02:48.150
+Now let's go and I'm gonna do a ARP poisoning attack
+
+56
+00:02:48.670 --> 00:02:51.900
+and we'll see if we can get any notifications
+
+57
+00:02:51.900 --> 00:02:54.003
+or warnings in Wireshark.
+
+58
+00:02:57.000 --> 00:03:01.330
+Now I'm gonna go to analyze and expert info again
+
+59
+00:03:02.490 --> 00:03:05.870
+and if we look we'll see that we have a warning here
+
+60
+00:03:05.870 --> 00:03:07.130
+and the warning is telling us
+
+61
+00:03:07.130 --> 00:03:10.620
+that there is a duplicate IP address configured.
+
+62
+00:03:10.620 --> 00:03:12.270
+So again this is telling us
+
+63
+00:03:12.270 --> 00:03:14.350
+that the IP address of the router
+
+64
+00:03:14.350 --> 00:03:16.553
+had two different MAC address.
+
+65
+00:03:19.486 --> 00:03:20.800
+What this means basically
+
+66
+00:03:20.800 --> 00:03:23.410
+it means that someone was tampering with this
+
+67
+00:03:23.410 --> 00:03:25.660
+and tampering with our ARP table,
+
+68
+00:03:25.660 --> 00:03:28.450
+trying to place themselves in the middle
+
+69
+00:03:28.450 --> 00:03:30.803
+using an ARP poisoning attack.
+
+70
+00:03:32.670 --> 00:03:36.810
+Now we've seen a number of methods to detect ARP poisoning.
+
+71
+00:03:36.810 --> 00:03:39.040
+Let's discuss how we can prevent it,
+
+72
+00:03:39.040 --> 00:03:41.290
+or protect ourselves from it.
+
+73
+00:03:41.290 --> 00:03:42.790
+Now I'm just gonna run an ARPA
+
+74
+00:03:43.850 --> 00:03:46.280
+and we're gonna look at our table.
+
+75
+00:03:46.280 --> 00:03:49.620
+There is switches that will monitor this for you as well
+
+76
+00:03:49.620 --> 00:03:50.990
+and they will notify you
+
+77
+00:03:50.990 --> 00:03:53.733
+or even prevent ARP poisoning attacks.
+
+78
+00:03:54.690 --> 00:03:58.000
+Another way to do that is if you look at here.
+
+79
+00:03:58.000 --> 00:03:59.730
+If you look at your router,
+
+80
+00:03:59.730 --> 00:04:02.550
+you'll see that this entry in the table is dynamic.
+
+81
+00:04:02.550 --> 00:04:05.150
+So the type of this entry is dynamic.
+
+82
+00:04:05.150 --> 00:04:08.550
+What that means, it basically this can't change.
+
+83
+00:04:08.550 --> 00:04:12.180
+It's the system allows this value to be changed.
+
+84
+00:04:12.180 --> 00:04:14.920
+You can see right here you have static values
+
+85
+00:04:14.920 --> 00:04:18.340
+which basically means, the system will never allow
+
+86
+00:04:18.340 --> 00:04:19.723
+these values to change.
+
+87
+00:04:21.760 --> 00:04:24.590
+So you can use static ARP tables,
+
+88
+00:04:24.590 --> 00:04:27.730
+which basically means that you'll have to configure
+
+89
+00:04:27.730 --> 00:04:28.980
+each IP address.
+
+90
+00:04:28.980 --> 00:04:31.940
+So you have to actually configure your ARP table
+
+91
+00:04:31.940 --> 00:04:34.450
+and map each IP address to the MAC address,
+
+92
+00:04:34.450 --> 00:04:36.410
+to the relevant MAC address.
+
+93
+00:04:36.410 --> 00:04:37.880
+But once you do that,
+
+94
+00:04:37.880 --> 00:04:40.710
+even if someone tries to send a response
+
+95
+00:04:40.710 --> 00:04:42.720
+to your computer tryna to change it,
+
+96
+00:04:42.720 --> 00:04:44.970
+the system will refuse to change anything
+
+97
+00:04:44.970 --> 00:04:49.113
+because you configured your ARP table to be static.
+
+98
+00:04:50.040 --> 00:04:53.110
+The only problem with that, is every time you connect
+
+99
+00:04:53.110 --> 00:04:55.310
+to a network and every time there is a new device
+
+100
+00:04:55.310 --> 00:04:56.810
+connecting to your network,
+
+101
+00:04:56.810 --> 00:04:59.102
+you'll have to manually configure that device
+
+102
+00:04:59.102 --> 00:05:01.670
+to work with your network.
+
+103
+00:05:01.670 --> 00:05:04.430
+So it's not a very useful solution
+
+104
+00:05:04.430 --> 00:05:07.100
+if you're in a big company or if you're in a big firm.
+
+105
+00:05:07.100 --> 00:05:09.760
+But maybe in a small house, or in a small company
+
+106
+00:05:09.760 --> 00:05:11.880
+then this would be a really good solution
+
+107
+00:05:11.880 --> 00:05:13.770
+to prevent ARP poisoning attacks
+
+108
+00:05:13.770 --> 00:05:15.920
+because everything is gonna be static,
+
+109
+00:05:15.920 --> 00:05:18.350
+you're gonna have to set it up manually,
+
+110
+00:05:18.350 --> 00:05:21.560
+but when someone tries to do an ARP poisoning attack
+
+111
+00:05:21.560 --> 00:05:23.410
+even if their attack is successful
+
+112
+00:05:23.410 --> 00:05:25.363
+and they use the best tools they can,
+
+113
+00:05:26.200 --> 00:05:30.230
+your table is set up in a way that it's fixed.
+
+114
+00:05:30.230 --> 00:05:31.360
+It can't be changed.
+
+115
+00:05:31.360 --> 00:05:33.450
+So the system will always refuse
+
+116
+00:05:33.450 --> 00:05:35.690
+to change the values of the MAC addresses
+
+117
+00:05:35.690 --> 00:05:38.470
+which will basically mean ARP poisoning attacks
+
+118
+00:05:38.470 --> 00:05:39.913
+will never work against you.
+

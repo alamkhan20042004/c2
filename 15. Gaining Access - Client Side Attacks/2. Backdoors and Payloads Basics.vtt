@@ -1,0 +1,775 @@
+WEBVTT
+
+00:00.000 --> 00:02.760
+Lecturer: In this lecture and the next few lectures,
+
+00:02.760 --> 00:06.210
+I'm gonna teach you how to create your own backdoors.
+
+00:06.210 --> 00:09.589
+As an ethical hacker, it is very important to understand
+
+00:09.589 --> 00:12.210
+and learn how to do this properly
+
+00:12.210 --> 00:13.740
+because you will find yourself in
+
+00:13.740 --> 00:17.190
+so many situations where you have to generate backdoors
+
+00:17.190 --> 00:20.490
+to gain full control over the target computer.
+
+00:20.490 --> 00:23.943
+So first of all, what do we mean by a backdoor?
+
+00:24.900 --> 00:29.190
+A backdoor is simply a program that gives us remote control
+
+00:29.190 --> 00:32.850
+over the system that it gets executed on.
+
+00:32.850 --> 00:36.600
+So it allows us to remotely execute system commands,
+
+00:36.600 --> 00:39.116
+access resources such as the storage, upload
+
+00:39.116 --> 00:42.420
+and download files and read them on the target system, see
+
+00:42.420 --> 00:44.686
+what they type on, their keyboard, access their webcam,
+
+00:44.686 --> 00:48.090
+even access their desktop, and so much more.
+
+00:48.090 --> 00:51.139
+Basically, you'll be able to remotely do anything
+
+00:51.139 --> 00:53.250
+that a normal person can do
+
+00:53.250 --> 00:56.790
+on their computer once they execute your backdoor.
+
+00:56.790 --> 00:59.040
+So a backdoor is simply a program,
+
+00:59.040 --> 01:01.620
+it's simply an executable,
+
+01:01.620 --> 01:05.370
+but what makes it special is part of its code
+
+01:05.370 --> 01:08.610
+that we refer to as a payload.
+
+01:08.610 --> 01:12.341
+So the payload is the part of the code inside the backdoor,
+
+01:12.341 --> 01:16.754
+inside the executable that allows us to remotely control
+
+01:16.754 --> 01:19.590
+that computer, execute system commands,
+
+01:19.590 --> 01:22.530
+access its resources, and so on.
+
+01:22.530 --> 01:24.210
+So the program that we're gonna use
+
+01:24.210 --> 01:27.000
+to generate payloads is called msfvenom,
+
+01:27.000 --> 01:28.770
+and I'm choosing to go with this program
+
+01:28.770 --> 01:31.320
+because it's kind of the industry standard
+
+01:31.320 --> 01:33.390
+to learn how to use msfvenom,
+
+01:33.390 --> 01:35.490
+and then there is more advanced tools
+
+01:35.490 --> 01:37.680
+that modify the payloads generated
+
+01:37.680 --> 01:41.172
+by msfvenom and make them bypass antivirus programs
+
+01:41.172 --> 01:43.590
+and do fancy stuff with it to allow you
+
+01:43.590 --> 01:45.810
+to bypass security and so on.
+
+01:45.810 --> 01:47.436
+But as an ethical hacker, and especially
+
+01:47.436 --> 01:49.518
+in this course, it is very important
+
+01:49.518 --> 01:52.506
+to learn how to use msfvenom first before moving
+
+01:52.506 --> 01:55.860
+on to more advanced techniques, which I cover
+
+01:55.860 --> 01:59.130
+in my other courses such as the social engineering course
+
+01:59.130 --> 02:00.780
+and the cloud course, where I show you how
+
+02:00.780 --> 02:03.720
+to use proper C2 frameworks to control the computers
+
+02:03.720 --> 02:06.000
+that you hacked from within the cloud.
+
+02:06.000 --> 02:08.460
+But before we can do that, it is very important
+
+02:08.460 --> 02:10.890
+to have a strong foundation and this topic,
+
+02:10.890 --> 02:14.010
+and that's why we're starting with msfvenom.
+
+02:14.010 --> 02:16.170
+So if we actually just go ahead to Kali
+
+02:16.170 --> 02:20.618
+and type msfvenom -- list to list all
+
+02:20.618 --> 02:23.880
+of the payloads that we can use.
+
+02:23.880 --> 02:26.160
+So like I said, msfvenom is the program
+
+02:26.160 --> 02:28.650
+that we're gonna use to generate our backdoors,
+
+02:28.650 --> 02:30.529
+and we're simply asking it to list all
+
+02:30.529 --> 02:33.000
+of the payloads that it has.
+
+02:33.000 --> 02:35.250
+And if I head enter and give it a few seconds
+
+02:35.250 --> 02:38.610
+because you'll see we're gonna get a huge list of payloads.
+
+02:38.610 --> 02:42.750
+As you can see, there are so many payloads to pick from.
+
+02:42.750 --> 02:45.660
+And as you can see, the first part is the name
+
+02:45.660 --> 02:46.800
+of the payload.
+
+02:46.800 --> 02:50.160
+And the second part in here is a description
+
+02:50.160 --> 02:52.020
+of how this payload works.
+
+02:52.020 --> 02:53.640
+And obviously you can google the name
+
+02:53.640 --> 02:56.010
+of the payload to learn more about it.
+
+02:56.010 --> 02:59.460
+But before we do all of that, I wanna spend this lecture
+
+02:59.460 --> 03:03.810
+to explain to you the naming pattern that we have in here,
+
+03:03.810 --> 03:07.230
+because as you can see, most of these payloads are made up
+
+03:07.230 --> 03:09.945
+of three parts, as you can see in here, separated
+
+03:09.945 --> 03:12.240
+by forward slashes.
+
+03:12.240 --> 03:14.592
+Now these parts, first of all, refer to the platform
+
+03:14.592 --> 03:18.750
+that the payload works on, the type of payload
+
+03:18.750 --> 03:20.430
+and the communication channel
+
+03:20.430 --> 03:22.938
+or method that the payload is going to use in order
+
+03:22.938 --> 03:26.430
+to give you remote control over that computer.
+
+03:26.430 --> 03:31.430
+So an example would be windows/shell/reverse_http.
+
+03:31.590 --> 03:35.580
+And as I said, the first part in here is the platform.
+
+03:35.580 --> 03:38.010
+So this specific payload is designed
+
+03:38.010 --> 03:40.380
+to work on Windows computers.
+
+03:40.380 --> 03:42.570
+Now msfvenom, as you saw earlier, has
+
+03:42.570 --> 03:44.580
+so many different payloads.
+
+03:44.580 --> 03:49.580
+So you've got Linux payloads, osx, apple_ios for iPads
+
+03:49.770 --> 03:52.680
+and iPhones, you've got Android payloads.
+
+03:52.680 --> 03:55.410
+The platform can also be a programming language such
+
+03:55.410 --> 03:57.000
+as Python or Java.
+
+03:57.000 --> 03:59.010
+So payloads that start with Python
+
+03:59.010 --> 04:02.130
+or Java mean that they will work on any computer
+
+04:02.130 --> 04:04.170
+that is able to run Python code
+
+04:04.170 --> 04:06.660
+or Java, regardless of the operating system.
+
+04:06.660 --> 04:10.050
+It doesn't matter if it runs Windows, Linux or Apple OSX.
+
+04:10.050 --> 04:13.110
+If you create a Python payload, it'll work on any computer
+
+04:13.110 --> 04:15.540
+that has a Python interpreter regardless
+
+04:15.540 --> 04:17.160
+of its operating system.
+
+04:17.160 --> 04:20.190
+And then we even have generic payloads that are designed
+
+04:20.190 --> 04:22.800
+without thinking about the operating system.
+
+04:22.800 --> 04:25.410
+They're designed to work in different scenarios
+
+04:25.410 --> 04:27.870
+and different operating system regardless of
+
+04:27.870 --> 04:29.073
+that operating system.
+
+04:30.210 --> 04:33.900
+So that's the first part of the payload, the platform.
+
+04:33.900 --> 04:37.260
+Now the next part is the type of the payload.
+
+04:37.260 --> 04:39.180
+And in this example it's Shell.
+
+04:39.180 --> 04:41.220
+And what that means is that it's going
+
+04:41.220 --> 04:43.890
+to give you remote shell control.
+
+04:43.890 --> 04:46.710
+So you'll be able to do anything that you can do on
+
+04:46.710 --> 04:50.133
+that computer using its shell, using commands.
+
+04:51.150 --> 04:52.721
+Now again, there are so many other types
+
+04:52.721 --> 04:54.450
+than Shell payloads.
+
+04:54.450 --> 04:56.310
+We have interpreter payloads,
+
+04:56.310 --> 04:58.620
+which are payloads specifically designed
+
+04:58.620 --> 05:00.090
+by the Metasploit team.
+
+05:00.090 --> 05:03.660
+They run in memory, they use encrypted communication,
+
+05:03.660 --> 05:06.540
+and they are designed to be modular and extendable.
+
+05:06.540 --> 05:08.580
+So they offer so, so many features
+
+05:08.580 --> 05:10.410
+and these are actually the kind of payloads
+
+05:10.410 --> 05:12.810
+that we're going to use ourselves later on.
+
+05:12.810 --> 05:15.900
+You also have payloads designed to inject their code
+
+05:15.900 --> 05:19.980
+into other files such as the DLL inject that injects itself
+
+05:19.980 --> 05:22.710
+into DLL files and the PEI that is designed
+
+05:22.710 --> 05:26.940
+to be injected into portable executable files.
+
+05:26.940 --> 05:30.030
+You got the VNC inject payloads that allow you
+
+05:30.030 --> 05:33.150
+to access the desktop of the computer that you've hacked.
+
+05:33.150 --> 05:35.100
+You even have very simple payloads
+
+05:35.100 --> 05:37.110
+that simply display a message box.
+
+05:37.110 --> 05:39.030
+And you might think that this is not useful,
+
+05:39.030 --> 05:40.050
+but it actually is.
+
+05:40.050 --> 05:41.400
+If you're just testing and trying
+
+05:41.400 --> 05:43.710
+to test and exploit, not a backdoor,
+
+05:43.710 --> 05:45.480
+you don't really wanna hack the target computer.
+
+05:45.480 --> 05:47.700
+You just wanna see if exploit worked
+
+05:47.700 --> 05:49.590
+because you're running the code yourself.
+
+05:49.590 --> 05:51.540
+So a lot of the time you wanna keep things simple
+
+05:51.540 --> 05:53.460
+and you wanna go with a very simple payload
+
+05:53.460 --> 05:54.949
+that will simply display a message box
+
+05:54.949 --> 05:57.210
+and if you see the message box it
+
+05:57.210 --> 06:00.319
+that you actually manage to exploit whatever vulnerability
+
+06:00.319 --> 06:02.910
+that you're trying to exploit.
+
+06:02.910 --> 06:05.070
+So the first part is the platform,
+
+06:05.070 --> 06:07.230
+and the second part is the type.
+
+06:07.230 --> 06:09.510
+And the third part of the payload name
+
+06:09.510 --> 06:13.110
+is the communication method or channel, like we said.
+
+06:13.110 --> 06:15.300
+And if you look closely, you can see
+
+06:15.300 --> 06:19.350
+that even this part is almost made out of two parts.
+
+06:19.350 --> 06:22.560
+So the first part is the direction of the connection,
+
+06:22.560 --> 06:24.810
+and I'll explain that to you in a second.
+
+06:24.810 --> 06:29.810
+And the second part is the protocol used in this connection.
+
+06:29.970 --> 06:31.830
+So when it comes to the direction,
+
+06:31.830 --> 06:35.940
+the most common types are gonna be either bind or reverse.
+
+06:35.940 --> 06:38.280
+And let me explain to you what I mean by that.
+
+06:38.280 --> 06:40.500
+Let's say that you have two computers.
+
+06:40.500 --> 06:43.800
+This is you the hacker, and this is the target computer
+
+06:43.800 --> 06:46.860
+in a bind or a direct connection, when the backdoor
+
+06:46.860 --> 06:49.500
+is executed on the target computer,
+
+06:49.500 --> 06:52.200
+it opens up what we call a port.
+
+06:52.200 --> 06:56.460
+So you can think of this as if it's a socket on the wall.
+
+06:56.460 --> 07:00.240
+And then as a hacker, you would go in whenever you want
+
+07:00.240 --> 07:03.600
+and connect to the socket using your plug.
+
+07:03.600 --> 07:07.172
+Now the problem with this is opening a port in here
+
+07:07.172 --> 07:10.530
+at the target computer could potentially raise a lot
+
+07:10.530 --> 07:11.430
+of alarms.
+
+07:11.430 --> 07:14.640
+So if they have a firewall installed, it'll raise an alarm.
+
+07:14.640 --> 07:16.530
+And even when you connect to it,
+
+07:16.530 --> 07:18.900
+the connection is not a typical connection
+
+07:18.900 --> 07:21.600
+that a normal personal computer would do.
+
+07:21.600 --> 07:24.420
+However, if we go with a reverse connection,
+
+07:24.420 --> 07:25.830
+we do the reverse.
+
+07:25.830 --> 07:29.820
+So instead of opening a port at the target computer,
+
+07:29.820 --> 07:34.110
+we actually open a port in our own computer.
+
+07:34.110 --> 07:36.820
+Therefore, even if our firewall complains about this,
+
+07:36.820 --> 07:38.880
+we can disable the firewall
+
+07:38.880 --> 07:40.830
+because we are doing this ourselves
+
+07:40.830 --> 07:42.930
+and we know what we are doing.
+
+07:42.930 --> 07:44.930
+And then when we execute the backdoor
+
+07:44.930 --> 07:48.360
+at the target computer, the backdoor is gonna connect
+
+07:48.360 --> 07:52.050
+from the target computer to our computer.
+
+07:52.050 --> 07:54.540
+So this connection is much less suspicious
+
+07:54.540 --> 07:56.845
+because first of all, we're not opening any ports
+
+07:56.845 --> 07:59.160
+at the target computer.
+
+07:59.160 --> 08:01.424
+And connecting from the target computer
+
+08:01.424 --> 08:04.436
+to any other destination is very normal
+
+08:04.436 --> 08:07.110
+because even if a target goes ahead
+
+08:07.110 --> 08:09.960
+and loads a normal website, they are basically connecting
+
+08:09.960 --> 08:12.720
+to that website on port 80 or 8080.
+
+08:12.720 --> 08:14.880
+And this is exactly what we can do.
+
+08:14.880 --> 08:18.030
+We can actually open port 80 or 8080
+
+08:18.030 --> 08:20.970
+so that this connection looks less suspicious.
+
+08:20.970 --> 08:25.740
+And even use a protocol that is used by web servers so
+
+08:25.740 --> 08:28.803
+that our connection seems like normal web traffic.
+
+08:29.670 --> 08:31.410
+So remember we said the second part
+
+08:31.410 --> 08:33.870
+of the communication is a protocol.
+
+08:33.870 --> 08:36.510
+So when you load a website, you either load it
+
+08:36.510 --> 08:39.510
+over HTTP or HTTPS.
+
+08:39.510 --> 08:43.200
+So we can actually use a reverse connection on a port
+
+08:43.200 --> 08:46.440
+that websites use, which is part 80 or 8080,
+
+08:46.440 --> 08:50.340
+and set the protocol to HTTP or HTTPS.
+
+08:50.340 --> 08:53.910
+And that way the connection is gonna seem very similar
+
+08:53.910 --> 08:57.660
+to a connection that a would make when they load a website,
+
+08:57.660 --> 09:00.057
+thus allowing us to bypass many firewalls
+
+09:00.057 --> 09:02.043
+and security measurements.
+
+09:03.450 --> 09:06.660
+So this is a very common naming convention
+
+09:06.660 --> 09:08.010
+when it comes to payloads.
+
+09:08.010 --> 09:10.830
+We have the platform in the first part, the type
+
+09:10.830 --> 09:12.690
+of the payload in the second part,
+
+09:12.690 --> 09:16.200
+and the communication method in the last part.
+
+09:16.200 --> 09:19.500
+So let's just have a quick look at a few examples just
+
+09:19.500 --> 09:21.870
+to make sure that we understand this properly.
+
+09:21.870 --> 09:24.390
+So these are very common payloads that you might see
+
+09:24.390 --> 09:26.700
+or use yourself in many places.
+
+09:26.700 --> 09:29.100
+As you can see, the first three in here, while
+
+09:29.100 --> 09:32.520
+on the run on Windows as the platform, you can see the type
+
+09:32.520 --> 09:35.340
+in this one is shell, meterpreter and meterpreter.
+
+09:35.340 --> 09:37.442
+And we explained what these are, and both
+
+09:37.442 --> 09:40.230
+of these are using reverse connection.
+
+09:40.230 --> 09:42.720
+This one is using the TCP protocol.
+
+09:42.720 --> 09:45.210
+This one is using the HTTP protocol,
+
+09:45.210 --> 09:47.430
+and this one is actually using a bind
+
+09:47.430 --> 09:51.030
+or a direct connection over the TCP protocol.
+
+09:51.030 --> 09:53.100
+Now, as mentioned earlier, there are payloads
+
+09:53.100 --> 09:55.303
+that would work on any computer as long
+
+09:55.303 --> 09:58.530
+as they have a specific program and language installed.
+
+09:58.530 --> 10:01.410
+So we have an example of a Python payload in here.
+
+10:01.410 --> 10:03.090
+So the platform here is Python.
+
+10:03.090 --> 10:04.560
+It's not an operating system
+
+10:04.560 --> 10:07.140
+because it will run on any operating system
+
+10:07.140 --> 10:09.030
+that has Python installed.
+
+10:09.030 --> 10:12.360
+Now, I also wanted to point out these two payloads in here.
+
+10:12.360 --> 10:14.040
+And as you can see, they don't follow
+
+10:14.040 --> 10:16.710
+the exact naming convention that we spoke about.
+
+10:16.710 --> 10:19.170
+You will see outliers in the payloads in there
+
+10:19.170 --> 10:22.110
+because not all payloads can actually be used as backdoors.
+
+10:22.110 --> 10:24.210
+And you'll see that as you go through this course
+
+10:24.210 --> 10:26.040
+and maybe my other courses,
+
+10:26.040 --> 10:28.980
+but these payloads can actually be used as backdoors.
+
+10:28.980 --> 10:31.126
+But you can see in this one, the first two parts
+
+10:31.126 --> 10:33.750
+are actually referring to the platform.
+
+10:33.750 --> 10:38.750
+So it's an Apple OSX, x64, not the arm computers.
+
+10:38.910 --> 10:42.570
+And then the next part is actually the type,
+
+10:42.570 --> 10:45.420
+so it's not really separated with a forward slash.
+
+10:45.420 --> 10:49.200
+And then the last part is the communication method in here.
+
+10:49.200 --> 10:51.300
+Same with this Apple payload.
+
+10:51.300 --> 10:55.080
+So this is for Apple iOS and it's for arm chips.
+
+10:55.080 --> 10:58.620
+So this one is for x64 chips, this one is for arm chips.
+
+10:58.620 --> 11:01.830
+Again, the first two parts are referring to the platform.
+
+11:01.830 --> 11:04.740
+And then the next part is referring to the type.
+
+11:04.740 --> 11:09.030
+And the final part is referring to the communication.
+
+11:09.030 --> 11:11.310
+So sometimes the forward slashes could be
+
+11:11.310 --> 11:15.180
+a little bit misleading, but the order is always the same.
+
+11:15.180 --> 11:18.540
+The first part of the payload indicates the platform.
+
+11:18.540 --> 11:21.570
+The second part indicates the type of the payload.
+
+11:21.570 --> 11:24.630
+And the last part is the communication method.
+
+11:24.630 --> 11:27.060
+Now we're actually gonna probably be using only one
+
+11:27.060 --> 11:29.490
+or two types of payloads throughout the course,
+
+11:29.490 --> 11:31.890
+but like I said, this course is designed
+
+11:31.890 --> 11:33.840
+to teach you the basics of hacking.
+
+11:33.840 --> 11:35.977
+And it is very important to learn how
+
+11:35.977 --> 11:40.050
+to create your own backdoors and payloads using msfvenom.
+
+11:40.050 --> 11:42.630
+And to do that, it's very important to understand
+
+11:42.630 --> 11:45.360
+the naming convention that the payloads use.
+
+11:45.360 --> 11:47.310
+And in the next lecture I'm gonna show you how
+
+11:47.310 --> 11:49.770
+to put this in practice, create a backdoor
+
+11:49.770 --> 11:52.413
+and use it to hack a Windows computer.

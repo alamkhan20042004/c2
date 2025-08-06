@@ -1,0 +1,494 @@
+WEBVTT
+
+1
+00:00:00.310 --> 00:00:03.520
+<v Instructor>Now that we know how ARP spoofing works.</v>
+
+2
+00:00:03.520 --> 00:00:05.850
+Let's see how we can run this attack
+
+3
+00:00:05.850 --> 00:00:08.040
+and redirect the flow of data
+
+4
+00:00:08.040 --> 00:00:11.490
+so it flows through our device.
+
+5
+00:00:11.490 --> 00:00:13.850
+This will allows us to intercept data
+
+6
+00:00:13.850 --> 00:00:18.770
+and see everything sent to and from a target computer
+
+7
+00:00:18.770 --> 00:00:21.923
+including, usernames, passwords and so on.
+
+8
+00:00:23.110 --> 00:00:25.870
+Now there are a number of tools that can be used
+
+9
+00:00:25.870 --> 00:00:28.470
+to run an ARP spoofing attack,
+
+10
+00:00:28.470 --> 00:00:30.520
+you can even build your own tool
+
+11
+00:00:30.520 --> 00:00:34.120
+and I covered this in my Python programing course.
+
+12
+00:00:34.120 --> 00:00:36.240
+But in this lecture I wanna show you
+
+13
+00:00:36.240 --> 00:00:41.213
+how to use a very simple yet reliable tool called arpspoof,
+
+14
+00:00:42.220 --> 00:00:44.780
+then in the next lectures we'll use
+
+15
+00:00:44.780 --> 00:00:49.123
+a tool called BetterCAP because it has more features.
+
+16
+00:00:50.050 --> 00:00:53.800
+Basically, the main reason why I want to cover arpspoof
+
+17
+00:00:53.800 --> 00:00:57.350
+in this lecture, because it is a very simple tool
+
+18
+00:00:57.350 --> 00:00:59.610
+but it's very reliable.
+
+19
+00:00:59.610 --> 00:01:02.800
+It's also ported to many operating systems,
+
+20
+00:01:02.800 --> 00:01:05.110
+including iOS and Android.
+
+21
+00:01:05.110 --> 00:01:07.620
+Therefore if you learn how to use it here
+
+22
+00:01:07.620 --> 00:01:09.400
+you'll be able to use this tool
+
+23
+00:01:09.400 --> 00:01:11.823
+on all of the other operating systems.
+
+24
+00:01:12.820 --> 00:01:16.280
+So you can only use this tool to redirect the flow of data
+
+25
+00:01:16.280 --> 00:01:18.640
+and make it flow through your computer,
+
+26
+00:01:18.640 --> 00:01:20.760
+and then you'll have to use another tool
+
+27
+00:01:20.760 --> 00:01:24.670
+like a packet sniffer like Wireshark to analyze this data
+
+28
+00:01:24.670 --> 00:01:26.440
+and do more stuff with it,
+
+29
+00:01:26.440 --> 00:01:29.803
+and we'll cover all of this later on in the course.
+
+30
+00:01:30.910 --> 00:01:33.660
+Now, using arpspoof is very simple.
+
+31
+00:01:33.660 --> 00:01:35.570
+First, we're gonna have to type its name.
+
+32
+00:01:35.570 --> 00:01:39.740
+So it's arpspoof then we're gonna do dash I,
+
+33
+00:01:39.740 --> 00:01:43.290
+to specify the interface that is connected
+
+34
+00:01:43.290 --> 00:01:47.690
+to the target network and in my case it is eth0,
+
+35
+00:01:47.690 --> 00:01:50.490
+because that's the interface that's connected
+
+36
+00:01:50.490 --> 00:01:51.780
+to the network.
+
+37
+00:01:51.780 --> 00:01:53.840
+So if I do, ifconfig,
+
+38
+00:01:53.840 --> 00:01:58.003
+you'll see eth0 is the interface that's connected.
+
+39
+00:01:58.840 --> 00:02:02.310
+Now as you can see I'm gonna be running this attack
+
+40
+00:02:02.310 --> 00:02:05.690
+against my virtual not network.
+
+41
+00:02:05.690 --> 00:02:08.690
+You can run this attack against any type of network,
+
+42
+00:02:08.690 --> 00:02:11.970
+even Wi-Fi networks and I will cover that
+
+43
+00:02:11.970 --> 00:02:13.640
+later on in the course.
+
+44
+00:02:13.640 --> 00:02:16.770
+But for now just until you properly understand
+
+45
+00:02:16.770 --> 00:02:19.340
+how this works, I highly recommend you
+
+46
+00:02:19.340 --> 00:02:21.140
+do like I'm doing right now
+
+47
+00:02:21.140 --> 00:02:25.700
+and test the attack against the virtual node network.
+
+48
+00:02:25.700 --> 00:02:28.910
+So all you'll have to do is make sure the Kali machine
+
+49
+00:02:28.910 --> 00:02:32.700
+and the target windows machine are both configured
+
+50
+00:02:32.700 --> 00:02:35.223
+to use the same node network.
+
+51
+00:02:36.140 --> 00:02:40.600
+So, we're gonna do dash t to specify the target
+
+52
+00:02:40.600 --> 00:02:45.373
+and my target is at 10.0.2.7.
+
+53
+00:02:46.360 --> 00:02:49.603
+As you can see in here that is the IP of my target.
+
+54
+00:02:50.710 --> 00:02:54.470
+And I'm gonna have to give it the IP of the gateway
+
+55
+00:02:54.470 --> 00:02:58.010
+which is 10.0.2.1
+
+56
+00:02:58.010 --> 00:02:59.513
+as you can see in here.
+
+57
+00:03:00.560 --> 00:03:03.000
+Now this will spoof the target,
+
+58
+00:03:03.000 --> 00:03:05.760
+telling him that I am the router.
+
+59
+00:03:05.760 --> 00:03:09.670
+We'll also need to run this command once more in here.
+
+60
+00:03:09.670 --> 00:03:12.970
+So, I'm gonna clear the screen and again I'm gonna do
+
+61
+00:03:12.970 --> 00:03:16.830
+arpspoof -i eth0
+
+62
+00:03:17.964 --> 00:03:22.678
+and the target this time is going to be 10.0.2.1
+
+63
+00:03:22.678 --> 00:03:23.761
+and 10.0.2.7.
+
+64
+00:03:26.370 --> 00:03:29.220
+So right now we're gonna be telling the router
+
+65
+00:03:29.220 --> 00:03:32.010
+that I am the victim,
+
+66
+00:03:32.010 --> 00:03:34.100
+so the first one will fool the victim,
+
+67
+00:03:34.100 --> 00:03:36.153
+the second will fool the router.
+
+68
+00:03:37.150 --> 00:03:41.600
+Now keep in mind this attack will work against both internet
+
+69
+00:03:41.600 --> 00:03:44.750
+and Wi-Fi or wireless networks.
+
+70
+00:03:44.750 --> 00:03:47.400
+I'm running it right now against the virtual networks
+
+71
+00:03:47.400 --> 00:03:51.470
+which acts as an internet or a wired network,
+
+72
+00:03:51.470 --> 00:03:55.020
+but the attack can be executed exactly the same
+
+73
+00:03:55.020 --> 00:03:57.130
+against wireless networks.
+
+74
+00:03:57.130 --> 00:04:00.000
+All you have to do is connect a wireless adapter
+
+75
+00:04:00.000 --> 00:04:01.400
+to the Kali machine,
+
+76
+00:04:01.400 --> 00:04:04.860
+connect the adapter to the target network and use it.
+
+77
+00:04:04.860 --> 00:04:08.100
+So the same concept as the networks kinda applies.
+
+78
+00:04:08.100 --> 00:04:09.860
+You need to have a wireless adapter
+
+79
+00:04:09.860 --> 00:04:11.500
+that works well with Kali
+
+80
+00:04:11.500 --> 00:04:14.310
+and you need to have that adapter connected to Kali
+
+81
+00:04:14.310 --> 00:04:16.263
+and connected to the target network.
+
+82
+00:04:17.540 --> 00:04:20.410
+So, I'm gonna hit enter here
+
+83
+00:04:20.410 --> 00:04:22.163
+and I'm gonna hit enter here,
+
+84
+00:04:23.090 --> 00:04:26.820
+and now if we go to the target machine
+
+85
+00:04:26.820 --> 00:04:29.473
+and run the same command arp -a,
+
+86
+00:04:30.350 --> 00:04:32.830
+you're gonna see that the MAC address now
+
+87
+00:04:32.830 --> 00:04:36.143
+for the router is different than what it was,
+
+88
+00:04:37.400 --> 00:04:41.220
+and this is the MAC address of the Kali machine.
+
+89
+00:04:41.220 --> 00:04:43.740
+So right now, this window's machine
+
+90
+00:04:43.740 --> 00:04:46.780
+thinks the router is at this MAC address
+
+91
+00:04:46.780 --> 00:04:49.460
+and every time it needs to send a request
+
+92
+00:04:49.460 --> 00:04:51.870
+it will send it to this MAC address,
+
+93
+00:04:51.870 --> 00:04:54.000
+which means that they will be sent
+
+94
+00:04:54.000 --> 00:04:56.033
+to this computer right here.
+
+95
+00:04:57.230 --> 00:05:01.460
+Now, this computer is not a router so when it gets requests,
+
+96
+00:05:01.460 --> 00:05:03.960
+it's actually going to stop them from flowing
+
+97
+00:05:03.960 --> 00:05:05.560
+and going to the router.
+
+98
+00:05:05.560 --> 00:05:08.160
+This is a security feature in Linux.
+
+99
+00:05:08.160 --> 00:05:11.440
+So, you need to enable port forwarding so that
+
+100
+00:05:11.440 --> 00:05:14.640
+this computer would allow packets to flow through it
+
+101
+00:05:14.640 --> 00:05:15.933
+just like a router.
+
+102
+00:05:16.780 --> 00:05:18.750
+Now to enable port forwarding,
+
+103
+00:05:18.750 --> 00:05:23.750
+we're gonna do echo one to proc/sys/net/ipv4/ip_forward,
+
+104
+00:05:28.260 --> 00:05:29.640
+and as you can see this command
+
+105
+00:05:29.640 --> 00:05:31.930
+gets executed with no issues.
+
+106
+00:05:31.930 --> 00:05:33.900
+And right now this computer
+
+107
+00:05:33.900 --> 00:05:36.010
+will still have its internet access,
+
+108
+00:05:36.010 --> 00:05:39.243
+so we can go and browse any website we want,
+
+109
+00:05:40.190 --> 00:05:44.910
+but all these requests are not going directly to the router,
+
+110
+00:05:44.910 --> 00:05:48.810
+but they are going to this computer first
+
+111
+00:05:48.810 --> 00:05:53.810
+and then this computer is forwarding them to the router,
+
+112
+00:05:53.810 --> 00:05:57.000
+as shown in this diagram, and then when the response's
+
+113
+00:05:57.000 --> 00:05:59.930
+come back they are gonna go to the hacker first,
+
+114
+00:05:59.930 --> 00:06:01.763
+and then they go to the victim.
+
+115
+00:06:03.000 --> 00:06:05.970
+So as you can see a very simple tool,
+
+116
+00:06:05.970 --> 00:06:08.490
+it allows us to redirect the flow of data
+
+117
+00:06:08.490 --> 00:06:10.640
+so it flows through our computer
+
+118
+00:06:10.640 --> 00:06:13.050
+allowing us to become the man in the middle,
+
+119
+00:06:13.050 --> 00:06:15.070
+and once we're the man in the middle,
+
+120
+00:06:15.070 --> 00:06:18.830
+we can inject code in the browser of the target.
+
+121
+00:06:18.830 --> 00:06:21.780
+We can steal usernames, passwords,
+
+122
+00:06:21.780 --> 00:06:25.180
+see all the information that the person sends and receives,
+
+123
+00:06:25.180 --> 00:06:29.863
+replace downloaded files with Trojans and much much more.
+

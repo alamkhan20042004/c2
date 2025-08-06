@@ -1,0 +1,850 @@
+WEBVTT
+
+1
+00:00:00.000 --> 00:00:01.900
+<v Instructor>In the previous lecture,</v>
+
+2
+00:00:01.900 --> 00:00:03.860
+we discussed a good solution
+
+3
+00:00:03.860 --> 00:00:07.200
+to protect us from man-in-the-middle attacks.
+
+4
+00:00:07.200 --> 00:00:11.463
+And that solution was to use HTTPS Everywhere plugin.
+
+5
+00:00:12.390 --> 00:00:14.400
+With this plugin, as seen earlier,
+
+6
+00:00:14.400 --> 00:00:18.000
+we were able to force all HTTPS websites
+
+7
+00:00:18.000 --> 00:00:21.270
+to always load over HTTPS.
+
+8
+00:00:21.270 --> 00:00:24.140
+Therefore, if anybody intercepts our data,
+
+9
+00:00:24.140 --> 00:00:27.663
+it will be useless because it will be encrypted with HTTPS.
+
+10
+00:00:29.260 --> 00:00:32.460
+So this solution is really good, it's free.
+
+11
+00:00:32.460 --> 00:00:35.080
+The only problem is, as you know,
+
+12
+00:00:35.080 --> 00:00:38.460
+it only works with websites that use HTTPS.
+
+13
+00:00:38.460 --> 00:00:42.370
+So we seen earlier if you log in or use the HTTP website,
+
+14
+00:00:42.370 --> 00:00:44.200
+your data is still exposed,
+
+15
+00:00:44.200 --> 00:00:47.330
+hackers or anybody that intercepts your data
+
+16
+00:00:47.330 --> 00:00:50.410
+is still able to read your usernames, your passwords,
+
+17
+00:00:50.410 --> 00:00:52.300
+or inject JavaScript code,
+
+18
+00:00:52.300 --> 00:00:55.023
+serve you fake updates, and so on.
+
+19
+00:00:56.040 --> 00:00:58.930
+Also, as seen earlier, with this plugin,
+
+20
+00:00:58.930 --> 00:01:02.100
+the hacker or anybody that intercepts your data
+
+21
+00:01:02.100 --> 00:01:05.800
+will be able to see the websites that you visit.
+
+22
+00:01:05.800 --> 00:01:07.700
+Not only that, but they'll also be able
+
+23
+00:01:07.700 --> 00:01:10.373
+to manipulate DNS requests, and therefore,
+
+24
+00:01:10.373 --> 00:01:14.363
+they will be able to run DNS spoofing attacks.
+
+25
+00:01:15.450 --> 00:01:17.490
+At the end of the previous lecture, I said,
+
+26
+00:01:17.490 --> 00:01:20.500
+if you want to take your security to the next level,
+
+27
+00:01:20.500 --> 00:01:24.060
+then you should think about using a VPN.
+
+28
+00:01:24.060 --> 00:01:26.790
+Let me show you what happens when we use a VPN,
+
+29
+00:01:26.790 --> 00:01:29.110
+and then I'll explain it in more details
+
+30
+00:01:29.110 --> 00:01:31.600
+to help you understand what's happening.
+
+31
+00:01:31.600 --> 00:01:34.210
+So I'm back here at my hacker machine.
+
+32
+00:01:34.210 --> 00:01:37.080
+As you know, it's already the man-in-the-middle,
+
+33
+00:01:37.080 --> 00:01:38.990
+I'm gonna clear the screen.
+
+34
+00:01:38.990 --> 00:01:42.950
+And I'm actually gonna even turn off HTTPS Everywhere.
+
+35
+00:01:42.950 --> 00:01:45.460
+Now, it's a good idea to use both at the same time,
+
+36
+00:01:45.460 --> 00:01:46.630
+but I'm just gonna turn it off
+
+37
+00:01:46.630 --> 00:01:48.550
+just to show you the difference.
+
+38
+00:01:48.550 --> 00:01:51.310
+You can use any VPN provider you want,
+
+39
+00:01:51.310 --> 00:01:52.750
+it really doesn't matter,
+
+40
+00:01:52.750 --> 00:01:56.360
+most of them use more or less the same technologies.
+
+41
+00:01:56.360 --> 00:02:01.360
+We at zSecurity provide our own VPN service called ZSVPN,
+
+42
+00:02:01.510 --> 00:02:05.130
+so I have it right here, it comes with no logs.
+
+43
+00:02:05.130 --> 00:02:09.150
+We support all operating systems, Linux, Windows, OS X,
+
+44
+00:02:09.150 --> 00:02:12.280
+Android, and iOS, and even Tails,
+
+45
+00:02:12.280 --> 00:02:16.340
+which is a privacy focused Linux Distro.
+
+46
+00:02:16.340 --> 00:02:18.720
+So like I said, you can use anything you want,
+
+47
+00:02:18.720 --> 00:02:21.430
+they all use more or less the same technology.
+
+48
+00:02:21.430 --> 00:02:23.910
+What I wanna highlight right now is what happens
+
+49
+00:02:23.910 --> 00:02:27.360
+when you actually go ahead and use a VPN.
+
+50
+00:02:27.360 --> 00:02:29.640
+So I'm gonna open my client,
+
+51
+00:02:29.640 --> 00:02:31.980
+and I'm gonna connect to a server,
+
+52
+00:02:31.980 --> 00:02:33.653
+one of the servers right here.
+
+53
+00:02:34.840 --> 00:02:36.400
+And what this will do is,
+
+54
+00:02:36.400 --> 00:02:41.160
+it will establish an encrypted tunnel between my computer
+
+55
+00:02:41.160 --> 00:02:45.110
+and the VPN server that I just connected to.
+
+56
+00:02:45.110 --> 00:02:48.330
+Therefore, right now, let me show you let's just start,
+
+57
+00:02:48.330 --> 00:02:49.663
+I'll delete everything.
+
+58
+00:02:50.770 --> 00:02:52.970
+And let's start by going to some websites,
+
+59
+00:02:52.970 --> 00:02:55.773
+for example, we'll go to google.com,
+
+60
+00:02:57.360 --> 00:03:00.320
+then we'll go to bing.com.
+
+61
+00:03:00.320 --> 00:03:02.280
+And then let's go to Stack Overflow
+
+62
+00:03:02.280 --> 00:03:04.300
+and make sure it loads over HTTPS.
+
+63
+00:03:04.300 --> 00:03:07.633
+Now, keep in mind, I am not using HTTPS Everywhere.
+
+64
+00:03:08.500 --> 00:03:12.870
+But you'll notice that it will still load over HTTPS,
+
+65
+00:03:12.870 --> 00:03:15.790
+as you can see, we're not able to downgrade it.
+
+66
+00:03:15.790 --> 00:03:18.510
+And let's take this even one step further,
+
+67
+00:03:18.510 --> 00:03:23.510
+let's go to vulnweb.com, and just login.
+
+68
+00:03:23.510 --> 00:03:26.950
+So again, this is a website that only uses HTTP,
+
+69
+00:03:26.950 --> 00:03:29.033
+it simply does not support HTTPS.
+
+70
+00:03:30.060 --> 00:03:34.130
+But let's log in and see if we can still capture the data.
+
+71
+00:03:34.130 --> 00:03:37.687
+So I'll just put my password now 0987654321, Log In.
+
+72
+00:03:42.730 --> 00:03:45.430
+And let's go back to our Kali machine
+
+73
+00:03:45.430 --> 00:03:47.703
+to see if we detected anything.
+
+74
+00:03:48.690 --> 00:03:50.120
+Now as you can see,
+
+75
+00:03:50.120 --> 00:03:52.980
+we're not able to read any of the traffic
+
+76
+00:03:52.980 --> 00:03:55.630
+sent to and from the target.
+
+77
+00:03:55.630 --> 00:03:58.660
+So with the case when we used HTTPS Everywhere,
+
+78
+00:03:58.660 --> 00:04:01.020
+we were able to see at least, the domains,
+
+79
+00:04:01.020 --> 00:04:03.230
+the websites that the targets visited.
+
+80
+00:04:03.230 --> 00:04:06.440
+And we were able to see data sent over HTTP
+
+81
+00:04:06.440 --> 00:04:09.940
+when we logged in to vulnweb.com.
+
+82
+00:04:09.940 --> 00:04:12.160
+But in this case, as you can see, right now,
+
+83
+00:04:12.160 --> 00:04:14.180
+we can't see the username and the password,
+
+84
+00:04:14.180 --> 00:04:17.220
+even if they're sent over HTTP to vulnwebweb.
+
+85
+00:04:17.220 --> 00:04:21.440
+And we can't see the domain names that the target visited.
+
+86
+00:04:21.440 --> 00:04:25.570
+And the reason for this is because we are using a VPN,
+
+87
+00:04:25.570 --> 00:04:29.880
+and like I said, a VPN creates an encrypted tunnel
+
+88
+00:04:29.880 --> 00:04:34.720
+between our computer and a server, and all of our data
+
+89
+00:04:34.720 --> 00:04:37.960
+will be sent through this encrypted tunnel.
+
+90
+00:04:37.960 --> 00:04:42.180
+Let me explain this to you with diagrams to make it simpler.
+
+91
+00:04:42.180 --> 00:04:46.390
+So in general, let's say you try to go to google.com,
+
+92
+00:04:46.390 --> 00:04:49.200
+your connection will pass through a number of hubs,
+
+93
+00:04:49.200 --> 00:04:53.560
+but at the end, it's going directly to google.com.
+
+94
+00:04:53.560 --> 00:04:57.210
+Hence the red arrow indicating that this connection
+
+95
+00:04:57.210 --> 00:04:59.390
+could possibly not be encrypted.
+
+96
+00:04:59.390 --> 00:05:02.523
+Therefore, your data might be at risk.
+
+97
+00:05:03.420 --> 00:05:05.450
+Now when you use a VPN,
+
+98
+00:05:05.450 --> 00:05:09.120
+you connect to a VPN server in a certain country.
+
+99
+00:05:09.120 --> 00:05:12.860
+And when you do that, you create an encrypted tunnel
+
+100
+00:05:12.860 --> 00:05:16.400
+between your computer and the VPN server.
+
+101
+00:05:16.400 --> 00:05:19.520
+So let's say you want to go to google.com,
+
+102
+00:05:19.520 --> 00:05:23.080
+data request will first be sent to the VPN server,
+
+103
+00:05:23.080 --> 00:05:26.160
+now the VPN server will be able to read this,
+
+104
+00:05:26.160 --> 00:05:29.960
+but the data is sent in an encrypted tunnel.
+
+105
+00:05:29.960 --> 00:05:33.320
+Therefore, if anybody intercepts this data,
+
+106
+00:05:33.320 --> 00:05:35.410
+they will not be able to see
+
+107
+00:05:35.410 --> 00:05:38.470
+what you are sending to your VPN server.
+
+108
+00:05:38.470 --> 00:05:40.680
+That's why we don't even care
+
+109
+00:05:40.680 --> 00:05:43.670
+if someone manages to intercept our connection
+
+110
+00:05:43.670 --> 00:05:47.410
+because our data is simply gonna be gibberish to them
+
+111
+00:05:47.410 --> 00:05:48.943
+as you can see in here.
+
+112
+00:05:50.540 --> 00:05:53.600
+Then, once the VPN server receives your request,
+
+113
+00:05:53.600 --> 00:05:55.700
+it will forward it to the destination
+
+114
+00:05:55.700 --> 00:05:57.030
+that you're requesting,
+
+115
+00:05:57.030 --> 00:05:59.563
+and the response will follow a similar route.
+
+116
+00:06:00.740 --> 00:06:02.280
+Now, because of this structure,
+
+117
+00:06:02.280 --> 00:06:05.630
+because of the way that the data is always encrypted
+
+118
+00:06:05.630 --> 00:06:08.190
+between you and the VPN server,
+
+119
+00:06:08.190 --> 00:06:12.920
+using a VPN can be useful in so many scenarios,
+
+120
+00:06:12.920 --> 00:06:16.240
+because it adds an extra layer of encryption.
+
+121
+00:06:16.240 --> 00:06:20.560
+Therefore, it improves our privacy and anonymity in general,
+
+122
+00:06:20.560 --> 00:06:22.580
+it allows us to bypass censorship
+
+123
+00:06:22.580 --> 00:06:25.920
+because let's say your internet service provider
+
+124
+00:06:25.920 --> 00:06:28.620
+is preventing you from accessing certain services,
+
+125
+00:06:28.620 --> 00:06:31.640
+or certain websites, they will not be able to know
+
+126
+00:06:31.640 --> 00:06:34.060
+what these websites and these services are,
+
+127
+00:06:34.060 --> 00:06:36.710
+because again, the connection is encrypted,
+
+128
+00:06:36.710 --> 00:06:38.670
+and they won't even know what you're doing.
+
+129
+00:06:38.670 --> 00:06:40.710
+All they'll see is that you're connecting
+
+130
+00:06:40.710 --> 00:06:43.440
+to a server in some country.
+
+131
+00:06:43.440 --> 00:06:47.680
+And last but not least, it'll also protect us from hackers,
+
+132
+00:06:47.680 --> 00:06:50.710
+or anybody that intercepts our connection,
+
+133
+00:06:50.710 --> 00:06:53.980
+again, because all of our data is encrypted,
+
+134
+00:06:53.980 --> 00:06:55.780
+therefore, we don't really care
+
+135
+00:06:55.780 --> 00:06:59.253
+who intercepts this data, the data will be gibberish.
+
+136
+00:07:00.570 --> 00:07:02.970
+Now, also because of the structure,
+
+137
+00:07:02.970 --> 00:07:07.440
+you need to be careful when you pick a VPN provider,
+
+138
+00:07:07.440 --> 00:07:12.070
+because this structure introduces the VPN provider
+
+139
+00:07:12.070 --> 00:07:14.800
+as a man-in-the-middle, so as you can see,
+
+140
+00:07:14.800 --> 00:07:18.100
+we send everything to the VPN server first,
+
+141
+00:07:18.100 --> 00:07:20.870
+and then it goes to the internet.
+
+142
+00:07:20.870 --> 00:07:24.360
+And the VPN server is able to decrypt this data
+
+143
+00:07:24.360 --> 00:07:26.600
+because the tunnel, the VPN encryption,
+
+144
+00:07:26.600 --> 00:07:30.670
+is only used between our computer and the VPN server.
+
+145
+00:07:30.670 --> 00:07:33.510
+So if the admin of the VPN server
+
+146
+00:07:33.510 --> 00:07:35.410
+wanted to analyze your data,
+
+147
+00:07:35.410 --> 00:07:37.440
+and see what you sent and received,
+
+148
+00:07:37.440 --> 00:07:39.830
+they will be able to do that.
+
+149
+00:07:39.830 --> 00:07:41.470
+Therefore, you need to make sure
+
+150
+00:07:41.470 --> 00:07:44.360
+that you pick a reputable VPN provider,
+
+151
+00:07:44.360 --> 00:07:46.750
+a company that you can trust.
+
+152
+00:07:46.750 --> 00:07:49.330
+You wanna stay away from free providers,
+
+153
+00:07:49.330 --> 00:07:53.290
+because providing a VPN service is very expensive.
+
+154
+00:07:53.290 --> 00:07:56.500
+Therefore, if someone's able to give it to you for free,
+
+155
+00:07:56.500 --> 00:07:58.240
+they must have another angle,
+
+156
+00:07:58.240 --> 00:08:02.330
+or another reason of why they are giving this for free.
+
+157
+00:08:02.330 --> 00:08:06.610
+You wanna make sure that the VPN's provider keeps no logs,
+
+158
+00:08:06.610 --> 00:08:08.560
+and with all of that,
+
+159
+00:08:08.560 --> 00:08:13.560
+you can use HTTPS Everywhere plugin with the VPN.
+
+160
+00:08:13.680 --> 00:08:16.750
+If you do that, you will actually fix the problem
+
+161
+00:08:16.750 --> 00:08:19.660
+of the data leaving the VPN server
+
+162
+00:08:19.660 --> 00:08:22.020
+because your data will be encrypted
+
+163
+00:08:22.020 --> 00:08:25.010
+between your computer and the VPN server
+
+164
+00:08:25.010 --> 00:08:27.040
+with two layers of encryption.
+
+165
+00:08:27.040 --> 00:08:29.300
+First using the VPN encryption,
+
+166
+00:08:29.300 --> 00:08:33.963
+and second using TLS because of HTTPS Everywhere.
+
+167
+00:08:35.180 --> 00:08:38.140
+Then data leaving the VPN server
+
+168
+00:08:38.140 --> 00:08:41.140
+will be encrypted with one layer of encryption,
+
+169
+00:08:41.140 --> 00:08:46.040
+which is the encryption enforced by HTTPS Everywhere.
+
+170
+00:08:46.040 --> 00:08:48.690
+Therefore, even though the VPN provider
+
+171
+00:08:48.690 --> 00:08:50.740
+is able to see your data,
+
+172
+00:08:50.740 --> 00:08:55.170
+and able to decrypt the encryption used in the VPN tunnel,
+
+173
+00:08:55.170 --> 00:08:58.140
+they will still not be able to see your data
+
+174
+00:08:58.140 --> 00:09:01.523
+because it will still be encrypted with TLS.
+
+175
+00:09:02.700 --> 00:09:05.110
+So this basically solves the problem
+
+176
+00:09:05.110 --> 00:09:08.730
+of the VPN server being able to see your data,
+
+177
+00:09:08.730 --> 00:09:10.900
+because at the VPN server,
+
+178
+00:09:10.900 --> 00:09:14.263
+your data will still be encrypted with TLS.
+
+179
+00:09:15.380 --> 00:09:17.430
+So to summarize the two methods
+
+180
+00:09:17.430 --> 00:09:19.760
+that we covered to protect our data
+
+181
+00:09:19.760 --> 00:09:22.240
+from man-in-the-middle attacks,
+
+182
+00:09:22.240 --> 00:09:25.310
+with HTTPS Everywhere, it's great, it's free.
+
+183
+00:09:25.310 --> 00:09:29.580
+The only problem is it only works with HTTPS websites,
+
+184
+00:09:29.580 --> 00:09:32.080
+the person intercepting the data
+
+185
+00:09:32.080 --> 00:09:34.820
+will still be able to see the websites we visit,
+
+186
+00:09:34.820 --> 00:09:38.770
+and they will still be able to run DNS spoofing attacks.
+
+187
+00:09:38.770 --> 00:09:41.600
+Then we spoke about using a VPN.
+
+188
+00:09:41.600 --> 00:09:44.570
+And with using a VPN, everything gets encrypted,
+
+189
+00:09:44.570 --> 00:09:46.120
+so that's even better.
+
+190
+00:09:46.120 --> 00:09:48.450
+None of the attacks that we talked about,
+
+191
+00:09:48.450 --> 00:09:50.880
+and that we covered in this course will work
+
+192
+00:09:50.880 --> 00:09:52.870
+'cause everything gets encrypted.
+
+193
+00:09:52.870 --> 00:09:55.280
+The only problem is, it's not free.
+
+194
+00:09:55.280 --> 00:09:57.640
+There are free services, but like I said,
+
+195
+00:09:57.640 --> 00:09:59.900
+they're not great, so you shouldn't use them,
+
+196
+00:09:59.900 --> 00:10:03.320
+just don't Use a VPN if you don't wanna pay for it.
+
+197
+00:10:03.320 --> 00:10:05.300
+The other problem with the VPN
+
+198
+00:10:05.300 --> 00:10:08.410
+is that the VPN provider can see your data,
+
+199
+00:10:08.410 --> 00:10:11.770
+so you're introducing a man-in-the-middle.
+
+200
+00:10:11.770 --> 00:10:14.590
+But we can take this one step further
+
+201
+00:10:14.590 --> 00:10:18.990
+and use HTTPS Everywhere with a VPN, and with that,
+
+202
+00:10:18.990 --> 00:10:21.630
+we're getting all of the benefits of using a VPN.
+
+203
+00:10:21.630 --> 00:10:23.300
+So everything gets encrypted,
+
+204
+00:10:23.300 --> 00:10:26.310
+protect us from all man-in-the-middle attacks,
+
+205
+00:10:26.310 --> 00:10:29.780
+but without the problem of the VPN provider
+
+206
+00:10:29.780 --> 00:10:31.870
+being able to see our data
+
+207
+00:10:31.870 --> 00:10:34.900
+because our data will be encrypted with two layers.
+
+208
+00:10:34.900 --> 00:10:37.520
+Therefore, even the VPN provider
+
+209
+00:10:37.520 --> 00:10:40.770
+will not be able to see what we sent or received
+
+210
+00:10:40.770 --> 00:10:43.993
+because it will still be encrypted with TLS.
+
+211
+00:10:45.160 --> 00:10:50.160
+So the only downside to using HTTPS Everywhere with a VPN
+
+212
+00:10:50.460 --> 00:10:53.553
+is the fact that you have to pay for the VPN service.
+

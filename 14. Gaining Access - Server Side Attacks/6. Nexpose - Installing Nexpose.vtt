@@ -1,0 +1,830 @@
+WEBVTT
+
+1
+00:00:00.730 --> 00:00:02.640
+<v Instructor>In this lecture, we're gonna talk about</v>
+
+2
+00:00:02.640 --> 00:00:06.170
+a really cool tool called Nexpose.
+
+3
+00:00:06.170 --> 00:00:09.380
+This is more of an enterprise tool that is designed
+
+4
+00:00:09.380 --> 00:00:12.840
+to be used in large companies and organizations.
+
+5
+00:00:12.840 --> 00:00:15.750
+It's basically a vulnerability management framework
+
+6
+00:00:15.750 --> 00:00:19.690
+made by Rapid7. So the same people that made Metasploit.
+
+7
+00:00:19.690 --> 00:00:22.610
+It comes with a really nice web GUI.
+
+8
+00:00:22.610 --> 00:00:25.610
+And what I mean by a vulnerability management framework
+
+9
+00:00:25.610 --> 00:00:29.020
+is that it's designed to cover the whole life cycle
+
+10
+00:00:29.020 --> 00:00:31.480
+of vulnerability management.
+
+11
+00:00:31.480 --> 00:00:33.800
+So it can scan for open ports,
+
+12
+00:00:33.800 --> 00:00:35.960
+it can discover running services,
+
+13
+00:00:35.960 --> 00:00:39.920
+find vulnerabilities in the services, find exploits,
+
+14
+00:00:39.920 --> 00:00:42.000
+whether you can exploit them in Metasploit
+
+15
+00:00:42.000 --> 00:00:44.740
+or if there is a different way of exploiting them,
+
+16
+00:00:44.740 --> 00:00:46.820
+give you the resources to do that,
+
+17
+00:00:46.820 --> 00:00:51.540
+verify that these exploits exist, and even generate reports
+
+18
+00:00:51.540 --> 00:00:54.170
+to detail everything that it discovers.
+
+19
+00:00:54.170 --> 00:00:56.830
+It actually generates two sets of reports,
+
+20
+00:00:56.830 --> 00:00:59.380
+a technical one, for the technical people,
+
+21
+00:00:59.380 --> 00:01:01.270
+and a high-level report,
+
+22
+00:01:01.270 --> 00:01:03.320
+to share with less technical people,
+
+23
+00:01:03.320 --> 00:01:05.393
+such as admins and managers.
+
+24
+00:01:06.360 --> 00:01:08.990
+You can also use it to automate these scans
+
+25
+00:01:08.990 --> 00:01:11.250
+so that you can run specific scans
+
+26
+00:01:11.250 --> 00:01:15.450
+that you configure yourself every certain period of time.
+
+27
+00:01:15.450 --> 00:01:17.610
+So as you can see, a really cool framework
+
+28
+00:01:17.610 --> 00:01:20.020
+with a lot of really useful features,
+
+29
+00:01:20.020 --> 00:01:22.240
+but most of them would only be useful
+
+30
+00:01:22.240 --> 00:01:24.530
+to big enterprises and companies,
+
+31
+00:01:24.530 --> 00:01:26.520
+especially considering the price
+
+32
+00:01:26.520 --> 00:01:29.750
+and the resources this program requires.
+
+33
+00:01:29.750 --> 00:01:31.600
+So it's very resource hungry,
+
+34
+00:01:31.600 --> 00:01:34.370
+it needs a minimum of eight gigs of memory
+
+35
+00:01:34.370 --> 00:01:35.630
+and a lot of storage.
+
+36
+00:01:35.630 --> 00:01:37.150
+But don't worry about that
+
+37
+00:01:37.150 --> 00:01:40.350
+because we're only gonna use this in one lecture,
+
+38
+00:01:40.350 --> 00:01:42.450
+the next lecture, just to show you
+
+39
+00:01:42.450 --> 00:01:45.310
+what to expect in an enterprise environment
+
+40
+00:01:45.310 --> 00:01:47.700
+where you'd be running such tools.
+
+41
+00:01:47.700 --> 00:01:49.790
+And that's why you actually don't need to worry
+
+42
+00:01:49.790 --> 00:01:50.850
+about the resources,
+
+43
+00:01:50.850 --> 00:01:54.610
+because if you ever needed to use this type of software,
+
+44
+00:01:54.610 --> 00:01:57.180
+the company that you're working with will provide it
+
+45
+00:01:57.180 --> 00:02:00.530
+and will provide the needed infrastructure.
+
+46
+00:02:00.530 --> 00:02:03.020
+So if you can give Kali eight gigs of memory,
+
+47
+00:02:03.020 --> 00:02:04.730
+then go for it and test it,
+
+48
+00:02:04.730 --> 00:02:06.740
+as I'm gonna show you in the next lecture.
+
+49
+00:02:06.740 --> 00:02:08.980
+If you can't, then that's fine, just watch the lecture,
+
+50
+00:02:08.980 --> 00:02:11.010
+and you're gonna get a good idea
+
+51
+00:02:11.010 --> 00:02:13.773
+on how to operate these kind of tools.
+
+52
+00:02:14.670 --> 00:02:17.420
+So, first of all, you're gonna need to download Nexpose.
+
+53
+00:02:17.420 --> 00:02:19.200
+It's not installed in Kali.
+
+54
+00:02:19.200 --> 00:02:22.430
+There is a link for it in the resources of this lecture.
+
+55
+00:02:22.430 --> 00:02:24.950
+Make sure that you use a company email.
+
+56
+00:02:24.950 --> 00:02:27.880
+If you don't have one, use the link in the resources as well
+
+57
+00:02:27.880 --> 00:02:30.610
+to get an email that looks like a company email,
+
+58
+00:02:30.610 --> 00:02:34.240
+because they're gonna send you a verification code to that.
+
+59
+00:02:34.240 --> 00:02:35.620
+Once you have it downloaded...
+
+60
+00:02:35.620 --> 00:02:38.510
+I have it right here already in my downloads.
+
+61
+00:02:38.510 --> 00:02:40.870
+I'm gonna navigate to my download directory
+
+62
+00:02:40.870 --> 00:02:42.240
+from my terminal.
+
+63
+00:02:42.240 --> 00:02:46.680
+So we're gonna do cd, Downloads, we're gonna do ls,
+
+64
+00:02:46.680 --> 00:02:50.630
+and we can find it in here. This is the installation script.
+
+65
+00:02:50.630 --> 00:02:54.050
+Now, before we run this, this is a binary executable,
+
+66
+00:02:54.050 --> 00:02:57.300
+we're gonna have to change its permissions to unexecutable.
+
+67
+00:02:57.300 --> 00:03:01.160
+And to do that, we're gonna do chmod, +x,
+
+68
+00:03:01.160 --> 00:03:02.703
+followed by the file name.
+
+69
+00:03:04.400 --> 00:03:08.240
+Now if ls, you'll see it's gonna be listed in green,
+
+70
+00:03:08.240 --> 00:03:10.770
+which means that it is unexecutable
+
+71
+00:03:10.770 --> 00:03:12.650
+and therefore we'll be able to run it
+
+72
+00:03:12.650 --> 00:03:16.960
+by doing ./ followed by the file name.
+
+73
+00:03:16.960 --> 00:03:20.570
+We're gonna hit Enter, and this will show us
+
+74
+00:03:20.570 --> 00:03:23.820
+a really easy-to-use installation wizard.
+
+75
+00:03:23.820 --> 00:03:25.713
+So we're gonna click on Next.
+
+76
+00:03:26.610 --> 00:03:28.460
+We're gonna keep this at the first option
+
+77
+00:03:28.460 --> 00:03:31.153
+to install the console and the scan engine.
+
+78
+00:03:32.050 --> 00:03:34.900
+You can modify the installation directory in here,
+
+79
+00:03:34.900 --> 00:03:36.660
+but we're gonna keep it to the default.
+
+80
+00:03:36.660 --> 00:03:38.930
+We're gonna hit Next.
+
+81
+00:03:38.930 --> 00:03:41.340
+Now it's given us a warning, as you can see,
+
+82
+00:03:41.340 --> 00:03:45.260
+saying that 80 gigabytes of storage is recommended.
+
+83
+00:03:45.260 --> 00:03:47.040
+This is not necessary.
+
+84
+00:03:47.040 --> 00:03:49.610
+It's simply saying that you could use a lot of storage
+
+85
+00:03:49.610 --> 00:03:51.730
+if you continue using the program.
+
+86
+00:03:51.730 --> 00:03:54.690
+But for testing purposes, what I have right now, 56,
+
+87
+00:03:54.690 --> 00:03:57.163
+is more than enough, so we're gonna continue.
+
+88
+00:03:58.160 --> 00:04:00.170
+And this is just the checklist to make sure
+
+89
+00:04:00.170 --> 00:04:02.480
+that you're meeting the minimum requirements.
+
+90
+00:04:02.480 --> 00:04:05.720
+The main one is the amount of memory I assigned to Kali.
+
+91
+00:04:05.720 --> 00:04:08.730
+As you can see, it has 10 gigabytes of memory,
+
+92
+00:04:08.730 --> 00:04:11.320
+because like I said, the minimum is eight.
+
+93
+00:04:11.320 --> 00:04:13.300
+We're gonna click on Next.
+
+94
+00:04:13.300 --> 00:04:16.000
+And we're just gonna fill this with my information.
+
+95
+00:04:16.000 --> 00:04:19.280
+So we're gonna put my first name, my last name,
+
+96
+00:04:19.280 --> 00:04:20.313
+company name.
+
+97
+00:04:22.660 --> 00:04:25.230
+We're gonna set a username, we'll just set it to Zaid,
+
+98
+00:04:25.230 --> 00:04:26.480
+and we'll put a password,
+
+99
+00:04:28.280 --> 00:04:29.863
+and we're gonna click on Next.
+
+100
+00:04:30.770 --> 00:04:32.870
+Now it's just giving you a summary
+
+101
+00:04:32.870 --> 00:04:35.100
+of everything that we set so far.
+
+102
+00:04:35.100 --> 00:04:36.820
+The main thing you wanna make sure you do
+
+103
+00:04:36.820 --> 00:04:40.100
+is to uncheck this box. So it's already unchecked.
+
+104
+00:04:40.100 --> 00:04:42.860
+If you check it, the program will automatically start
+
+105
+00:04:42.860 --> 00:04:44.670
+after you finished the installation.
+
+106
+00:04:44.670 --> 00:04:46.950
+But like I said, it's a really huge framework
+
+107
+00:04:46.950 --> 00:04:49.080
+and I'd rather start it manually,
+
+108
+00:04:49.080 --> 00:04:51.010
+and I'll show you how to do that later on.
+
+109
+00:04:51.010 --> 00:04:53.763
+So we wanna make sure that we do not check this box.
+
+110
+00:04:54.880 --> 00:04:56.410
+We're gonna click on Next,
+
+111
+00:04:56.410 --> 00:04:59.990
+and it's gonna start installing this framework for us.
+
+112
+00:04:59.990 --> 00:05:03.273
+So I'm gonna pause the video and resume once it's installed.
+
+113
+00:05:04.300 --> 00:05:07.047
+Perfect, now the installation is complete.
+
+114
+00:05:07.047 --> 00:05:09.630
+The only thing that I wanna modify right now is,
+
+115
+00:05:09.630 --> 00:05:11.080
+as you can see in here,
+
+116
+00:05:11.080 --> 00:05:13.160
+it saying that the console is configured
+
+117
+00:05:13.160 --> 00:05:15.980
+to automatically run at startup.
+
+118
+00:05:15.980 --> 00:05:18.330
+I do not want this to happen because like I said,
+
+119
+00:05:18.330 --> 00:05:20.480
+we're only gonna use this in one lecture.
+
+120
+00:05:20.480 --> 00:05:23.640
+Therefore there is no point of this software starting
+
+121
+00:05:23.640 --> 00:05:26.110
+every time we start our Kali Linux.
+
+122
+00:05:26.110 --> 00:05:28.330
+So I'm gonna click on Finish.
+
+123
+00:05:28.330 --> 00:05:31.750
+And what I'm gonna do now is disabled the auto start
+
+124
+00:05:31.750 --> 00:05:34.110
+of this program, of Nextpose.
+
+125
+00:05:34.110 --> 00:05:38.080
+So to do that, we're gonna do systemctl, disabled.
+
+126
+00:05:38.080 --> 00:05:40.500
+And we're gonna follow this by the name of the service
+
+127
+00:05:40.500 --> 00:05:42.010
+that we want to disable.
+
+128
+00:05:42.010 --> 00:05:43.990
+And as mentioned in the previous message
+
+129
+00:05:43.990 --> 00:05:45.670
+that we got from the installer,
+
+130
+00:05:45.670 --> 00:05:49.963
+the name of the service is nexposeconsole.service.
+
+131
+00:05:51.060 --> 00:05:54.640
+We're gonna hit Enter, and as you can see, it's saying that
+
+132
+00:05:54.640 --> 00:05:56.950
+it removed it from the auto start.
+
+133
+00:05:56.950 --> 00:05:59.850
+So now if we reboot our Kali and restart it,
+
+134
+00:05:59.850 --> 00:06:03.620
+the Nexpose console will not be automatically started,
+
+135
+00:06:03.620 --> 00:06:05.163
+which is exactly what we want.
+
+136
+00:06:06.440 --> 00:06:08.410
+So now that we installed Nexpose,
+
+137
+00:06:08.410 --> 00:06:10.460
+let's see how we're gonna start it.
+
+138
+00:06:10.460 --> 00:06:12.060
+So I'm gonna clear the screen.
+
+139
+00:06:12.060 --> 00:06:14.710
+And starting it is actually very, very simple.
+
+140
+00:06:14.710 --> 00:06:15.960
+First, we're gonna navigate
+
+141
+00:06:15.960 --> 00:06:18.870
+to the location where we installed Nexpose.
+
+142
+00:06:18.870 --> 00:06:21.640
+So as we seen during the installation wizard,
+
+143
+00:06:21.640 --> 00:06:26.640
+this is installed in opt/rapid7/nexpose/.
+
+144
+00:06:28.840 --> 00:06:31.630
+Now we're gonna list the directory is in here,
+
+145
+00:06:31.630 --> 00:06:34.640
+and the start-up script is stored in this directory.
+
+146
+00:06:34.640 --> 00:06:36.450
+So we're gonna navigate to it as well.
+
+147
+00:06:36.450 --> 00:06:38.960
+So we're gonna do cd, nsc.
+
+148
+00:06:40.339 --> 00:06:43.940
+And if we list all of the files and directoris in here,
+
+149
+00:06:43.940 --> 00:06:47.670
+you'll notice that we have a file called nsc.sh.
+
+150
+00:06:47.670 --> 00:06:50.720
+This is the start script for Nexpose.
+
+151
+00:06:50.720 --> 00:06:53.160
+So I'm gonna maximize my terminal
+
+152
+00:06:53.160 --> 00:06:56.600
+and we're gonna do ./ followed by the name
+
+153
+00:06:56.600 --> 00:07:01.270
+of the script that we want to start, which is nsc.sh,
+
+154
+00:07:01.270 --> 00:07:02.733
+and we're gonna hit Enter.
+
+155
+00:07:03.940 --> 00:07:06.270
+Now if you read the wizard, it actually said
+
+156
+00:07:06.270 --> 00:07:09.870
+that starting Nexpose could take up to 30 minutes.
+
+157
+00:07:09.870 --> 00:07:13.390
+And in my case, sometimes in other older computers,
+
+158
+00:07:13.390 --> 00:07:15.060
+it took up to 40 minutes
+
+159
+00:07:15.060 --> 00:07:17.650
+to actually initialize this framework.
+
+160
+00:07:17.650 --> 00:07:20.740
+So you wanna be very patient with this later on,
+
+161
+00:07:20.740 --> 00:07:22.680
+and you wanna make sure you have 10 gigs of memory,
+
+162
+00:07:22.680 --> 00:07:25.300
+like I said, and you will know when it's done,
+
+163
+00:07:25.300 --> 00:07:26.880
+because you're gonna get the URL
+
+164
+00:07:26.880 --> 00:07:29.000
+that you can use to access it.
+
+165
+00:07:29.000 --> 00:07:31.370
+So I'm gonna pause it and we'll resume
+
+166
+00:07:31.370 --> 00:07:33.423
+once it's fully initialized.
+
+167
+00:07:34.300 --> 00:07:36.820
+Perfect now because we don't see any errors,
+
+168
+00:07:36.820 --> 00:07:39.720
+and because we see this message, telling us
+
+169
+00:07:39.720 --> 00:07:43.690
+that we can actually access Nexpose through this URL.
+
+170
+00:07:43.690 --> 00:07:46.440
+That means everything has started successfully.
+
+171
+00:07:46.440 --> 00:07:49.170
+So we can actually just control and click it
+
+172
+00:07:49.170 --> 00:07:51.492
+to open it in our browser.
+
+173
+00:07:51.492 --> 00:07:54.180
+And as you can see, you're gonna get a warning
+
+174
+00:07:54.180 --> 00:07:57.450
+because you're loading this over HTTPS
+
+175
+00:07:57.450 --> 00:08:01.230
+and Nexpose is using a self-signed certificate.
+
+176
+00:08:01.230 --> 00:08:04.620
+So all you have to do is click on Advanced
+
+177
+00:08:04.620 --> 00:08:05.920
+and accept the risk,
+
+178
+00:08:05.920 --> 00:08:08.020
+because this is running on our own server.
+
+179
+00:08:08.020 --> 00:08:10.200
+So we know this is fine.
+
+180
+00:08:10.200 --> 00:08:13.120
+And as you can see, now we're getting the login screen.
+
+181
+00:08:13.120 --> 00:08:15.670
+So I'm gonna log in using the same information
+
+182
+00:08:15.670 --> 00:08:18.620
+that I used when I installed Nexpose.
+
+183
+00:08:18.620 --> 00:08:20.940
+So my username was Zaid
+
+184
+00:08:20.940 --> 00:08:25.313
+and the password is what I set it to, gonna hit Enter,
+
+185
+00:08:26.680 --> 00:08:29.290
+and perfect, as you can see we got the console.
+
+186
+00:08:29.290 --> 00:08:31.120
+Now the first thing it's asking me for
+
+187
+00:08:31.120 --> 00:08:33.640
+is the activation key.
+
+188
+00:08:33.640 --> 00:08:37.250
+You should receive one on your email in your inbox by now.
+
+189
+00:08:37.250 --> 00:08:38.200
+I already have it,
+
+190
+00:08:38.200 --> 00:08:40.990
+and I already have it copied in my clipboard,
+
+191
+00:08:40.990 --> 00:08:45.990
+so I'm just gonna paste it here, and click on Activate Key.
+
+192
+00:08:46.610 --> 00:08:48.430
+Give it some time to activate the key.
+
+193
+00:08:48.430 --> 00:08:51.580
+It actually could take a few minutes, again.
+
+194
+00:08:51.580 --> 00:08:52.673
+Now, perfect, as you can see,
+
+195
+00:08:52.673 --> 00:08:55.160
+it's saying, "Activation successful."
+
+196
+00:08:55.160 --> 00:08:58.150
+So we're gonna click on OK, and that's it.
+
+197
+00:08:58.150 --> 00:09:00.970
+Now the framework is ready to be used,
+
+198
+00:09:00.970 --> 00:09:03.770
+and I'm gonna show you how to use it exactly
+
+199
+00:09:03.770 --> 00:09:04.930
+in the next lecture.
+
+200
+00:09:04.930 --> 00:09:07.050
+But like I said, that would be the only lecture
+
+201
+00:09:07.050 --> 00:09:09.200
+that we're gonna be using this framework.
+
+202
+00:09:09.200 --> 00:09:11.310
+I'm only showing you how to use it now,
+
+203
+00:09:11.310 --> 00:09:14.830
+just to give you an idea of this type of software.
+
+204
+00:09:14.830 --> 00:09:16.860
+But if you can't install it on your computer,
+
+205
+00:09:16.860 --> 00:09:17.990
+that's completely fine
+
+206
+00:09:17.990 --> 00:09:20.170
+because we're not gonna be relying on it
+
+207
+00:09:20.170 --> 00:09:21.863
+in the rest of the course.
+

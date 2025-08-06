@@ -1,0 +1,274 @@
+WEBVTT
+
+00:00.150 --> 00:01.830
+Narrator: Now that we created the backdoor
+
+00:01.830 --> 00:04.800
+that when executed on a target computer,
+
+00:04.800 --> 00:09.210
+it will send a reverse connection to our computer.
+
+00:09.210 --> 00:11.220
+Before we do that and before we go ahead
+
+00:11.220 --> 00:12.540
+and execute it,
+
+00:12.540 --> 00:13.950
+we need to go ahead
+
+00:13.950 --> 00:16.500
+and listen for incoming connections.
+
+00:16.500 --> 00:20.220
+So we need to create this socket, if you may,
+
+00:20.220 --> 00:22.560
+so that when the backdoor is executed
+
+00:22.560 --> 00:24.150
+on the target computer,
+
+00:24.150 --> 00:27.990
+it can actually go ahead and connect to the port
+
+00:27.990 --> 00:31.230
+or to the socket that we have open.
+
+00:31.230 --> 00:35.460
+So in this lecture, I'm gonna show you how to open up a port
+
+00:35.460 --> 00:39.450
+and listen for incoming connections on our current computer
+
+00:39.450 --> 00:41.490
+so that when the backdoor is executed
+
+00:41.490 --> 00:43.020
+on the target computer,
+
+00:43.020 --> 00:46.653
+it will send that connection back to our computer.
+
+00:47.610 --> 00:50.370
+To do that, we're actually gonna use metasploit.
+
+00:50.370 --> 00:52.770
+So first of all, we need to launch the console
+
+00:52.770 --> 00:55.473
+by doing MSF console, as you know.
+
+00:56.340 --> 00:59.010
+Give it a moment to boot and when it starts,
+
+00:59.010 --> 01:01.560
+we're going to use a module
+
+01:01.560 --> 01:06.030
+that is called exploit multi handler.
+
+01:06.030 --> 01:08.850
+So basically this is a module that is designed
+
+01:08.850 --> 01:11.670
+to help you open up a port in your computer
+
+01:11.670 --> 01:13.740
+so that you can receive connections
+
+01:13.740 --> 01:15.660
+from computers that you hack.
+
+01:15.660 --> 01:18.000
+So again, hit enter to load this module.
+
+01:18.000 --> 01:20.580
+And because we don't know how to use this module,
+
+01:20.580 --> 01:24.300
+we can simply do show options to see all of the options
+
+01:24.300 --> 01:25.920
+that we can set for it.
+
+01:25.920 --> 01:28.470
+And as you can see, you get a nice message showing you
+
+01:28.470 --> 01:31.410
+the module name, showing you the payload
+
+01:31.410 --> 01:35.400
+that this module is using by default and its options.
+
+01:35.400 --> 01:37.410
+Now if you look at this payload,
+
+01:37.410 --> 01:39.570
+you'll notice that this is not the payload
+
+01:39.570 --> 01:41.490
+that we used in our backdoor
+
+01:41.490 --> 01:44.250
+and that's why we're gonna have to modify this.
+
+01:44.250 --> 01:47.460
+And you can modify this value exactly the same way
+
+01:47.460 --> 01:50.520
+you modify any value in metasploit.
+
+01:50.520 --> 01:54.600
+So we're gonna do set, followed by the option name
+
+01:54.600 --> 01:57.450
+that we want to modify, which is the payload.
+
+01:57.450 --> 01:59.010
+The main thing you wanna make sure is
+
+01:59.010 --> 02:01.530
+that you use the exact same payload
+
+02:01.530 --> 02:03.870
+that you used in the backdoor.
+
+02:03.870 --> 02:08.813
+So in the backdoor we use Windows meterpreter reverse HTTPS.
+
+02:11.400 --> 02:14.430
+If we do show options again, you'll see
+
+02:14.430 --> 02:17.080
+that we're actually gonna see different options
+
+02:18.420 --> 02:21.120
+because the payload is different.
+
+02:21.120 --> 02:24.360
+So you can see that the options here are again very similar
+
+02:24.360 --> 02:27.750
+to the options that we set when we created the backdoor.
+
+02:27.750 --> 02:30.570
+So the main two options that we need to modify
+
+02:30.570 --> 02:33.510
+are the L host and the L port.
+
+02:33.510 --> 02:36.390
+And the L host is the IP of the computer
+
+02:36.390 --> 02:38.280
+that will receive the connection.
+
+02:38.280 --> 02:41.310
+And in our case, it's this computer right here.
+
+02:41.310 --> 02:44.220
+And the L port is the port that you want to receive
+
+02:44.220 --> 02:45.360
+the connection on.
+
+02:45.360 --> 02:48.240
+And again, both of these values need to match
+
+02:48.240 --> 02:52.380
+the exact same values that you set in the back door.
+
+02:52.380 --> 02:54.720
+So to get our current IP,
+
+02:54.720 --> 02:58.530
+we saw that when we run the back door, we can do if config.
+
+02:58.530 --> 03:02.040
+And we can see my IP is right here.
+
+03:02.040 --> 03:03.630
+So I'm gonna copy it.
+
+03:03.630 --> 03:06.450
+And again, we're gonna set its value exactly the same way
+
+03:06.450 --> 03:08.700
+that you set values in metasploit.
+
+03:08.700 --> 03:11.700
+So you do set, followed by the option name,
+
+03:11.700 --> 03:14.250
+which is L Host, followed by the value.
+
+03:14.250 --> 03:16.803
+And I'm gonna paste my value, which is my IP.
+
+03:17.880 --> 03:19.470
+Next we're gonna set the port.
+
+03:19.470 --> 03:23.490
+So we're gonna do set option name L port,
+
+03:23.490 --> 03:24.630
+and the port that we used
+
+03:24.630 --> 03:26.643
+in the backdoor was 8080.
+
+03:27.900 --> 03:30.960
+Now that we set everything we can do show options
+
+03:30.960 --> 03:33.300
+one more time to make sure that the options
+
+03:33.300 --> 03:35.730
+were set correctly, and perfect.
+
+03:35.730 --> 03:38.880
+As you can see, we can see that the L host is set to my IP,
+
+03:38.880 --> 03:41.520
+which is the same value that I used in the back door.
+
+03:41.520 --> 03:44.160
+And same goes for the L port.
+
+03:44.160 --> 03:47.523
+So now that we're happy with everything we can do exploit.
+
+03:49.890 --> 03:51.750
+And this will basically just sit,
+
+03:51.750 --> 03:55.080
+it'll literally just open up the socket,
+
+03:55.080 --> 03:57.510
+open up this port, port 8080,
+
+03:57.510 --> 03:58.740
+and it's gonna wait
+
+03:58.740 --> 04:01.800
+for incoming connections from any computer
+
+04:01.800 --> 04:03.900
+that executes the backdoor.
+
+04:03.900 --> 04:06.090
+So in the next lecture, we're gonna go ahead,
+
+04:06.090 --> 04:08.730
+execute the backdoor on a Windows computer
+
+04:08.730 --> 04:10.800
+and see if we're actually gonna be able
+
+04:10.800 --> 04:12.570
+to get a reverse connection
+
+04:12.570 --> 04:15.393
+and be able to remotely control that computer.

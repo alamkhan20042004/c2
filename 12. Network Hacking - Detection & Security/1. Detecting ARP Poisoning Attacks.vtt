@@ -1,0 +1,430 @@
+WEBVTT
+
+1
+00:00:01.820 --> 00:00:03.070
+<v Male Instructor>Right, so let's talk about</v>
+
+2
+00:00:03.070 --> 00:00:06.313
+how we can detect ARP poisoning attacks.
+
+3
+00:00:07.570 --> 00:00:11.050
+First of all, let me show you the ARP tables.
+
+4
+00:00:11.050 --> 00:00:13.100
+So, in our Windows device,
+
+5
+00:00:13.100 --> 00:00:15.650
+which is the device that we always attack,
+
+6
+00:00:15.650 --> 00:00:19.290
+I'm gonna run a command, arp-a,
+
+7
+00:00:19.290 --> 00:00:22.940
+to list all the entries in the ARP table.
+
+8
+00:00:22.940 --> 00:00:25.280
+So each computer has an ARP table
+
+9
+00:00:26.270 --> 00:00:30.493
+and that table associates IP addresses with Mac addresses.
+
+10
+00:00:31.470 --> 00:00:33.990
+So we can see the IP address of the router,
+
+11
+00:00:33.990 --> 00:00:36.250
+which is 10. 20. 14. 1,
+
+12
+00:00:36.250 --> 00:00:39.840
+is associated with the Mac address, 52-54,
+
+13
+00:00:39.840 --> 00:00:44.350
+and it ends up in 35-00.
+
+14
+00:00:44.350 --> 00:00:48.290
+So this is the Mac address for the IP, for the router.
+
+15
+00:00:48.290 --> 00:00:51.890
+So the way that ARP poisoning works like we discussed before
+
+16
+00:00:51.890 --> 00:00:56.500
+is it works because each request is trusted
+
+17
+00:00:56.500 --> 00:00:58.810
+and clients accept responses
+
+18
+00:00:58.810 --> 00:01:01.150
+even if they didn't send the request.
+
+19
+00:01:01.150 --> 00:01:04.710
+So what the hacker does is he sends a response
+
+20
+00:01:04.710 --> 00:01:07.580
+to the client telling them that they are the router.
+
+21
+00:01:07.580 --> 00:01:09.990
+So the client will accept that, it was trusted.
+
+22
+00:01:09.990 --> 00:01:11.320
+And it's going to accept the response,
+
+23
+00:01:11.320 --> 00:01:13.520
+even though it didn't send the request.
+
+24
+00:01:13.520 --> 00:01:15.980
+Then we'll send another response to the router
+
+25
+00:01:15.980 --> 00:01:18.610
+telling them that we are the client.
+
+26
+00:01:18.610 --> 00:01:20.980
+So what's this is going to do, it's going to modify
+
+27
+00:01:20.980 --> 00:01:23.170
+the entries in the ARP tables in both,
+
+28
+00:01:23.170 --> 00:01:25.310
+in the router and in the client,
+
+29
+00:01:25.310 --> 00:01:27.780
+and for the client it's going to contain
+
+30
+00:01:27.780 --> 00:01:30.360
+the hacker's Mac address and it's going to associate
+
+31
+00:01:30.360 --> 00:01:33.180
+that with the router's IP address.
+
+32
+00:01:33.180 --> 00:01:35.350
+So what's basically going to happen is
+
+33
+00:01:35.350 --> 00:01:38.180
+it's going to modify the Mac address here,
+
+34
+00:01:38.180 --> 00:01:41.770
+and it's going to change that to the attacker's Mac address.
+
+35
+00:01:41.770 --> 00:01:44.610
+And instead of the router's real Mac address.
+
+36
+00:01:44.610 --> 00:01:47.750
+So once that happened, then the hacker will be
+
+37
+00:01:47.750 --> 00:01:49.910
+in the middle of the connection,
+
+38
+00:01:49.910 --> 00:01:53.100
+and they'll be able to read, analyze, and modify the packets
+
+39
+00:01:53.100 --> 00:01:54.700
+because they're going to be flowing
+
+40
+00:01:54.700 --> 00:01:56.093
+through the hacker device.
+
+41
+00:01:57.460 --> 00:01:59.540
+So let's run the ARP poisoning.
+
+42
+00:01:59.540 --> 00:02:02.163
+A normal ARP poisoning attack like we always do it.
+
+43
+00:02:04.550 --> 00:02:05.810
+And when I go back here,
+
+44
+00:02:05.810 --> 00:02:07.480
+I'm going to execute the same command.
+
+45
+00:02:07.480 --> 00:02:10.030
+So I'm going to do an arp-a again.
+
+46
+00:02:10.030 --> 00:02:13.130
+And note how the Mac address is going to be different.
+
+47
+00:02:13.130 --> 00:02:17.260
+So the Mac address for the router, it used to be this one.
+
+48
+00:02:17.260 --> 00:02:19.000
+And when we ran the command,
+
+49
+00:02:19.000 --> 00:02:22.370
+the Mac address changed to this one.
+
+50
+00:02:22.370 --> 00:02:23.870
+And this Mac address right here
+
+51
+00:02:23.870 --> 00:02:27.060
+is the Mac address of the network card
+
+52
+00:02:27.060 --> 00:02:28.870
+that the attacker is using.
+
+53
+00:02:28.870 --> 00:02:31.653
+So if I come here and just do an ifconfig,
+
+54
+00:02:33.510 --> 00:02:35.820
+you'll see that this is the Mac address,
+
+55
+00:02:35.820 --> 00:02:40.303
+the same Mac address that is displayed in here.
+
+56
+00:02:41.410 --> 00:02:43.800
+So this is the easiest and the simplest way
+
+57
+00:02:43.800 --> 00:02:46.720
+to discover ARP poisoning attacks.
+
+58
+00:02:46.720 --> 00:02:48.160
+It's not the handiest way though,
+
+59
+00:02:48.160 --> 00:02:51.460
+because you're going to have to keep doing this command
+
+60
+00:02:51.460 --> 00:02:53.250
+and keep comparing the entries
+
+61
+00:02:53.250 --> 00:02:56.720
+if you really wanted to check if you're being ARP poisoned.
+
+62
+00:02:56.720 --> 00:02:58.330
+So there's a tool called XRP
+
+63
+00:02:59.363 --> 00:03:02.170
+and it does that automatically for you
+
+64
+00:03:02.170 --> 00:03:05.030
+and it's available for Linux and Windows.
+
+65
+00:03:05.030 --> 00:03:06.130
+So I already downloaded.
+
+66
+00:03:06.130 --> 00:03:08.590
+You can just Google XRP and you can download it.
+
+67
+00:03:08.590 --> 00:03:11.140
+Very easy to download and install,
+
+68
+00:03:11.140 --> 00:03:13.190
+and I'm just going to run it.
+
+69
+00:03:13.190 --> 00:03:16.050
+I'm actually going to stop the attack first,
+
+70
+00:03:16.050 --> 00:03:18.340
+and then I'm going to run the tool.
+
+71
+00:03:18.340 --> 00:03:20.380
+Now notice when you stop the attack,
+
+72
+00:03:20.380 --> 00:03:23.823
+the IP address is going to go back to what it was.
+
+73
+00:03:24.730 --> 00:03:27.590
+So you can see that the Mac address of the router
+
+74
+00:03:27.590 --> 00:03:30.973
+is back to its default right value of the router.
+
+75
+00:03:31.920 --> 00:03:33.530
+So I'm just going to run XRP now
+
+76
+00:03:35.090 --> 00:03:37.900
+and you can see that everything is good.
+
+77
+00:03:37.900 --> 00:03:39.780
+And you can see that the entries are very similar
+
+78
+00:03:39.780 --> 00:03:41.900
+to what we did when we did arp-a.
+
+79
+00:03:41.900 --> 00:03:44.010
+So we have the IP addresses
+
+80
+00:03:44.010 --> 00:03:46.620
+and the Mac addresses associated with it.
+
+81
+00:03:46.620 --> 00:03:47.830
+What the tool basically does,
+
+82
+00:03:47.830 --> 00:03:50.190
+it's just going to automatically monitor this.
+
+83
+00:03:50.190 --> 00:03:52.460
+And whenever something changes, it's going to know
+
+84
+00:03:52.460 --> 00:03:54.210
+that something's wrong is happening
+
+85
+00:03:54.210 --> 00:03:58.070
+because each IP address should have a unique Mac address.
+
+86
+00:03:58.070 --> 00:04:00.900
+There should be no duplicates in the network.
+
+87
+00:04:00.900 --> 00:04:04.300
+So I'm going to do another ARP poisoning attack
+
+88
+00:04:04.300 --> 00:04:06.033
+exactly like we did it before.
+
+89
+00:04:07.430 --> 00:04:09.310
+And when we come here you'll see
+
+90
+00:04:09.310 --> 00:04:12.550
+that XRP is giving us a notification
+
+91
+00:04:12.550 --> 00:04:15.320
+and telling us that something's happening.
+
+92
+00:04:15.320 --> 00:04:18.300
+It's telling us that the Mac address for the router,
+
+93
+00:04:18.300 --> 00:04:20.870
+which is the 10. 20. 14. 1. IP
+
+94
+00:04:20.870 --> 00:04:23.383
+has changed from this to that.
+
+95
+00:04:25.320 --> 00:04:28.270
+And if we look here, I'm going to click okay,
+
+96
+00:04:28.270 --> 00:04:31.150
+and if we look here, we can see that the effected machines
+
+97
+00:04:31.150 --> 00:04:36.150
+are the router, my own machine right now, and the attacker.
+
+98
+00:04:36.940 --> 00:04:40.140
+Sorry, that's me and that's the attacker.
+
+99
+00:04:40.140 --> 00:04:44.640
+So basically we know that the machine at 10. 20. 14. 203
+
+100
+00:04:44.640 --> 00:04:47.710
+is trying to do an ARP poisoning attack.
+
+101
+00:04:47.710 --> 00:04:49.230
+Because it's the one
+
+102
+00:04:49.230 --> 00:04:52.810
+that the router's Mac address has changed to.
+
+103
+00:04:52.810 --> 00:04:56.070
+Therefore, we know this is the attacker machine.
+
+104
+00:04:56.070 --> 00:04:57.220
+So this tool is really handy
+
+105
+00:04:57.220 --> 00:05:00.230
+because it does the monitoring automatically for us
+
+106
+00:05:00.230 --> 00:05:01.740
+and it'll tell us whenever someone
+
+107
+00:05:01.740 --> 00:05:04.243
+is trying to ARP poisoned the network.
+

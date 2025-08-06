@@ -1,0 +1,518 @@
+WEBVTT
+
+1
+00:00:00.803 --> 00:00:01.890
+<v Instructor>In the previous video</v>
+
+2
+00:00:01.890 --> 00:00:04.270
+we seen how we can launch Wireshark
+
+3
+00:00:04.270 --> 00:00:06.566
+and we said that we can actually just open
+
+4
+00:00:06.566 --> 00:00:09.980
+a file that contains packets that we already captured
+
+5
+00:00:09.980 --> 00:00:13.210
+and we can start analyzing them using Wireshark.
+
+6
+00:00:13.210 --> 00:00:15.222
+In this video I want to start sniffing packets
+
+7
+00:00:15.222 --> 00:00:16.960
+and then generate some traffic
+
+8
+00:00:16.960 --> 00:00:18.130
+in my Windows machine
+
+9
+00:00:18.130 --> 00:00:18.963
+and then we'll see how
+
+10
+00:00:18.963 --> 00:00:22.040
+we can analyze these packets using Wireshark.
+
+11
+00:00:22.040 --> 00:00:24.460
+So I'm already the man in the middle
+
+12
+00:00:24.460 --> 00:00:25.760
+as I've said you first have to be the
+
+13
+00:00:25.760 --> 00:00:27.690
+man in the middle to use Wireshark
+
+14
+00:00:27.690 --> 00:00:30.430
+and then the traffic that's generated
+
+15
+00:00:30.430 --> 00:00:31.930
+in the Windows machine is actually
+
+16
+00:00:31.930 --> 00:00:35.320
+filmed through eth0 as we seen in the previous video.
+
+17
+00:00:35.320 --> 00:00:37.970
+So before I start capturing the packets,
+
+18
+00:00:37.970 --> 00:00:39.730
+I wanna go to the options
+
+19
+00:00:39.730 --> 00:00:43.070
+and I just wanna show you what options we can set.
+
+20
+00:00:43.070 --> 00:00:44.760
+So first you can see all the interfaces
+
+21
+00:00:44.760 --> 00:00:47.770
+that you have and you can see the traffic generated on them.
+
+22
+00:00:47.770 --> 00:00:50.680
+And you can see eth0 is actually generating
+
+23
+00:00:50.680 --> 00:00:52.110
+some traffic every now and then
+
+24
+00:00:52.110 --> 00:00:55.290
+because it's actually coming from the Windows machine.
+
+25
+00:00:55.290 --> 00:00:56.990
+So in here you can select the interfaces
+
+26
+00:00:56.990 --> 00:00:59.660
+that you want to start capturing on
+
+27
+00:00:59.660 --> 00:01:01.908
+and you can actually select more than one interface
+
+28
+00:01:01.908 --> 00:01:05.080
+and all we have to do is just hold the control
+
+29
+00:01:05.080 --> 00:01:07.200
+and then click other interfaces
+
+30
+00:01:07.200 --> 00:01:08.290
+that you want to listen on.
+
+31
+00:01:08.290 --> 00:01:11.110
+For example, we can just click them like this.
+
+32
+00:01:11.110 --> 00:01:14.533
+But for now I actually only wanna sniff on eth0.
+
+33
+00:01:16.430 --> 00:01:18.680
+Now if we go on the output
+
+34
+00:01:18.680 --> 00:01:21.190
+you'll see that you have an option to store
+
+35
+00:01:21.190 --> 00:01:22.440
+these packets somewhere
+
+36
+00:01:22.440 --> 00:01:24.970
+so again if you only want to sniff
+
+37
+00:01:24.970 --> 00:01:26.670
+and you don't want to analyze things
+
+38
+00:01:26.670 --> 00:01:28.670
+then you can just go onto browse
+
+39
+00:01:28.670 --> 00:01:30.250
+and you can store the packets
+
+40
+00:01:30.250 --> 00:01:31.770
+that you're gonna sniff somewhere
+
+41
+00:01:31.770 --> 00:01:34.220
+and then you can analyze them whenever you have the time.
+
+42
+00:01:34.220 --> 00:01:35.660
+At a different time you can just open
+
+43
+00:01:35.660 --> 00:01:37.180
+them with Wireshark like I showed you
+
+44
+00:01:37.180 --> 00:01:38.060
+in the previous video,
+
+45
+00:01:38.060 --> 00:01:39.770
+you can just go on file, open
+
+46
+00:01:39.770 --> 00:01:42.553
+and then open the packets and start analyzing them.
+
+47
+00:01:44.490 --> 00:01:46.730
+Now I have eth0 selected
+
+48
+00:01:46.730 --> 00:01:48.493
+and I'm just gonna click on start.
+
+49
+00:01:50.220 --> 00:01:52.830
+And that will start capturing packets.
+
+50
+00:01:52.830 --> 00:01:54.656
+Anything that's gonna flow through eth0
+
+51
+00:01:54.656 --> 00:01:58.170
+will be captured and it will be displayed in here, anything.
+
+52
+00:01:58.170 --> 00:02:02.110
+I mean images, pictures, messages, cookies,
+
+53
+00:02:02.110 --> 00:02:04.800
+anything that that computer does on the internet
+
+54
+00:02:04.800 --> 00:02:07.078
+will flow through eth0 and therefore
+
+55
+00:02:07.078 --> 00:02:09.500
+will be captured by Wireshark.
+
+56
+00:02:09.500 --> 00:02:11.220
+So it's not like man in the middle life
+
+57
+00:02:11.220 --> 00:02:13.100
+where it was only showing us the important
+
+58
+00:02:13.100 --> 00:02:15.990
+information right here you'll see anything,
+
+59
+00:02:15.990 --> 00:02:17.713
+all the traffic that's generated.
+
+60
+00:02:19.090 --> 00:02:21.270
+Now, I wanna go and generate some traffic
+
+61
+00:02:21.270 --> 00:02:24.476
+on the target computer so we can analyze it here
+
+62
+00:02:24.476 --> 00:02:25.910
+but before I do that
+
+63
+00:02:25.910 --> 00:02:28.510
+I'm gonna go back to buttercup
+
+64
+00:02:29.940 --> 00:02:32.840
+and I wanna see my hsts caplet
+
+65
+00:02:32.840 --> 00:02:36.310
+so I can downgrade https to http
+
+66
+00:02:36.310 --> 00:02:38.820
+'cause if everything goes over http
+
+67
+00:02:38.820 --> 00:02:41.830
+we won't be able to see or read anything
+
+68
+00:02:41.830 --> 00:02:42.840
+because like I said,
+
+69
+00:02:42.840 --> 00:02:45.160
+everything will be encrypted.
+
+70
+00:02:45.160 --> 00:02:46.510
+So I'm gonna hit enter
+
+71
+00:02:46.510 --> 00:02:48.430
+this will work as expected,
+
+72
+00:02:48.430 --> 00:02:50.170
+we'll go back to Wireshark
+
+73
+00:02:50.170 --> 00:02:53.220
+and let's go to the target computer.
+
+74
+00:02:53.220 --> 00:02:55.720
+I'm gonna go to google.ie
+
+75
+00:02:57.280 --> 00:02:58.710
+and let's search for something
+
+76
+00:02:58.710 --> 00:03:01.490
+so for example let's search for zSecurity
+
+77
+00:03:04.068 --> 00:03:06.006
+and keep in mind everything is loading
+
+78
+00:03:06.006 --> 00:03:09.798
+over http in here so that's why we'll be able to read
+
+79
+00:03:09.798 --> 00:03:13.403
+and analyze everything that we're loading right here.
+
+80
+00:03:14.360 --> 00:03:16.141
+Now, let's go back to Wireshark
+
+81
+00:03:16.141 --> 00:03:19.550
+and see how we can filter this information
+
+82
+00:03:19.550 --> 00:03:21.400
+and discover the websites visit
+
+83
+00:03:21.400 --> 00:03:24.503
+by the target, see the requests, and all that.
+
+84
+00:03:25.390 --> 00:03:28.043
+So I'm gonna click on the stop button to stop this.
+
+85
+00:03:29.890 --> 00:03:32.920
+Now this is the main interface of Wireshark
+
+86
+00:03:32.920 --> 00:03:35.080
+and you can see that the first thing we have
+
+87
+00:03:35.080 --> 00:03:38.453
+is each one record of this is a packet.
+
+88
+00:03:39.560 --> 00:03:41.410
+Now you'll see here the columns,
+
+89
+00:03:41.410 --> 00:03:44.210
+first of all here is the number of the packets
+
+90
+00:03:44.210 --> 00:03:46.100
+so you have this one is number one,
+
+91
+00:03:46.100 --> 00:03:48.150
+number two, number three and number four.
+
+92
+00:03:49.000 --> 00:03:50.140
+And the time,
+
+93
+00:03:50.140 --> 00:03:53.070
+you'll see the time when this packet was captured
+
+94
+00:03:53.070 --> 00:03:55.960
+so zero is when we first started sniffing
+
+95
+00:03:55.960 --> 00:03:58.963
+and then the time increases as we go down
+
+96
+00:03:58.963 --> 00:04:01.890
+and it shows when these packets were captured,
+
+97
+00:04:01.890 --> 00:04:03.660
+when they were sent basically.
+
+98
+00:04:03.660 --> 00:04:05.440
+You can also see the source,
+
+99
+00:04:05.440 --> 00:04:08.840
+so this is the device that the packet was sent from
+
+100
+00:04:08.840 --> 00:04:11.000
+and you can see that this one is not sent
+
+101
+00:04:11.000 --> 00:04:13.630
+from our target it's actually coming from the internet
+
+102
+00:04:13.630 --> 00:04:15.900
+from a server that has this IP
+
+103
+00:04:15.900 --> 00:04:18.411
+and it's going to our target computer
+
+104
+00:04:18.411 --> 00:04:21.640
+which is 10.20.14.206.
+
+105
+00:04:21.640 --> 00:04:24.920
+You can see the protocol so it's TCP for this one.
+
+106
+00:04:24.920 --> 00:04:27.590
+You can see that it's ICMP in this one
+
+107
+00:04:27.590 --> 00:04:29.893
+and you can see that it's ARP for this.
+
+108
+00:04:29.893 --> 00:04:32.051
+You can see the length which is the size
+
+109
+00:04:32.051 --> 00:04:35.763
+and you can also see info about this packet.
+
+110
+00:04:37.250 --> 00:04:38.480
+Now we can also notice that
+
+111
+00:04:38.480 --> 00:04:40.590
+these packets have different colors.
+
+112
+00:04:40.590 --> 00:04:43.380
+Usually green is TCP packets,
+
+113
+00:04:43.380 --> 00:04:45.540
+dark blue is DNS packets,
+
+114
+00:04:45.540 --> 00:04:48.880
+and if we go down we should actually be able to find
+
+115
+00:04:48.880 --> 00:04:52.353
+some of them and you can see all of these are DNF packets.
+
+116
+00:04:53.680 --> 00:04:55.377
+Light blue usually is UDP
+
+117
+00:04:55.377 --> 00:04:58.690
+but we don't have any UDP packets at the moment.
+
+118
+00:04:58.690 --> 00:05:01.550
+And you can also see we have some black packets
+
+119
+00:05:01.550 --> 00:05:03.540
+and these are TCP packets that
+
+120
+00:05:03.540 --> 00:05:05.263
+had a problem, that had issues.
+
+121
+00:05:06.460 --> 00:05:07.970
+Now I know what you're thinking,
+
+122
+00:05:07.970 --> 00:05:10.700
+there are so many packets in here
+
+123
+00:05:10.700 --> 00:05:13.770
+and a lot of them might not be useful to you
+
+124
+00:05:13.770 --> 00:05:16.520
+depending on what you're trying to get.
+
+125
+00:05:16.520 --> 00:05:18.230
+But don't worry about this,
+
+126
+00:05:18.230 --> 00:05:20.080
+in the next lecture I'm gonna show you
+
+127
+00:05:20.080 --> 00:05:23.190
+how to filter these packets to only display
+
+128
+00:05:23.190 --> 00:05:26.480
+the relevant ones and then analyze them
+
+129
+00:05:26.480 --> 00:05:28.993
+to extract the useful information.
+

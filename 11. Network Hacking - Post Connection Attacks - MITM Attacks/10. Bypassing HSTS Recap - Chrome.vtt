@@ -1,0 +1,412 @@
+WEBVTT
+
+00:00.420 --> 00:02.280
+Instructor: So that's Firefox covered.
+
+00:02.280 --> 00:05.640
+Let's go ahead and take a look at Chrome.
+
+00:05.640 --> 00:07.830
+Now again, for HTTP, as we mentioned,
+
+00:07.830 --> 00:09.420
+everything works as expected,
+
+00:09.420 --> 00:11.520
+it's a very simple scenario.
+
+00:11.520 --> 00:15.270
+For HTTPS, you still wanna use the same configuration
+
+00:15.270 --> 00:16.500
+as Firefox.
+
+00:16.500 --> 00:18.330
+So we're gonna use the custom Kali,
+
+00:18.330 --> 00:20.310
+which comes with the latest Bettercap
+
+00:20.310 --> 00:23.250
+and a custom HSTShijack caplet.
+
+00:23.250 --> 00:25.980
+Everything will work as expected in this case.
+
+00:25.980 --> 00:28.470
+The only thing is you need to make sure
+
+00:28.470 --> 00:33.180
+that you input the target website in the HSTShijack caplet.
+
+00:33.180 --> 00:36.450
+So similar to what we did with HSTS websites,
+
+00:36.450 --> 00:38.520
+you're actually gonna have to include all
+
+00:38.520 --> 00:41.610
+of the HTTPS websites that you want to target
+
+00:41.610 --> 00:44.100
+and you want to downgrade to HTTP
+
+00:44.100 --> 00:47.130
+in your HSTShijack caplet.
+
+00:47.130 --> 00:48.720
+So it's a bit of a limitation,
+
+00:48.720 --> 00:50.340
+but that's the only way we can do it
+
+00:50.340 --> 00:52.260
+with the latest version of Chrome.
+
+00:52.260 --> 00:54.090
+For example, we have Netflix.
+
+00:54.090 --> 00:56.970
+So, as we know, Netflix worked perfectly fine in here.
+
+00:56.970 --> 01:00.993
+So let me just go quickly on Firefox, netflix.com,
+
+01:02.280 --> 01:05.010
+and as you can see, it's logged in perfectly fine.
+
+01:05.010 --> 01:07.410
+Now, if I load that now on Chrome
+
+01:07.410 --> 01:09.660
+with the exact same configuration of Bettercap,
+
+01:09.660 --> 01:11.310
+as you know, it's already running,
+
+01:11.310 --> 01:15.240
+it's gonna load over HTTPS and not HTTP.
+
+01:15.240 --> 01:17.760
+The only way around this is to actually go back
+
+01:17.760 --> 01:21.990
+to my Kali machine, open up my file manager,
+
+01:21.990 --> 01:25.350
+and open up the HSTShijack caplet,
+
+01:25.350 --> 01:27.480
+so you can do CTRL L to do that,
+
+01:27.480 --> 01:31.410
+or you could press in here and press a /, and it's stored
+
+01:31.410 --> 01:36.410
+in USR/local/share/bettercap/caplets/hstshijack.
+
+01:41.910 --> 01:45.660
+And the caplet that we wanna modify is HSTShijack.cap,
+
+01:45.660 --> 01:47.700
+so it's this caplet right here.
+
+01:47.700 --> 01:49.020
+We're gonna right click it
+
+01:49.020 --> 01:52.230
+and open it with another application, view all,
+
+01:52.230 --> 01:55.380
+and open it with my Leafpad with the text editor.
+
+01:55.380 --> 01:56.760
+So I showed you how to do all
+
+01:56.760 --> 01:59.520
+of this in the HSTS bypass lecture,
+
+01:59.520 --> 02:00.990
+that's why I'm doing it fast.
+
+02:00.990 --> 02:03.180
+Please revise if you don't remember.
+
+02:03.180 --> 02:06.150
+And what you need to do is simply in here input
+
+02:06.150 --> 02:10.650
+the HTTPS websites that you want to downgrade to HTTP.
+
+02:10.650 --> 02:13.620
+So in this example, we want to downgrade netflix.com.
+
+02:13.620 --> 02:15.480
+So we're gonna input it in here
+
+02:15.480 --> 02:17.790
+and I'm gonna select it again,
+
+02:17.790 --> 02:19.950
+and I'm actually gonna put it in the next row
+
+02:19.950 --> 02:22.230
+and the replacements as well.
+
+02:22.230 --> 02:25.383
+And finally, we're gonna put it in the DNS spoof.
+
+02:26.580 --> 02:28.950
+We're gonna save, quit,
+
+02:28.950 --> 02:31.980
+and we're gonna go up and run Bettercap again.
+
+02:31.980 --> 02:35.370
+So I'm gonna exit, clear the screen,
+
+02:35.370 --> 02:38.520
+run Bettercap with the spoof caplet,
+
+02:38.520 --> 02:41.700
+and then run the HSTShijack caplet.
+
+02:41.700 --> 02:44.130
+And let's go ahead and test this with Chrome.
+
+02:44.130 --> 02:46.620
+So before testing, it's always a good idea
+
+02:46.620 --> 02:48.210
+to remove all browsing data.
+
+02:48.210 --> 02:51.750
+So control, shift, delete, make sure all time is selected,
+
+02:51.750 --> 02:54.153
+and make sure you tick all of the boxes.
+
+02:56.550 --> 02:57.633
+We're gonna clear.
+
+02:59.790 --> 03:03.690
+And let's go ahead and go to netflix.com,
+
+03:03.690 --> 03:04.683
+hit enter.
+
+03:07.740 --> 03:09.210
+And perfect, as you can see,
+
+03:09.210 --> 03:12.450
+Netflix is loading over normal HTTP now.
+
+03:12.450 --> 03:15.240
+So again, if you're inputting any username
+
+03:15.240 --> 03:18.210
+and passwords in here, you'll be able to capture them
+
+03:18.210 --> 03:20.580
+and you'll be able to modify this website
+
+03:20.580 --> 03:22.410
+and the requests on the fly,
+
+03:22.410 --> 03:25.050
+because everything is sent over HTTP,
+
+03:25.050 --> 03:27.120
+which does not use any encryption.
+
+03:27.120 --> 03:30.390
+And we will cover that later on in the course.
+
+03:30.390 --> 03:33.720
+So the main idea is all you have to do is simply add
+
+03:33.720 --> 03:36.630
+the websites that you want to downgrade to HTTP
+
+03:36.630 --> 03:40.140
+in your HSTShijack caplet.
+
+03:40.140 --> 03:42.750
+So that's HTTPS for Chrome done.
+
+03:42.750 --> 03:44.070
+Let's go ahead and take a look
+
+03:44.070 --> 03:48.030
+at preloaded HSTS websites on Chrome.
+
+03:48.030 --> 03:51.720
+This will work exactly the same as Firefox,
+
+03:51.720 --> 03:53.640
+so you're gonna need to use the custom Kali
+
+03:53.640 --> 03:57.180
+with the Bettercap with the custom HSTShijack caplet.
+
+03:57.180 --> 03:59.370
+And similar to what we did with Firefox,
+
+03:59.370 --> 04:02.790
+the targets will have to be in the HSTShijack caplet.
+
+04:02.790 --> 04:05.700
+So we're not doing anything out of the ordinary.
+
+04:05.700 --> 04:10.700
+The only thing is secure DNS needs to be disabled.
+
+04:11.640 --> 04:16.050
+So secure DNS is a setting that Chrome has,
+
+04:16.050 --> 04:19.320
+and if it is enabled, the web browser is going
+
+04:19.320 --> 04:22.680
+to use encryption when it's making DNS requests,
+
+04:22.680 --> 04:25.560
+and therefore it'll render our attack right here
+
+04:25.560 --> 04:28.983
+with the custom HSTShijack caplet useless.
+
+04:29.940 --> 04:32.460
+Now the good thing is secure DNS
+
+04:32.460 --> 04:34.920
+is not always enabled by default,
+
+04:34.920 --> 04:37.380
+it depends on the country of the target.
+
+04:37.380 --> 04:38.700
+For example, in Ireland,
+
+04:38.700 --> 04:41.730
+if you download the latest Chrome web browser,
+
+04:41.730 --> 04:44.550
+it's actually gonna come with secure DNS enabled,
+
+04:44.550 --> 04:46.830
+and therefore the attack is not gonna work
+
+04:46.830 --> 04:48.273
+unless it is disabled.
+
+04:49.170 --> 04:51.600
+So if your target is in a country
+
+04:51.600 --> 04:55.230
+where secure DNS is not enabled by default,
+
+04:55.230 --> 04:57.540
+chances are they don't even know about this option
+
+04:57.540 --> 04:59.640
+and it's probably gonna be disabled,
+
+04:59.640 --> 05:02.130
+and therefore the attack will work.
+
+05:02.130 --> 05:05.190
+So let me show you where this setting is.
+
+05:05.190 --> 05:07.623
+In my Chrome, if we go to settings,
+
+05:10.140 --> 05:11.850
+and we can use the search icon
+
+05:11.850 --> 05:14.070
+in here to search for that setting.
+
+05:14.070 --> 05:17.463
+And we wanna search for secure DNS.
+
+05:20.880 --> 05:21.840
+And as you can see,
+
+05:21.840 --> 05:24.870
+it's telling us it's in the security settings.
+
+05:24.870 --> 05:26.643
+And if we scroll down,
+
+05:29.070 --> 05:33.660
+you will notice that use secure DNS is enabled.
+
+05:33.660 --> 05:38.660
+So if I just turn this off and close this window,
+
+05:39.780 --> 05:42.450
+and let's go ahead and test the attack exactly
+
+05:42.450 --> 05:44.700
+the same way that we tested it before.
+
+05:44.700 --> 05:48.150
+So we're gonna go to a local Google domain,
+
+05:48.150 --> 05:50.133
+for example, google.ie,
+
+05:52.800 --> 05:57.800
+as you can see, it's loading as normal HTTP not HTTPS.
+
+05:57.870 --> 06:01.410
+Therefore, the HSTShijack caplet is gonna be able
+
+06:01.410 --> 06:03.510
+to modify this page, play with it,
+
+06:03.510 --> 06:05.463
+and change the links to .corn.
+
+06:06.390 --> 06:08.043
+And let's look for Twitter.
+
+06:11.850 --> 06:14.880
+And again, if we hover here over the link,
+
+06:14.880 --> 06:17.940
+you'll notice at the bottom, it's twitter.com now,
+
+06:17.940 --> 06:20.580
+but literally within a second it's gonna go back
+
+06:20.580 --> 06:22.233
+to being twitter.corn.
+
+06:24.600 --> 06:26.253
+Let's open it in a new tab,
+
+06:28.500 --> 06:29.850
+and perfect, as you can see,
+
+06:29.850 --> 06:33.240
+Twitter is loading over normal HTTP.
+
+06:33.240 --> 06:35.670
+And again, now if the user logs in,
+
+06:35.670 --> 06:37.020
+we will capture everything,
+
+06:37.020 --> 06:40.500
+or because the website is loading over normal HTTP,
+
+06:40.500 --> 06:43.110
+we're gonna be able to inject anything that we want
+
+06:43.110 --> 06:46.350
+and modify the website and inject evil code in it.
+
+06:46.350 --> 06:49.050
+And I'm gonna show you how to do all of that later on.
